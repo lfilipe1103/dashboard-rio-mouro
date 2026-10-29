@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>GDRRM - Séniores</title>
 
@@ -34,7 +38,7 @@ body{
 }
 
 .container{
-    max-width:700px;
+    max-width:900px;
     margin:auto;
 }
 
@@ -78,7 +82,6 @@ body{
     margin-top:10px;
     color:var(--muted);
     font-size:14px;
-    line-height:1.4;
 }
 
 .kpi{
@@ -174,7 +177,116 @@ body{
     color:var(--muted);
 }
 
+/* TREINOS */
+
+.resumo-treino{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+    gap:8px;
+    margin-bottom:15px;
+}
+
+.resumo-item{
+    background:var(--card2);
+    border-radius:12px;
+    padding:12px;
+    text-align:center;
+}
+
+.botoes-treino{
+    display:flex;
+    gap:5px;
+}
+
+.btn-treino{
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+    padding:8px 12px;
+    border-radius:10px;
+    background:#314b77;
+    color:white;
+}
+
+.estado{
+    color:#facc15;
+    font-size:12px;
+    margin-top:4px;
+}
+
+@media(max-width:700px){
+
+    .jogador{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .botoes-treino{
+        width:100%;
+    }
+
+    .btn-treino{
+        flex:1;
+    }
+
+}
+
 </style>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc
+}
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
+
+    authDomain:
+    "rdm-v2-98d5b.firebaseapp.com",
+
+    projectId:
+    "rdm-v2-98d5b",
+
+    storageBucket:
+    "rdm-v2-98d5b.firebasestorage.app",
+
+    messagingSenderId:
+    "847254286305",
+
+    appId:
+    "1:847254286305:web:eb5d179fb7ed6e5054eca0"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+window.firebaseDB =
+getFirestore(app);
+
+window.firebaseDoc =
+doc;
+
+window.firebaseGetDoc =
+getDoc;
+
+window.firebaseSetDoc =
+setDoc;
+
+</script>
+
 </head>
 
 <body>
@@ -184,11 +296,11 @@ body{
     <div class="card topo">
 
         <div class="logo">
-            DASHBOARD V1
+            DASHBOARD
         </div>
 
         <h1>
-            PRÓXIMO JOGO
+            GD RIO DE MOURO, RINCHOA E MERCÊS v1
         </h1>
 
         <div id="jogo" class="jogo">
@@ -207,7 +319,8 @@ body{
             👨‍⚖️ Equipa de Arbitragem
         </div>
 
-        <div id="arbitro" class="arbitro"></div>
+        <div id="arbitro"
+             class="arbitro"></div>
 
         <div id="assistentes"></div>
 
@@ -323,6 +436,52 @@ body{
 
     </div>
 
+    <!-- CONTROLO DE TREINO -->
+
+    <div class="card">
+
+        <div class="titulo">
+            📋 Controlo de Treino
+        </div>
+
+        <div class="resumo-treino">
+
+            <div class="resumo-item">
+                ✅
+                <br>
+                <span id="totPresentes">0</span>
+            </div>
+
+            <div class="resumo-item">
+                ❌
+                <br>
+                <span id="totFaltas">0</span>
+            </div>
+
+            <div class="resumo-item">
+                🩺
+                <br>
+                <span id="totLesionados">0</span>
+            </div>
+
+            <div class="resumo-item">
+                🟨
+                <br>
+                <span id="totJustificadas">0</span>
+            </div>
+
+        </div>
+
+        <div id="treinos">
+
+            <div class="loading">
+                A carregar plantel...
+            </div>
+
+        </div>
+
+    </div>
+
     <div class="footer">
 
         Última atualização:
@@ -333,6 +492,127 @@ body{
 </div>
 
 <script>
+
+const PLANTEL = [
+
+    {numero:1,nome:"Filipe Pereira"},
+    {numero:23,nome:"Julio Brandão"},
+    {numero:31,nome:"Henrique Macedo"},
+    {numero:97,nome:"Renan Lima"},
+
+    {numero:6,nome:"Daniel Monteiro"},
+    {numero:26,nome:"Gonçalo Silva"},
+    {numero:2,nome:"Bruno Calvinho"},
+    {numero:13,nome:"André Pécurto"},
+    {numero:25,nome:"Robert Andrade"},
+    {numero:4,nome:"João Rodrigues"},
+    {numero:35,nome:"Nuno Gomes"},
+    {numero:18,nome:"Bernas"},
+
+    {numero:19,nome:"Miguel Fonseca"},
+    {numero:22,nome:"Bruno Mota"},
+    {numero:8,nome:"Rodrigo Tomé"},
+    {numero:17,nome:"Pedro Paulino"},
+    {numero:66,nome:"João Rascão"},
+    {numero:7,nome:"Khalifa"},
+    {numero:11,nome:"Diogo Correia"},
+    {numero:14,nome:"Rodrigo Delgado"},
+    {numero:0,nome:"Kaik Soares"},
+
+    {numero:16,nome:"Henrique Martins"},
+    {numero:20,nome:"Guilherme Azevedo"},
+    {numero:21,nome:"Jota"},
+    {numero:79,nome:"Diogo Teixeira"},
+    {numero:9,nome:"David Sousa"},
+    {numero:99,nome:"Kala Furtado"},
+    {numero:77,nome:"Sana Sambu"}
+
+];
+
+async function marcarTreino(
+    jogador,
+    estado
+){
+
+    const hoje =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+    try{
+
+        await window.firebaseSetDoc(
+
+            window.firebaseDoc(
+                window.firebaseDB,
+                "treinos",
+                hoje
+            ),
+
+            {
+                [jogador]: estado
+            },
+
+            {
+                merge:true
+            }
+
+        );
+
+        carregarDashboard();
+
+    }
+    catch(erro){
+
+        console.error(
+            "ERRO FIREBASE:",
+            erro
+        );
+
+    }
+
+}
+
+async function obterEstadosTreino(){
+
+    try{
+
+        const hoje =
+            new Date()
+            .toISOString()
+            .split("T")[0];
+
+        const snap =
+            await window.firebaseGetDoc(
+
+                window.firebaseDoc(
+                    window.firebaseDB,
+                    "treinos",
+                    hoje
+                )
+
+            );
+
+        if(
+            snap.exists()
+        ){
+            return snap.data();
+        }
+
+        return {};
+
+    }
+    catch(erro){
+
+        console.error(
+            erro
+        );
+
+        return {};
+
+    }
+
+}
 
 async function carregarDashboard(){
 
@@ -349,6 +629,9 @@ async function carregarDashboard(){
 
         const s =
         dados.seniores;
+
+        const estadosTreino =
+        await obterEstadosTreino();
 
         document.getElementById(
             "jogo"
@@ -387,13 +670,10 @@ async function carregarDashboard(){
             s.proximo_jogo.assistentes || []
         ).forEach(a => {
 
-            htmlAssistentes +=
-            `
+            htmlAssistentes += `
             <div class="assistente">
                 🚩 ${a}
-            </div>
-            `;
-
+            </div>`;
         });
 
         document.getElementById(
@@ -406,16 +686,12 @@ async function carregarDashboard(){
         ).innerHTML =
         `
         <div class="alerta">
-
             <strong>
                 ${s.proximo_adversario.nome}
             </strong>
-
             <br><br>
-
             Castigados:
             ${s.proximo_adversario.castigados}
-
         </div>
         `;
 
@@ -437,16 +713,11 @@ async function carregarDashboard(){
 
             s.castigos.lista.forEach(c => {
 
-                htmlCastigados +=
-                `
+                htmlCastigados += `
                 <div class="alerta">
-
                     🚫 ${c.nome}
-
                     <br>
-
                     ${c.jogos} jogo(s)
-
                 </div>
                 `;
 
@@ -477,18 +748,14 @@ async function carregarDashboard(){
 
             s.cartoes.risco.forEach(j => {
 
-                htmlRisco +=
-                `
+                htmlRisco += `
                 <div class="jogador">
-
                     <div class="nome">
                         ${j.nome}
                     </div>
-
                     <div class="contador-cartoes">
                         ${j.cartoes}
                     </div>
-
                 </div>
                 `;
 
@@ -507,18 +774,14 @@ async function carregarDashboard(){
             s.cartoes.ranking || []
         ).forEach(j => {
 
-            htmlCartoes +=
-            `
+            htmlCartoes += `
             <div class="jogador">
-
                 <div class="nome">
                     ${j.nome}
                 </div>
-
                 <div class="contador-cartoes">
                     ${j.cartoes}
                 </div>
-
             </div>
             `;
 
@@ -531,47 +794,109 @@ async function carregarDashboard(){
 
         let htmlMultas = "";
 
-        if(
-            !s.multas.lista ||
-            s.multas.lista.length === 0
-        ){
+        (
+            s.multas.lista || []
+        ).forEach(m => {
 
-            htmlMultas =
-            `
+            htmlMultas += `
             <div class="alerta">
-                Sem multas
+                ${m.nome}
+                <br><br>
+                <strong>
+                    ${Number(m.valor).toFixed(2)}€
+                </strong>
             </div>
             `;
 
-        }else{
-
-            s.multas.lista.forEach(m => {
-
-                htmlMultas +=
-                `
-                <div class="alerta">
-
-                    ${m.nome}
-
-                    <br><br>
-
-                    <strong>
-                        ${Number(
-                            m.valor
-                        ).toFixed(2)}€
-                    </strong>
-
-                </div>
-                `;
-
-            });
-
-        }
+        });
 
         document.getElementById(
             "listaMultas"
         ).innerHTML =
         htmlMultas;
+
+        let presentes = 0;
+        let faltas = 0;
+        let lesionados = 0;
+        let justificadas = 0;
+
+        let htmlTreinos = "";
+
+        PLANTEL.forEach(j => {
+
+            const estado =
+            estadosTreino[j.nome] || "";
+
+            if(estado==="✅") presentes++;
+            if(estado==="❌") faltas++;
+            if(estado==="🩺") lesionados++;
+            if(estado==="🟨") justificadas++;
+
+            htmlTreinos += `
+            <div class="jogador">
+
+                <div>
+
+                    <div class="nome">
+                        #${j.numero}
+                        ${j.nome}
+                    </div>
+
+                    ${
+                        estado
+                        ? `<div class="estado">
+                            Estado: ${estado}
+                           </div>`
+                        : ""
+                    }
+
+                </div>
+
+                <div class="botoes-treino">
+
+                    <button class="btn-treino"
+                    onclick="marcarTreino('${j.nome}','✅')">✅</button>
+
+                    <button class="btn-treino"
+                    onclick="marcarTreino('${j.nome}','❌')">❌</button>
+
+                    <button class="btn-treino"
+                    onclick="marcarTreino('${j.nome}','🩺')">🩺</button>
+
+                    <button class="btn-treino"
+                    onclick="marcarTreino('${j.nome}','🟨')">🟨</button>
+
+                </div>
+
+            </div>
+            `;
+
+        });
+
+        document.getElementById(
+            "treinos"
+        ).innerHTML =
+        htmlTreinos;
+
+        document.getElementById(
+            "totPresentes"
+        ).innerText =
+        presentes;
+
+        document.getElementById(
+            "totFaltas"
+        ).innerText =
+        faltas;
+
+        document.getElementById(
+            "totLesionados"
+        ).innerText =
+        lesionados;
+
+        document.getElementById(
+            "totJustificadas"
+        ).innerText =
+        justificadas;
 
         document.getElementById(
             "atualizacao"
@@ -586,27 +911,6 @@ async function carregarDashboard(){
             err
         );
 
-        document.body.insertAdjacentHTML(
-            "beforeend",
-            `
-            <div style="
-                position:fixed;
-                bottom:20px;
-                left:20px;
-                right:20px;
-                background:#ef4444;
-                color:white;
-                padding:12px;
-                border-radius:12px;
-                text-align:center;
-                z-index:9999;
-            ">
-                Erro ao carregar dashboard.
-                Verifique a consola (F12).
-            </div>
-            `
-        );
-
     }
 
 }
@@ -615,7 +919,7 @@ carregarDashboard();
 
 setInterval(
     carregarDashboard,
-    5000
+    10000
 );
 
 </script>
