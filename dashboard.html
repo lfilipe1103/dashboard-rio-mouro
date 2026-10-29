@@ -8,92 +8,230 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard Equipa</title>
+<title>GD Rio de Mouro Dashboard</title>
 
 <style>
 
+:root{
+
+    --bg:#050505;
+
+    --card:#13213a;
+
+    --card2:#1c2d4a;
+
+    --border:#2d4369;
+
+    --yellow:#facc15;
+
+    --green:#22c55e;
+
+    --red:#ef4444;
+
+    --blue:#3b82f6;
+
+    --text:#ffffff;
+
+    --muted:#9fb0c9;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
 body{
-    background:#000;
-    color:white;
-    font-family:Segoe UI,Arial,sans-serif;
-    padding:12px;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    padding:15px;
+
 }
 
 .container{
-    max-width:1000px;
+
+    max-width:1200px;
     margin:auto;
+
 }
 
 .card{
-    background:#13213a;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
     border-radius:20px;
-    padding:20px;
+
+    padding:18px;
+
     margin-bottom:12px;
+
 }
 
 .topo{
+
     text-align:center;
+
 }
 
 .logo{
-    font-size:40px;
+
+    font-size:45px;
+
+}
+
+.topo h1{
+
+    margin-top:10px;
+
+    margin-bottom:10px;
+
 }
 
 .jogo{
-    font-size:28px;
+
+    font-size:32px;
+
     font-weight:700;
+
     line-height:1.3;
+
 }
 
 .data{
-    color:#facc15;
+
+    color:var(--yellow);
+
+    margin-top:12px;
+
+    font-size:18px;
+
+}
+
+.estadio{
+
     margin-top:10px;
+
+    color:var(--muted);
+
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:12px;
+
 }
 
 .titulo{
+
     font-size:18px;
-    font-weight:700;
-    margin-bottom:12px;
-}
-
-.alerta{
-    background:#1c2d4a;
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:8px;
-}
-
-.jogador{
-    background:#1c2d4a;
-    padding:12px;
-    border-radius:12px;
-    margin-bottom:8px;
-
-    display:flex;
-
-    justify-content:
-    space-between;
-}
-
-.contador{
-
-    background:#facc15;
-
-    color:#000;
-
-    border-radius:999px;
-
-    padding:5px 12px;
 
     font-weight:700;
+
+    margin-bottom:15px;
 
 }
 
 .kpi{
 
-    font-size:32px;
+    text-align:center;
 
-    color:#22c55e;
+}
+
+.kpi-numero{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.kpi-label{
+
+    color:var(--muted);
+
+}
+
+.amarelo{
+
+    color:var(--yellow);
+
+}
+
+.verde{
+
+    color:var(--green);
+
+}
+
+.vermelho{
+
+    color:var(--red);
+
+}
+
+.azul{
+
+    color:var(--blue);
+
+}
+
+.alerta{
+
+    background:var(--card2);
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:8px;
+
+}
+
+.jogador{
+
+    background:var(--card2);
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:8px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.contador{
+
+    background:var(--yellow);
+
+    color:black;
+
+    padding:5px 12px;
+
+    border-radius:999px;
 
     font-weight:700;
 
@@ -101,9 +239,19 @@ body{
 
 .footer{
 
+    color:var(--muted);
+
     text-align:center;
 
-    color:#9fb0c9;
+    margin-top:20px;
+
+}
+
+.loading{
+
+    text-align:center;
+
+    color:var(--muted);
 
 }
 
@@ -135,78 +283,193 @@ body{
         <div id="dataHora"
              class="data"></div>
 
+        <div id="estadio"
+             class="estadio"></div>
+
     </div>
 
-    <div class="card">
+    <div class="grid">
 
-        <div class="titulo">
-            👨‍⚖️ Arbitragem
+        <div class="card kpi">
+
+            <div id="kpiCartoes"
+                 class="kpi-numero amarelo">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                🟨 Cartões
+
+            </div>
+
         </div>
 
-        <div id="arbitro"></div>
+        <div class="card kpi">
 
-    </div>
+            <div id="kpiMultas"
+                 class="kpi-numero verde">
 
-    <div class="card">
+                0€
 
-        <div class="titulo">
-            🚫 Castigados
+            </div>
+
+            <div class="kpi-label">
+
+                💰 Multas
+
+            </div>
+
         </div>
 
-        <div id="castigados"></div>
+        <div class="card kpi">
+
+            <div id="kpiCastigados"
+                 class="kpi-numero vermelho">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                🚫 Castigados
+
+            </div>
+
+        </div>
+
+        <div class="card kpi">
+
+            <div id="kpiRisco"
+                 class="kpi-numero azul">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                ⚠️ Em Risco
+
+            </div>
+
+        </div>
 
     </div>
 
     <div class="card">
 
         <div class="titulo">
+
+            👨‍⚖️ Equipa de Arbitragem
+
+        </div>
+
+        <div id="arbitro"
+             class="alerta">
+
+            A carregar...
+
+        </div>
+
+        <div id="assistentes"></div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+
             ⚔️ Próximo Adversário
+
         </div>
 
-        <div id="adversario"></div>
+        <div id="adversario">
+
+            A carregar...
+
+        </div>
 
     </div>
 
     <div class="card">
 
         <div class="titulo">
-            🟨 Total Cartões
+
+            🚫 Castigados
+
         </div>
 
-        <div id="kpiCartoes"
-             class="kpi"></div>
+        <div id="castigados">
+
+            A carregar...
+
+        </div>
 
     </div>
 
     <div class="card">
 
         <div class="titulo">
-            🟨 Jogadores com Cartões
+
+            ⚠️ Jogadores em Risco
+
         </div>
 
-        <div id="cartoes"></div>
+        <div id="risco">
+
+            A carregar...
+
+        </div>
 
     </div>
 
     <div class="card">
 
         <div class="titulo">
+
+            🟨 Ranking Cartões
+
+        </div>
+
+        <div id="listaCartoes">
+
+            A carregar...
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+
             💰 Multas
+
         </div>
 
-        <div id="multas"></div>
+        <div id="listaMultas">
+
+            A carregar...
+
+        </div>
 
     </div>
 
     <div class="card">
 
         <div class="titulo">
+
             📊 Estatísticas da Época
+
         </div>
 
         <div id="estatisticas">
 
-            A carregar...
+            A calcular...
 
         </div>
 
@@ -215,8 +478,7 @@ body{
     <div class="footer">
 
         Última atualização:
-
-        <span id="atualizacao"></span>
+        <span id="atualizacao">-</span>
 
     </div>
 
@@ -226,122 +488,371 @@ body{
 
 async function carregarDashboard(){
 
-    const resposta =
-    await fetch(
-        "dashboard_data.json?t=" +
-        Date.now()
-    );
+    try{
 
-    const dados =
-    await resposta.json();
+        const resposta =
 
-    const s =
-    dados.seniores;
+        await fetch(
+            "dashboard_data.json?t=" +
+            Date.now()
+        );
 
-    document.getElementById(
-        "jogo"
-    ).innerHTML =
-    `${s.proximo_jogo.casa}<br>VS<br>${s.proximo_jogo.fora}`;
+        const dados =
+            await resposta.json();
 
-    document.getElementById(
-        "dataHora"
-    ).innerText =
-    `${s.proximo_jogo.data} | ${s.proximo_jogo.hora}`;
+        const s =
+            dados.seniores;
 
-    document.getElementById(
-        "arbitro"
-    ).innerHTML =
-    `
-    ${s.proximo_jogo.arbitro}
-    `;
+        document.getElementById(
+            "jogo"
+        ).innerHTML =
+        `
+        ${s.proximo_jogo.casa}
+        <br>
+        VS
+        <br>
+        ${s.proximo_jogo.fora}
+        `;
 
-    document.getElementById(
-        "adversario"
-    ).innerHTML =
-    `
-    ${s.proximo_adversario.nome}
-    <br><br>
+        document.getElementById(
+            "dataHora"
+        ).innerText =
+        `${s.proximo_jogo.data} • ${s.proximo_jogo.hora}`;
 
-    Castigados:
-    ${s.proximo_adversario.castigados}
-    `;
+        document.getElementById(
+            "estadio"
+        ).innerHTML =
+        `📍 ${s.proximo_jogo.estadio}`;
 
-    document.getElementById(
-        "kpiCartoes"
-    ).innerText =
-    s.cartoes.total;
+        document.getElementById(
+            "kpiCartoes"
+        ).innerText =
+        s.cartoes.total || 0;
 
-    document.getElementById(
-        "castigados"
-    ).innerHTML =
-    (
-        s.castigos.lista || []
-    )
-    .map(c => `
-        <div class="alerta">
-            ${c.nome}
-        </div>
-    `)
-    .join("");
+        document.getElementById(
+            "kpiMultas"
+        ).innerText =
+        (s.multas.total || 0) + "€";
 
-    document.getElementById(
-        "cartoes"
-    ).innerHTML =
-    (
-        s.cartoes.ranking || []
-    )
-    .map(j => `
-        <div class="jogador">
+        document.getElementById(
+            "kpiCastigados"
+        ).innerText =
+        s.castigos.ativos || 0;
 
-            <div>
-                ${j.nome}
+        document.getElementById(
+            "kpiRisco"
+        ).innerText =
+        (
+            s.cartoes.risco || []
+        ).length;
+
+        document.getElementById(
+            "arbitro"
+        ).innerHTML =
+        `
+        👨‍⚖️
+        ${s.proximo_jogo.arbitro}
+        `;
+
+        let htmlAssistentes = "";
+
+        (
+            s.proximo_jogo.assistentes || []
+        ).forEach(a => {
+
+            htmlAssistentes +=
+
+            `
+            <div class="alerta">
+
+                🚩 ${a}
+
             </div>
+            `;
 
-            <div class="contador">
-                ${j.cartoes}
-            </div>
+        });
 
-        </div>
-    `)
-    .join("");
+        document.getElementById(
+            "assistentes"
+        ).innerHTML =
+        htmlAssistentes;
 
-    document.getElementById(
-        "multas"
-    ).innerHTML =
-    (
-        s.multas.lista || []
-    )
-    .map(m => `
+        document.getElementById(
+            "adversario"
+        ).innerHTML =
+        `
         <div class="alerta">
 
-            ${m.nome}
+            <strong>
+                ${s.proximo_adversario.nome}
+            </strong>
 
             <br><br>
 
-            ${Number(
-                m.valor
-            ).toFixed(2)} €
+            Castigados:
+
+            ${s.proximo_adversario.castigados}
 
         </div>
-    `)
-    .join("");
+        `;
 
-    document.getElementById(
-        "estatisticas"
-    ).innerHTML =
-    `
-    Jogadores com cartões:
-    ${s.cartoes.jogadores}
-    `;
+        let htmlCastigados = "";
 
-    document.getElementById(
-        "atualizacao"
-    ).innerText =
-    dados.ultima_atualizacao;
+        if(
+            !s.castigos.lista ||
+            s.castigos.lista.length === 0
+        ){
+
+            htmlCastigados =
+
+            `
+            <div class="alerta">
+
+                ✅ Sem castigados
+
+            </div>
+            `;
+
+        }
+        else{
+
+            s.castigos.lista.forEach(c => {
+
+                htmlCastigados +=
+
+                `
+                <div class="alerta">
+
+                    🚫 ${c.nome}
+
+                    <br>
+
+                    ${c.jogos} jogo(s)
+
+                </div>
+                `;
+
+            });
+
+        }
+
+        document.getElementById(
+            "castigados"
+        ).innerHTML =
+        htmlCastigados;
+
+        let htmlRisco = "";
+
+        (
+            s.cartoes.risco || []
+        ).forEach(j => {
+
+            htmlRisco +=
+
+            `
+            <div class="jogador">
+
+                <div>
+
+                    ⚠️
+
+                    <strong>
+
+                        ${j.nome}
+
+                    </strong>
+
+                </div>
+
+                <div class="contador">
+
+                    ${j.cartoes}
+
+                </div>
+
+            </div>
+            `;
+
+        });
+
+        if(
+            htmlRisco === ""
+        ){
+
+            htmlRisco =
+
+            `
+            <div class="alerta">
+
+                ✅ Sem jogadores em risco
+
+            </div>
+            `;
+
+        }
+
+        document.getElementById(
+            "risco"
+        ).innerHTML =
+        htmlRisco;
+
+        let htmlCartoes = "";
+
+        (
+            s.cartoes.ranking || []
+        ).forEach(j => {
+
+            htmlCartoes +=
+
+            `
+            <div class="jogador">
+
+                <div class="nome">
+
+                    ${j.nome}
+
+                </div>
+
+                <div class="contador">
+
+                    ${j.cartoes}
+
+                </div>
+
+            </div>
+            `;
+
+        });
+
+        document.getElementById(
+            "listaCartoes"
+        ).innerHTML =
+        htmlCartoes;
+
+        let htmlMultas = "";
+
+        if(
+            !s.multas.lista ||
+            s.multas.lista.length === 0
+        ){
+
+            htmlMultas =
+
+            `
+            <div class="alerta">
+
+                Sem multas
+
+            </div>
+            `;
+
+        }
+        else{
+
+            s.multas.lista.forEach(m => {
+
+                htmlMultas +=
+
+                `
+                <div class="alerta">
+
+                    💰
+
+                    <strong>
+
+                        ${m.nome}
+
+                    </strong>
+
+                    <br><br>
+
+                    ${Number(
+                        m.valor
+                    ).toFixed(2)} €
+
+                </div>
+                `;
+
+            });
+
+        }
+
+        document.getElementById(
+            "listaMultas"
+        ).innerHTML =
+        htmlMultas;
+
+        document.getElementById(
+            "estatisticas"
+        ).innerHTML =
+
+        `
+        <div class="alerta">
+
+            📊 Jogadores com cartões:
+
+            ${s.cartoes.jogadores || 0}
+
+        </div>
+
+        <div class="alerta">
+
+            🟨 Cartões acumulados:
+
+            ${s.cartoes.total || 0}
+
+        </div>
+
+        <div class="alerta">
+
+            🚫 Castigados:
+
+            ${s.castigos.ativos || 0}
+
+        </div>
+
+        <div class="alerta">
+
+            💰 Total multas:
+
+            ${(s.multas.total || 0).toFixed(2)} €
+
+        </div>
+
+        `;
+
+        document.getElementById(
+            "atualizacao"
+        ).innerText =
+        dados.ultima_atualizacao;
+
+    }
+    catch(err){
+
+        console.error(
+            "ERRO DASHBOARD:",
+            err
+        );
+
+        document.getElementById(
+            "estatisticas"
+        ).innerHTML =
+        `
+        <div class="alerta">
+
+            ❌ Erro ao carregar dados
+
+        </div>
+        `;
+
+    }
 
 }
 
-carregarDashboard();
+setTimeout(
+    carregarDashboard,
+    1000
+);
 
 setInterval(
     carregarDashboard,
