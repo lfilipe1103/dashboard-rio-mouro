@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GDRRM - Séniores</title>
+
+<style>
+
+:root{
+    --bg:#000000;
+    --card:#13213a;
+    --card2:#1c2d4a;
+    --text:#ffffff;
+    --muted:#9fb0c9;
+    --yellow:#facc15;
+    --green:#22c55e;
+    --red:#ef4444;
+    --border:#2d4369;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Segoe UI,Arial,sans-serif;
+    padding:12px;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+}
+
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.topo{
+    text-align:center;
+}
+
+.logo{
+    font-size:40px;
+    margin-bottom:8px;
+}
+
+.topo h1{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.jogo{
+    font-size:30px;
+    font-weight:700;
+    line-height:1.25;
+    margin-bottom:10px;
+}
+
+.data{
+    color:var(--yellow);
+    font-size:18px;
+    font-weight:700;
+}
+
+.estadio{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.4;
+}
+
+.kpi{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.kpi-info{
+    display:flex;
+    flex-direction:column;
+}
+
+.kpi-titulo{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.kpi-valor{
+    font-size:42px;
+    font-weight:700;
+}
+
+.amarelo{
+    color:var(--yellow);
+}
+
+.verde{
+    color:var(--green);
+}
+
+.vermelho{
+    color:var(--red);
+}
+
+.titulo{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.arbitro{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.assistente{
+    color:var(--muted);
+    margin-bottom:8px;
+}
+
+.alerta{
+    background:var(--card2);
+    border-radius:14px;
+    padding:12px;
+    margin-bottom:10px;
+}
+
+.jogador{
+    background:var(--card2);
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.nome{
+    font-weight:600;
+}
+
+.contador-cartoes{
+    background:#facc15;
+    color:#000;
+    font-weight:700;
+    padding:6px 12px;
+    border-radius:999px;
+    min-width:45px;
+    text-align:center;
+}
+
+.footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    margin-top:15px;
+}
+
+.loading{
+    text-align:center;
+    color:var(--muted);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card topo">
+
+        <div class="logo">
+            DASHBOARD
+        </div>
+
+        <h1>
+            GD RIO DE MOURO, RINCHOA E MERCÊS v1
+        </h1>
+
+        <div id="jogo" class="jogo">
+            A carregar...
+        </div>
+
+        <div id="dataHora" class="data"></div>
+
+        <div id="estadio" class="estadio"></div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            👨‍⚖️ Equipa de Arbitragem
+        </div>
+
+        <div id="arbitro" class="arbitro"></div>
+
+        <div id="assistentes"></div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            🚫 Castigados
+        </div>
+
+        <div id="castigados">
+
+            <div class="loading">
+                A carregar...
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            ⚠️ Jogadores em Risco
+        </div>
+
+        <div id="risco">
+
+            <div class="loading">
+                A carregar...
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            ⚔️ Castigos Próximo Adversário
+        </div>
+
+        <div id="adversario">
+
+            <div class="loading">
+                A carregar...
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="kpi">
+
+            <div class="kpi-info">
+
+                <div class="kpi-titulo">
+                    🟨 Total de Amarelos
+                </div>
+
+                <div id="kpiAmarelos"
+                     class="kpi-valor amarelo">
+                    0
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            🟨 Cartões Acumulados
+        </div>
+
+        <div id="listaCartoes"></div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="kpi">
+
+            <div class="kpi-info">
+
+                <div class="kpi-titulo">
+                    💰 Multas
+                </div>
+
+                <div id="kpiMultas"
+                     class="kpi-valor verde">
+                    0€
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            💰 Multas
+        </div>
+
+        <div id="listaMultas"></div>
+
+    </div>
+
+    <div class="footer">
+
+        Última atualização:
+        <span id="atualizacao">-</span>
+
+    </div>
+
+</div>
+
+<script>
+
+async function carregarDashboard(){
+
+    try{
+
+        const resposta =
+        await fetch(
+            "dashboard_data.json?t=" +
+            Date.now()
+        );
+
+        const dados =
+        await resposta.json();
+
+        const s =
+        dados.seniores;
+
+        document.getElementById(
+            "jogo"
+        ).innerHTML =
+        `${s.proximo_jogo.casa}<br>VS<br>${s.proximo_jogo.fora}`;
+
+        document.getElementById(
+            "dataHora"
+        ).innerText =
+        `${s.proximo_jogo.data} • ${s.proximo_jogo.hora}`;
+
+        document.getElementById(
+            "estadio"
+        ).innerHTML =
+        `📍 ${s.proximo_jogo.estadio}`;
+
+        document.getElementById(
+            "kpiAmarelos"
+        ).innerText =
+        s.cartoes.total;
+
+        document.getElementById(
+            "kpiMultas"
+        ).innerText =
+        s.multas.total + "€";
+
+        document.getElementById(
+            "arbitro"
+        ).innerText =
+        s.proximo_jogo.arbitro ||
+        "Por nomear";
+
+        let htmlAssistentes = "";
+
+        (
+            s.proximo_jogo.assistentes || []
+        ).forEach(a => {
+
+            htmlAssistentes +=
+            `
+            <div class="assistente">
+                🚩 ${a}
+            </div>
+            `;
+
+        });
+
+        document.getElementById(
+            "assistentes"
+        ).innerHTML =
+        htmlAssistentes;
+
+        document.getElementById(
+            "adversario"
+        ).innerHTML =
+        `
+        <div class="alerta">
+
+            <strong>
+                ${s.proximo_adversario.nome}
+            </strong>
+
+            <br><br>
+
+            Castigados:
+            ${s.proximo_adversario.castigados}
+
+        </div>
+        `;
+
+        let htmlCastigados = "";
+
+        if(
+            !s.castigos.lista ||
+            s.castigos.lista.length === 0
+        ){
+
+            htmlCastigados =
+            `
+            <div class="alerta">
+                ✅ Sem castigados
+            </div>
+            `;
+
+        }else{
+
+            s.castigos.lista.forEach(c => {
+
+                htmlCastigados +=
+                `
+                <div class="alerta">
+
+                    🚫 ${c.nome}
+
+                    <br>
+
+                    ${c.jogos} jogo(s)
+
+                </div>
+                `;
+
+            });
+
+        }
+
+        document.getElementById(
+            "castigados"
+        ).innerHTML =
+        htmlCastigados;
+
+        let htmlRisco = "";
+
+        if(
+            !s.cartoes.risco ||
+            s.cartoes.risco.length === 0
+        ){
+
+            htmlRisco =
+            `
+            <div class="alerta">
+                ✅ Sem jogadores em risco
+            </div>
+            `;
+
+        }else{
+
+            s.cartoes.risco.forEach(j => {
+
+                htmlRisco +=
+                `
+                <div class="jogador">
+
+                    <div class="nome">
+                        ${j.nome}
+                    </div>
+
+                    <div class="contador-cartoes">
+                        ${j.cartoes}
+                    </div>
+
+                </div>
+                `;
+
+            });
+
+        }
+
+        document.getElementById(
+            "risco"
+        ).innerHTML =
+        htmlRisco;
+
+        let htmlCartoes = "";
+
+        (
+            s.cartoes.ranking || []
+        ).forEach(j => {
+
+            htmlCartoes +=
+            `
+            <div class="jogador">
+
+                <div class="nome">
+                    ${j.nome}
+                </div>
+
+                <div class="contador-cartoes">
+                    ${j.cartoes}
+                </div>
+
+            </div>
+            `;
+
+        });
+
+        document.getElementById(
+            "listaCartoes"
+        ).innerHTML =
+        htmlCartoes;
+
+        let htmlMultas = "";
+
+        if(
+            !s.multas.lista ||
+            s.multas.lista.length === 0
+        ){
+
+            htmlMultas =
+            `
+            <div class="alerta">
+                Sem multas
+            </div>
+            `;
+
+        }else{
+
+            s.multas.lista.forEach(m => {
+
+                htmlMultas +=
+                `
+                <div class="alerta">
+
+                    ${m.nome}
+
+                    <br><br>
+
+                    <strong>
+                        ${Number(
+                            m.valor
+                        ).toFixed(2)}€
+                    </strong>
+
+                </div>
+                `;
+
+            });
+
+        }
+
+        document.getElementById(
+            "listaMultas"
+        ).innerHTML =
+        htmlMultas;
+
+        document.getElementById(
+            "atualizacao"
+        ).innerText =
+        dados.ultima_atualizacao;
+
+    }
+    catch(err){
+
+        console.error(
+            "ERRO DASHBOARD:",
+            err
+        );
+
+        document.body.insertAdjacentHTML(
+            "beforeend",
+            `
+            <div style="
+                position:fixed;
+                bottom:20px;
+                left:20px;
+                right:20px;
+                background:#ef4444;
+                color:white;
+                padding:12px;
+                border-radius:12px;
+                text-align:center;
+                z-index:9999;
+            ">
+                Erro ao carregar dashboard.
+                Verifique a consola (F12).
+            </div>
+            `
+        );
+
+    }
+
+}
+
+carregarDashboard();
+
+setInterval(
+    carregarDashboard,
+    5000
+);
+
+</script>
+
+</body>
+</html>

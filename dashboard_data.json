@@ -1,0 +1,171 @@
+{
+    "ultima_atualizacao": "29-10-2026 11:11:07",
+    "seniores": {
+        "proximo_jogo": {
+            "casa": "RIO MOURO",
+            "fora": "MEM MARTINS",
+            "data": "25-10-2026",
+            "hora": "15:00",
+            "arbitro": "MIGUEL BORGES",
+            "assistentes": [
+                "DUARTE MATIAS",
+                "MARIO SANTOS"
+            ],
+            "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO)"
+        },
+        "proximo_adversario": {
+            "nome": "FC DESPERTAR",
+            "castigados": 0
+        },
+        "cartoes": {
+            "total": 103,
+            "jogadores": 20,
+            "ranking": [
+                {
+                    "nome": "PEDRO PAULINO",
+                    "cartoes": 9
+                },
+                {
+                    "nome": "DANIEL CALDAS",
+                    "cartoes": 8
+                },
+                {
+                    "nome": "FABIO PEREIRA",
+                    "cartoes": 7
+                },
+                {
+                    "nome": "JOSE FURTADO",
+                    "cartoes": 7
+                },
+                {
+                    "nome": "PEDRO AGUIAR",
+                    "cartoes": 7
+                },
+                {
+                    "nome": "RODRIGO MONTEIRO",
+                    "cartoes": 7
+                },
+                {
+                    "nome": "JOAO FONSECA",
+                    "cartoes": 6
+                },
+                {
+                    "nome": "JOAO MENDES",
+                    "cartoes": 6
+                },
+                {
+                    "nome": "JOAO SOUZA",
+                    "cartoes": 6
+                },
+                {
+                    "nome": "RODRIGO TOME",
+                    "cartoes": 6
+                },
+                {
+                    "nome": "RODRIGO MARTINS",
+                    "cartoes": 5
+                },
+                {
+                    "nome": "BERNARDO NOGUEIRA",
+                    "cartoes": 4
+                },
+                {
+                    "nome": "BRUNO VERDUGO",
+                    "cartoes": 4
+                },
+                {
+                    "nome": "FABIO MACEDO",
+                    "cartoes": 4
+                },
+                {
+                    "nome": "LUIS AIRES",
+                    "cartoes": 4
+                },
+                {
+                    "nome": "RAFAEL PIRES",
+                    "cartoes": 3
+                },
+                {
+                    "nome": "TOMAS BARROSO",
+                    "cartoes": 2
+                },
+                {
+                    "nome": "LUIZ SOUZA",
+                    "cartoes": 2
+                },
+                {
+                    "nome": "RUBEN TRINDADE",
+                    "cartoes": 2
+                }
+            ],
+            "risco": [
+                {
+                    "nome": "DANIEL CALDAS",
+                    "cartoes": 8
+                },
+                {
+                    "nome": "BERNARDO NOGUEIRA",
+                    "cartoes": 4
+                },
+                {
+                    "nome": "BRUNO VERDUGO",
+                    "cartoes": 4
+                },
+                {
+                    "nome": "FABIO MACEDO",
+                    "cartoes": 4
+                },
+                {
+                    "nome": "LUIS AIRES",
+                    "cartoes": 4
+                }
+            ]
+        },
+        "castigos": {
+            "ativos": 0,
+            "lista": []
+        },
+        "multas": {
+            "total": 15.0,
+            "lista": [
+                {
+                    "nome": "RICARDO PAULO DUARTE REBELO",
+                    "valor": 15.0
+                }
+            ]
+        },
+        "arbitros": {
+            "diferentes": 7,
+            "historico": [
+                {
+                    "nome": "HUGO FONSECA",
+                    "jogos": 1
+                },
+                {
+                    "nome": "EDGAR MOTA E SOUSA",
+                    "jogos": 1
+                },
+                {
+                    "nome": "ANDRE MOREIRA",
+                    "jogos": 1
+                },
+                {
+                    "nome": "AFONSO LOPES",
+                    "jogos": 1
+                },
+                {
+                    "nome": "NICOLAU PRIOR",
+                    "jogos": 1
+                },
+                {
+                    "nome": "WILSON MARQUES",
+                    "jogos": 1
+                },
+                {
+                    "nome": "MIGUEL BORGES",
+                    "jogos": 1
+                }
+            ]
+        }
+    }
+}
