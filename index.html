@@ -1021,21 +1021,304 @@ async function carregarDashboard(){
         ).innerText =
         justificadas;
 
-        const estatisticas =
-        await gerarEstatisticasEpoca();
-
-        document.getElementById(
-            "estatisticasEpoca"
-        ).innerHTML =
-        `
-        <div class="estatistica">
-            <strong>
-                Jogadores
-            </strong>
-            <br>
-            ${Object.keys(estatisticas).length}
-        </div>
-        `;
+      const estatisticas =
+      await gerarEstatisticasEpoca();
+      
+      const treinosDocs =
+      await window.firebaseGetDocs(
+      
+          window.firebaseCollection(
+              window.firebaseDB,
+              "treinos"
+          )
+      
+      );
+      
+      const numeroTreinos =
+      treinosDocs.size;
+      
+      let totalPresencas = 0;
+      let totalFaltas = 0;
+      let totalLesoes = 0;
+      let totalJustificadas = 0;
+      
+      Object.values(
+          estatisticas
+      ).forEach(j => {
+      
+          totalPresencas +=
+          j.presente;
+      
+          totalFaltas +=
+          j.falta;
+      
+          totalLesoes +=
+          j.lesionado;
+      
+          totalJustificadas +=
+          j.justificada;
+      
+      });
+      
+      const rankingPresencas =
+      Object.entries(
+          estatisticas
+      )
+      .sort(
+          (a,b) =>
+          b[1].presente -
+          a[1].presente
+      )
+      .slice(0,5);
+      
+      const rankingFaltas =
+      Object.entries(
+          estatisticas
+      )
+      .sort(
+          (a,b) =>
+          b[1].falta -
+          a[1].falta
+      )
+      .slice(0,5);
+      
+      const rankingLesoes =
+      Object.entries(
+          estatisticas
+      )
+      .sort(
+          (a,b) =>
+          b[1].lesionado -
+          a[1].lesionado
+      )
+      .slice(0,5);
+      
+      const rankingAssiduidade =
+      Object.entries(
+          estatisticas
+      )
+      .sort(
+          (a,b) => {
+      
+              const percA =
+      
+              numeroTreinos === 0
+      
+              ? 0
+      
+              : (
+                  a[1].presente /
+                  numeroTreinos
+              ) * 100;
+      
+              const percB =
+      
+              numeroTreinos === 0
+      
+              ? 0
+      
+              : (
+                  b[1].presente /
+                  numeroTreinos
+              ) * 100;
+      
+              return percB - percA;
+      
+          }
+      )
+      .slice(0,10);
+      
+      let htmlStats = `
+      
+      <div class="estatistica">
+      
+          <strong>
+              📅 Treinos Registados
+          </strong>
+      
+          <br>
+      
+          ${numeroTreinos}
+      
+      </div>
+      
+      <div class="estatistica">
+      
+          <strong>
+              ✅ Presenças Totais
+          </strong>
+      
+          <br>
+      
+          ${totalPresencas}
+      
+      </div>
+      
+      <div class="estatistica">
+      
+          <strong>
+              ❌ Faltas Totais
+          </strong>
+      
+          <br>
+      
+          ${totalFaltas}
+      
+      </div>
+      
+      <div class="estatistica">
+      
+          <strong>
+              🩺 Lesões Totais
+          </strong>
+      
+          <br>
+      
+          ${totalLesoes}
+      
+      </div>
+      
+      <div class="estatistica">
+      
+          <strong>
+              🟨 Justificações Totais
+          </strong>
+      
+          <br>
+      
+          ${totalJustificadas}
+      
+      </div>
+      
+      <h3 style="margin-top:20px">
+      🏆 Top Presenças
+      </h3>
+      
+      `;
+      
+      rankingPresencas.forEach(j => {
+      
+          htmlStats += `
+      
+          <div class="estatistica">
+      
+              <strong>
+                  ${j[0]}
+              </strong>
+      
+              <br>
+      
+              ✅ ${j[1].presente}
+      
+          </div>
+      
+          `;
+      
+      });
+      
+      htmlStats += `
+      
+      <h3 style="margin-top:20px">
+      🚫 Top Faltas
+      </h3>
+      
+      `;
+      
+      rankingFaltas.forEach(j => {
+      
+          htmlStats += `
+      
+          <div class="estatistica">
+      
+              <strong>
+                  ${j[0]}
+              </strong>
+      
+              <br>
+      
+              ❌ ${j[1].falta}
+      
+          </div>
+      
+          `;
+      
+      });
+      
+      htmlStats += `
+      
+      <h3 style="margin-top:20px">
+      🩺 Top Lesões
+      </h3>
+      
+      `;
+      
+      rankingLesoes.forEach(j => {
+      
+          htmlStats += `
+      
+          <div class="estatistica">
+      
+              <strong>
+                  ${j[0]}
+              </strong>
+      
+              <br>
+      
+              🩺 ${j[1].lesionado}
+      
+          </div>
+      
+          `;
+      
+      });
+      
+      htmlStats += `
+      
+      <h3 style="margin-top:20px">
+      📈 Top Assiduidade
+      </h3>
+      
+      `;
+      
+      rankingAssiduidade.forEach(j => {
+      
+          const percentagem =
+      
+          numeroTreinos === 0
+      
+          ? 0
+      
+          : (
+      
+              (
+                  j[1].presente /
+                  numeroTreinos
+              ) * 100
+      
+          ).toFixed(0);
+      
+          htmlStats += `
+      
+          <div class="estatistica">
+      
+              <strong>
+                  ${j[0]}
+              </strong>
+      
+              <br>
+      
+              ${percentagem}%
+      
+          </div>
+      
+          `;
+      
+      });
+      
+      document.getElementById(
+          "estatisticasEpoca"
+      ).innerHTML =
+      htmlStats;
 
         document.getElementById(
             "atualizacao"
