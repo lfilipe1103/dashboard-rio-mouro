@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>GDRRM - Séniores</title>
+<title>GDRRM Séniores V2</title>
 
 <style>
 
@@ -16,12 +16,15 @@
     --bg:#000000;
     --card:#13213a;
     --card2:#1c2d4a;
+    --border:#2d4369;
+
     --text:#ffffff;
     --muted:#9fb0c9;
+
     --yellow:#facc15;
     --green:#22c55e;
     --red:#ef4444;
-    --border:#2d4369;
+    --blue:#3b82f6;
 }
 
 *{
@@ -33,12 +36,15 @@
 body{
     background:var(--bg);
     color:var(--text);
-    font-family:Segoe UI,Arial,sans-serif;
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
     padding:12px;
 }
 
 .container{
-    max-width:900px;
+    max-width:1000px;
     margin:auto;
 }
 
@@ -48,7 +54,9 @@ body{
     border-radius:20px;
     padding:18px;
     margin-bottom:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    box-shadow:
+    0 10px 25px
+    rgba(0,0,0,.25);
 }
 
 .topo{
@@ -56,12 +64,12 @@ body{
 }
 
 .logo{
-    font-size:40px;
+    font-size:42px;
     margin-bottom:8px;
 }
 
 .topo h1{
-    font-size:28px;
+    font-size:30px;
     margin-bottom:12px;
 }
 
@@ -82,6 +90,35 @@ body{
     margin-top:10px;
     color:var(--muted);
     font-size:14px;
+}
+
+.titulo{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.loading{
+    text-align:center;
+    color:var(--muted);
+}
+
+.arbitro{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.assistente{
+    color:var(--muted);
+    margin-bottom:5px;
+}
+
+.alerta{
+    background:var(--card2);
+    border-radius:14px;
+    padding:12px;
+    margin-bottom:8px;
 }
 
 .kpi{
@@ -117,38 +154,15 @@ body{
     color:var(--red);
 }
 
-.titulo{
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:15px;
-}
-
-.arbitro{
-    font-size:24px;
-    font-weight:700;
-    margin-bottom:10px;
-}
-
-.assistente{
-    color:var(--muted);
-    margin-bottom:8px;
-}
-
-.alerta{
-    background:var(--card2);
-    border-radius:14px;
-    padding:12px;
-    margin-bottom:10px;
-}
-
 .jogador{
     background:var(--card2);
     border-radius:14px;
-    padding:14px;
+    padding:12px;
     margin-bottom:8px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:10px;
 }
 
 .nome{
@@ -156,13 +170,69 @@ body{
 }
 
 .contador-cartoes{
-    background:#facc15;
+    background:var(--yellow);
     color:#000;
-    font-weight:700;
-    padding:6px 12px;
-    border-radius:999px;
     min-width:45px;
     text-align:center;
+    padding:6px 12px;
+    border-radius:999px;
+    font-weight:700;
+}
+
+/* TREINOS */
+
+.resumo-treino{
+    display:grid;
+    grid-template-columns:
+    repeat(4,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.resumo-item{
+    background:var(--card2);
+    border-radius:12px;
+    padding:12px;
+    text-align:center;
+    font-weight:700;
+}
+
+.botoes-treino{
+    display:flex;
+    gap:4px;
+}
+
+.btn-treino{
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    padding:8px 10px;
+    font-size:18px;
+    background:#314b77;
+    color:white;
+}
+
+.btn-treino:hover{
+    opacity:.9;
+}
+
+.estado{
+    font-size:12px;
+    color:var(--yellow);
+    margin-top:4px;
+}
+
+/* ESTATÍSTICAS */
+
+.estatistica{
+    background:var(--card2);
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:8px;
+}
+
+.estatistica strong{
+    color:var(--yellow);
 }
 
 .footer{
@@ -172,55 +242,23 @@ body{
     margin-top:15px;
 }
 
-.loading{
-    text-align:center;
-    color:var(--muted);
-}
-
-/* TREINOS */
-
-.resumo-treino{
-    display:grid;
-    grid-template-columns:
-        repeat(4,1fr);
-    gap:8px;
-    margin-bottom:15px;
-}
-
-.resumo-item{
-    background:var(--card2);
-    border-radius:12px;
-    padding:12px;
-    text-align:center;
-}
-
-.botoes-treino{
-    display:flex;
-    gap:5px;
-}
-
-.btn-treino{
-    border:none;
-    cursor:pointer;
-    font-size:18px;
-    padding:8px 12px;
-    border-radius:10px;
-    background:#314b77;
-    color:white;
-}
-
-.estado{
-    color:#facc15;
-    font-size:12px;
-    margin-top:4px;
-}
-
 @media(max-width:700px){
+
+    .jogo{
+        font-size:24px;
+    }
+
+    .topo h1{
+        font-size:22px;
+    }
+
+    .kpi-valor{
+        font-size:32px;
+    }
 
     .jogador{
         flex-direction:column;
         align-items:flex-start;
-        gap:10px;
     }
 
     .botoes-treino{
@@ -229,6 +267,11 @@ body{
 
     .btn-treino{
         flex:1;
+    }
+
+    .resumo-treino{
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
 }
@@ -244,9 +287,12 @@ import {
     getFirestore,
     doc,
     getDoc,
-    setDoc
+    setDoc,
+    collection,
+    getDocs
 }
-from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+from
+"https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
 
@@ -285,6 +331,15 @@ getDoc;
 window.firebaseSetDoc =
 setDoc;
 
+window.firebaseCollection =
+collection;
+
+window.firebaseGetDocs =
+getDocs;
+
+window.firebaseReady =
+true;
+
 </script>
 
 </head>
@@ -300,16 +355,19 @@ setDoc;
         </div>
 
         <h1>
-            GD RIO DE MOURO, RINCHOA E MERCÊS v1
+            GD RIO DE MOURO, RINCHOA E MERCÊS V2
         </h1>
 
-        <div id="jogo" class="jogo">
+        <div id="jogo"
+             class="jogo">
             A carregar...
         </div>
 
-        <div id="dataHora" class="data"></div>
+        <div id="dataHora"
+             class="data"></div>
 
-        <div id="estadio" class="estadio"></div>
+        <div id="estadio"
+             class="estadio"></div>
 
     </div>
 
@@ -381,7 +439,7 @@ setDoc;
             <div class="kpi-info">
 
                 <div class="kpi-titulo">
-                    🟨 Total de Amarelos
+                    🟨 Total de Cartões
                 </div>
 
                 <div id="kpiAmarelos"
@@ -398,10 +456,16 @@ setDoc;
     <div class="card">
 
         <div class="titulo">
-            🟨 Cartões Acumulados
+            🟨 Jogadores com Cartões
         </div>
 
-        <div id="listaCartoes"></div>
+        <div id="listaCartoes">
+
+            <div class="loading">
+                A carregar...
+            </div>
+
+        </div>
 
     </div>
 
@@ -412,7 +476,7 @@ setDoc;
             <div class="kpi-info">
 
                 <div class="kpi-titulo">
-                    💰 Multas
+                    💰 Total de Multas
                 </div>
 
                 <div id="kpiMultas"
@@ -432,16 +496,20 @@ setDoc;
             💰 Multas
         </div>
 
-        <div id="listaMultas"></div>
+        <div id="listaMultas">
+
+            <div class="loading">
+                A carregar...
+            </div>
+
+        </div>
 
     </div>
-
-    <!-- CONTROLO DE TREINO -->
 
     <div class="card">
 
         <div class="titulo">
-            📋 Controlo de Treino
+            📋 Controlo de Treinos
         </div>
 
         <div class="resumo-treino">
@@ -476,6 +544,22 @@ setDoc;
 
             <div class="loading">
                 A carregar plantel...
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            📊 Estatísticas da Época
+        </div>
+
+        <div id="estatisticasEpoca">
+
+            <div class="loading">
+                A calcular...
             </div>
 
         </div>
@@ -517,7 +601,6 @@ const PLANTEL = [
     {numero:7,nome:"Khalifa"},
     {numero:11,nome:"Diogo Correia"},
     {numero:14,nome:"Rodrigo Delgado"},
-    {numero:0,nome:"Kaik Soares"},
 
     {numero:16,nome:"Henrique Martins"},
     {numero:20,nome:"Guilherme Azevedo"},
@@ -535,82 +618,149 @@ async function marcarTreino(
 ){
 
     const hoje =
-        new Date()
-        .toISOString()
-        .split("T")[0];
+    new Date()
+    .toISOString()
+    .split("T")[0];
 
-    try{
+    await window.firebaseSetDoc(
 
-        await window.firebaseSetDoc(
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            hoje
+        ),
 
-            window.firebaseDoc(
-                window.firebaseDB,
-                "treinos",
-                hoje
-            ),
+        {
+            [jogador]: estado
+        },
 
-            {
-                [jogador]: estado
-            },
+        {
+            merge:true
+        }
 
-            {
-                merge:true
-            }
+    );
 
-        );
-
-        carregarDashboard();
-
-    }
-    catch(erro){
-
-        console.error(
-            "ERRO FIREBASE:",
-            erro
-        );
-
-    }
+    carregarDashboard();
 
 }
 
 async function obterEstadosTreino(){
 
+    const hoje =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+    const snap =
+        await window.firebaseGetDoc(
+
+            window.firebaseDoc(
+                window.firebaseDB,
+                "treinos",
+                hoje
+            )
+
+        );
+
+    return snap.exists()
+        ? snap.data()
+        : {};
+
+}
+
+async function obterEstadosTreino(){
+
+    const hoje =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+    const snap =
+        await window.firebaseGetDoc(
+
+            window.firebaseDoc(
+                window.firebaseDB,
+                "treinos",
+                hoje
+            )
+
+        );
+
+    return snap.exists()
+        ? snap.data()
+        : {};
+
+}
+
+async function gerarEstatisticasEpoca(){
+
+    const resumo = {};
+
+    PLANTEL.forEach(j => {
+
+        resumo[j.nome] = {
+            presente:0,
+            falta:0,
+            lesionado:0,
+            justificada:0
+        };
+
+    });
+
     try{
 
-        const hoje =
-            new Date()
-            .toISOString()
-            .split("T")[0];
+        const docs =
+        await window.firebaseGetDocs(
 
-        const snap =
-            await window.firebaseGetDoc(
+            window.firebaseCollection(
+                window.firebaseDB,
+                "treinos"
+            )
 
-                window.firebaseDoc(
-                    window.firebaseDB,
-                    "treinos",
-                    hoje
-                )
+        );
 
-            );
+        docs.forEach(docSnap => {
 
-        if(
-            snap.exists()
-        ){
-            return snap.data();
-        }
+            const treino =
+            docSnap.data();
 
-        return {};
+            Object.keys(treino).forEach(nome => {
+
+                if(
+                    !resumo[nome]
+                ){
+                    return;
+                }
+
+                const estado =
+                treino[nome];
+
+                if(estado === "✅")
+                    resumo[nome].presente++;
+
+                if(estado === "❌")
+                    resumo[nome].falta++;
+
+                if(estado === "🩺")
+                    resumo[nome].lesionado++;
+
+                if(estado === "🟨")
+                    resumo[nome].justificada++;
+
+            });
+
+        });
 
     }
     catch(erro){
 
-        console.error(
+        console.log(
             erro
         );
 
-        return {};
-
     }
+
+    return resumo;
 
 }
 
@@ -633,6 +783,15 @@ async function carregarDashboard(){
         const estadosTreino =
         await obterEstadosTreino();
 
+        console.log(
+            "Dashboard OK"
+        );
+
+        console.log(
+            "Plantel:",
+            PLANTEL.length
+        );
+
         document.getElementById(
             "jogo"
         ).innerHTML =
@@ -651,12 +810,12 @@ async function carregarDashboard(){
         document.getElementById(
             "kpiAmarelos"
         ).innerText =
-        s.cartoes.total;
+        s.cartoes.total || 0;
 
         document.getElementById(
             "kpiMultas"
         ).innerText =
-        s.multas.total + "€";
+        (s.multas.total || 0) + " €";
 
         document.getElementById(
             "arbitro"
@@ -673,7 +832,9 @@ async function carregarDashboard(){
             htmlAssistentes += `
             <div class="assistente">
                 🚩 ${a}
-            </div>`;
+            </div>
+            `;
+
         });
 
         document.getElementById(
@@ -682,99 +843,33 @@ async function carregarDashboard(){
         htmlAssistentes;
 
         document.getElementById(
-            "adversario"
-        ).innerHTML =
-        `
-        <div class="alerta">
-            <strong>
-                ${s.proximo_adversario.nome}
-            </strong>
-            <br><br>
-            Castigados:
-            ${s.proximo_adversario.castigados}
-        </div>
-        `;
-
-        let htmlCastigados = "";
-
-        if(
-            !s.castigos.lista ||
-            s.castigos.lista.length === 0
-        ){
-
-            htmlCastigados =
-            `
-            <div class="alerta">
-                ✅ Sem castigados
-            </div>
-            `;
-
-        }else{
-
-            s.castigos.lista.forEach(c => {
-
-                htmlCastigados += `
-                <div class="alerta">
-                    🚫 ${c.nome}
-                    <br>
-                    ${c.jogos} jogo(s)
-                </div>
-                `;
-
-            });
-
-        }
-
-        document.getElementById(
             "castigados"
         ).innerHTML =
-        htmlCastigados;
-
-        let htmlRisco = "";
-
-        if(
-            !s.cartoes.risco ||
-            s.cartoes.risco.length === 0
-        ){
-
-            htmlRisco =
-            `
+        (
+            s.castigos.lista || []
+        )
+        .map(c => `
             <div class="alerta">
-                ✅ Sem jogadores em risco
+                🚫 ${c.nome}
+                <br>
+                ${c.jogos} jogo(s)
             </div>
-            `;
-
-        }else{
-
-            s.cartoes.risco.forEach(j => {
-
-                htmlRisco += `
-                <div class="jogador">
-                    <div class="nome">
-                        ${j.nome}
-                    </div>
-                    <div class="contador-cartoes">
-                        ${j.cartoes}
-                    </div>
-                </div>
-                `;
-
-            });
-
-        }
+        `)
+        .join("")
+        ||
+        `
+        <div class="alerta">
+            ✅ Sem castigados
+        </div>
+        `;
 
         document.getElementById(
             "risco"
         ).innerHTML =
-        htmlRisco;
-
-        let htmlCartoes = "";
-
         (
-            s.cartoes.ranking || []
-        ).forEach(j => {
-
-            htmlCartoes += `
+            s.cartoes.risco || []
+        )
+        .map(j => `
             <div class="jogador">
                 <div class="nome">
                     ${j.nome}
@@ -783,37 +878,57 @@ async function carregarDashboard(){
                     ${j.cartoes}
                 </div>
             </div>
-            `;
-
-        });
+        `)
+        .join("")
+        ||
+        `
+        <div class="alerta">
+            ✅ Sem jogadores em risco
+        </div>
+        `;
 
         document.getElementById(
             "listaCartoes"
         ).innerHTML =
-        htmlCartoes;
-
-        let htmlMultas = "";
-
         (
-            s.multas.lista || []
-        ).forEach(m => {
-
-            htmlMultas += `
-            <div class="alerta">
-                ${m.nome}
-                <br><br>
-                <strong>
-                    ${Number(m.valor).toFixed(2)}€
-                </strong>
+            s.cartoes.ranking || []
+        )
+        .map(j => `
+            <div class="jogador">
+                <div class="nome">
+                    ${j.nome}
+                </div>
+                <div class="contador-cartoes">
+                    ${j.cartoes}
+                </div>
             </div>
-            `;
-
-        });
+        `)
+        .join("");
 
         document.getElementById(
             "listaMultas"
         ).innerHTML =
-        htmlMultas;
+
+        (
+            s.multas.lista || []
+        )
+        .map(m => `
+            <div class="alerta">
+                ${m.nome}
+                <br><br>
+                <strong>
+                    ${Number(m.valor)
+                    .toFixed(2)} €
+                </strong>
+            </div>
+        `)
+        .join("")
+        ||
+        `
+        <div class="alerta">
+            Sem multas
+        </div>
+        `;
 
         let presentes = 0;
         let faltas = 0;
@@ -855,16 +970,24 @@ async function carregarDashboard(){
                 <div class="botoes-treino">
 
                     <button class="btn-treino"
-                    onclick="marcarTreino('${j.nome}','✅')">✅</button>
+                    onclick="marcarTreino('${j.nome}','✅')">
+                    ✅
+                    </button>
 
                     <button class="btn-treino"
-                    onclick="marcarTreino('${j.nome}','❌')">❌</button>
+                    onclick="marcarTreino('${j.nome}','❌')">
+                    ❌
+                    </button>
 
                     <button class="btn-treino"
-                    onclick="marcarTreino('${j.nome}','🩺')">🩺</button>
+                    onclick="marcarTreino('${j.nome}','🩺')">
+                    🩺
+                    </button>
 
                     <button class="btn-treino"
-                    onclick="marcarTreino('${j.nome}','🟨')">🟨</button>
+                    onclick="marcarTreino('${j.nome}','🟨')">
+                    🟨
+                    </button>
 
                 </div>
 
@@ -898,6 +1021,22 @@ async function carregarDashboard(){
         ).innerText =
         justificadas;
 
+        const estatisticas =
+        await gerarEstatisticasEpoca();
+
+        document.getElementById(
+            "estatisticasEpoca"
+        ).innerHTML =
+        `
+        <div class="estatistica">
+            <strong>
+                Jogadores
+            </strong>
+            <br>
+            ${Object.keys(estatisticas).length}
+        </div>
+        `;
+
         document.getElementById(
             "atualizacao"
         ).innerText =
@@ -915,7 +1054,10 @@ async function carregarDashboard(){
 
 }
 
-carregarDashboard();
+setTimeout(
+    carregarDashboard,
+    1000
+);
 
 setInterval(
     carregarDashboard,
