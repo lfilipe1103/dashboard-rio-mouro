@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Área Mister</title>
+
+<style>
+
+:root{
+    --bg:#000;
+    --card:#13213a;
+    --card2:#1c2d4a;
+    --text:#fff;
+    --yellow:#facc15;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:Segoe UI,Arial,sans-serif;
+    padding:12px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:var(--card);
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:12px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.btn{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:#314b77;
+
+    color:white;
+
+}
+
+.jogador{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:8px;
+
+}
+
+.botoes{
+
+    display:flex;
+
+    gap:4px;
+
+}
+
+.botoes button{
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:8px 10px;
+
+    cursor:pointer;
+
+}
+
+#resumo{
+
+    line-height:2;
+
+}
+
+</style>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc
+}
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
+
+    authDomain:
+    "rdm-v2-98d5b.firebaseapp.com",
+
+    projectId:
+    "rdm-v2-98d5b",
+
+    storageBucket:
+    "rdm-v2-98d5b.firebasestorage.app",
+
+    messagingSenderId:
+    "847254286305",
+
+    appId:
+    "1:847254286305:web:eb5d179fb7ed6e5054eca0"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+window.firebaseDB =
+getFirestore(app);
+
+window.firebaseDoc =
+doc;
+
+window.firebaseGetDoc =
+getDoc;
+
+window.firebaseSetDoc =
+setDoc;
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="login">
+
+        <div class="card">
+
+            <h2>
+                🧑‍🏫 Área Mister
+            </h2>
+
+            <br>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password Mister">
+
+            <button
+                class="btn"
+                onclick="entrar()">
+
+                Entrar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="areaMister"
+         style="display:none">
+
+        <div class="card">
+
+            <h2>
+                📅 Gestão de Treino
+            </h2>
+
+            <br>
+
+            <input
+                type="date"
+                id="dataTreino">
+
+            <button
+                class="btn"
+                onclick="criarTreino()">
+
+                Criar Treino
+
+            </button>
+
+            <br><br>
+
+            <button
+                class="btn"
+                onclick="abrirTreino()">
+
+                Abrir Treino
+
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+                📊 Resumo do Treino
+            </h2>
+
+            <br>
+
+            <div id="resumo">
+
+                ✅ 0
+
+                <br>
+
+                ❌ 0
+
+                <br>
+
+                🩺 0
+
+                <br>
+
+                🟨 0
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>
+                📋 Presenças
+            </h2>
+
+            <br>
+
+            <div id="plantel">
+
+                A carregar...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const PASSWORD =
+"MISTER2026";
+
+const PLANTEL = [
+
+    "Filipe Pereira",
+    "Julio Brandão",
+    "Henrique Macedo",
+    "Renan Lima",
+
+    "Daniel Monteiro",
+    "Gonçalo Silva",
+    "Bruno Calvinho",
+    "André Pécurto",
+    "Robert Andrade",
+    "João Rodrigues",
+    "Nuno Gomes",
+    "Bernas",
+
+    "Miguel Fonseca",
+    "Bruno Mota",
+    "Rodrigo Tomé",
+    "Pedro Paulino",
+    "João Rascão",
+    "Khalifa",
+    "Diogo Correia",
+    "Rodrigo Delgado",
+
+    "Henrique Martins",
+    "Guilherme Azevedo",
+    "Jota",
+    "Diogo Teixeira",
+    "David Sousa",
+    "Kala Furtado",
+    "Sana Sambu"
+
+];
+
+let treinoAtual = {};
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        document.getElementById(
+            "dataTreino"
+        ).value =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+    }
+);
+
+function entrar(){
+
+    const pass =
+
+    document.getElementById(
+        "password"
+    ).value;
+
+    if(
+        pass !== PASSWORD
+    ){
+
+        alert(
+            "Password incorreta"
+        );
+
+        return;
+
+    }
+
+    document.getElementById(
+        "login"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaMister"
+    ).style.display =
+    "block";
+
+    carregarPlantel();
+
+}
+
+async function criarTreino(){
+
+    const data =
+
+    document.getElementById(
+        "dataTreino"
+    ).value;
+
+    if(
+        !data
+    ){
+
+        alert(
+            "Seleciona uma data."
+        );
+
+        return;
+
+    }
+
+    await window.firebaseSetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        ),
+
+        {
+            ativo:true,
+            criadoEm:
+            Date.now()
+        },
+
+        {
+            merge:true
+        }
+
+    );
+
+    treinoAtual = {};
+
+    carregarPlantel();
+
+    atualizarResumo();
+
+    alert(
+        "Treino criado com sucesso."
+    );
+
+}
+
+async function abrirTreino(){
+
+    const data =
+
+    document.getElementById(
+        "dataTreino"
+    ).value;
+
+    if(
+        !data
+    ){
+
+        alert(
+            "Seleciona uma data."
+        );
+
+        return;
+
+    }
+
+    const snap =
+
+    await window.firebaseGetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        )
+
+    );
+
+    if(
+        !snap.exists()
+    ){
+
+        alert(
+            "Treino inexistente."
+        );
+
+        return;
+
+    }
+
+    treinoAtual =
+    snap.data();
+
+    carregarPlantel();
+
+    atualizarResumo();
+
+}
+
+async function marcarPresenca(
+    jogador,
+    estado
+){
+
+    const data =
+
+    document.getElementById(
+        "dataTreino"
+    ).value;
+
+    if(
+        !data
+    ){
+
+        alert(
+            "Seleciona uma data."
+        );
+
+        return;
+
+    }
+
+    treinoAtual[
+        jogador
+    ] = estado;
+
+    await window.firebaseSetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        ),
+
+        {
+            [jogador]:
+            estado
+        },
+
+        {
+            merge:true
+        }
+
+    );
+
+    atualizarResumo();
+
+    carregarPlantel();
+
+}
+
+function carregarPlantel(){
+
+    let html = "";
+
+    PLANTEL.forEach(nome => {
+
+        const estado =
+
+        treinoAtual[
+            nome
+        ] || "";
+
+        html += `
+
+        <div class="jogador">
+
+            <div>
+
+                <strong>
+                    ${nome}
+                </strong>
+
+                ${
+                    estado
+                    ? `
+                    <div style="
+                        font-size:12px;
+                        margin-top:4px;
+                        color:#facc15;
+                    ">
+                        Estado:
+                        ${estado}
+                    </div>
+                    `
+                    : ""
+                }
+
+            </div>
+
+            <div class="botoes">
+
+                <button
+                onclick="marcarPresenca(
+                '${nome}',
+                '✅'
+                )">
+
+                ✅
+
+                </button>
+
+                <button
+                onclick="marcarPresenca(
+                '${nome}',
+                '❌'
+                )">
+
+                ❌
+
+                </button>
+
+                <button
+                onclick="marcarPresenca(
+                '${nome}',
+                '🩺'
+                )">
+
+                🩺
+
+                </button>
+
+                <button
+                onclick="marcarPresenca(
+                '${nome}',
+                '🟨'
+                )">
+
+                🟨
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById(
+        "plantel"
+    ).innerHTML =
+    html;
+
+}
+
+function atualizarResumo(){
+
+    let presentes = 0;
+    let faltas = 0;
+    let lesionados = 0;
+    let justificadas = 0;
+
+    Object.values(
+        treinoAtual
+    ).forEach(v => {
+
+        if(
+            v === "✅"
+        ){
+            presentes++;
+        }
+
+        if(
+            v === "❌"
+        ){
+            faltas++;
+        }
+
+        if(
+            v === "🩺"
+        ){
+            lesionados++;
+        }
+
+        if(
+            v === "🟨"
+        ){
+            justificadas++;
+        }
+
+    });
+
+    document.getElementById(
+        "resumo"
+    ).innerHTML =
+
+    `
+
+    ✅ ${presentes}
+
+    <br>
+
+    ❌ ${faltas}
+
+    <br>
+
+    🩺 ${lesionados}
+
+    <br>
+
+    🟨 ${justificadas}
+
+    `;
+
+}
+
+console.log(
+    "Área Mister carregada"
+);
+
+</script>
+
+</body>
+</html>

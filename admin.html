@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Admin V3</title>
+
+<style>
+
+body{
+    background:#000;
+    color:white;
+    font-family:Segoe UI,Arial,sans-serif;
+    padding:20px;
+}
+
+.card{
+    background:#13213a;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:15px;
+}
+
+input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    margin-bottom:10px;
+
+}
+
+button{
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.btn{
+
+    width:100%;
+
+    background:#314b77;
+
+    color:white;
+
+}
+
+.item{
+
+    background:#1c2d4a;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    margin-bottom:8px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="loginAdmin">
+
+    <div class="card">
+
+        <h2>
+            👑 Área Admin
+        </h2>
+
+        <input
+            type="password"
+            id="passwordAdmin"
+            placeholder="Password Admin">
+
+        <button
+            class="btn"
+            onclick="entrarAdmin()">
+
+            Entrar
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="areaAdmin"
+     style="display:none">
+
+    <div class="card">
+
+        <h2>
+            👥 Plantel
+        </h2>
+
+        <input
+            id="novoNumero"
+            placeholder="Número">
+
+        <input
+            id="novoNome"
+            placeholder="Nome">
+
+        <button
+            class="btn"
+            onclick="adicionarJogador()">
+
+            ➕ Adicionar Jogador
+
+        </button>
+
+        <br><br>
+
+        <div id="listaPlantel">
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+            📅 Gestão de Treinos
+        </h2>
+
+        <button
+            class="btn">
+
+            ➕ Criar Treino
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn">
+
+            🗑️ Apagar Treino
+
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+            🔑 Passwords
+        </h2>
+
+        <button
+            class="btn">
+
+            Alterar Password Mister
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn">
+
+            Alterar Password Admin
+
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>
+            📊 Estatísticas Administração
+        </h2>
+
+        <div id="statsAdmin">
+
+            Total Jogadores:
+            <span id="totalJogadores">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const PASSWORD_ADMIN =
+"ADMIN2026";
+
+let plantel = [];
+
+function entrarAdmin(){
+
+    const pass =
+    document.getElementById(
+        "passwordAdmin"
+    ).value;
+
+    if(
+        pass !== PASSWORD_ADMIN
+    ){
+        alert(
+            "Password incorreta"
+        );
+        return;
+    }
+
+    document.getElementById(
+        "loginAdmin"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaAdmin"
+    ).style.display =
+    "block";
+
+}
+
+function adicionarJogador(){
+
+    const numero =
+    document.getElementById(
+        "novoNumero"
+    ).value;
+
+    const nome =
+    document.getElementById(
+        "novoNome"
+    ).value;
+
+    if(
+        !nome
+    ){
+        return;
+    }
+
+    plantel.push({
+
+        numero,
+        nome
+
+    });
+
+    renderPlantel();
+
+}
+
+function renderPlantel(){
+
+    let html = "";
+
+    plantel.forEach((j,i)=>{
+
+        html += `
+
+        <div class="item">
+
+            <div>
+
+                #${j.numero}
+                ${j.nome}
+
+            </div>
+
+            <button
+            onclick="apagarJogador(${i})">
+
+            🗑️
+
+            </button>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById(
+        "listaPlantel"
+    ).innerHTML =
+    html;
+
+    document.getElementById(
+        "totalJogadores"
+    ).innerText =
+    plantel.length;
+
+}
+
+function apagarJogador(i){
+
+    plantel.splice(
+        i,
+        1
+    );
+
+    renderPlantel();
+
+}
+
+</script>
+
+</body>
+
+</html>
