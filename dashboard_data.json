@@ -1,32 +1,44 @@
 {
-    "ultima_atualizacao": "29-10-2026 11:43:07",
+    "ultima_atualizacao": "30-10-2026 18:59:31",
     "seniores": {
         "proximo_jogo": {
-            "casa": "RIO MOURO",
-            "fora": "MEM MARTINS",
-            "data": "25-10-2026",
+            "casa": "DESPERTAR",
+            "fora": "RIO MOURO",
+            "data": "01-11-2026",
             "hora": "15:00",
-            "arbitro": "MIGUEL BORGES",
+            "arbitro": "RICARDO SANTOS",
             "assistentes": [
-                "DUARTE MATIAS",
-                "MARIO SANTOS"
+                "GONÇALO ANDRÉ NASCIMENTO",
+                "TIAGO LOPES"
             ],
-            "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO)"
+            "estadio": "CAMPO PARQUE URBANO 25 ABRIL (RELVADO SINTÉTICO) - CASAL"
         },
         "proximo_adversario": {
             "nome": "FC DESPERTAR",
             "castigados": 0
         },
         "cartoes": {
-            "total": 21,
-            "jogadores": 12,
+            "total": 28,
+            "jogadores": 14,
             "ranking": [
+                {
+                    "nome": "NUNO GOMES",
+                    "cartoes": 4
+                },
                 {
                     "nome": "JOSE FURTADO",
                     "cartoes": 3
                 },
                 {
-                    "nome": "NUNO GOMES",
+                    "nome": "MIGUEL FONSECA",
+                    "cartoes": 3
+                },
+                {
+                    "nome": "PEDRO PAULINO",
+                    "cartoes": 3
+                },
+                {
+                    "nome": "RENAN LIMA",
                     "cartoes": 3
                 },
                 {
@@ -34,15 +46,7 @@
                     "cartoes": 2
                 },
                 {
-                    "nome": "MIGUEL FONSECA",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "PEDRO PAULINO",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "RENAN LIMA",
+                    "nome": "JOAO RASCAO",
                     "cartoes": 2
                 },
                 {
@@ -54,7 +58,11 @@
                     "cartoes": 2
                 },
                 {
-                    "nome": "JOAO RASCAO",
+                    "nome": "BRUNO MOTA",
+                    "cartoes": 2
+                },
+                {
+                    "nome": "DANIEL CALDAS",
                     "cartoes": 2
                 },
                 {
@@ -70,23 +78,23 @@
                     "cartoes": 2
                 }
             ],
-            "risco": []
+            "risco": [
+                {
+                    "nome": "NUNO GOMES",
+                    "cartoes": 4
+                }
+            ]
         },
         "castigos": {
             "ativos": 0,
             "lista": []
         },
         "multas": {
-            "total": 15.0,
-            "lista": [
-                {
-                    "nome": "RICARDO PAULO DUARTE REBELO",
-                    "valor": 15.0
-                }
-            ]
+            "total": 0.0,
+            "lista": []
         },
         "arbitros": {
-            "diferentes": 7,
+            "diferentes": 8,
             "historico": [
                 {
                     "nome": "HUGO FONSECA",
@@ -114,6 +122,10 @@
                 },
                 {
                     "nome": "MIGUEL BORGES",
+                    "jogos": 1
+                },
+                {
+                    "nome": "RICARDO SANTOS",
                     "jogos": 1
                 }
             ]
