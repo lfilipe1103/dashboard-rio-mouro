@@ -37,11 +37,9 @@
 }
 
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
 }
 
 body{
@@ -62,6 +60,7 @@ body{
 .container{
 
     max-width:1200px;
+
     margin:auto;
 
 }
@@ -255,7 +254,68 @@ body{
 
 }
 
+strong{
+
+    color:var(--yellow);
+
+}
+
 </style>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs
+}
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
+
+    authDomain:
+    "rdm-v2-98d5b.firebaseapp.com",
+
+    projectId:
+    "rdm-v2-98d5b",
+
+    storageBucket:
+    "rdm-v2-98d5b.firebasestorage.app",
+
+    messagingSenderId:
+    "847254286305",
+
+    appId:
+    "1:847254286305:web:eb5d179fb7ed6e5054eca0"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+window.firebaseDB =
+getFirestore(app);
+
+window.firebaseCollection =
+collection;
+
+window.firebaseGetDocs =
+getDocs;
+
+window.firebaseReady =
+true;
+
+console.log(
+    "Firebase Dashboard OK"
+);
+
+</script>
 
 </head>
 
@@ -463,7 +523,7 @@ body{
 
         <div class="titulo">
 
-            📊 Estatísticas da Época
+            📊 Estatísticas dos Treinos
 
         </div>
 
@@ -498,14 +558,15 @@ async function carregarDashboard(){
         );
 
         const dados =
-            await resposta.json();
+        await resposta.json();
 
         const s =
-            dados.seniores;
+        dados.seniores;
 
         document.getElementById(
             "jogo"
         ).innerHTML =
+
         `
         ${s.proximo_jogo.casa}
         <br>
@@ -517,31 +578,37 @@ async function carregarDashboard(){
         document.getElementById(
             "dataHora"
         ).innerText =
+
         `${s.proximo_jogo.data} • ${s.proximo_jogo.hora}`;
 
         document.getElementById(
             "estadio"
         ).innerHTML =
+
         `📍 ${s.proximo_jogo.estadio}`;
 
         document.getElementById(
             "kpiCartoes"
         ).innerText =
+
         s.cartoes.total || 0;
 
         document.getElementById(
             "kpiMultas"
         ).innerText =
+
         (s.multas.total || 0) + "€";
 
         document.getElementById(
             "kpiCastigados"
         ).innerText =
-        s.castigos.ativos || 0;
+
+        (s.castigos.lista || []).length;
 
         document.getElementById(
             "kpiRisco"
         ).innerText =
+
         (
             s.cartoes.risco || []
         ).length;
@@ -549,9 +616,9 @@ async function carregarDashboard(){
         document.getElementById(
             "arbitro"
         ).innerHTML =
+
         `
-        👨‍⚖️
-        ${s.proximo_jogo.arbitro}
+        👨‍⚖️ ${s.proximo_jogo.arbitro || "Por nomear"}
         `;
 
         let htmlAssistentes = "";
@@ -564,9 +631,7 @@ async function carregarDashboard(){
 
             `
             <div class="alerta">
-
                 🚩 ${a}
-
             </div>
             `;
 
@@ -580,6 +645,7 @@ async function carregarDashboard(){
         document.getElementById(
             "adversario"
         ).innerHTML =
+
         `
         <div class="alerta">
 
@@ -590,7 +656,6 @@ async function carregarDashboard(){
             <br><br>
 
             Castigados:
-
             ${s.proximo_adversario.castigados}
 
         </div>
@@ -607,9 +672,7 @@ async function carregarDashboard(){
 
             `
             <div class="alerta">
-
                 ✅ Sem castigados
-
             </div>
             `;
 
@@ -654,12 +717,8 @@ async function carregarDashboard(){
 
                 <div>
 
-                    ⚠️
-
                     <strong>
-
                         ${j.nome}
-
                     </strong>
 
                 </div>
@@ -683,9 +742,7 @@ async function carregarDashboard(){
 
             `
             <div class="alerta">
-
                 ✅ Sem jogadores em risco
-
             </div>
             `;
 
@@ -707,7 +764,7 @@ async function carregarDashboard(){
             `
             <div class="jogador">
 
-                <div class="nome">
+                <div>
 
                     ${j.nome}
 
@@ -740,9 +797,7 @@ async function carregarDashboard(){
 
             `
             <div class="alerta">
-
                 Sem multas
-
             </div>
             `;
 
@@ -759,9 +814,7 @@ async function carregarDashboard(){
                     💰
 
                     <strong>
-
                         ${m.nome}
-
                     </strong>
 
                     <br><br>
@@ -782,40 +835,131 @@ async function carregarDashboard(){
         ).innerHTML =
         htmlMultas;
 
+        /* ===== ESTATÍSTICAS TREINOS FIREBASE ===== */
+
+        let numeroTreinos = 0;
+        let totalPresencas = 0;
+        let totalFaltas = 0;
+        let totalJustificadas = 0;
+
+        if(
+            window.firebaseReady
+        ){
+
+            try{
+
+                const docs =
+
+                await window.firebaseGetDocs(
+
+                    window.firebaseCollection(
+                        window.firebaseDB,
+                        "treinos"
+                    )
+
+                );
+
+                docs.forEach(doc => {
+
+                    const treino =
+                    doc.data();
+
+                    if(
+                        treino.ativo !== true
+                    ){
+                        return;
+                    }
+
+                    numeroTreinos++;
+
+                    Object.values(
+                        treino
+                    ).forEach(v => {
+
+                        if(v==="✅")
+                            totalPresencas++;
+
+                        if(v==="❌")
+                            totalFaltas++;
+
+                        if(v==="🟨")
+                            totalJustificadas++;
+
+                    });
+
+                });
+
+            }
+            catch(erro){
+
+                console.log(
+                    "Firebase erro:",
+                    erro
+                );
+
+            }
+
+        }
+
         document.getElementById(
             "estatisticas"
         ).innerHTML =
 
         `
+
         <div class="alerta">
 
-            📊 Jogadores com cartões:
+            📅 Treinos Realizados
 
-            ${s.cartoes.jogadores || 0}
+            <br><br>
+
+            <strong>
+
+                ${numeroTreinos}
+
+            </strong>
 
         </div>
 
         <div class="alerta">
 
-            🟨 Cartões acumulados:
+            ✅ Presenças Registadas
 
-            ${s.cartoes.total || 0}
+            <br><br>
 
-        </div>
+            <strong>
 
-        <div class="alerta">
+                ${totalPresencas}
 
-            🚫 Castigados:
-
-            ${s.castigos.ativos || 0}
+            </strong>
 
         </div>
 
         <div class="alerta">
 
-            💰 Total multas:
+            ❌ Faltas Registadas
 
-            ${(s.multas.total || 0).toFixed(2)} €
+            <br><br>
+
+            <strong>
+
+                ${totalFaltas}
+
+            </strong>
+
+        </div>
+
+        <div class="alerta">
+
+            🟨 Justificações
+
+            <br><br>
+
+            <strong>
+
+                ${totalJustificadas}
+
+            </strong>
 
         </div>
 
@@ -837,10 +981,11 @@ async function carregarDashboard(){
         document.getElementById(
             "estatisticas"
         ).innerHTML =
+
         `
         <div class="alerta">
 
-            ❌ Erro ao carregar dados
+            ❌ Erro ao carregar dashboard
 
         </div>
         `;
@@ -862,5 +1007,4 @@ setInterval(
 </script>
 
 </body>
-
 </html>
