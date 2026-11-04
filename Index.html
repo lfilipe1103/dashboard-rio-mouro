@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>GD Rio de Mouro</title>
+
+<style>
+
+:root{
+
+    --bg:#050505;
+    --card:#13213a;
+    --card2:#1c2d4a;
+    --border:#2d4369;
+
+    --text:#ffffff;
+    --muted:#9fb0c9;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:500px;
+
+}
+
+.card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    margin-bottom:15px;
+
+    box-shadow:
+    0 10px 25px
+    rgba(0,0,0,.30);
+
+}
+
+.topo{
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #13213a,
+        #1c2d4a
+    );
+
+}
+
+.logo{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+
+}
+
+.logo img{
+
+    width:100px;
+
+    height:100px;
+
+    object-fit:contain;
+
+}
+
+.topo h1{
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+.subtitulo{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+.titulo{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+}
+
+.botao-menu{
+
+    width:100%;
+
+    padding:18px;
+
+    margin-bottom:12px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #314b77,
+        #3f639e
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.botao-menu:hover{
+
+    transform:
+    translateY(-2px);
+
+}
+
+.rodape{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+</style>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    collection,
+    getDocs
+}
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
+
+    authDomain:
+    "rdm-v2-98d5b.firebaseapp.com",
+
+    projectId:
+    "rdm-v2-98d5b",
+
+    storageBucket:
+    "rdm-v2-98d5b.firebasestorage.app",
+
+    messagingSenderId:
+    "847254286305",
+
+    appId:
+    "1:847254286305:web:eb5d179fb7ed6e5054eca0"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+window.firebaseDB =
+getFirestore(app);
+
+window.firebaseDoc =
+doc;
+
+window.firebaseGetDoc =
+getDoc;
+
+window.firebaseSetDoc =
+setDoc;
+
+window.firebaseCollection =
+collection;
+
+window.firebaseGetDocs =
+getDocs;
+
+window.firebaseReady =
+true;
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card topo">
+
+        <div class="logo">
+
+            <img
+                src="logo.png"
+                alt="GD Rio de Mouro">
+
+        </div>
+
+        <h1>
+
+            GD RIO DE MOURO
+
+        </h1>
+
+        <div class="subtitulo">
+
+            Plataforma de Gestão Desportiva
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            Selecionar Área
+
+        </div>
+
+        <button
+            class="botao-menu"
+            onclick="
+            location.href='dashboard.html'
+            ">
+
+            📊 Dashboard
+
+        </button>
+
+        <button
+            class="botao-menu"
+            onclick="
+            location.href='mister.html'
+            ">
+
+            🧑‍🏫 Área Técnica
+
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <div class="rodape">
+
+            GDRRM V4 • Powered by Firebase
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+console.log(
+    "Index V4 carregado"
+);
+
+console.log(
+    "Firebase:",
+    window.firebaseReady
+);
+
+</script>
+
+</body>
+
+</html>
