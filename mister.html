@@ -119,65 +119,6 @@ body{
 
 }
 
-.grid-kpi{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:12px;
-
-    margin-bottom:12px;
-
-}
-
-.kpi{
-
-    text-align:center;
-
-}
-
-.kpi-numero{
-
-    font-size:40px;
-
-    font-weight:700;
-
-}
-
-.kpi-label{
-
-    margin-top:5px;
-
-    color:var(--muted);
-
-}
-
-.verde{
-
-    color:var(--green);
-
-}
-
-.vermelho{
-
-    color:var(--red);
-
-}
-
-.amarelo{
-
-    color:var(--yellow);
-
-}
-
-.azul{
-
-    color:var(--blue);
-
-}
-
 .titulo{
 
     font-size:18px;
@@ -227,13 +168,21 @@ input{
 
     font-weight:600;
 
+    transition:.2s;
+
+}
+
+.btn:hover{
+
+    opacity:.95;
+
 }
 
 .btn-voltar{
 
-    margin-bottom:12px;
-
     background:#1c2d4a;
+
+    margin-bottom:12px;
 
 }
 
@@ -281,9 +230,9 @@ input{
 
 .loading{
 
-    color:var(--muted);
-
     text-align:center;
+
+    color:var(--muted);
 
 }
 
@@ -364,8 +313,9 @@ setDoc;
 
         <div class="logo">
 
-            <img src="logo.png"
-                 alt="GD Rio de Mouro">
+            <img
+                src="logo.png"
+                alt="GD Rio de Mouro">
 
         </div>
 
@@ -402,7 +352,7 @@ setDoc;
 
 </div>
 
-<div id="areaMister"
+<div id="menuMister"
      style="display:none">
 
     <button
@@ -410,6 +360,47 @@ setDoc;
         onclick="location.href='index.html'">
 
         ← Menu Principal
+
+    </button>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            ⚽ Área Técnica
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="mostrarTreinos()">
+
+            📅 Gestão de Treino
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn"
+            onclick="mostrarEstatisticas()">
+
+            📊 Estatísticas
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="areaTreinos"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
 
     </button>
 
@@ -529,6 +520,39 @@ setDoc;
 
 </div>
 
+<div id="areaEstatisticas"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
+
+    </button>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            📊 Estatísticas Gerais
+
+        </div>
+
+        <div id="estatisticasMister">
+
+            <div class="loading">
+
+                A calcular...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 </div>
 
 <script>
@@ -630,13 +654,72 @@ function entrar(){
     "none";
 
     document.getElementById(
-        "areaMister"
+        "menuMister"
+    ).style.display =
+    "block";
+
+}
+
+function mostrarTreinos(){
+
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaEstatisticas"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaTreinos"
     ).style.display =
     "block";
 
     carregarPlantel();
 
     atualizarResumo();
+
+}
+
+function mostrarEstatisticas(){
+
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaTreinos"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaEstatisticas"
+    ).style.display =
+    "block";
+
+    atualizarEstatisticas();
+
+}
+
+function voltarMenu(){
+
+    document.getElementById(
+        "areaTreinos"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaEstatisticas"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "block";
 
 }
 
@@ -696,9 +779,9 @@ async function abrirTreino(){
 
     const data =
 
-    document.getElementById(
-        "dataTreino"
-    ).value;
+        document.getElementById(
+            "dataTreino"
+        ).value;
 
     if(
         !data
@@ -842,10 +925,7 @@ function carregarPlantel(){
         grupo.lista.forEach(nome => {
 
             const estado =
-
-            treinoAtual[
-                nome
-            ] || "";
+            treinoAtual[nome] || "";
 
             html += `
 
@@ -954,27 +1034,19 @@ function atualizarResumo(){
         treinoAtual
     ).forEach(v => {
 
-        if(
-            v === "✅"
-        ){
+        if(v === "✅"){
             presentes++;
         }
 
-        if(
-            v === "❌"
-        ){
+        if(v === "❌"){
             faltas++;
         }
 
-        if(
-            v === "🩺"
-        ){
+        if(v === "🩺"){
             lesionados++;
         }
 
-        if(
-            v === "🟨"
-        ){
+        if(v === "🟨"){
             justificadas++;
         }
 
@@ -1002,8 +1074,154 @@ function atualizarResumo(){
 
 }
 
+function atualizarEstatisticas(){
+
+    let presentes = 0;
+    let faltas = 0;
+    let lesionados = 0;
+    let justificadas = 0;
+
+    Object.values(
+        treinoAtual
+    ).forEach(v => {
+
+        if(v === "✅"){
+            presentes++;
+        }
+
+        if(v === "❌"){
+            faltas++;
+        }
+
+        if(v === "🩺"){
+            lesionados++;
+        }
+
+        if(v === "🟨"){
+            justificadas++;
+        }
+
+    });
+
+    const totalPlantel =
+
+        PLANTEL.guardaRedes.length +
+        PLANTEL.defesas.length +
+        PLANTEL.medios.length +
+        PLANTEL.avancados.length;
+
+    const registados =
+
+        presentes +
+        faltas +
+        lesionados +
+        justificadas;
+
+    const percentagem =
+
+        totalPlantel > 0
+
+        ? Math.round(
+            (presentes / totalPlantel)
+            * 100
+        )
+
+        : 0;
+
+    document.getElementById(
+        "estatisticasMister"
+    ).innerHTML =
+
+    `
+    <div class="jogador">
+
+        <span>
+            👥 Plantel Total
+        </span>
+
+        <strong>
+            ${totalPlantel}
+        </strong>
+
+    </div>
+
+    <div class="jogador">
+
+        <span>
+            ✅ Presentes
+        </span>
+
+        <strong>
+            ${presentes}
+        </strong>
+
+    </div>
+
+    <div class="jogador">
+
+        <span>
+            ❌ Faltas
+        </span>
+
+        <strong>
+            ${faltas}
+        </strong>
+
+    </div>
+
+    <div class="jogador">
+
+        <span>
+            🩺 Lesionados
+        </span>
+
+        <strong>
+            ${lesionados}
+        </strong>
+
+    </div>
+
+    <div class="jogador">
+
+        <span>
+            🟨 Justificadas
+        </span>
+
+        <strong>
+            ${justificadas}
+        </strong>
+
+    </div>
+
+    <div class="jogador">
+
+        <span>
+            📝 Registos
+        </span>
+
+        <strong>
+            ${registados}
+        </strong>
+
+    </div>
+
+    <div class="jogador">
+
+        <span>
+            📊 Taxa Presença
+        </span>
+
+        <strong>
+            ${percentagem}%
+        </strong>
+
+    </div>
+    `;
+
+}
+
 console.log(
-    "Área Técnica carregada"
+    "Área Técnica V2 carregada"
 );
 
 </script>
