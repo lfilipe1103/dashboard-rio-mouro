@@ -719,6 +719,411 @@ td:last-child{
 
 <script>
 
+async function carregarDashboard(){
+
+    try{
+
+        const resposta =
+        await fetch(
+            "dashboard_data.json?t=" +
+            Date.now()
+        );
+
+        const dados =
+        await resposta.json();
+
+        const s =
+        dados.seniores;
+
+        /* JOGO */
+
+        document.getElementById(
+            "jogo"
+        ).innerHTML =
+        `
+        ${s.proximo_jogo.casa}
+        <br>
+        VS
+        <br>
+        ${s.proximo_jogo.fora}
+        `;
+
+        document.getElementById(
+            "dataHora"
+        ).innerHTML =
+        `${s.proximo_jogo.data} • ${s.proximo_jogo.hora}`;
+
+        document.getElementById(
+            "estadio"
+        ).innerHTML =
+        `📍 ${s.proximo_jogo.estadio}`;
+
+        /* KPI */
+
+        document.getElementById(
+            "kpiCartoes"
+        ).innerText =
+        s.cartoes.total || 0;
+
+        document.getElementById(
+            "kpiCastigados"
+        ).innerText =
+        s.castigos.ativos || 0;
+
+        document.getElementById(
+            "kpiRisco"
+        ).innerText =
+        (s.cartoes.risco || []).length;
+
+        /* ADVERSÁRIO */
+
+        document.getElementById(
+            "adversario"
+        ).innerHTML =
+        `
+        <div class="alerta">
+
+            <strong>
+                ${s.proximo_adversario.nome}
+            </strong>
+
+        </div>
+        `;
+
+        /* TÍTULO CASTIGADOS ADVERSÁRIO */
+
+        document.getElementById(
+            "tituloCastigadosAdversario"
+        ).innerHTML =
+        `🚫 Castigados ${s.proximo_adversario.nome}`;
+
+        /* ARBITRAGEM */
+
+        document.getElementById(
+            "arbitro"
+        ).innerHTML =
+        `
+        <div class="alerta">
+
+            👨‍⚖️
+            <strong>
+                ${s.proximo_jogo.arbitro || "Por nomear"}
+            </strong>
+
+        </div>
+        `;
+
+        let assistentes = "";
+
+        (
+            s.proximo_jogo.assistentes || []
+        ).forEach(a => {
+
+            assistentes +=
+            `
+            <div class="alerta">
+
+                🚩 ${a}
+
+            </div>
+            `;
+
+        });
+
+        if(
+            assistentes === ""
+        ){
+
+            assistentes =
+            `
+            <div class="alerta">
+
+                Assistentes por nomear
+
+            </div>
+            `;
+
+        }
+
+        document.getElementById(
+            "assistentes"
+        ).innerHTML =
+        assistentes;
+
+        /* CASTIGADOS ADVERSÁRIO */
+
+        let htmlCastigadosAdv = "";
+
+        const castigadosAdv =
+        s.proximo_adversario.castigados;
+
+        if(
+            castigadosAdv === 0 ||
+            castigadosAdv === null ||
+            castigadosAdv === undefined ||
+            (
+                Array.isArray(
+                    castigadosAdv
+                ) &&
+                castigadosAdv.length === 0
+            )
+        ){
+
+            htmlCastigadosAdv =
+            `
+            <div class="alerta">
+
+                ✅ Sem castigados
+
+            </div>
+            `;
+
+        }
+        else{
+
+            if(
+                Array.isArray(
+                    castigadosAdv
+                )
+            ){
+
+                castigadosAdv.forEach(j => {
+
+                    htmlCastigadosAdv +=
+                    `
+                    <div class="alerta">
+
+                        🚫 ${j}
+
+                    </div>
+                    `;
+
+                });
+
+            }else{
+
+                htmlCastigadosAdv =
+                `
+                <div class="alerta">
+
+                    🚫 ${castigadosAdv}
+
+                </div>
+                `;
+
+            }
+
+        }
+
+        document.getElementById(
+            "castigadosAdversario"
+        ).innerHTML =
+        htmlCastigadosAdv;
+
+        /* CASTIGADOS RIO MOURO */
+
+        let htmlCastigados = "";
+
+        if(
+            !s.castigos.lista ||
+            s.castigos.lista.length === 0
+        ){
+
+            htmlCastigados =
+            `
+            <div class="alerta">
+
+                ✅ Sem castigados
+
+            </div>
+            `;
+
+        }else{
+
+            s.castigos.lista.forEach(c => {
+
+                htmlCastigados +=
+                `
+                <div class="alerta">
+
+                    🚫 ${c.nome}
+
+                    <br><br>
+
+                    ${c.jogos} jogo(s)
+
+                </div>
+                `;
+
+            });
+
+        }
+
+        document.getElementById(
+            "castigados"
+        ).innerHTML =
+        htmlCastigados;
+
+        /* EM RISCO */
+
+        let htmlRisco = "";
+
+        (
+            s.cartoes.risco || []
+        ).forEach(j => {
+
+            htmlRisco +=
+            `
+            <div class="jogador">
+
+                <div class="nome">
+
+                    ${j.nome}
+
+                </div>
+
+                <div class="contador">
+
+                    ${j.cartoes}
+
+                </div>
+
+            </div>
+            `;
+
+        });
+
+        if(
+            htmlRisco === ""
+        ){
+
+            htmlRisco =
+            `
+            <div class="alerta">
+
+                ✅ Sem jogadores em risco
+
+            </div>
+            `;
+
+        }
+
+        document.getElementById(
+            "risco"
+        ).innerHTML =
+        htmlRisco;
+
+        /* RANKING */
+
+        let htmlRanking =
+        `
+        <table>
+        `;
+
+        (
+            s.cartoes.ranking || []
+        ).forEach(j => {
+
+            htmlRanking +=
+            `
+            <tr>
+
+                <td>
+                    ${j.nome}
+                </td>
+
+                <td>
+                    ${j.cartoes}
+                </td>
+
+            </tr>
+            `;
+
+        });
+
+        htmlRanking +=
+        `
+        </table>
+        `;
+
+        document.getElementById(
+            "listaCartoes"
+        ).innerHTML =
+        htmlRanking;
+
+        /* ESTATÍSTICAS */
+
+        document.getElementById(
+            "estatisticas"
+        ).innerHTML =
+        `
+        <div class="alerta">
+
+            👥 Jogadores com cartões:
+            <strong>
+                ${s.cartoes.jogadores || 0}
+            </strong>
+
+        </div>
+
+        <div class="alerta">
+
+            🟨 Cartões acumulados:
+            <strong>
+                ${s.cartoes.total || 0}
+            </strong>
+
+        </div>
+
+        <div class="alerta">
+
+            🚫 Castigados:
+            <strong>
+                ${s.castigos.ativos || 0}
+            </strong>
+
+        </div>
+
+        <div class="alerta">
+
+            👨‍⚖️ Árbitros diferentes:
+            <strong>
+                ${s.arbitros?.diferentes || 0}
+            </strong>
+
+        </div>
+        `;
+
+        document.getElementById(
+            "atualizacao"
+        ).innerText =
+        dados.ultima_atualizacao;
+
+    }
+    catch(err){
+
+        console.error(
+            "ERRO DASHBOARD:",
+            err
+        );
+
+        alert(
+            err.message
+        );
+
+    }
+
+}
+
+carregarDashboard();
+
+setInterval(
+    carregarDashboard,
+    10000
+);
+
+</script>
+
 </body>
 
 </html>
