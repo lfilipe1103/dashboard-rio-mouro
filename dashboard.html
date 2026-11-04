@@ -735,6 +735,18 @@ async function carregarDashboard(){
         const s =
         dados.seniores;
 
+        /* ADVERSÁRIO DO JOGO ATUAL */
+
+        const adversarioAtual =
+
+        s.proximo_jogo.casa
+        .toUpperCase() ===
+        "RIO MOURO"
+
+        ? s.proximo_jogo.fora
+
+        : s.proximo_jogo.casa;
+
         /* JOGO */
 
         document.getElementById(
@@ -773,9 +785,11 @@ async function carregarDashboard(){
         document.getElementById(
             "kpiRisco"
         ).innerText =
-        (s.cartoes.risco || []).length;
+        (
+            s.cartoes.risco || []
+        ).length;
 
-        /* ADVERSÁRIO */
+        /* PRÓXIMA SEMANA */
 
         document.getElementById(
             "adversario"
@@ -795,7 +809,7 @@ async function carregarDashboard(){
         document.getElementById(
             "tituloCastigadosAdversario"
         ).innerHTML =
-        `🚫 Castigados ${s.proximo_adversario.nome}`;
+        `🚫 Castigados ${adversarioAtual}`;
 
         /* ARBITRAGEM */
 
@@ -852,68 +866,14 @@ async function carregarDashboard(){
 
         /* CASTIGADOS ADVERSÁRIO */
 
-        let htmlCastigadosAdv = "";
+        let htmlCastigadosAdv =
+        `
+        <div class="alerta">
 
-        const castigadosAdv =
-        s.proximo_adversario.castigados;
+            ✅ Sem castigados
 
-        if(
-            castigadosAdv === 0 ||
-            castigadosAdv === null ||
-            castigadosAdv === undefined ||
-            (
-                Array.isArray(
-                    castigadosAdv
-                ) &&
-                castigadosAdv.length === 0
-            )
-        ){
-
-            htmlCastigadosAdv =
-            `
-            <div class="alerta">
-
-                ✅ Sem castigados
-
-            </div>
-            `;
-
-        }
-        else{
-
-            if(
-                Array.isArray(
-                    castigadosAdv
-                )
-            ){
-
-                castigadosAdv.forEach(j => {
-
-                    htmlCastigadosAdv +=
-                    `
-                    <div class="alerta">
-
-                        🚫 ${j}
-
-                    </div>
-                    `;
-
-                });
-
-            }else{
-
-                htmlCastigadosAdv =
-                `
-                <div class="alerta">
-
-                    🚫 ${castigadosAdv}
-
-                </div>
-                `;
-
-            }
-
-        }
+        </div>
+        `;
 
         document.getElementById(
             "castigadosAdversario"
@@ -964,7 +924,7 @@ async function carregarDashboard(){
         ).innerHTML =
         htmlCastigados;
 
-        /* EM RISCO */
+        /* JOGADORES EM RISCO */
 
         let htmlRisco = "";
 
@@ -976,7 +936,7 @@ async function carregarDashboard(){
             `
             <div class="jogador">
 
-                <div class="nome">
+                <div>
 
                     ${j.nome}
 
@@ -1016,9 +976,7 @@ async function carregarDashboard(){
         /* RANKING */
 
         let htmlRanking =
-        `
-        <table>
-        `;
+        `<table>`;
 
         (
             s.cartoes.ranking || []
@@ -1042,9 +1000,7 @@ async function carregarDashboard(){
         });
 
         htmlRanking +=
-        `
-        </table>
-        `;
+        `</table>`;
 
         document.getElementById(
             "listaCartoes"
@@ -1105,10 +1061,6 @@ async function carregarDashboard(){
         console.error(
             "ERRO DASHBOARD:",
             err
-        );
-
-        alert(
-            err.message
         );
 
     }
