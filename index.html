@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>GDRRM V3</title>
+<title>GD Rio de Mouro</title>
 
 <style>
 
@@ -21,10 +21,6 @@
 
     --text:#ffffff;
     --muted:#9fb0c9;
-
-    --yellow:#facc15;
-    --green:#22c55e;
-    --red:#ef4444;
 
 }
 
@@ -47,15 +43,23 @@ body{
     Arial,
     sans-serif;
 
-    padding:15px;
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
 
 }
 
 .container{
 
-    max-width:700px;
+    width:100%;
 
-    margin:auto;
+    max-width:500px;
 
 }
 
@@ -65,19 +69,21 @@ body{
 
     border:1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:24px;
 
-    padding:20px;
+    padding:24px;
 
     margin-bottom:15px;
 
     box-shadow:
-    0 4px 15px
-    rgba(0,0,0,.25);
+    0 10px 25px
+    rgba(0,0,0,.30);
 
 }
 
 .topo{
+
+    text-align:center;
 
     background:
     linear-gradient(
@@ -85,8 +91,6 @@ body{
         #13213a,
         #1c2d4a
     );
-
-    text-align:center;
 
 }
 
@@ -102,9 +106,9 @@ body{
 
 .logo img{
 
-    width:90px;
+    width:100px;
 
-    height:90px;
+    height:100px;
 
     object-fit:contain;
 
@@ -112,7 +116,7 @@ body{
 
 .topo h1{
 
-    font-size:30px;
+    font-size:28px;
 
     margin-bottom:8px;
 
@@ -132,21 +136,13 @@ body{
 
     font-weight:700;
 
-    margin-bottom:15px;
+    margin-bottom:20px;
 
     text-align:center;
 
 }
 
 .botao-menu{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:12px;
 
     width:100%;
 
@@ -182,14 +178,6 @@ body{
     transform:
     translateY(-2px);
 
-    opacity:.95;
-
-}
-
-.botao-menu:last-child{
-
-    margin-bottom:0;
-
 }
 
 .rodape{
@@ -199,34 +187,6 @@ body{
     color:var(--muted);
 
     font-size:12px;
-
-    margin-top:15px;
-
-}
-
-@media(max-width:600px){
-
-    .logo img{
-
-        width:75px;
-
-        height:75px;
-
-    }
-
-    .topo h1{
-
-        font-size:24px;
-
-    }
-
-    .botao-menu{
-
-        font-size:16px;
-
-        padding:16px;
-
-    }
 
 }
 
@@ -305,13 +265,16 @@ true;
 
         <div class="logo">
 
-            <img src="logo.png"
-                 alt="GD Rio de Mouro">
+            <img
+                src="logo.png"
+                alt="GD Rio de Mouro">
 
         </div>
 
         <h1>
+
             GD RIO DE MOURO
+
         </h1>
 
         <div class="subtitulo">
@@ -346,25 +309,19 @@ true;
             location.href='mister.html'
             ">
 
-            ⚽ Área Técnica
-
-        </button>
-
-        <button
-            class="botao-menu"
-            onclick="
-            location.href='admin.html'
-            ">
-
-            👑 Administração
+            🧑‍🏫 Área Técnica
 
         </button>
 
     </div>
 
-    <div class="rodape">
+    <div class="card">
 
-        GDRRM V3
+        <div class="rodape">
+
+            GDRRM V4 • Powered by Firebase
+
+        </div>
 
     </div>
 
@@ -373,7 +330,7 @@ true;
 <script>
 
 console.log(
-    "Index V3 carregado"
+    "Index V4 carregado"
 );
 
 console.log(
@@ -384,4 +341,5 @@ console.log(
 </script>
 
 </body>
+
 </html>
