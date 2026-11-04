@@ -368,26 +368,40 @@ td:last-child{
 
 <!-- HERO -->
 
-<div class="card hero">
+<div class="grid-duplo">
 
-    <div class="logo">⚽</div>
+    <div class="card hero">
 
-    <h1>PRÓXIMO JOGO</h1>
+        <div class="logo">⚽</div>
 
-    <div id="jogo" class="jogo">
+        <h1>PRÓXIMO JOGO</h1>
 
-        A carregar...
+        <div id="jogo"
+             class="jogo">
+            A carregar...
+        </div>
+
+        <div id="dataHora"
+             class="data"></div>
+
+        <div id="estadio"
+             class="estadio"></div>
 
     </div>
 
-    <div id="dataHora"
-         class="data"></div>
+    <div class="card">
 
-    <div id="estadio"
-         class="estadio"></div>
+        <div class="titulo">
+            👨‍⚖️ Arbitragem
+        </div>
+
+        <div id="arbitro"></div>
+
+        <div id="assistentes"></div>
+
+    </div>
 
 </div>
-
 <!-- KPI -->
 
 <div class="grid-kpi">
@@ -431,29 +445,10 @@ td:last-child{
 
     </div>
 
-    <div class="card kpi">
-
-        <div id="kpiMultas"
-             class="kpi-numero verde">
-             0€
-        </div>
-
-        <div class="kpi-label">
-            💰 Multas
-        </div>
-
-    </div>
-
-</div>
-
-<!-- ADVERSÁRIO + ARBITRAGEM -->
-
-<div class="grid-duplo">
-
-    <div class="card">
+   <div class="card">
 
         <div class="titulo">
-            ⚔️ Próximo Adversário
+            ⚔️ Próxima Semana
         </div>
 
         <div id="adversario">
@@ -466,31 +461,21 @@ td:last-child{
 
     </div>
 
-    <div class="card">
-
-        <div class="titulo">
-            👨‍⚖️ Arbitragem
-        </div>
-
-        <div id="arbitro"></div>
-
-        <div id="assistentes"></div>
-
-    </div>
-
 </div>
+
 
 <!-- CASTIGADOS ADVERSÁRIO + CASTIGADOS RIO MOURO -->
 
 <div class="grid-duplo">
 
+
     <div class="card">
 
         <div class="titulo">
-            🚫 Castigados Adversário
+            🚫 Castigados Rio Mouro
         </div>
 
-        <div id="castigadosAdversario">
+        <div id="castigados">
 
             <div class="loading">
                 A carregar...
@@ -500,13 +485,13 @@ td:last-child{
 
     </div>
 
-    <div class="card">
+<div class="card">
 
         <div class="titulo">
-            🚫 Castigados Rio Mouro
+            🚫 Castigados Adversário Atual
         </div>
 
-        <div id="castigados">
+        <div id="castigadosAdversario">
 
             <div class="loading">
                 A carregar...
@@ -679,41 +664,58 @@ async function carregarDashboard(){
 
         /* ARBITRAGEM */
 
-        document.getElementById(
-            "arbitro"
-        ).innerHTML =
-        `
+const arbitro =
+s.proximo_jogo.arbitro ||
+"Por nomear";
+
+document.getElementById(
+    "arbitro"
+).innerHTML =
+`
+<div class="alerta">
+
+    👨‍⚖️ <strong>
+        ${arbitro}
+    </strong>
+
+</div>
+`;
+
+let assistentes = "";
+
+if(
+    s.proximo_jogo.assistentes &&
+    s.proximo_jogo.assistentes.length > 0
+){
+
+    s.proximo_jogo.assistentes.forEach(a => {
+
+        assistentes += `
         <div class="alerta">
 
-            👨‍⚖️
-            <strong>
-                ${s.proximo_jogo.arbitro}
-            </strong>
+            🚩 ${a}
 
         </div>
         `;
 
-        let assistentes = "";
+    });
 
-        (
-            s.proximo_jogo.assistentes || []
-        ).forEach(a => {
+}else{
 
-            assistentes +=
-            `
-            <div class="alerta">
+    assistentes =
+    `
+    <div class="alerta">
 
-                🚩 ${a}
+        Assistentes por nomear
 
-            </div>
-            `;
+    </div>
+    `;
+}
 
-        });
-
-        document.getElementById(
-            "assistentes"
-        ).innerHTML =
-        assistentes;
+document.getElementById(
+    "assistentes"
+).innerHTML =
+assistentes;
 
         /* CASTIGADOS ADVERSÁRIO */
 
