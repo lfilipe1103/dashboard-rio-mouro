@@ -8,21 +8,24 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Área Mister</title>
+<title>Área Técnica</title>
 
 <style>
 
 :root{
 
-    --bg:#000;
+    --bg:#050505;
     --card:#13213a;
     --card2:#1c2d4a;
+    --border:#2d4369;
+
+    --text:#ffffff;
+    --muted:#9fb0c9;
 
     --yellow:#facc15;
     --green:#22c55e;
     --red:#ef4444;
-
-    --text:#fff;
+    --blue:#3b82f6;
 
 }
 
@@ -40,7 +43,7 @@ body{
     color:var(--text);
 
     font-family:
-    Segoe UI,
+    "Segoe UI",
     Arial,
     sans-serif;
 
@@ -50,7 +53,7 @@ body{
 
 .container{
 
-    max-width:1000px;
+    max-width:1200px;
     margin:auto;
 
 }
@@ -59,11 +62,134 @@ body{
 
     background:var(--card);
 
+    border:1px solid var(--border);
+
     border-radius:20px;
 
-    padding:20px;
+    padding:18px;
 
     margin-bottom:12px;
+
+}
+
+.topo{
+
+    background:
+    linear-gradient(
+        135deg,
+        #13213a,
+        #1c2d4a
+    );
+
+    text-align:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:10px;
+
+}
+
+.logo img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:contain;
+
+}
+
+.topo h1{
+
+    margin-bottom:8px;
+
+}
+
+.subtitulo{
+
+    color:var(--muted);
+
+    font-size:14px;
+
+}
+
+.grid-kpi{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:12px;
+
+}
+
+.kpi{
+
+    text-align:center;
+
+}
+
+.kpi-numero{
+
+    font-size:40px;
+
+    font-weight:700;
+
+}
+
+.kpi-label{
+
+    margin-top:5px;
+
+    color:var(--muted);
+
+}
+
+.verde{
+
+    color:var(--green);
+
+}
+
+.vermelho{
+
+    color:var(--red);
+
+}
+
+.amarelo{
+
+    color:var(--yellow);
+
+}
+
+.azul{
+
+    color:var(--blue);
+
+}
+
+.titulo{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    border-bottom:
+    1px solid var(--border);
+
+    padding-bottom:10px;
 
 }
 
@@ -75,7 +201,7 @@ input{
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
     margin-bottom:10px;
 
@@ -85,11 +211,11 @@ input{
 
     width:100%;
 
-    padding:12px;
+    padding:14px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
     cursor:pointer;
 
@@ -97,23 +223,21 @@ input{
 
     color:white;
 
+    font-size:16px;
+
+    font-weight:600;
+
 }
 
-.btn:hover{
+.btn-voltar{
 
-    opacity:.9;
+    margin-bottom:12px;
+
+    background:#1c2d4a;
 
 }
 
 .jogador{
-
-    background:var(--card2);
-
-    padding:12px;
-
-    border-radius:12px;
-
-    margin-bottom:8px;
 
     display:flex;
 
@@ -121,30 +245,6 @@ input{
 
     align-items:center;
 
-}
-
-.botoes{
-
-    display:flex;
-
-    gap:4px;
-
-}
-
-.botoes button{
-
-    border:none;
-
-    border-radius:10px;
-
-    padding:8px 10px;
-
-    cursor:pointer;
-
-}
-
-.kpi{
-
     background:var(--card2);
 
     padding:12px;
@@ -155,9 +255,46 @@ input{
 
 }
 
-strong{
+.botoes{
 
-    color:var(--yellow);
+    display:flex;
+
+    gap:5px;
+
+}
+
+.botoes button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.loading{
+
+    color:var(--muted);
+
+    text-align:center;
+
+}
+
+@media(max-width:900px){
+
+    .grid-kpi{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
 
 }
 
@@ -172,15 +309,14 @@ import {
     getFirestore,
     doc,
     getDoc,
-    setDoc,
-    collection,
-    getDocs
+    setDoc
 }
 from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
 
-    apiKey:"AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
+    apiKey:
+    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
 
     authDomain:
     "rdm-v2-98d5b.firebaseapp.com",
@@ -214,19 +350,6 @@ getDoc;
 window.firebaseSetDoc =
 setDoc;
 
-window.firebaseCollection =
-collection;
-
-window.firebaseGetDocs =
-getDocs;
-
-window.firebaseReady =
-true;
-
-console.log(
-    "Firebase OK"
-);
-
 </script>
 
 </head>
@@ -235,125 +358,170 @@ console.log(
 
 <div class="container">
 
-    <div id="login">
+<div id="login">
 
-        <div class="card">
+    <div class="card topo">
 
-            <h2>
-                🧑‍🏫 Área Mister
-            </h2>
+        <div class="logo">
 
-            <br>
+            <img src="logo.png"
+                 alt="GD Rio de Mouro">
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password Mister">
+        </div>
 
-            <button
-                class="btn"
-                onclick="entrar()">
+        <h1>
 
-                Entrar
+            ÁREA TÉCNICA
 
-            </button>
+        </h1>
+
+        <div class="subtitulo">
+
+            Gestão de Treinos e Presenças
 
         </div>
 
     </div>
 
-    <div id="areaMister"
-         style="display:none">
+    <div class="card">
 
-        <div class="card">
+        <input
+            type="password"
+            id="password"
+            placeholder="Password Mister">
 
-            <h2>
-                📅 Gestão de Treino
-            </h2>
+        <button
+            class="btn"
+            onclick="entrar()">
 
-            <br>
+            Entrar
 
-            <input
-                type="date"
-                id="dataTreino">
+        </button>
 
-            <button
-                class="btn"
-                onclick="criarTreino()">
+    </div>
 
-                ➕ Criar Treino
+</div>
 
-            </button>
+<div id="areaMister"
+     style="display:none">
 
-            <br><br>
+    <button
+        class="btn btn-voltar"
+        onclick="location.href='index.html'">
 
-            <button
-                class="btn"
-                onclick="abrirTreino()">
+        ← Menu Principal
 
-                📂 Abrir Treino
+    </button>
 
-            </button>
+    <div class="card">
+
+        <div class="titulo">
+
+            📅 Gestão de Treino
 
         </div>
 
-        <div class="card">
+        <input
+            type="date"
+            id="dataTreino">
 
-            <h2>
-                📊 Resumo do Treino Atual
-            </h2>
+        <button
+            class="btn"
+            onclick="criarTreino()">
 
-            <br>
+            Criar Treino
 
-            <div id="resumo">
+        </button>
 
-                ✅ 0
+        <br><br>
 
-                <br>
+        <button
+            class="btn"
+            onclick="abrirTreino()">
 
-                ❌ 0
+            Abrir Treino
 
-                <br>
+        </button>
 
-                🩺 0
+    </div>
 
-                <br>
+    <div class="grid-kpi">
 
-                🟨 0
+        <div class="card kpi">
+
+            <div id="kpiPresentes"
+                 class="kpi-numero verde">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                ✅ Presentes
 
             </div>
 
         </div>
 
-        <div class="card">
+        <div class="card kpi">
 
-            <h2>
-                📈 Estatísticas da Época
-            </h2>
+            <div id="kpiFaltas"
+                 class="kpi-numero vermelho">
 
-            <br>
+                0
 
-            <div id="estatisticasTreinos">
+            </div>
 
-                A calcular...
+            <div class="kpi-label">
+
+                ❌ Faltas
 
             </div>
 
         </div>
 
-        <div class="card">
+        <div class="card kpi">
 
-            <h2>
-                📋 Controlo de Presenças
-            </h2>
+            <div id="kpiLesionados"
+                 class="kpi-numero amarelo">
 
-            <br>
-
-            <div id="plantel">
-
-                A carregar plantel...
+                0
 
             </div>
+
+            <div class="kpi-label">
+
+                🩺 Lesionados
+
+            </div>
+
+        </div>
+
+        <div class="card kpi">
+
+            <div id="kpiJustificadas"
+                 class="kpi-numero azul">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                🟨 Justificadas
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="plantel">
+
+        <div class="loading">
+
+            A carregar...
 
         </div>
 
@@ -361,44 +529,64 @@ console.log(
 
 </div>
 
+</div>
+
 <script>
 
-const PASSWORD = "MISTER2026";
+const PASSWORD =
+"MISTER2026";
 
-const PLANTEL = [
+const PLANTEL = {
 
-    "Filipe Pereira",
-    "Julio Brandão",
-    "Henrique Macedo",
-    "Renan Lima",
+    guardaRedes:[
 
-    "Daniel Monteiro",
-    "Gonçalo Silva",
-    "Bruno Calvinho",
-    "André Pécurto",
-    "Robert Andrade",
-    "João Rodrigues",
-    "Nuno Gomes",
-    "Bernas",
+        "Filipe Pereira",
+        "Julio Brandão",
+        "Henrique Macedo",
+        "Renan Lima"
 
-    "Miguel Fonseca",
-    "Bruno Mota",
-    "Rodrigo Tomé",
-    "Pedro Paulino",
-    "João Rascão",
-    "Khalifa",
-    "Diogo Correia",
-    "Rodrigo Delgado",
+    ],
 
-    "Henrique Martins",
-    "Guilherme Azevedo",
-    "Jota",
-    "Diogo Teixeira",
-    "David Sousa",
-    "Kala Furtado",
-    "Sana Sambu"
+    defesas:[
 
-];
+        "Daniel Monteiro",
+        "Gonçalo Silva",
+        "Bruno Calvinho",
+        "André Pécurto",
+        "Robert Andrade",
+        "João Rodrigues",
+        "Nuno Gomes",
+        "Bernas"
+
+    ],
+
+    medios:[
+
+        "Miguel Fonseca",
+        "Bruno Mota",
+        "Rodrigo Tomé",
+        "Pedro Paulino",
+        "João Rascão",
+        "Khalifa",
+        "Diogo Correia",
+        "Rodrigo Delgado",
+        "Henrique Martins"
+
+    ],
+
+    avancados:[
+
+        "Guilherme Azevedo",
+        "Jota",
+        "Guilherme Monteiro",
+        "Diogo Teixeira",
+        "David Sousa",
+        "Kala Furtado",
+        "Sana Sambu"
+
+    ]
+
+};
 
 let treinoAtual = {};
 
@@ -419,6 +607,7 @@ document.addEventListener(
 function entrar(){
 
     const pass =
+
     document.getElementById(
         "password"
     ).value;
@@ -447,13 +636,14 @@ function entrar(){
 
     carregarPlantel();
 
-    atualizarEstatisticas();
+    atualizarResumo();
 
 }
 
 async function criarTreino(){
 
     const data =
+
     document.getElementById(
         "dataTreino"
     ).value;
@@ -480,7 +670,8 @@ async function criarTreino(){
 
         {
             ativo:true,
-            criadoEm:Date.now()
+            criadoEm:
+            Date.now()
         },
 
         {
@@ -495,8 +686,6 @@ async function criarTreino(){
 
     atualizarResumo();
 
-    atualizarEstatisticas();
-
     alert(
         "Treino criado com sucesso."
     );
@@ -506,6 +695,7 @@ async function criarTreino(){
 async function abrirTreino(){
 
     const data =
+
     document.getElementById(
         "dataTreino"
     ).value;
@@ -553,8 +743,6 @@ async function abrirTreino(){
 
     atualizarResumo();
 
-    atualizarEstatisticas();
-
 }
 
 async function marcarPresenca(
@@ -563,6 +751,7 @@ async function marcarPresenca(
 ){
 
     const data =
+
     document.getElementById(
         "dataTreino"
     ).value;
@@ -592,7 +781,8 @@ async function marcarPresenca(
         ),
 
         {
-            [jogador]: estado
+            [jogador]:
+            estado
         },
 
         {
@@ -603,8 +793,6 @@ async function marcarPresenca(
 
     atualizarResumo();
 
-    atualizarEstatisticas();
-
     carregarPlantel();
 
 }
@@ -613,59 +801,137 @@ function carregarPlantel(){
 
     let html = "";
 
-    PLANTEL.forEach(nome => {
+    const grupos = [
 
-        const estado =
-        treinoAtual[nome] || "";
+        {
+            titulo:"🧤 Guarda-Redes",
+            lista:PLANTEL.guardaRedes
+        },
+
+        {
+            titulo:"🛡️ Defesas",
+            lista:PLANTEL.defesas
+        },
+
+        {
+            titulo:"⚙️ Médios",
+            lista:PLANTEL.medios
+        },
+
+        {
+            titulo:"🎯 Avançados",
+            lista:PLANTEL.avancados
+        }
+
+    ];
+
+    grupos.forEach(grupo => {
 
         html += `
 
-        <div class="jogador">
+        <div class="card">
 
-            <div>
+            <div class="titulo">
 
-                <strong>
-                    ${nome}
-                </strong>
-
-                ${
-                    estado
-                    ? `
-                    <div style="
-                        font-size:12px;
-                        margin-top:4px;
-                        color:#facc15;
-                    ">
-                        Estado: ${estado}
-                    </div>
-                    `
-                    : ""
-                }
+                ${grupo.titulo}
 
             </div>
 
-            <div class="botoes">
+        `;
 
-                <button onclick="marcarPresenca('${nome}','✅')">
+        grupo.lista.forEach(nome => {
+
+            const estado =
+
+            treinoAtual[
+                nome
+            ] || "";
+
+            html += `
+
+            <div class="jogador">
+
+                <div>
+
+                    <strong>
+                        ${nome}
+                    </strong>
+
+                    ${
+                        estado
+                        ?
+                        `
+                        <div style="
+                            margin-top:5px;
+                            color:#facc15;
+                            font-size:12px;
+                        ">
+                            Estado:
+                            ${estado}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+                <div class="botoes">
+
+                    <button
+                    onclick="
+                    marcarPresenca(
+                    '${nome}',
+                    '✅'
+                    )">
+
                     ✅
-                </button>
 
-                <button onclick="marcarPresenca('${nome}','❌')">
+                    </button>
+
+                    <button
+                    onclick="
+                    marcarPresenca(
+                    '${nome}',
+                    '❌'
+                    )">
+
                     ❌
-                </button>
 
-                <button onclick="marcarPresenca('${nome}','🩺')">
+                    </button>
+
+                    <button
+                    onclick="
+                    marcarPresenca(
+                    '${nome}',
+                    '🩺'
+                    )">
+
                     🩺
-                </button>
 
-                <button onclick="marcarPresenca('${nome}','🟨')">
+                    </button>
+
+                    <button
+                    onclick="
+                    marcarPresenca(
+                    '${nome}',
+                    '🟨'
+                    )">
+
                     🟨
-                </button>
+
+                    </button>
+
+                </div>
 
             </div>
 
-        </div>
+            `;
 
+        });
+
+        html += `
+        </div>
         `;
 
     });
@@ -688,277 +954,56 @@ function atualizarResumo(){
         treinoAtual
     ).forEach(v => {
 
-        if(v === "✅") presentes++;
-        if(v === "❌") faltas++;
-        if(v === "🩺") lesionados++;
-        if(v === "🟨") justificadas++;
+        if(
+            v === "✅"
+        ){
+            presentes++;
+        }
+
+        if(
+            v === "❌"
+        ){
+            faltas++;
+        }
+
+        if(
+            v === "🩺"
+        ){
+            lesionados++;
+        }
+
+        if(
+            v === "🟨"
+        ){
+            justificadas++;
+        }
 
     });
 
     document.getElementById(
-        "resumo"
-    ).innerHTML =
+        "kpiPresentes"
+    ).innerText =
+    presentes;
 
-    `
-    ✅ ${presentes}
-    <br>
-    ❌ ${faltas}
-    <br>
-    🩺 ${lesionados}
-    <br>
-    🟨 ${justificadas}
-    `;
+    document.getElementById(
+        "kpiFaltas"
+    ).innerText =
+    faltas;
+
+    document.getElementById(
+        "kpiLesionados"
+    ).innerText =
+    lesionados;
+
+    document.getElementById(
+        "kpiJustificadas"
+    ).innerText =
+    justificadas;
 
 }
-
-async function atualizarEstatisticas(){
-
-    let numeroTreinos = 0;
-    let totalPresencas = 0;
-    let totalFaltas = 0;
-    let totalJustificadas = 0;
-
-    const jogadores = {};
-
-    PLANTEL.forEach(nome => {
-
-        jogadores[nome] = {
-
-            presentes:0
-
-        };
-
-    });
-
-    try{
-
-        const docs =
-
-        await window.firebaseGetDocs(
-
-            window.firebaseCollection(
-                window.firebaseDB,
-                "treinos"
-            )
-
-        );
-
-        docs.forEach(doc => {
-
-            const treino =
-            doc.data();
-
-            if(
-                treino.ativo !== true
-            ){
-                return;
-            }
-
-            numeroTreinos++;
-
-            Object.entries(
-                treino
-            ).forEach(([nome,estado]) => {
-
-                if(
-                    !jogadores[nome]
-                ){
-                    return;
-                }
-
-                if(
-                    estado === "✅"
-                ){
-
-                    totalPresencas++;
-
-                    jogadores[nome]
-                    .presentes++;
-
-                }
-
-                if(
-                    estado === "❌"
-                ){
-                    totalFaltas++;
-                }
-
-                if(
-                    estado === "🟨"
-                ){
-                    totalJustificadas++;
-                }
-
-            });
-
-        });
-
-        const topAssiduos =
-
-        Object.entries(
-            jogadores
-        )
-
-        .sort(
-            (a,b)=>
-            b[1].presentes -
-            a[1].presentes
-        )
-
-        .slice(0,5);
-
-        const media =
-        numeroTreinos === 0
-
-        ? 0
-
-        : Math.round(
-
-            (
-                totalPresencas
-                /
-                (
-                    numeroTreinos *
-              EL.length
-                )
-            ) * 100
-
-        );
-
-        let html = `
-
-        <div class="kpi">
-
-            📅 <strong>
-            Treinos Realizados
-            </strong>
-
-            <br><br>
-
-            ${numeroTreinos}
-
-        </div>
-
-        <br>
-
-        <div class="kpi">
-
-            ✅ <strong>
-            Presenças Registadas
-            </strong>
-
-            <br><br>
-
-            ${totalPresencas}
-
-        </div>
-
-        <br>
-
-        <div class="kpi">
-
-            ❌ <strong>
-            Faltas Registadas
-            </strong>
-
-            <br><br>
-
-            ${totalFaltas}
-
-        </div>
-
-        <br>
-
-        <div class="kpi">
-
-            🟨 <strong>
-            Justificações
-            </strong>
-
-            <br><br>
-
-            ${totalJustificadas}
-
-        </div>
-
-        <br>
-
-        <h3>
-            🏆 Top 5 Mais Assíduos
-        </h3>
-
-        <br>
-
-        `;
-
-        topAssiduos.forEach((j,i)=>{
-
-            html += `
-
-            <div class="kpi">
-
-                ${i+1}. ${j[0]}
-
-                <br>
-
-                ✅ ${j[1].presentes}
-
-            </div>
-
-            <br>
-
-            `;
-
-        });
-
-        html += `
-
-        <h3>
-            📈 Assiduidade Média
-        </h3>
-
-        <br>
-
-        <div class="kpi">
-
-            <strong>
-                ${media}%
-            </strong>
-
-        </div>
-
-        `;
-
-        document.getElementById(
-            "estatisticasTreinos"
-        ).innerHTML =
-        html;
-
-    }
-    catch(erro){
-
-        console.log(
-            erro
-        );
-
-        document.getElementById(
-            "estatisticasTreinos"
-        ).innerHTML =
-        "Erro ao carregar estatísticas";
-
-    }
-
-}
-
-/* IMPORTANTE PARA OS ONCLICK */
-
-window.entrar = entrar;
-window.criarTreino = criarTreino;
-window.abrirTreino = abrirTreino;
-window.marcarPresenca = marcarPresenca;
 
 console.log(
-    "Área Mister carregada"
+    "Área Técnica carregada"
 );
 
 </script>
