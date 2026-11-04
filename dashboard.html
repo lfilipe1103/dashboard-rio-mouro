@@ -15,23 +15,16 @@
 :root{
 
     --bg:#050505;
-
     --card:#13213a;
-
     --card2:#1c2d4a;
-
     --border:#2d4369;
 
     --yellow:#facc15;
-
     --green:#22c55e;
-
     --red:#ef4444;
-
     --blue:#3b82f6;
 
     --text:#ffffff;
-
     --muted:#9fb0c9;
 
 }
@@ -54,7 +47,7 @@ body{
     Arial,
     sans-serif;
 
-    padding:15px;
+    padding:12px;
 
 }
 
@@ -76,8 +69,6 @@ body{
 
     padding:18px;
 
-    margin-bottom:12px;
-
 }
 
 .hero{
@@ -93,49 +84,16 @@ body{
 
 }
 
-.logo{
+.grid-topo{
 
-    font-size:60px;
+    display:grid;
 
-    margin-bottom:10px;
+    grid-template-columns:
+    1fr 1fr;
 
-}
+    gap:12px;
 
-.hero h1{
-
-    margin-bottom:15px;
-
-    font-size:28px;
-
-}
-
-.jogo{
-
-    font-size:34px;
-
-    font-weight:700;
-
-    line-height:1.4;
-
-}
-
-.data{
-
-    color:var(--yellow);
-
-    margin-top:12px;
-
-    font-size:18px;
-
-}
-
-.estadio{
-
-    margin-top:10px;
-
-    color:var(--muted);
-
-    font-size:14px;
+    margin-bottom:12px;
 
 }
 
@@ -165,58 +123,43 @@ body{
 
 }
 
-.kpi{
+.logo{
 
-    text-align:center;
+    font-size:55px;
 
-    transition:.2s;
-
-}
-
-.kpi:hover{
-
-    transform:
-    translateY(-3px);
+    margin-bottom:10px;
 
 }
 
-.kpi-numero{
+.jogo{
 
-    font-size:42px;
+    font-size:34px;
 
     font-weight:700;
 
-}
-
-.kpi-label{
-
-    color:var(--muted);
-
-    margin-top:5px;
+    line-height:1.4;
 
 }
 
-.amarelo{
+.data{
+
+    margin-top:15px;
 
     color:var(--yellow);
 
-}
+    font-weight:700;
 
-.verde{
-
-    color:var(--green);
+    font-size:20px;
 
 }
 
-.vermelho{
+.estadio{
 
-    color:var(--red);
+    color:var(--muted);
 
-}
+    margin-top:10px;
 
-.azul{
-
-    color:var(--blue);
+    font-size:14px;
 
 }
 
@@ -235,13 +178,47 @@ body{
 
 }
 
+.kpi{
+
+    text-align:center;
+
+}
+
+.kpi-numero{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.kpi-label{
+
+    margin-top:10px;
+
+    color:var(--muted);
+
+}
+
+.amarelo{
+    color:var(--yellow);
+}
+
+.vermelho{
+    color:var(--red);
+}
+
+.azul{
+    color:var(--blue);
+}
+
 .alerta{
 
     background:var(--card2);
 
-    padding:12px;
-
     border-radius:12px;
+
+    padding:12px;
 
     margin-bottom:8px;
 
@@ -251,24 +228,17 @@ body{
 
     background:var(--card2);
 
-    padding:12px;
-
     border-radius:12px;
+
+    padding:12px;
 
     margin-bottom:8px;
 
     display:flex;
 
-    justify-content:
-    space-between;
+    justify-content:space-between;
 
     align-items:center;
-
-}
-
-.nome{
-
-    font-weight:600;
 
 }
 
@@ -278,13 +248,9 @@ body{
 
     color:#000;
 
-    min-width:45px;
-
-    text-align:center;
-
-    padding:6px 12px;
-
     border-radius:999px;
+
+    padding:5px 12px;
 
     font-weight:700;
 
@@ -294,8 +260,7 @@ table{
 
     width:100%;
 
-    border-collapse:
-    collapse;
+    border-collapse:collapse;
 
 }
 
@@ -328,19 +293,31 @@ td:last-child{
 
     margin-top:20px;
 
-    font-size:12px;
-
 }
 
 .loading{
 
-    text-align:center;
-
     color:var(--muted);
+
+    text-align:center;
 
 }
 
 @media(max-width:900px){
+
+    .grid-topo{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .grid-duplo{
+
+        grid-template-columns:
+        1fr;
+
+    }
 
     .grid-kpi{
 
@@ -349,10 +326,9 @@ td:last-child{
 
     }
 
-    .grid-duplo{
+    .jogo{
 
-        grid-template-columns:
-        1fr;
+        font-size:26px;
 
     }
 
@@ -366,15 +342,19 @@ td:last-child{
 
 <div class="container">
 
-<!-- HERO -->
+<!-- TOPO -->
 
-<div class="grid-duplo">
+<div class="grid-topo">
 
     <div class="card hero">
 
+        <div class="logo">⚽</div>
+
         <div id="jogo"
              class="jogo">
+
             A carregar...
+
         </div>
 
         <div id="dataHora"
@@ -388,7 +368,9 @@ td:last-child{
     <div class="card">
 
         <div class="titulo">
+
             👨‍⚖️ Arbitragem
+
         </div>
 
         <div id="arbitro"></div>
@@ -398,6 +380,7 @@ td:last-child{
     </div>
 
 </div>
+
 <!-- KPI -->
 
 <div class="grid-kpi">
@@ -406,11 +389,15 @@ td:last-child{
 
         <div id="kpiCartoes"
              class="kpi-numero amarelo">
-             0
+
+            0
+
         </div>
 
         <div class="kpi-label">
+
             🟨 Cartões
+
         </div>
 
     </div>
@@ -419,11 +406,15 @@ td:last-child{
 
         <div id="kpiCastigados"
              class="kpi-numero vermelho">
-             0
+
+            0
+
         </div>
 
         <div class="kpi-label">
+
             🚫 Castigados
+
         </div>
 
     </div>
@@ -432,25 +423,33 @@ td:last-child{
 
         <div id="kpiRisco"
              class="kpi-numero azul">
-             0
+
+            0
+
         </div>
 
         <div class="kpi-label">
+
             ⚠️ Em Risco
+
         </div>
 
     </div>
 
-   <div class="card">
+    <div class="card">
 
         <div class="titulo">
+
             ⚔️ Próxima Semana
+
         </div>
 
         <div id="adversario">
 
             <div class="loading">
+
                 A carregar...
+
             </div>
 
         </div>
@@ -459,38 +458,44 @@ td:last-child{
 
 </div>
 
-
-<!-- CASTIGADOS ADVERSÁRIO + CASTIGADOS RIO MOURO -->
+<!-- CASTIGADOS -->
 
 <div class="grid-duplo">
-
 
     <div class="card">
 
         <div class="titulo">
+
             🚫 Castigados Rio Mouro
+
         </div>
 
         <div id="castigados">
 
             <div class="loading">
+
                 A carregar...
+
             </div>
 
         </div>
 
     </div>
 
-<div class="card">
+    <div class="card">
 
         <div class="titulo">
+
             🚫 Castigados Adversário Atual
+
         </div>
 
         <div id="castigadosAdversario">
 
             <div class="loading">
+
                 A carregar...
+
             </div>
 
         </div>
@@ -499,18 +504,22 @@ td:last-child{
 
 </div>
 
-<!-- JOGADORES EM RISCO -->
+<!-- EM RISCO -->
 
 <div class="card">
 
     <div class="titulo">
+
         ⚠️ Jogadores em Risco
+
     </div>
 
     <div id="risco">
 
         <div class="loading">
+
             A carregar...
+
         </div>
 
     </div>
@@ -522,31 +531,17 @@ td:last-child{
 <div class="card">
 
     <div class="titulo">
+
         🟨 Ranking Disciplinar
+
     </div>
 
     <div id="listaCartoes">
 
         <div class="loading">
+
             A carregar...
-        </div>
 
-    </div>
-
-</div>
-
-<!-- MULTAS -->
-
-<div class="card">
-
-    <div class="titulo">
-        💰 Multas
-    </div>
-
-    <div id="listaMultas">
-
-        <div class="loading">
-            A carregar...
         </div>
 
     </div>
@@ -558,13 +553,17 @@ td:last-child{
 <div class="card">
 
     <div class="titulo">
+
         📊 Estatísticas da Época
+
     </div>
 
     <div id="estatisticas">
 
         <div class="loading">
+
             A carregar...
+
         </div>
 
     </div>
@@ -575,6 +574,8 @@ td:last-child{
 
     Última atualização:
     <span id="atualizacao">-</span>
+
+</div>
 
 </div>
 
@@ -596,7 +597,7 @@ async function carregarDashboard(){
         const s =
         dados.seniores;
 
-        /* JOGO */
+              /* JOGO */
 
         document.getElementById(
             "jogo"
@@ -636,13 +637,6 @@ async function carregarDashboard(){
         ).innerText =
         (s.cartoes.risco || []).length;
 
-        document.getElementById(
-            "kpiMultas"
-        ).innerText =
-        Number(
-            s.multas.total || 0
-        ).toFixed(2) + "€";
-
         /* PRÓXIMO ADVERSÁRIO */
 
         document.getElementById(
@@ -652,7 +646,7 @@ async function carregarDashboard(){
         <div class="alerta">
 
             <strong>
-                ⚔️ ${s.proximo_adversario.nome}
+                ${s.proximo_adversario.nome}
             </strong>
 
         </div>
@@ -660,76 +654,64 @@ async function carregarDashboard(){
 
         /* ARBITRAGEM */
 
-const arbitro =
-s.proximo_jogo.arbitro ||
-"Por nomear";
-
-document.getElementById(
-    "arbitro"
-).innerHTML =
-`
-<div class="alerta">
-
-    👨‍⚖️ <strong>
-        ${arbitro}
-    </strong>
-
-</div>
-`;
-
-let assistentes = "";
-
-if(
-    s.proximo_jogo.assistentes &&
-    s.proximo_jogo.assistentes.length > 0
-){
-
-    s.proximo_jogo.assistentes.forEach(a => {
-
-        assistentes += `
+        document.getElementById(
+            "arbitro"
+        ).innerHTML =
+        `
         <div class="alerta">
 
-            🚩 ${a}
+            👨‍⚖️
+            <strong>
+                ${s.proximo_jogo.arbitro || "Por nomear"}
+            </strong>
 
         </div>
         `;
 
-    });
+        let assistentes = "";
 
-}else{
+        (
+            s.proximo_jogo.assistentes || []
+        ).forEach(a => {
 
-    assistentes =
-    `
-    <div class="alerta">
+            assistentes +=
+            `
+            <div class="alerta">
 
-        Assistentes por nomear
+                🚩 ${a}
 
-    </div>
-    `;
-}
+            </div>
+            `;
 
-document.getElementById(
-    "assistentes"
-).innerHTML =
-assistentes;
+        });
+
+        if(
+            assistentes === ""
+        ){
+
+            assistentes =
+            `
+            <div class="alerta">
+
+                Assistentes por nomear
+
+            </div>
+            `;
+
+        }
+
+        document.getElementById(
+            "assistentes"
+        ).innerHTML =
+        assistentes;
 
         /* CASTIGADOS ADVERSÁRIO */
 
         let htmlCastigadosAdv = "";
 
-        const castigadosAdv =
-        s.proximo_adversario.castigados;
-
         if(
-            castigadosAdv === 0 ||
-            castigadosAdv === null ||
-            castigadosAdv === undefined ||
-            (
-                Array.isArray(
-                    castigadosAdv
-                ) &&
-                castigadosAdv.length === 0
-            )
+            !s.proximo_adversario.castigados ||
+            s.proximo_adversario.castigados === 0
         ){
 
             htmlCastigadosAdv =
@@ -741,16 +723,16 @@ assistentes;
             </div>
             `;
 
-        }
-        else{
+        }else{
 
             if(
                 Array.isArray(
-                    castigadosAdv
+                    s.proximo_adversario.castigados
                 )
             ){
 
-                castigadosAdv.forEach(j => {
+                s.proximo_adversario.castigados
+                .forEach(j => {
 
                     htmlCastigadosAdv +=
                     `
@@ -762,17 +744,6 @@ assistentes;
                     `;
 
                 });
-
-            }else{
-
-                htmlCastigadosAdv =
-                `
-                <div class="alerta">
-
-                    🚫 ${castigadosAdv}
-
-                </div>
-                `;
 
             }
 
@@ -827,7 +798,7 @@ assistentes;
         ).innerHTML =
         htmlCastigados;
 
-        /* JOGADORES EM RISCO */
+        /* EM RISCO */
 
         let htmlRisco = "";
 
@@ -839,7 +810,7 @@ assistentes;
             `
             <div class="jogador">
 
-                <div class="nome">
+                <div>
 
                     ${j.nome}
 
@@ -878,7 +849,7 @@ assistentes;
 
         /* RANKING */
 
-        let htmlCartoes =
+        let htmlRanking =
         `
         <table>
         `;
@@ -887,20 +858,16 @@ assistentes;
             s.cartoes.ranking || []
         ).forEach(j => {
 
-            htmlCartoes +=
+            htmlRanking +=
             `
             <tr>
 
                 <td>
-
                     ${j.nome}
-
                 </td>
 
                 <td>
-
                     ${j.cartoes}
-
                 </td>
 
             </tr>
@@ -908,7 +875,7 @@ assistentes;
 
         });
 
-        htmlCartoes +=
+        htmlRanking +=
         `
         </table>
         `;
@@ -916,69 +883,7 @@ assistentes;
         document.getElementById(
             "listaCartoes"
         ).innerHTML =
-        htmlCartoes;
-
-        /* MULTAS */
-
-        let htmlMultas = "";
-
-        if(
-            !s.multas.lista ||
-            s.multas.lista.length === 0
-        ){
-
-            htmlMultas =
-            `
-            <div class="alerta">
-
-                ✅ Sem multas
-
-            </div>
-            `;
-
-        }else{
-
-            htmlMultas =
-            `
-            <table>
-            `;
-
-            s.multas.lista.forEach(m => {
-
-                htmlMultas +=
-                `
-                <tr>
-
-                    <td>
-
-                        ${m.nome}
-
-                    </td>
-
-                    <td>
-
-                        ${Number(
-                            m.valor
-                        ).toFixed(2)} €
-
-                    </td>
-
-                </tr>
-                `;
-
-            });
-
-            htmlMultas +=
-            `
-            </table>
-            `;
-
-        }
-
-        document.getElementById(
-            "listaMultas"
-        ).innerHTML =
-        htmlMultas;
+        htmlRanking;
 
         /* ESTATÍSTICAS */
 
@@ -1015,18 +920,13 @@ assistentes;
 
         <div class="alerta">
 
-            💰 Total multas:
+            👨‍⚖️ Árbitros diferentes:
             <strong>
-                ${Number(
-                    s.multas.total || 0
-                ).toFixed(2)} €
-
+                ${s.arbitros?.diferentes || 0}
             </strong>
 
         </div>
         `;
-
-        /* ATUALIZAÇÃO */
 
         document.getElementById(
             "atualizacao"
@@ -1039,6 +939,10 @@ assistentes;
         console.error(
             "ERRO DASHBOARD:",
             err
+        );
+
+        alert(
+            err.message
         );
 
     }
@@ -1055,4 +959,5 @@ setInterval(
 </script>
 
 </body>
+
 </html>
