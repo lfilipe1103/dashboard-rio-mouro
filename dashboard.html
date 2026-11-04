@@ -15,23 +15,16 @@
 :root{
 
     --bg:#050505;
-
     --card:#13213a;
-
     --card2:#1c2d4a;
-
     --border:#2d4369;
 
     --yellow:#facc15;
-
     --green:#22c55e;
-
     --red:#ef4444;
-
     --blue:#3b82f6;
 
     --text:#ffffff;
-
     --muted:#9fb0c9;
 
 }
@@ -45,14 +38,8 @@
 body{
 
     background:var(--bg);
-
     color:var(--text);
-
-    font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
+    font-family:"Segoe UI",Arial,sans-serif;
     padding:15px;
 
 }
@@ -60,7 +47,6 @@ body{
 .container{
 
     max-width:1200px;
-
     margin:auto;
 
 }
@@ -68,18 +54,21 @@ body{
 .card{
 
     background:var(--card);
-
     border:1px solid var(--border);
-
     border-radius:20px;
-
     padding:18px;
-
     margin-bottom:12px;
 
 }
 
-.topo{
+.hero{
+
+    background:
+    linear-gradient(
+        135deg,
+        #13213a,
+        #1c2d4a
+    );
 
     text-align:center;
 
@@ -87,34 +76,29 @@ body{
 
 .logo{
 
-    font-size:45px;
+    font-size:50px;
+    margin-bottom:10px;
 
 }
 
-.topo h1{
+.hero h1{
 
-    margin-top:10px;
-
-    margin-bottom:10px;
+    margin-bottom:15px;
 
 }
 
 .jogo{
 
-    font-size:32px;
-
+    font-size:34px;
     font-weight:700;
-
-    line-height:1.3;
+    line-height:1.4;
 
 }
 
 .data{
 
-    color:var(--yellow);
-
     margin-top:12px;
-
+    color:var(--yellow);
     font-size:18px;
 
 }
@@ -122,42 +106,46 @@ body{
 .estadio{
 
     margin-top:10px;
-
     color:var(--muted);
 
 }
 
-.grid{
+.grid-kpi{
 
     display:grid;
-
     grid-template-columns:
-    repeat(auto-fit,minmax(250px,1fr));
-
+    repeat(4,1fr);
     gap:12px;
+    margin-bottom:12px;
 
 }
 
-.titulo{
+.grid-duplo{
 
-    font-size:18px;
-
-    font-weight:700;
-
-    margin-bottom:15px;
+    display:grid;
+    grid-template-columns:
+    1fr 1fr;
+    gap:12px;
+    margin-bottom:12px;
 
 }
 
 .kpi{
 
     text-align:center;
+    transition:.2s;
+
+}
+
+.kpi:hover{
+
+    transform:translateY(-3px);
 
 }
 
 .kpi-numero{
 
     font-size:42px;
-
     font-weight:700;
 
 }
@@ -169,37 +157,39 @@ body{
 }
 
 .amarelo{
-
     color:var(--yellow);
-
 }
 
 .verde{
-
     color:var(--green);
-
 }
 
 .vermelho{
-
     color:var(--red);
-
 }
 
 .azul{
-
     color:var(--blue);
+}
+
+.titulo{
+
+    font-size:20px;
+    font-weight:700;
+
+    padding-bottom:10px;
+    margin-bottom:15px;
+
+    border-bottom:
+    1px solid var(--border);
 
 }
 
 .alerta{
 
     background:var(--card2);
-
-    padding:12px;
-
     border-radius:12px;
-
+    padding:12px;
     margin-bottom:8px;
 
 }
@@ -208,16 +198,13 @@ body{
 
     background:var(--card2);
 
-    padding:12px;
-
     border-radius:12px;
+    padding:12px;
 
     margin-bottom:8px;
 
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 
 }
@@ -225,97 +212,73 @@ body{
 .contador{
 
     background:var(--yellow);
+    color:#000;
 
-    color:black;
+    min-width:45px;
 
-    padding:5px 12px;
+    text-align:center;
+
+    padding:6px 12px;
 
     border-radius:999px;
+    font-weight:700;
 
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+td{
+
+    padding:12px;
+
+}
+
+tr{
+
+    border-bottom:
+    1px solid var(--border);
+
+}
+
+td:last-child{
+
+    text-align:right;
     font-weight:700;
 
 }
 
 .footer{
 
-    color:var(--muted);
-
     text-align:center;
-
+    color:var(--muted);
     margin-top:20px;
 
 }
 
-.loading{
+@media(max-width:900px){
 
-    text-align:center;
+    .grid-kpi{
 
-    color:var(--muted);
+        grid-template-columns:
+        repeat(2,1fr);
 
-}
+    }
 
-strong{
+    .grid-duplo{
 
-    color:var(--yellow);
+        grid-template-columns:
+        1fr;
+
+    }
 
 }
 
 </style>
-
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-
-import {
-    getFirestore,
-    collection,
-    getDocs
-}
-from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
-
-const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
-
-    authDomain:
-    "rdm-v2-98d5b.firebaseapp.com",
-
-    projectId:
-    "rdm-v2-98d5b",
-
-    storageBucket:
-    "rdm-v2-98d5b.firebasestorage.app",
-
-    messagingSenderId:
-    "847254286305",
-
-    appId:
-    "1:847254286305:web:eb5d179fb7ed6e5054eca0"
-
-};
-
-const app =
-initializeApp(firebaseConfig);
-
-window.firebaseDB =
-getFirestore(app);
-
-window.firebaseCollection =
-collection;
-
-window.firebaseGetDocs =
-getDocs;
-
-window.firebaseReady =
-true;
-
-console.log(
-    "Firebase Dashboard OK"
-);
-
-</script>
 
 </head>
 
@@ -323,21 +286,14 @@ console.log(
 
 <div class="container">
 
-    <div class="card topo">
+    <div class="card hero">
 
-        <div class="logo">
-            ⚽
-        </div>
+        <div class="logo">⚽</div>
 
-        <h1>
-            GD RIO DE MOURO
-        </h1>
+        <h1>GD RIO DE MOURO</h1>
 
-        <div id="jogo"
-             class="jogo">
-
+        <div id="jogo" class="jogo">
             A carregar...
-
         </div>
 
         <div id="dataHora"
@@ -348,199 +304,122 @@ console.log(
 
     </div>
 
-    <div class="grid">
+<div class="grid-kpi">
 
-        <div class="card kpi">
+    <div class="card kpi">
+        <div id="kpiCartoes"
+             class="kpi-numero amarelo">0</div>
+        <div class="kpi-label">🟨 Cartões</div>
+    </div>
 
-            <div id="kpiCartoes"
-                 class="kpi-numero amarelo">
+    <div class="card kpi">
+        <div id="kpiCastigados"
+             class="kpi-numero vermelho">0</div>
+        <div class="kpi-label">🚫 Castigados</div>
+    </div>
 
-                0
+    <div class="card kpi">
+        <div id="kpiRisco"
+             class="kpi-numero azul">0</div>
+        <div class="kpi-label">⚠️ Em Risco</div>
+    </div>
 
-            </div>
+    <div class="card kpi">
+        <div id="kpiMultas"
+             class="kpi-numero verde">0€</div>
+        <div class="kpi-label">💰 Multas</div>
+    </div>
 
-            <div class="kpi-label">
+</div>
 
-                🟨 Cartões
+<div class="grid-duplo">
 
-            </div>
+    <div class="card">
 
+        <div class="titulo">
+            ⚔️ Adversários
         </div>
 
-        <div class="card kpi">
+        <div id="adversario"></div>
 
-            <div id="kpiMultas"
-                 class="kpi-numero verde">
-
-                0€
-
-            </div>
-
-            <div class="kpi-label">
-
-                💰 Multas
-
-            </div>
-
-        </div>
-
-        <div class="card kpi">
-
-            <div id="kpiCastigados"
-                 class="kpi-numero vermelho">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                🚫 Castigados
-
-            </div>
-
-        </div>
-
-        <div class="card kpi">
-
-            <div id="kpiRisco"
-                 class="kpi-numero azul">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                ⚠️ Em Risco
-
-            </div>
-
-        </div>
+        <div id="adversarioSeguinte"></div>
 
     </div>
 
     <div class="card">
 
         <div class="titulo">
-
-            👨‍⚖️ Equipa de Arbitragem
-
+            👨‍⚖️ Arbitragem
         </div>
 
-        <div id="arbitro"
-             class="alerta">
-
-            A carregar...
-
-        </div>
+        <div id="arbitro"></div>
 
         <div id="assistentes"></div>
 
     </div>
 
-    <div class="card">
+</div>
 
-        <div class="titulo">
-
-            ⚔️ Próximo Adversário
-
-        </div>
-
-        <div id="adversario">
-
-            A carregar...
-
-        </div>
-
-    </div>
+<div class="grid-duplo">
 
     <div class="card">
 
         <div class="titulo">
-
             🚫 Castigados
-
         </div>
 
-        <div id="castigados">
-
-            A carregar...
-
-        </div>
+        <div id="castigados"></div>
 
     </div>
 
     <div class="card">
 
         <div class="titulo">
-
             ⚠️ Jogadores em Risco
-
         </div>
 
-        <div id="risco">
-
-            A carregar...
-
-        </div>
+        <div id="risco"></div>
 
     </div>
 
-    <div class="card">
+</div>
 
-        <div class="titulo">
+<div class="card">
 
-            🟨 Ranking Cartões
-
-        </div>
-
-        <div id="listaCartoes">
-
-            A carregar...
-
-        </div>
-
+    <div class="titulo">
+        🟨 Ranking Disciplinar
     </div>
 
-    <div class="card">
+    <div id="listaCartoes"></div>
 
-        <div class="titulo">
+</div>
 
-            💰 Multas
+<div class="card">
 
-        </div>
-
-        <div id="listaMultas">
-
-            A carregar...
-
-        </div>
-
+    <div class="titulo">
+        💰 Multas
     </div>
 
-    <div class="card">
+    <div id="listaMultas"></div>
 
-        <div class="titulo">
+</div>
 
-            📊 Estatísticas dos Treinos
+<div class="card">
 
-        </div>
-
-        <div id="estatisticas">
-
-            A calcular...
-
-        </div>
-
+    <div class="titulo">
+        📊 Estatísticas da Época
     </div>
 
-    <div class="footer">
+    <div id="estatisticas"></div>
 
-        Última atualização:
-        <span id="atualizacao">-</span>
+</div>
 
-    </div>
+<div class="footer">
+
+    Última atualização:
+    <span id="atualizacao">-</span>
+
+</div>
 
 </div>
 
@@ -551,7 +430,6 @@ async function carregarDashboard(){
     try{
 
         const resposta =
-
         await fetch(
             "dashboard_data.json?t=" +
             Date.now()
@@ -566,7 +444,6 @@ async function carregarDashboard(){
         document.getElementById(
             "jogo"
         ).innerHTML =
-
         `
         ${s.proximo_jogo.casa}
         <br>
@@ -577,59 +454,67 @@ async function carregarDashboard(){
 
         document.getElementById(
             "dataHora"
-        ).innerText =
-
+        ).innerHTML =
         `${s.proximo_jogo.data} • ${s.proximo_jogo.hora}`;
 
         document.getElementById(
             "estadio"
         ).innerHTML =
-
         `📍 ${s.proximo_jogo.estadio}`;
 
         document.getElementById(
             "kpiCartoes"
         ).innerText =
-
         s.cartoes.total || 0;
-
-        document.getElementById(
-            "kpiMultas"
-        ).innerText =
-
-        (s.multas.total || 0) + "€";
 
         document.getElementById(
             "kpiCastigados"
         ).innerText =
-
-        (s.castigos.lista || []).length;
+        s.castigos.ativos || 0;
 
         document.getElementById(
             "kpiRisco"
         ).innerText =
+        (s.cartoes.risco || []).length;
 
-        (
-            s.cartoes.risco || []
-        ).length;
+        document.getElementById(
+            "kpiMultas"
+        ).innerText =
+        (s.multas.total || 0) + "€";
+
+        document.getElementById(
+            "adversario"
+        ).innerHTML =
+        `
+        <div class="alerta">
+            ⚔️ <strong>${s.proximo_adversario.nome}</strong>
+        </div>
+        `;
+
+        document.getElementById(
+            "adversarioSeguinte"
+        ).innerHTML =
+        `
+        <div class="alerta">
+            ⏭️ <strong>${s.adversario_semana_seguinte.nome}</strong>
+        </div>
+        `;
 
         document.getElementById(
             "arbitro"
         ).innerHTML =
-
         `
-        👨‍⚖️ ${s.proximo_jogo.arbitro || "Por nomear"}
+        <div class="alerta">
+            👨‍⚖️ ${s.proximo_jogo.arbitro}
+        </div>
         `;
 
-        let htmlAssistentes = "";
+        let assistentes = "";
 
-        (
-            s.proximo_jogo.assistentes || []
-        ).forEach(a => {
+        (s.proximo_jogo.assistentes || [])
+        .forEach(a=>{
 
-            htmlAssistentes +=
-
-            `
+            assistentes += `
             <div class="alerta">
                 🚩 ${a}
             </div>
@@ -640,330 +525,7 @@ async function carregarDashboard(){
         document.getElementById(
             "assistentes"
         ).innerHTML =
-        htmlAssistentes;
-
-        document.getElementById(
-            "adversario"
-        ).innerHTML =
-
-        `
-        <div class="alerta">
-
-            <strong>
-                ${s.proximo_adversario.nome}
-            </strong>
-
-            <br><br>
-
-            Castigados:
-            ${s.proximo_adversario.castigados}
-
-        </div>
-        `;
-
-        let htmlCastigados = "";
-
-        if(
-            !s.castigos.lista ||
-            s.castigos.lista.length === 0
-        ){
-
-            htmlCastigados =
-
-            `
-            <div class="alerta">
-                ✅ Sem castigados
-            </div>
-            `;
-
-        }
-        else{
-
-            s.castigos.lista.forEach(c => {
-
-                htmlCastigados +=
-
-                `
-                <div class="alerta">
-
-                    🚫 ${c.nome}
-
-                    <br>
-
-                    ${c.jogos} jogo(s)
-
-                </div>
-                `;
-
-            });
-
-        }
-
-        document.getElementById(
-            "castigados"
-        ).innerHTML =
-        htmlCastigados;
-
-        let htmlRisco = "";
-
-        (
-            s.cartoes.risco || []
-        ).forEach(j => {
-
-            htmlRisco +=
-
-            `
-            <div class="jogador">
-
-                <div>
-
-                    <strong>
-                        ${j.nome}
-                    </strong>
-
-                </div>
-
-                <div class="contador">
-
-                    ${j.cartoes}
-
-                </div>
-
-            </div>
-            `;
-
-        });
-
-        if(
-            htmlRisco === ""
-        ){
-
-            htmlRisco =
-
-            `
-            <div class="alerta">
-                ✅ Sem jogadores em risco
-            </div>
-            `;
-
-        }
-
-        document.getElementById(
-            "risco"
-        ).innerHTML =
-        htmlRisco;
-
-        let htmlCartoes = "";
-
-        (
-            s.cartoes.ranking || []
-        ).forEach(j => {
-
-            htmlCartoes +=
-
-            `
-            <div class="jogador">
-
-                <div>
-
-                    ${j.nome}
-
-                </div>
-
-                <div class="contador">
-
-                    ${j.cartoes}
-
-                </div>
-
-            </div>
-            `;
-
-        });
-
-        document.getElementById(
-            "listaCartoes"
-        ).innerHTML =
-        htmlCartoes;
-
-        let htmlMultas = "";
-
-        if(
-            !s.multas.lista ||
-            s.multas.lista.length === 0
-        ){
-
-            htmlMultas =
-
-            `
-            <div class="alerta">
-                Sem multas
-            </div>
-            `;
-
-        }
-        else{
-
-            s.multas.lista.forEach(m => {
-
-                htmlMultas +=
-
-                `
-                <div class="alerta">
-
-                    💰
-
-                    <strong>
-                        ${m.nome}
-                    </strong>
-
-                    <br><br>
-
-                    ${Number(
-                        m.valor
-                    ).toFixed(2)} €
-
-                </div>
-                `;
-
-            });
-
-        }
-
-        document.getElementById(
-            "listaMultas"
-        ).innerHTML =
-        htmlMultas;
-
-        /* ===== ESTATÍSTICAS TREINOS FIREBASE ===== */
-
-        let numeroTreinos = 0;
-        let totalPresencas = 0;
-        let totalFaltas = 0;
-        let totalJustificadas = 0;
-
-        if(
-            window.firebaseReady
-        ){
-
-            try{
-
-                const docs =
-
-                await window.firebaseGetDocs(
-
-                    window.firebaseCollection(
-                        window.firebaseDB,
-                        "treinos"
-                    )
-
-                );
-
-                docs.forEach(doc => {
-
-                    const treino =
-                    doc.data();
-
-                    if(
-                        treino.ativo !== true
-                    ){
-                        return;
-                    }
-
-                    numeroTreinos++;
-
-                    Object.values(
-                        treino
-                    ).forEach(v => {
-
-                        if(v==="✅")
-                            totalPresencas++;
-
-                        if(v==="❌")
-                            totalFaltas++;
-
-                        if(v==="🟨")
-                            totalJustificadas++;
-
-                    });
-
-                });
-
-            }
-            catch(erro){
-
-                console.log(
-                    "Firebase erro:",
-                    erro
-                );
-
-            }
-
-        }
-
-        document.getElementById(
-            "estatisticas"
-        ).innerHTML =
-
-        `
-
-        <div class="alerta">
-
-            📅 Treinos Realizados
-
-            <br><br>
-
-            <strong>
-
-                ${numeroTreinos}
-
-            </strong>
-
-        </div>
-
-        <div class="alerta">
-
-            ✅ Presenças Registadas
-
-            <br><br>
-
-            <strong>
-
-                ${totalPresencas}
-
-            </strong>
-
-        </div>
-
-        <div class="alerta">
-
-            ❌ Faltas Registadas
-
-            <br><br>
-
-            <strong>
-
-                ${totalFaltas}
-
-            </strong>
-
-        </div>
-
-        <div class="alerta">
-
-            🟨 Justificações
-
-            <br><br>
-
-            <strong>
-
-                ${totalJustificadas}
-
-            </strong>
-
-        </div>
-
-        `;
+        assistentes;
 
         document.getElementById(
             "atualizacao"
@@ -973,31 +535,13 @@ async function carregarDashboard(){
     }
     catch(err){
 
-        console.error(
-            "ERRO DASHBOARD:",
-            err
-        );
-
-        document.getElementById(
-            "estatisticas"
-        ).innerHTML =
-
-        `
-        <div class="alerta">
-
-            ❌ Erro ao carregar dashboard
-
-        </div>
-        `;
+        console.error(err);
 
     }
 
 }
 
-setTimeout(
-    carregarDashboard,
-    1000
-);
+carregarDashboard();
 
 setInterval(
     carregarDashboard,
