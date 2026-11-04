@@ -1,0 +1,72 @@
+<button onclick="cargarPlantel()">
+    Carregar Plantel
+</button>
+
+<script>
+
+async function cargarPlantel(){
+
+    const jogadores = [
+
+        {
+            nome:"Filipe Pereira",
+            nascimento:"2005-10-29",
+            posicao:"GR"
+        },
+
+        {
+            nome:"Julio Brandão",
+            nascimento:"2007-08-27",
+            posicao:"GR"
+        },
+
+        {
+            nome:"Henrique Macedo",
+            nascimento:"2002-10-09",
+            posicao:"GR"
+        },
+
+        {
+            nome:"Renan Lima",
+            nascimento:"1997-02-09",
+            posicao:"GR"
+        }
+
+    ];
+
+    for(const j of jogadores){
+
+        const id =
+
+        j.nome
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/\s+/g,"_");
+
+        await window.firebaseSetDoc(
+
+            window.firebaseDoc(
+                window.firebaseDB,
+                "plantel",
+                id
+            ),
+
+            {
+                nome:j.nome,
+                nascimento:j.nascimento,
+                posicao:j.posicao,
+                ativo:true
+            }
+
+        );
+
+    }
+
+    alert(
+        "Plantel carregado!"
+    );
+
+}
+
+</script>
