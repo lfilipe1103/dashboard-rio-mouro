@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Área Técnica</title>
+<title>Área Técnica V4</title>
 
 <style>
 
@@ -40,6 +40,7 @@
 body{
 
     background:var(--bg);
+
     color:var(--text);
 
     font-family:
@@ -53,7 +54,8 @@ body{
 
 .container{
 
-    max-width:1200px;
+    max-width:1300px;
+
     margin:auto;
 
 }
@@ -91,15 +93,15 @@ body{
 
     justify-content:center;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 
 }
 
 .logo img{
 
-    width:70px;
+    width:80px;
 
-    height:70px;
+    height:80px;
 
     object-fit:contain;
 
@@ -127,10 +129,10 @@ body{
 
     margin-bottom:15px;
 
+    padding-bottom:10px;
+
     border-bottom:
     1px solid var(--border);
-
-    padding-bottom:10px;
 
 }
 
@@ -168,22 +170,63 @@ input{
 
     font-weight:600;
 
-    transition:.2s;
-
-}
-
-.btn:hover{
-
-    opacity:.95;
-
 }
 
 .btn-voltar{
 
     background:#1c2d4a;
 
+}
+
+.grid-kpi{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+
     margin-bottom:12px;
 
+}
+
+.kpi{
+
+    text-align:center;
+
+}
+
+.kpi-numero{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.kpi-label{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+}
+
+.verde{
+    color:var(--green);
+}
+
+.vermelho{
+    color:var(--red);
+}
+
+.amarelo{
+    color:var(--yellow);
+}
+
+.azul{
+    color:var(--blue);
 }
 
 .jogador{
@@ -201,6 +244,32 @@ input{
     border-radius:12px;
 
     margin-bottom:8px;
+
+}
+
+.info-jogador{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.idade{
+
+    font-size:12px;
+
+    color:var(--muted);
+
+}
+
+.estado{
+
+    color:var(--yellow);
+
+    font-size:12px;
 
 }
 
@@ -225,6 +294,24 @@ input{
     cursor:pointer;
 
     font-size:18px;
+
+}
+
+.estat-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px;
+
+    background:var(--card2);
+
+    margin-bottom:8px;
+
+    border-radius:12px;
 
 }
 
@@ -258,7 +345,9 @@ import {
     getFirestore,
     doc,
     getDoc,
-    setDoc
+    setDoc,
+    getDocs,
+    collection
 }
 from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
@@ -299,6 +388,12 @@ getDoc;
 window.firebaseSetDoc =
 setDoc;
 
+window.firebaseCollection =
+collection;
+
+window.firebaseGetDocs =
+getDocs;
+
 </script>
 
 </head>
@@ -327,7 +422,7 @@ setDoc;
 
         <div class="subtitulo">
 
-            Gestão de Treinos e Presenças
+            Gestão de Treinos e Estatística Geral
 
         </div>
 
@@ -385,7 +480,7 @@ setDoc;
             class="btn"
             onclick="mostrarEstatisticas()">
 
-            📊 Estatísticas
+            📊 Estatística Geral
 
         </button>
 
@@ -535,7 +630,7 @@ setDoc;
 
         <div class="titulo">
 
-            📊 Estatísticas Gerais
+            📊 Estatística Geral da Época
 
         </div>
 
@@ -551,7 +646,45 @@ setDoc;
 
     </div>
 
-</div>
+    <div class="card">
+
+        <div class="titulo">
+
+            🏆 Ranking Assiduidade
+
+        </div>
+
+        <div id="rankingAssiduidade">
+
+            <div class="loading">
+
+                A calcular...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            🚨 Ranking Ausências
+
+        </div>
+
+        <div id="rankingAusencias">
+
+            <div class="loading">
+
+                A calcular...
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
@@ -564,49 +697,162 @@ const PLANTEL = {
 
     guardaRedes:[
 
-        "Filipe Pereira",
-        "Julio Brandão",
-        "Henrique Macedo",
-        "Renan Lima"
+        {
+            nome:"Filipe Pereira",
+            nascimento:"2005-10-29"
+        },
+
+        {
+            nome:"Julio Brandão",
+            nascimento:"2007-08-27"
+        },
+
+        {
+            nome:"Henrique Macedo",
+            nascimento:"2002-10-09"
+        },
+
+        {
+            nome:"Renan Lima",
+            nascimento:"1997-02-09"
+        }
 
     ],
 
     defesas:[
 
-        "Daniel Monteiro",
-        "Gonçalo Silva",
-        "Bruno Calvinho",
-        "André Pécurto",
-        "Robert Andrade",
-        "João Rodrigues",
-        "Nuno Gomes",
-        "Bernas"
+        {
+            nome:"Bruno Calvinho",
+            nascimento:"1996-12-14"
+        },
+
+        {
+            nome:"João Rodrigues",
+            nascimento:"2004-07-20"
+        },
+
+        {
+            nome:"Daniel Monteiro",
+            nascimento:"1999-01-22"
+        },
+
+        {
+            nome:"André Pécurto",
+            nascimento:"2004-02-26"
+        },
+
+        {
+            nome:"Bernas",
+            nascimento:"2002-01-05"
+        },
+
+        {
+            nome:"Robert Andrade",
+            nascimento:"1995-07-13"
+        },
+
+        {
+            nome:"Gonçalo Silva",
+            nascimento:"2004-03-12"
+        },
+
+        {
+            nome:"Nuno Gomes",
+            nascimento:"2006-02-25"
+        }
 
     ],
 
     medios:[
 
-        "Miguel Fonseca",
-        "Bruno Mota",
-        "Rodrigo Tomé",
-        "Pedro Paulino",
-        "João Rascão",
-        "Khalifa",
-        "Diogo Correia",
-        "Rodrigo Delgado",
-        "Henrique Martins"
+        {
+            nome:"Kaik Soares",
+            nascimento:"1997-12-27"
+        },
+
+        {
+            nome:"Khalifa",
+            nascimento:"1999-12-18"
+        },
+
+        {
+            nome:"Rodrigo Tomé",
+            nascimento:"1985-12-23"
+        },
+
+        {
+            nome:"Diogo Correia",
+            nascimento:"2007-10-25"
+        },
+
+        {
+            nome:"Rodrigo Delgado",
+            nascimento:"2005-11-24"
+        },
+
+        {
+            nome:"Pedro Paulino",
+            nascimento:"2004-05-26"
+        },
+
+        {
+            nome:"Miguel Fonseca",
+            nascimento:"2001-12-04"
+        },
+
+        {
+            nome:"Bruno Mota",
+            nascimento:"2002-10-06"
+        },
+
+        {
+            nome:"João Rascão",
+            nascimento:"1998-11-29"
+        }
 
     ],
 
     avancados:[
 
-        "Guilherme Azevedo",
-        "Jota",
-        "Guilherme Monteiro",
-        "Diogo Teixeira",
-        "David Sousa",
-        "Kala Furtado",
-        "Sana Sambu"
+        {
+            nome:"David Sousa",
+            nascimento:"2006-09-25"
+        },
+
+        {
+            nome:"Henrique Martins",
+            nascimento:"2002-04-18"
+        },
+
+        {
+            nome:"Guilherme Azevedo",
+            nascimento:"2005-12-21"
+        },
+
+        {
+            nome:"Jota",
+            nascimento:"2001-10-14"
+        },
+
+        {
+            nome:"Guilherme Monteiro",
+            nascimento:"2006-03-22"
+        },
+
+        {
+            nome:"Sana Sambu",
+            nascimento:"2000-11-13"
+        },
+
+        {
+            nome:"Diogo Teixeira",
+            nascimento:"2005-10-08"
+        },
+
+        {
+            nome:"Kala Furtado",
+            nascimento:"1995-03-22"
+        }
 
     ]
 
@@ -614,13 +860,46 @@ const PLANTEL = {
 
 let treinoAtual = {};
 
+function calcularIdade(data){
+
+    const hoje =
+    new Date();
+
+    const nasc =
+    new Date(data);
+
+    let idade =
+    hoje.getFullYear() -
+    nasc.getFullYear();
+
+    const m =
+    hoje.getMonth() -
+    nasc.getMonth();
+
+    if(
+        m < 0 ||
+        (
+            m === 0 &&
+            hoje.getDate() <
+            nasc.getDate()
+        )
+    ){
+        idade--;
+    }
+
+    return idade;
+
+}
+
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        document.getElementById(
+        document
+        .getElementById(
             "dataTreino"
-        ).value =
+        )
+        .value =
         new Date()
         .toISOString()
         .split("T")[0];
@@ -631,10 +910,11 @@ document.addEventListener(
 function entrar(){
 
     const pass =
-
-    document.getElementById(
+    document
+    .getElementById(
         "password"
-    ).value;
+    )
+    .value;
 
     if(
         pass !== PASSWORD
@@ -648,14 +928,18 @@ function entrar(){
 
     }
 
-    document.getElementById(
+    document
+    .getElementById(
         "login"
-    ).style.display =
+    )
+    .style.display =
     "none";
 
-    document.getElementById(
+    document
+    .getElementById(
         "menuMister"
-    ).style.display =
+    )
+    .style.display =
     "block";
 
 }
@@ -668,22 +952,15 @@ function mostrarTreinos(){
     "none";
 
     document.getElementById(
-        "areaEstatisticas"
-    ).style.display =
-    "none";
-
-    document.getElementById(
         "areaTreinos"
     ).style.display =
     "block";
 
     carregarPlantel();
 
-    atualizarResumo();
-
 }
 
-function mostrarEstatisticas(){
+async function mostrarEstatisticas(){
 
     document.getElementById(
         "menuMister"
@@ -691,16 +968,11 @@ function mostrarEstatisticas(){
     "none";
 
     document.getElementById(
-        "areaTreinos"
-    ).style.display =
-    "none";
-
-    document.getElementById(
         "areaEstatisticas"
     ).style.display =
     "block";
 
-    atualizarEstatisticas();
+    await atualizarEstatisticas();
 
 }
 
@@ -726,22 +998,9 @@ function voltarMenu(){
 async function criarTreino(){
 
     const data =
-
     document.getElementById(
         "dataTreino"
     ).value;
-
-    if(
-        !data
-    ){
-
-        alert(
-            "Seleciona uma data."
-        );
-
-        return;
-
-    }
 
     await window.firebaseSetDoc(
 
@@ -770,7 +1029,7 @@ async function criarTreino(){
     atualizarResumo();
 
     alert(
-        "Treino criado com sucesso."
+        "Treino criado."
     );
 
 }
@@ -778,25 +1037,11 @@ async function criarTreino(){
 async function abrirTreino(){
 
     const data =
-
-        document.getElementById(
-            "dataTreino"
-        ).value;
-
-    if(
-        !data
-    ){
-
-        alert(
-            "Seleciona uma data."
-        );
-
-        return;
-
-    }
+    document.getElementById(
+        "dataTreino"
+    ).value;
 
     const snap =
-
     await window.firebaseGetDoc(
 
         window.firebaseDoc(
@@ -834,22 +1079,9 @@ async function marcarPresenca(
 ){
 
     const data =
-
     document.getElementById(
         "dataTreino"
     ).value;
-
-    if(
-        !data
-    ){
-
-        alert(
-            "Seleciona uma data."
-        );
-
-        return;
-
-    }
 
     treinoAtual[
         jogador
@@ -882,8 +1114,6 @@ async function marcarPresenca(
 
 function carregarPlantel(){
 
-    let html = "";
-
     const grupos = [
 
         {
@@ -908,46 +1138,51 @@ function carregarPlantel(){
 
     ];
 
+    let html = "";
+
     grupos.forEach(grupo => {
 
         html += `
-
         <div class="card">
 
-            <div class="titulo">
+        <div class="titulo">
 
-                ${grupo.titulo}
+        ${grupo.titulo}
 
-            </div>
-
+        </div>
         `;
 
-        grupo.lista.forEach(nome => {
+        grupo.lista.forEach(j => {
 
             const estado =
-            treinoAtual[nome] || "";
+            treinoAtual[
+                j.nome
+            ] || "";
 
             html += `
 
             <div class="jogador">
 
-                <div>
+                <div class="info-jogador">
 
                     <strong>
-                        ${nome}
+                        ${j.nome}
                     </strong>
+
+                    <div class="idade">
+
+                        ${calcularIdade(
+                            j.nascimento
+                        )} anos
+
+                    </div>
 
                     ${
                         estado
                         ?
                         `
-                        <div style="
-                            margin-top:5px;
-                            color:#facc15;
-                            font-size:12px;
-                        ">
-                            Estado:
-                            ${estado}
+                        <div class="estado">
+                        ${estado}
                         </div>
                         `
                         :
@@ -958,49 +1193,13 @@ function carregarPlantel(){
 
                 <div class="botoes">
 
-                    <button
-                    onclick="
-                    marcarPresenca(
-                    '${nome}',
-                    '✅'
-                    )">
+                <button onclick="marcarPresenca('${j.nome}','✅')">✅</button>
 
-                    ✅
+                <button onclick="marcarPresenca('${j.nome}','❌')">❌</button>
 
-                    </button>
+                <button onclick="marcarPresenca('${j.nome}','🩺')">🩺</button>
 
-                    <button
-                    onclick="
-                    marcarPresenca(
-                    '${nome}',
-                    '❌'
-                    )">
-
-                    ❌
-
-                    </button>
-
-                    <button
-                    onclick="
-                    marcarPresenca(
-                    '${nome}',
-                    '🩺'
-                    )">
-
-                    🩺
-
-                    </button>
-
-                    <button
-                    onclick="
-                    marcarPresenca(
-                    '${nome}',
-                    '🟨'
-                    )">
-
-                    🟨
-
-                    </button>
+                <button onclick="marcarPresenca('${j.nome}','🟨')">🟨</button>
 
                 </div>
 
@@ -1010,9 +1209,7 @@ function carregarPlantel(){
 
         });
 
-        html += `
-        </div>
-        `;
+        html += "</div>";
 
     });
 
@@ -1025,105 +1222,143 @@ function carregarPlantel(){
 
 function atualizarResumo(){
 
-    let presentes = 0;
-    let faltas = 0;
-    let lesionados = 0;
-    let justificadas = 0;
+    let p=0;
+    let f=0;
+    let l=0;
+    let j=0;
 
     Object.values(
         treinoAtual
     ).forEach(v => {
 
-        if(v === "✅"){
-            presentes++;
-        }
-
-        if(v === "❌"){
-            faltas++;
-        }
-
-        if(v === "🩺"){
-            lesionados++;
-        }
-
-        if(v === "🟨"){
-            justificadas++;
-        }
+        if(v==="✅") p++;
+        if(v==="❌") f++;
+        if(v==="🩺") l++;
+        if(v==="🟨") j++;
 
     });
 
     document.getElementById(
         "kpiPresentes"
-    ).innerText =
-    presentes;
+    ).innerText = p;
 
     document.getElementById(
         "kpiFaltas"
-    ).innerText =
-    faltas;
+    ).innerText = f;
 
     document.getElementById(
         "kpiLesionados"
-    ).innerText =
-    lesionados;
+    ).innerText = l;
 
     document.getElementById(
         "kpiJustificadas"
-    ).innerText =
-    justificadas;
+    ).innerText = j;
 
 }
 
-function atualizarEstatisticas(){
+async function atualizarEstatisticas(){
 
-    let presentes = 0;
-    let faltas = 0;
-    let lesionados = 0;
-    let justificadas = 0;
+    const snap =
+    await window.firebaseGetDocs(
+
+        window.firebaseCollection(
+            window.firebaseDB,
+            "treinos"
+        )
+
+    );
+
+    const jogadores = {};
+
+    let totalTreinos = 0;
+
+    snap.forEach(doc => {
+
+        totalTreinos++;
+
+        const treino =
+        doc.data();
+
+        Object.entries(
+            treino
+        ).forEach(([nome,estado]) => {
+
+            if(
+                nome === "ativo" ||
+                nome === "criadoEm"
+            ){
+                return;
+            }
+
+            if(!jogadores[nome]){
+
+                jogadores[nome] = {
+
+                    presencas:0,
+                    faltas:0,
+                    lesionados:0,
+                    justificadas:0
+
+                };
+
+            }
+
+            if(estado==="✅")
+                jogadores[nome].presencas++;
+
+            if(estado==="❌")
+                jogadores[nome].faltas++;
+
+            if(estado==="🩺")
+                jogadores[nome].lesionados++;
+
+            if(estado==="🟨")
+                jogadores[nome].justificadas++;
+
+        });
+
+    });
+
+    let presencas=0;
+    let faltas=0;
+    let lesionados=0;
+    let justificadas=0;
 
     Object.values(
-        treinoAtual
-    ).forEach(v => {
+        jogadores
+    ).forEach(j => {
 
-        if(v === "✅"){
-            presentes++;
-        }
-
-        if(v === "❌"){
-            faltas++;
-        }
-
-        if(v === "🩺"){
-            lesionados++;
-        }
-
-        if(v === "🟨"){
-            justificadas++;
-        }
+        presencas += j.presencas;
+        faltas += j.faltas;
+        lesionados += j.lesionados;
+        justificadas += j.justificadas;
 
     });
 
     const totalPlantel =
 
-        PLANTEL.guardaRedes.length +
-        PLANTEL.defesas.length +
-        PLANTEL.medios.length +
-        PLANTEL.avancados.length;
+        Object.keys(
+            jogadores
+        ).length;
 
-    const registados =
+    const taxa =
 
-        presentes +
+        presencas +
         faltas +
         lesionados +
-        justificadas;
-
-    const percentagem =
-
-        totalPlantel > 0
+        justificadas > 0
 
         ? Math.round(
-            (presentes / totalPlantel)
-            * 100
+
+            (presencas /
+
+            (
+                presencas +
+                faltas +
+                lesionados +
+                justificadas
+            )) * 100
+
         )
 
         : 0;
@@ -1133,96 +1368,119 @@ function atualizarEstatisticas(){
     ).innerHTML =
 
     `
-    <div class="jogador">
-
-        <span>
-            👥 Plantel Total
-        </span>
-
-        <strong>
-            ${totalPlantel}
-        </strong>
-
+    <div class="estat-item">
+    <span>👥 Plantel</span>
+    <strong>${totalPlantel}</strong>
     </div>
 
-    <div class="jogador">
-
-        <span>
-            ✅ Presentes
-        </span>
-
-        <strong>
-            ${presentes}
-        </strong>
-
+    <div class="estat-item">
+    <span>📅 Treinos</span>
+    <strong>${totalTreinos}</strong>
     </div>
 
-    <div class="jogador">
-
-        <span>
-            ❌ Faltas
-        </span>
-
-        <strong>
-            ${faltas}
-        </strong>
-
+    <div class="estat-item">
+    <span>✅ Presenças</span>
+    <strong>${presencas}</strong>
     </div>
 
-    <div class="jogador">
-
-        <span>
-            🩺 Lesionados
-        </span>
-
-        <strong>
-            ${lesionados}
-        </strong>
-
+    <div class="estat-item">
+    <span>❌ Faltas</span>
+    <strong>${faltas}</strong>
     </div>
 
-    <div class="jogador">
-
-        <span>
-            🟨 Justificadas
-        </span>
-
-        <strong>
-            ${justificadas}
-        </strong>
-
+    <div class="estat-item">
+    <span>🩺 Lesões</span>
+    <strong>${lesionados}</strong>
     </div>
 
-    <div class="jogador">
-
-        <span>
-            📝 Registos
-        </span>
-
-        <strong>
-            ${registados}
-        </strong>
-
+    <div class="estat-item">
+    <span>🟨 Justificadas</span>
+    <strong>${justificadas}</strong>
     </div>
 
-    <div class="jogador">
-
-        <span>
-            📊 Taxa Presença
-        </span>
-
-        <strong>
-            ${percentagem}%
-        </strong>
-
+    <div class="estat-item">
+    <span>📈 Taxa Presença</span>
+    <strong>${taxa}%</strong>
     </div>
     `;
 
-}
+    const rankingAssiduidade =
+    Object.entries(
+        jogadores
+    )
+    .sort(
+        (a,b) =>
+        b[1].presencas -
+        a[1].presencas
+    )
+    .slice(0,10);
 
-console.log(
-    "Área Técnica V2 carregada"
-);
+    let htmlA = "";
+
+    rankingAssiduidade
+    .forEach(r => {
+
+        htmlA +=
+        `
+        <div class="estat-item">
+
+            <span>
+                ${r[0]}
+            </span>
+
+            <strong>
+                ${r[1].presencas}
+            </strong>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "rankingAssiduidade"
+    ).innerHTML =
+    htmlA;
+
+    const rankingAusencias =
+    Object.entries(
+        jogadores
+    )
+    .sort(
+        (a,b) =>
+        b[1].faltas -
+        a[1].faltas
+    )
+    .slice(0,10);
+
+    let htmlF = "";
+
+    rankingAusencias
+    .forEach(r => {
+
+        htmlF +=
+        `
+        <div class="estat-item">
+
+            <span>
+                ${r[0]}
+            </span>
+
+            <strong>
+                ${r[1].faltas}
+            </strong>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "rankingAusencias"
+    ).innerHTML =
+    htmlF;
+
+}
 
 </script>
 
