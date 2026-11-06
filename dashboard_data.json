@@ -1,17 +1,17 @@
 {
-    "ultima_atualizacao": "06-11-2026 16:32:21",
+    "ultima_atualizacao": "06-11-2026 17:49:22",
     "seniores": {
         "proximo_jogo": {
-            "casa": "DESPERTAR",
-            "fora": "RIO MOURO",
-            "data": "01-11-2026",
+            "casa": "RIO MOURO",
+            "fora": "ARSENAL 72, SAD",
+            "data": "08-11-2026",
             "hora": "15:00",
-            "arbitro": "RICARDO SANTOS",
+            "arbitro": "AFONSO LOPES",
             "assistentes": [
-                "GONÇALO ANDRÉ NASCIMENTO",
-                "TIAGO LOPES"
+                "FRANCISCO PINTO",
+                "DIOGO CARVALHO"
             ],
-            "estadio": "CAMPO PARQUE URBANO 25 ABRIL (RELVADO SINTÉTICO) - CASAL"
+            "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO)"
         },
         "proximo_adversario": {
             "nome": "ARSENAL 72",
@@ -105,6 +105,18 @@
             "diferentes": 8,
             "historico": [
                 {
+                    "nome": "AFONSO LOPES",
+                    "jogos": 2
+                },
+                {
+                    "nome": "RICARDO SANTOS",
+                    "jogos": 1
+                },
+                {
+                    "nome": "MIGUEL BORGES",
+                    "jogos": 1
+                },
+                {
                     "nome": "HUGO FONSECA",
                     "jogos": 1
                 },
@@ -117,23 +129,11 @@
                     "jogos": 1
                 },
                 {
-                    "nome": "AFONSO LOPES",
-                    "jogos": 1
-                },
-                {
                     "nome": "NICOLAU PRIOR",
                     "jogos": 1
                 },
                 {
                     "nome": "WILSON MARQUES",
-                    "jogos": 1
-                },
-                {
-                    "nome": "MIGUEL BORGES",
-                    "jogos": 1
-                },
-                {
-                    "nome": "RICARDO SANTOS",
                     "jogos": 1
                 }
             ]
