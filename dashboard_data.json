@@ -1,5 +1,5 @@
 {
-    "ultima_atualizacao": "04-11-2026 13:41:07",
+    "ultima_atualizacao": "06-11-2026 16:32:21",
     "seniores": {
         "proximo_jogo": {
             "casa": "DESPERTAR",
@@ -18,16 +18,16 @@
             "castigados": 0
         },
         "cartoes": {
-            "total": 28,
-            "jogadores": 14,
+            "total": 32,
+            "jogadores": 15,
             "ranking": [
                 {
-                    "nome": "NUNO GOMES",
+                    "nome": "JOSE FURTADO",
                     "cartoes": 4
                 },
                 {
-                    "nome": "JOSE FURTADO",
-                    "cartoes": 3
+                    "nome": "NUNO GOMES",
+                    "cartoes": 4
                 },
                 {
                     "nome": "MIGUEL FONSECA",
@@ -42,11 +42,19 @@
                     "cartoes": 3
                 },
                 {
+                    "nome": "BRUNO MOTA",
+                    "cartoes": 2
+                },
+                {
+                    "nome": "DANIEL CALDAS",
+                    "cartoes": 2
+                },
+                {
                     "nome": "GONCALO SILVA",
                     "cartoes": 2
                 },
                 {
-                    "nome": "JOAO RASCAO",
+                    "nome": "HENRIQUE MARTINS",
                     "cartoes": 2
                 },
                 {
@@ -58,11 +66,7 @@
                     "cartoes": 2
                 },
                 {
-                    "nome": "BRUNO MOTA",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "DANIEL CALDAS",
+                    "nome": "JOAO RASCAO",
                     "cartoes": 2
                 },
                 {
@@ -79,6 +83,10 @@
                 }
             ],
             "risco": [
+                {
+                    "nome": "JOSE FURTADO",
+                    "cartoes": 4
+                },
                 {
                     "nome": "NUNO GOMES",
                     "cartoes": 4
