@@ -792,17 +792,20 @@ async function carregarDashboard(){
         /* PRÓXIMA SEMANA */
 
         document.getElementById(
-            "adversario"
-        ).innerHTML =
-        `
-        <div class="alerta">
+    "adversario"
+).innerHTML =
+`
+<div class="alerta">
 
-            <strong>
-                ${s.proximo_adversario.nome}
-            </strong>
+    <strong>
+        ${
+            s.adversario_risco?.adversario
+            || "-"
+        }
+    </strong>
 
-        </div>
-        `;
+</div>
+`;
 
         /* TÍTULO CASTIGADOS ADVERSÁRIO */
 
