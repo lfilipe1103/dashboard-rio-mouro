@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "07/11/2026 12:51",
+  "ultima_atualizacao": "07/11/2026 13:18",
   "seniores": {
     "proximo_jogo": {
       "casa": "RIO MOURO",
@@ -137,6 +137,12 @@
           "jogos": 1
         }
       ]
+    },
+    "adversario_risco": {
+      "data": "15/11/2026",
+      "hora": "15:00",
+      "local": "(F)",
+      "adversario": "RD Algueirão"
     }
   },
   "classificacao": [
@@ -426,11 +432,5 @@
     "E",
     "D",
     "V"
-  ],
-  "proximo_jogo": {
-    "casa": "Rio de Mouro",
-    "fora": "",
-    "data": "",
-    "hora": ""
-  }
+  ]
 }
