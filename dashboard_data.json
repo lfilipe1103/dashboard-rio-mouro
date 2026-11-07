@@ -1,142 +1,436 @@
 {
-    "ultima_atualizacao": "07-11-2026 12:50:31",
-    "seniores": {
-        "proximo_jogo": {
-            "casa": "RIO MOURO",
-            "fora": "ARSENAL 72, SAD",
-            "data": "08-11-2026",
-            "hora": "15:00",
-            "arbitro": "AFONSO LOPES",
-            "assistentes": [
-                "FRANCISCO PINTO",
-                "DIOGO CARVALHO"
-            ],
-            "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO)"
+  "ultima_atualizacao": "07/11/2026 12:51",
+  "seniores": {
+    "proximo_jogo": {
+      "casa": "RIO MOURO",
+      "fora": "ARSENAL 72, SAD",
+      "data": "08-11-2026",
+      "hora": "15:00",
+      "arbitro": "AFONSO LOPES",
+      "assistentes": [
+        "FRANCISCO PINTO",
+        "DIOGO CARVALHO"
+      ],
+      "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO)"
+    },
+    "proximo_adversario": {
+      "nome": "ARSENAL 72",
+      "castigados": 0
+    },
+    "cartoes": {
+      "total": 32,
+      "jogadores": 15,
+      "ranking": [
+        {
+          "nome": "JOSE FURTADO",
+          "cartoes": 4
         },
-        "proximo_adversario": {
-            "nome": "ARSENAL 72",
-            "castigados": 0
+        {
+          "nome": "NUNO GOMES",
+          "cartoes": 4
         },
-        "cartoes": {
-            "total": 32,
-            "jogadores": 15,
-            "ranking": [
-                {
-                    "nome": "JOSE FURTADO",
-                    "cartoes": 4
-                },
-                {
-                    "nome": "NUNO GOMES",
-                    "cartoes": 4
-                },
-                {
-                    "nome": "MIGUEL FONSECA",
-                    "cartoes": 3
-                },
-                {
-                    "nome": "PEDRO PAULINO",
-                    "cartoes": 3
-                },
-                {
-                    "nome": "RENAN LIMA",
-                    "cartoes": 3
-                },
-                {
-                    "nome": "BRUNO MOTA",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "DANIEL CALDAS",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "GONCALO SILVA",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "HENRIQUE MARTINS",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "RODRIGO DELGADO",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "ANDRE PECURTO",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "JOAO RASCAO",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "JOAO RODRIGUES",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "ROBERT ANDRADE",
-                    "cartoes": 2
-                },
-                {
-                    "nome": "SANA SAMBU",
-                    "cartoes": 2
-                }
-            ],
-            "risco": [
-                {
-                    "nome": "JOSE FURTADO",
-                    "cartoes": 4
-                },
-                {
-                    "nome": "NUNO GOMES",
-                    "cartoes": 4
-                }
-            ]
+        {
+          "nome": "MIGUEL FONSECA",
+          "cartoes": 3
         },
-        "castigos": {
-            "ativos": 0,
-            "lista": []
+        {
+          "nome": "PEDRO PAULINO",
+          "cartoes": 3
         },
-        "multas": {
-            "total": 0.0,
-            "lista": []
+        {
+          "nome": "RENAN LIMA",
+          "cartoes": 3
         },
-        "arbitros": {
-            "diferentes": 8,
-            "historico": [
-                {
-                    "nome": "AFONSO LOPES",
-                    "jogos": 2
-                },
-                {
-                    "nome": "RICARDO SANTOS",
-                    "jogos": 1
-                },
-                {
-                    "nome": "MIGUEL BORGES",
-                    "jogos": 1
-                },
-                {
-                    "nome": "HUGO FONSECA",
-                    "jogos": 1
-                },
-                {
-                    "nome": "EDGAR MOTA E SOUSA",
-                    "jogos": 1
-                },
-                {
-                    "nome": "ANDRE MOREIRA",
-                    "jogos": 1
-                },
-                {
-                    "nome": "NICOLAU PRIOR",
-                    "jogos": 1
-                },
-                {
-                    "nome": "WILSON MARQUES",
-                    "jogos": 1
-                }
-            ]
+        {
+          "nome": "BRUNO MOTA",
+          "cartoes": 2
+        },
+        {
+          "nome": "DANIEL CALDAS",
+          "cartoes": 2
+        },
+        {
+          "nome": "GONCALO SILVA",
+          "cartoes": 2
+        },
+        {
+          "nome": "HENRIQUE MARTINS",
+          "cartoes": 2
+        },
+        {
+          "nome": "RODRIGO DELGADO",
+          "cartoes": 2
+        },
+        {
+          "nome": "ANDRE PECURTO",
+          "cartoes": 2
+        },
+        {
+          "nome": "JOAO RASCAO",
+          "cartoes": 2
+        },
+        {
+          "nome": "JOAO RODRIGUES",
+          "cartoes": 2
+        },
+        {
+          "nome": "ROBERT ANDRADE",
+          "cartoes": 2
+        },
+        {
+          "nome": "SANA SAMBU",
+          "cartoes": 2
         }
+      ],
+      "risco": [
+        {
+          "nome": "JOSE FURTADO",
+          "cartoes": 4
+        },
+        {
+          "nome": "NUNO GOMES",
+          "cartoes": 4
+        }
+      ]
+    },
+    "castigos": {
+      "ativos": 0,
+      "lista": []
+    },
+    "multas": {
+      "total": 0.0,
+      "lista": []
+    },
+    "arbitros": {
+      "diferentes": 8,
+      "historico": [
+        {
+          "nome": "AFONSO LOPES",
+          "jogos": 2
+        },
+        {
+          "nome": "RICARDO SANTOS",
+          "jogos": 1
+        },
+        {
+          "nome": "MIGUEL BORGES",
+          "jogos": 1
+        },
+        {
+          "nome": "HUGO FONSECA",
+          "jogos": 1
+        },
+        {
+          "nome": "EDGAR MOTA E SOUSA",
+          "jogos": 1
+        },
+        {
+          "nome": "ANDRE MOREIRA",
+          "jogos": 1
+        },
+        {
+          "nome": "NICOLAU PRIOR",
+          "jogos": 1
+        },
+        {
+          "nome": "WILSON MARQUES",
+          "jogos": 1
+        }
+      ]
     }
+  },
+  "classificacao": [
+    {
+      "pos": 1,
+      "equipa": "SRD Negrais",
+      "pts": 16,
+      "j": 7,
+      "v": 5,
+      "e": 1,
+      "d": 1,
+      "gm": 14,
+      "gs": 8,
+      "dg": "+6",
+      "rio_mouro": false
+    },
+    {
+      "pos": 2,
+      "equipa": "Real SC B",
+      "pts": 14,
+      "j": 6,
+      "v": 4,
+      "e": 2,
+      "d": 0,
+      "gm": 18,
+      "gs": 4,
+      "dg": "+14",
+      "rio_mouro": false
+    },
+    {
+      "pos": 3,
+      "equipa": "Rio de Mouro",
+      "pts": 13,
+      "j": 7,
+      "v": 4,
+      "e": 1,
+      "d": 2,
+      "gm": 16,
+      "gs": 12,
+      "dg": "+4",
+      "rio_mouro": true
+    },
+    {
+      "pos": 4,
+      "equipa": "Mem Martins SC",
+      "pts": 13,
+      "j": 6,
+      "v": 4,
+      "e": 1,
+      "d": 1,
+      "gm": 22,
+      "gs": 9,
+      "dg": "+13",
+      "rio_mouro": false
+    },
+    {
+      "pos": 5,
+      "equipa": "União dos Santos",
+      "pts": 11,
+      "j": 6,
+      "v": 3,
+      "e": 2,
+      "d": 1,
+      "gm": 7,
+      "gs": 7,
+      "dg": "0",
+      "rio_mouro": false
+    },
+    {
+      "pos": 6,
+      "equipa": "Sintrense B",
+      "pts": 10,
+      "j": 7,
+      "v": 2,
+      "e": 4,
+      "d": 1,
+      "gm": 15,
+      "gs": 13,
+      "dg": "+2",
+      "rio_mouro": false
+    },
+    {
+      "pos": 7,
+      "equipa": "RD Algueirão",
+      "pts": 9,
+      "j": 6,
+      "v": 3,
+      "e": 0,
+      "d": 3,
+      "gm": 16,
+      "gs": 15,
+      "dg": "+1",
+      "rio_mouro": false
+    },
+    {
+      "pos": 8,
+      "equipa": "1º Dezembro C",
+      "pts": 8,
+      "j": 7,
+      "v": 2,
+      "e": 2,
+      "d": 3,
+      "gm": 11,
+      "gs": 22,
+      "dg": "-11",
+      "rio_mouro": false
+    },
+    {
+      "pos": 9,
+      "equipa": "FC Despertar",
+      "pts": 6,
+      "j": 6,
+      "v": 2,
+      "e": 0,
+      "d": 4,
+      "gm": 12,
+      "gs": 14,
+      "dg": "-2",
+      "rio_mouro": false
+    },
+    {
+      "pos": 10,
+      "equipa": "Arsenal 72",
+      "pts": 5,
+      "j": 6,
+      "v": 1,
+      "e": 2,
+      "d": 3,
+      "gm": 10,
+      "gs": 17,
+      "dg": "-7",
+      "rio_mouro": false
+    },
+    {
+      "pos": 11,
+      "equipa": "Vila Verde",
+      "pts": 4,
+      "j": 6,
+      "v": 1,
+      "e": 1,
+      "d": 4,
+      "gm": 11,
+      "gs": 14,
+      "dg": "-3",
+      "rio_mouro": false
+    },
+    {
+      "pos": 12,
+      "equipa": "CD Belas",
+      "pts": 2,
+      "j": 5,
+      "v": 0,
+      "e": 2,
+      "d": 3,
+      "gm": 5,
+      "gs": 11,
+      "dg": "-6",
+      "rio_mouro": false
+    },
+    {
+      "pos": 13,
+      "equipa": "Agualva",
+      "pts": 2,
+      "j": 7,
+      "v": 0,
+      "e": 2,
+      "d": 5,
+      "gm": 3,
+      "gs": 14,
+      "dg": "-11",
+      "rio_mouro": false
+    }
+  ],
+  "resumo_epoca": {
+    "posicao": 3,
+    "pontos": 13,
+    "j": 7,
+    "v": 4,
+    "e": 1,
+    "d": 2,
+    "gm": 16,
+    "gs": 12,
+    "dg": "+4"
+  },
+  "contexto_classificacao": {
+    "top2": [
+      {
+        "pos": 1,
+        "equipa": "SRD Negrais",
+        "pts": 16,
+        "j": 7,
+        "v": 5,
+        "e": 1,
+        "d": 1,
+        "gm": 14,
+        "gs": 8,
+        "dg": "+6",
+        "rio_mouro": false
+      },
+      {
+        "pos": 2,
+        "equipa": "Real SC B",
+        "pts": 14,
+        "j": 6,
+        "v": 4,
+        "e": 2,
+        "d": 0,
+        "gm": 18,
+        "gs": 4,
+        "dg": "+14",
+        "rio_mouro": false
+      }
+    ],
+    "acima": [
+      {
+        "pos": 1,
+        "equipa": "SRD Negrais",
+        "pts": 16,
+        "j": 7,
+        "v": 5,
+        "e": 1,
+        "d": 1,
+        "gm": 14,
+        "gs": 8,
+        "dg": "+6",
+        "rio_mouro": false
+      },
+      {
+        "pos": 2,
+        "equipa": "Real SC B",
+        "pts": 14,
+        "j": 6,
+        "v": 4,
+        "e": 2,
+        "d": 0,
+        "gm": 18,
+        "gs": 4,
+        "dg": "+14",
+        "rio_mouro": false
+      }
+    ],
+    "rio_mouro": {
+      "pos": 3,
+      "equipa": "Rio de Mouro",
+      "pts": 13,
+      "j": 7,
+      "v": 4,
+      "e": 1,
+      "d": 2,
+      "gm": 16,
+      "gs": 12,
+      "dg": "+4",
+      "rio_mouro": true
+    },
+    "abaixo": [
+      {
+        "pos": 4,
+        "equipa": "Mem Martins SC",
+        "pts": 13,
+        "j": 6,
+        "v": 4,
+        "e": 1,
+        "d": 1,
+        "gm": 22,
+        "gs": 9,
+        "dg": "+13",
+        "rio_mouro": false
+      },
+      {
+        "pos": 5,
+        "equipa": "União dos Santos",
+        "pts": 11,
+        "j": 6,
+        "v": 3,
+        "e": 2,
+        "d": 1,
+        "gm": 7,
+        "gs": 7,
+        "dg": "0",
+        "rio_mouro": false
+      }
+    ]
+  },
+  "forma": [
+    "V",
+    "V",
+    "E",
+    "D",
+    "V"
+  ],
+  "proximo_jogo": {
+    "casa": "Rio de Mouro",
+    "fora": "",
+    "data": "",
+    "hora": ""
+  }
 }
