@@ -16,26 +16,21 @@
 
     --bg:#050505;
     --card:#13213a;
-    --card2:#1c2d4a;
     --border:#2d4369;
-
     --text:#ffffff;
     --muted:#9fb0c9;
 
 }
 
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
 }
 
 body{
 
     background:var(--bg);
-
     color:var(--text);
 
     font-family:
@@ -46,9 +41,7 @@ body{
     min-height:100vh;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     padding:20px;
@@ -58,7 +51,6 @@ body{
 .container{
 
     width:100%;
-
     max-width:500px;
 
 }
@@ -97,7 +89,6 @@ body{
 .logo{
 
     display:flex;
-
     justify-content:center;
 
     margin-bottom:15px;
@@ -107,7 +98,6 @@ body{
 .logo img{
 
     width:100px;
-
     height:100px;
 
     object-fit:contain;
@@ -125,7 +115,6 @@ body{
 .subtitulo{
 
     color:var(--muted);
-
     font-size:14px;
 
 }
@@ -133,7 +122,6 @@ body{
 .titulo{
 
     font-size:18px;
-
     font-weight:700;
 
     margin-bottom:20px;
@@ -169,91 +157,47 @@ body{
 
     cursor:pointer;
 
-    transition:.2s;
+}
+
+.info-centro{
+
+    text-align:center;
 
 }
 
-.botao-menu:hover{
+.numero{
 
-    transform:
-    translateY(-2px);
+    font-size:42px;
+    font-weight:bold;
+    color:#ffd700;
+
+}
+
+.linha{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:10px;
+
+    margin-bottom:6px;
+
+    border-radius:12px;
+
+    background:#1c2d4a;
 
 }
 
 .rodape{
 
     text-align:center;
-
     color:var(--muted);
-
     font-size:12px;
 
 }
 
 </style>
-
-<script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
-
-import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc,
-    collection,
-    getDocs
-}
-from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
-
-const firebaseConfig = {
-
-    apiKey:
-    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
-
-    authDomain:
-    "rdm-v2-98d5b.firebaseapp.com",
-
-    projectId:
-    "rdm-v2-98d5b",
-
-    storageBucket:
-    "rdm-v2-98d5b.firebasestorage.app",
-
-    messagingSenderId:
-    "847254286305",
-
-    appId:
-    "1:847254286305:web:eb5d179fb7ed6e5054eca0"
-
-};
-
-const app =
-initializeApp(firebaseConfig);
-
-window.firebaseDB =
-getFirestore(app);
-
-window.firebaseDoc =
-doc;
-
-window.firebaseGetDoc =
-getDoc;
-
-window.firebaseSetDoc =
-setDoc;
-
-window.firebaseCollection =
-collection;
-
-window.firebaseGetDocs =
-getDocs;
-
-window.firebaseReady =
-true;
-
-</script>
 
 </head>
 
@@ -272,14 +216,50 @@ true;
         </div>
 
         <h1>
-
             GD RIO DE MOURO
-
         </h1>
 
         <div class="subtitulo">
-
             Plataforma de Gestão Desportiva
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            📊 Resumo da Época
+        </div>
+
+        <div id="resumo">
+            A carregar...
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            🏆 Classificação
+        </div>
+
+        <div id="classificacao">
+            A carregar...
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            📈 Forma Recente
+        </div>
+
+        <div
+            id="forma"
+            class="info-centro">
+
+            A carregar...
 
         </div>
 
@@ -319,7 +299,9 @@ true;
 
         <div class="rodape">
 
-            GDRRM V4 • Powered by Firebase
+            <span id="atualizacao">
+                GDRRM V4
+            </span>
 
         </div>
 
@@ -329,14 +311,197 @@ true;
 
 <script>
 
-console.log(
-    "Index V4 carregado"
-);
+async function carregarDados() {
 
-console.log(
-    "Firebase:",
-    window.firebaseReady
-);
+    try {
+
+        const resp = await fetch(
+            "./dashboard_data.json?t=" +
+            Date.now()
+        );
+
+        const data =
+            await resp.json();
+
+        // =====================
+        // RESUMO
+        // =====================
+
+        const r =
+            data.resumo_epoca;
+
+        if(r){
+
+            document.getElementById(
+                "resumo"
+            ).innerHTML = `
+
+                <div class="info-centro">
+
+                    <div class="numero">
+                        ${r.posicao}º
+                    </div>
+
+                    <div>
+                        ${r.pontos} pontos
+                    </div>
+
+                    <br>
+
+                    <div>
+                        ${r.v}V ·
+                        ${r.e}E ·
+                        ${r.d}D
+                    </div>
+
+                    <div>
+                        ⚽ ${r.gm}
+                        -
+                        ${r.gs}
+                    </div>
+
+                </div>
+
+            `;
+        }
+
+        // =====================
+        // CLASSIFICAÇÃO
+        // =====================
+
+        let html = "";
+
+        const top2 =
+            data.contexto_classificacao.top2 || [];
+
+        const acima =
+            data.contexto_classificacao.acima || [];
+
+        const rdm =
+            data.contexto_classificacao.rio_mouro;
+
+        const abaixo =
+            data.contexto_classificacao.abaixo || [];
+
+        const lista = [
+            ...top2,
+            ...acima,
+            ...[rdm],
+            ...abaixo
+        ];
+
+        let usados = [];
+
+        lista.forEach(eq => {
+
+            if(!eq) return;
+
+            if(usados.includes(eq.pos))
+                return;
+
+            usados.push(eq.pos);
+
+            html += `
+            <div class="linha"
+                 style="
+                 background:${
+                    eq.rio_mouro
+                    ? '#A66C00'
+                    : '#1c2d4a'
+                 };
+                 ">
+
+                <div>
+
+                    <span style="
+                        font-weight:bold;
+                        color:${
+                            eq.pos === 1
+                            ? '#2ecc71'
+                            : eq.pos === 2
+                                ? '#8bc34a'
+                                : '#ffffff'
+                        };
+                    ">
+                        ${eq.pos}º
+                    </span>
+
+                    ${eq.equipa}
+
+                </div>
+
+                <div style="
+                    font-weight:bold;
+                    color:#ffd700;
+                ">
+                    ${eq.pts}
+                </div>
+
+            </div>
+            `;
+        });
+
+        document.getElementById(
+            "classificacao"
+        ).innerHTML = html;
+
+        // =====================
+        // FORMA
+        // =====================
+
+        const simbolos = {
+
+            "V":"🟢",
+            "E":"🟡",
+            "D":"🔴"
+
+        };
+
+        let formaHtml = "";
+
+        (data.forma || []).forEach(
+            r => {
+
+                formaHtml += `
+                    <span style="
+                        font-size:32px;
+                        margin-right:5px;
+                    ">
+                        ${simbolos[r]}
+                    </span>
+                `;
+
+            }
+        );
+
+        document.getElementById(
+            "forma"
+        ).innerHTML = formaHtml;
+
+        // =====================
+        // DATA
+        // =====================
+
+        if(data.ultima_atualizacao){
+
+            document.getElementById(
+                "atualizacao"
+            ).innerHTML =
+                "Atualizado: " +
+                data.ultima_atualizacao;
+        }
+
+    }
+
+    catch(err){
+
+        console.error(err);
+
+    }
+
+}
+
+carregarDados();
 
 </script>
 
