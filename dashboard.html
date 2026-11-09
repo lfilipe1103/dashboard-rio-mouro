@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>GD Rio de Mouro • Dashboard</title>
+<title>Dashboard V6</title>
 
 <style>
 
@@ -88,17 +88,17 @@ body{
 
 }
 
-.hero{
-
-    text-align:center;
-
-}
-
 .logo{
 
     width:90px;
 
     margin-bottom:15px;
+
+}
+
+.hero{
+
+    text-align:center;
 
 }
 
@@ -114,9 +114,9 @@ body{
 
 .data{
 
-    color:var(--gold);
-
     margin-top:15px;
+
+    color:var(--gold);
 
     font-size:18px;
 
@@ -147,7 +147,7 @@ body{
 
     background:var(--card2);
 
-    border-radius:16px;
+    border-radius:18px;
 
     padding:18px;
 
@@ -163,9 +163,27 @@ body{
 
 }
 
-.alerta-label{
+.ficha-adv{
 
-    margin-top:10px;
+    text-align:center;
+
+}
+
+.nome-adv{
+
+    font-size:34px;
+
+    font-weight:900;
+
+    margin-bottom:15px;
+
+}
+
+.resumo-adv{
+
+    font-size:18px;
+
+    line-height:1.8;
 
 }
 
@@ -213,63 +231,6 @@ body{
 
 }
 
-.adversario{
-
-    text-align:center;
-
-}
-
-.adversario-nome{
-
-    font-size:36px;
-
-    font-weight:900;
-
-    margin-bottom:10px;
-
-}
-
-.grid-ficha{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:10px;
-
-}
-
-.info{
-
-    background:var(--card2);
-
-    border-radius:12px;
-
-    padding:12px;
-
-    text-align:center;
-
-}
-
-.info-num{
-
-    font-size:28px;
-
-    font-weight:800;
-
-}
-
-.info-label{
-
-    margin-top:5px;
-
-    font-size:13px;
-
-    color:#d0d9e7;
-
-}
-
 .voltar{
 
     width:100%;
@@ -307,23 +268,6 @@ body{
 
 }
 
-@media(max-width:700px){
-
-    .grid-ficha{
-
-        grid-template-columns:
-        1fr 1fr;
-
-    }
-
-    .jogo{
-
-        font-size:28px;
-
-    }
-
-}
-
 </style>
 
 </head>
@@ -338,8 +282,7 @@ body{
 
         <img
             src="logo.png"
-            class="logo"
-            alt="Rio de Mouro">
+            class="logo">
 
         <div
             id="jogo"
@@ -350,26 +293,26 @@ body{
         </div>
 
         <div
-            id="datajogo"
+            id="dataJogo"
             class="data">
 
         </div>
 
         <div
-            id="localjogo"
+            id="localJogo"
             class="local">
 
         </div>
 
     </div>
 
-    <!-- ALERTAS -->
+    <!-- SITUAÇÃO EQUIPA -->
 
     <div class="card">
 
         <div class="titulo">
 
-            🚨 Alertas da Semana
+            🚨 Situação da Equipa
 
         </div>
 
@@ -386,8 +329,7 @@ body{
 
                 </div>
 
-                <div
-                    class="alerta-label">
+                <div>
 
                     Castigados
 
@@ -406,8 +348,7 @@ body{
 
                 </div>
 
-                <div
-                    class="alerta-label">
+                <div>
 
                     Em Risco
 
@@ -425,16 +366,23 @@ body{
 
         <div class="titulo">
 
-            ⚔️ Ficha do Adversário
+            ⚔️ Adversário
 
         </div>
 
-        <div
-            class="adversario">
+        <div class="ficha-adv">
 
             <div
                 id="nomeAdversario"
-                class="adversario-nome">
+                class="nome-adv">
+
+                -
+
+            </div>
+
+            <div
+                id="resumoAdversario"
+                class="resumo-adv">
 
                 -
 
@@ -442,43 +390,9 @@ body{
 
         </div>
 
-        <div class="grid-ficha">
-
-            <div class="info">
-                <div id="posicaoAdv" class="info-num">-</div>
-                <div class="info-label">Posição</div>
-            </div>
-
-            <div class="info">
-                <div id="pontosAdv" class="info-num">-</div>
-                <div class="info-label">Pontos</div>
-            </div>
-
-            <div class="info">
-                <div id="jogosAdv" class="info-num">-</div>
-                <div class="info-label">Jogos</div>
-            </div>
-
-            <div class="info">
-                <div id="gmAdv" class="info-num">-</div>
-                <div class="info-label">GM</div>
-            </div>
-
-            <div class="info">
-                <div id="gsAdv" class="info-num">-</div>
-                <div class="info-label">GS</div>
-            </div>
-
-            <div class="info">
-                <div id="dgAdv" class="info-num">-</div>
-                <div class="info-label">DG</div>
-            </div>
-
-        </div>
-
     </div>
 
-    <!-- RESULTADOS -->
+          <!-- ÚLTIMOS RESULTADOS -->
 
     <div class="card">
 
@@ -491,25 +405,22 @@ body{
         <div
             id="ultimosResultados">
 
-            A carregar...
-
         </div>
 
     </div>
 
-    <!-- INDISPONIBILIDADE -->
+    <!-- CASTIGADOS -->
 
     <div class="card">
 
         <div class="titulo">
 
-            🚫 Indisponibilidade
+            🚫 Castigados
 
         </div>
 
-        <div id="indisponibilidade">
-
-            A carregar...
+        <div
+            id="castigados">
 
         </div>
 
@@ -525,9 +436,8 @@ body{
 
         </div>
 
-        <div id="risco">
-
-            A carregar...
+        <div
+            id="risco">
 
         </div>
 
@@ -543,15 +453,14 @@ body{
 
         </div>
 
-        <div id="arbitragem">
-
-            A carregar...
+        <div
+            id="arbitragem">
 
         </div>
 
     </div>
 
-    <!-- PROXIMO ADVERSÁRIO -->
+    <!-- PROXIMO ADVERSARIO -->
 
     <div class="card">
 
@@ -562,25 +471,12 @@ body{
         </div>
 
         <div
-            style="text-align:center">
-
-            <div
-                id="dataProxAdv"
-                class="data">
-
-            </div>
-
-            <div
-                id="nomeProxAdv"
-                class="adversario-nome">
-
-            </div>
+            id="proximoAdversario"
+            class="ficha-adv">
 
         </div>
 
     </div>
-
-    <!-- VOLTAR -->
 
     <button
         class="voltar"
@@ -604,239 +500,227 @@ body{
 
 async function carregar(){
 
-    try{
+    const r =
+    await fetch(
+        "dashboard_data.json?t="
+        + Date.now()
+    );
 
-        const r =
-        await fetch(
-            "dashboard_data.json?t="
-            + Date.now()
-        );
+    const d =
+    await r.json();
 
-        const d =
-        await r.json();
+    const s =
+    d.seniores || {};
 
-        const s =
-        d.seniores || {};
+    const adv =
+    d.dashboard?.adversario || {};
 
-        const adv =
-        d.dashboard?.adversario || {};
+    // jogo
 
-        // JOGO
+    document.getElementById(
+        "jogo"
+    ).innerHTML =
 
-        document.getElementById(
-            "jogo"
-        ).innerHTML =
+    `${s.proximo_jogo.casa}
+    <br>VS<br>
+    ${s.proximo_jogo.fora}`;
 
-        `${s.proximo_jogo?.casa || "-"}
-        <br>VS<br>
-        ${s.proximo_jogo?.fora || "-"}`;
+    document.getElementById(
+        "dataJogo"
+    ).innerHTML =
 
-        document.getElementById(
-            "datajogo"
-        ).innerHTML =
+    `📅 ${s.proximo_jogo.data}
+     • ${s.proximo_jogo.hora}`;
 
-        `📅 ${s.proximo_jogo?.data || "-"}
-         • ${s.proximo_jogo?.hora || "-"}`;
+    document.getElementById(
+        "localJogo"
+    ).innerHTML =
 
-        document.getElementById(
-            "localjogo"
-        ).innerHTML =
+    `🏟️ ${s.proximo_jogo.estadio}`;
 
-        `🏟️ ${s.proximo_jogo?.estadio || "-"}`;
+    // alertas
 
-        // ALERTAS
+    document.getElementById(
+        "numCastigados"
+    ).innerText =
 
-        document.getElementById(
-            "numCastigados"
-        ).innerText =
+    s.castigos?.ativos || 0;
 
-        s.castigos?.ativos || 0;
+    document.getElementById(
+        "numRisco"
+    ).innerText =
 
-        document.getElementById(
-            "numRisco"
-        ).innerText =
+    (s.cartoes?.risco || []).length;
 
-        (s.cartoes?.risco || []).length;
+    // adversário
 
-        // ADVERSARIO
+    document.getElementById(
+        "nomeAdversario"
+    ).innerText =
 
-        document.getElementById(
-            "nomeAdversario"
-        ).innerText =
-        adv.nome || "-";
+    adv.nome || "-";
 
-        document.getElementById(
-            "posicaoAdv"
-        ).innerText =
-        adv.posicao || "-";
+    document.getElementById(
+        "resumoAdversario"
+    ).innerHTML =
 
-        document.getElementById(
-            "pontosAdv"
-        ).innerText =
-        adv.pontos || "-";
+    `
+    🏆 ${adv.posicao || "-"}º Lugar
+    <br>
+    📊 ${adv.pontos || "-"} Pontos
+    <br><br>
+    ✅ ${adv.vitorias || 0} Vitória(s)
+    <br>
+    🤝 ${adv.empates || 0} Empate(s)
+    <br>
+    ❌ ${adv.derrotas || 0} Derrota(s)
+    <br><br>
+    ⚽ ${adv.gm || 0} GM
+    <br>
+    🥅 ${adv.gs || 0} GS
+    <br>
+    📉 DG ${adv.dg || "-"}
+    `;
 
-        document.getElementById(
-            "jogosAdv"
-        ).innerText =
-        adv.jogos || "-";
+    // resultados
 
-        document.getElementById(
-            "gmAdv"
-        ).innerText =
-        adv.gm || "-";
+    let resultados = "";
 
-        document.getElementById(
-            "gsAdv"
-        ).innerText =
-        adv.gs || "-";
+    (adv.ultimos_resultados || [])
+    .forEach(j => {
 
-        document.getElementById(
-            "dgAdv"
-        ).innerText =
-        adv.dg || "-";
+        let icon = "🟡";
 
-        // RESULTADOS
+        if(j.estado === "V")
+            icon = "🟢";
 
-        let html = "";
+        if(j.estado === "D")
+            icon = "🔴";
 
-        (
-            adv.ultimos_resultados || []
-        ).forEach(j => {
+        resultados += `
+        <div class="box">
+            ${icon}
+            ${j.data}
+            •
+            ${j.texto}
+        </div>
+        `;
+    });
 
-            let icon = "🟡";
+    document.getElementById(
+        "ultimosResultados"
+    ).innerHTML =
+    resultados;
 
-            if(j.estado === "V")
-                icon = "🟢";
+    // castigados
 
-            if(j.estado === "D")
-                icon = "🔴";
+    let cast = "";
 
-            html += `
-            <div class="box">
-                ${icon}
-                ${j.data}
-                •
-                ${j.texto}
-            </div>
-            `;
-
-        });
-
-        document.getElementById(
-            "ultimosResultados"
-        ).innerHTML =
-        html || "Sem dados";
-
-        // INDISPONIBILIDADE
-
-        document.getElementById(
-            "indisponibilidade"
-        ).innerHTML =
-
+    if(
         (s.castigos?.lista || [])
-        .map(x => `
+        .length === 0
+    ){
+
+        cast =
+        `<div class="box">
+        ✅ Sem castigados
+        </div>`;
+
+    }
+    else{
+
+        s.castigos.lista.forEach(x=>{
+
+            cast += `
             <div class="box">
                 🚫 ${x.nome}
             </div>
-        `).join("")
-
-        ||
-
-        `<div class="box">
-            ✅ Sem indisponíveis
-        </div>`;
-
-        // RISCO
-
-        document.getElementById(
-            "risco"
-        ).innerHTML =
-
-        (s.cartoes?.risco || [])
-        .map(x => `
-            <div class="risco">
-                <span>
-                    🟨 ${x.nome}
-                </span>
-
-                <strong>
-                    ${x.cartoes}
-                </strong>
-            </div>
-        `).join("")
-
-        ||
-
-        `<div class="box">
-            ✅ Sem jogadores em risco
-        </div>`;
-
-        // ARBITRAGEM
-
-        let arb = `
-        <div class="linha">
-            <span>Árbitro</span>
-            <strong>
-                ${s.proximo_jogo?.arbitro || "-"}
-            </strong>
-        </div>
-        `;
-
-        (
-            s.proximo_jogo?.assistentes
-            || []
-        ).forEach(a => {
-
-            arb += `
-            <div class="linha">
-                <span>Assistente</span>
-                <strong>${a}</strong>
-            </div>
             `;
 
         });
 
-        document.getElementById(
-            "arbitragem"
-        ).innerHTML = arb;
-
-        // PRÓXIMO ADVERSÁRIO
-
-        document.getElementById(
-            "dataProxAdv"
-        ).innerText =
-
-        s.adversario_risco?.data || "";
-
-        document.getElementById(
-            "nomeProxAdv"
-        ).innerHTML =
-
-        `⚔️ ${
-            s.adversario_risco?.adversario
-            || "-"
-        }`;
-
-        // RODAPÉ
-
-        document.getElementById(
-            "atualizacao"
-        ).innerHTML =
-
-        "Atualizado: "
-        +
-        (
-            d.ultima_atualizacao
-            || "-"
-        );
-
     }
 
-    catch(err){
+    document.getElementById(
+        "castigados"
+    ).innerHTML = cast;
 
-        console.log(err);
+    // risco
 
-    }
+    let risco = "";
+
+    (s.cartoes?.risco || [])
+    .forEach(x=>{
+
+        risco += `
+        <div class="risco">
+
+            <span>
+                🟨 ${x.nome}
+            </span>
+
+            <strong>
+                ${x.cartoes}
+            </strong>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "risco"
+    ).innerHTML = risco;
+
+    // arbitragem
+
+    let arb = `
+    <div class="linha">
+        <span>Árbitro</span>
+        <strong>
+            ${s.proximo_jogo.arbitro}
+        </strong>
+    </div>
+    `;
+
+    (s.proximo_jogo.assistentes || [])
+    .forEach(a=>{
+
+        arb += `
+        <div class="linha">
+            <span>Assistente</span>
+            <strong>${a}</strong>
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "arbitragem"
+    ).innerHTML = arb;
+
+    // próximo adversário
+
+    document.getElementById(
+        "proximoAdversario"
+    ).innerHTML =
+
+    `
+    <div class="data">
+        📅 Próxima Jornada
+    </div>
+
+    <div class="nome-adv">
+        ⚔️ ${s.proximo_adversario?.nome || "-"}
+    </div>
+    `;
+
+    document.getElementById(
+        "atualizacao"
+    ).innerHTML =
+
+    "Atualizado: "
+    + d.ultima_atualizacao;
 
 }
 
