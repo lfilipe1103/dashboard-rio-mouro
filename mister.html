@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Área Técnica V6.3</title>
+<title>Área Técnica V7</title>
 
 <style>
 
@@ -170,122 +170,11 @@ input{
 
 }
 
-.grid-kpi{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:12px;
-
-    margin-bottom:12px;
-
-}
-
-.kpi{
+.loading{
 
     text-align:center;
 
-}
-
-.kpi-numero{
-
-    font-size:42px;
-
-    font-weight:700;
-
-}
-
-.kpi-label{
-
-    margin-top:6px;
-
     color:var(--muted);
-
-}
-
-.verde{
-    color:var(--green);
-}
-
-.vermelho{
-    color:var(--red);
-}
-
-.amarelo{
-    color:var(--yellow);
-}
-
-.azul{
-    color:var(--blue);
-}
-
-.jogador{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    background:var(--card2);
-
-    border-radius:12px;
-
-    padding:12px;
-
-    margin-bottom:8px;
-
-    cursor:pointer;
-
-}
-
-.info-jogador{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:4px;
-
-}
-
-.idade{
-
-    color:var(--muted);
-
-    font-size:12px;
-
-}
-
-.estado{
-
-    color:var(--yellow);
-
-    font-size:12px;
-
-}
-
-.botoes{
-
-    display:flex;
-    gap:5px;
-
-}
-
-.botoes button{
-
-    width:42px;
-    height:42px;
-
-    border:none;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:18px;
 
 }
 
@@ -307,25 +196,6 @@ input{
 
 }
 
-.loading{
-
-    text-align:center;
-
-    color:var(--muted);
-
-}
-
-@media(max-width:900px){
-
-    .grid-kpi{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
-    }
-
-}
-
 </style>
 
 <script type="module">
@@ -334,19 +204,20 @@ import { initializeApp }
 from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
 
 import {
+
     getFirestore,
     doc,
     getDoc,
     setDoc,
     getDocs,
     collection
+
 }
 from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
 
-    apiKey:
-    "AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
+    apiKey:"AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
 
     authDomain:
     "rdm-v2-98d5b.firebaseapp.com",
@@ -416,7 +287,7 @@ getDocs;
 
         <div class="subtitulo">
 
-            Gestão de Treinos e Estatística Geral
+            Gestão da Equipa
 
         </div>
 
@@ -474,9 +345,29 @@ getDocs;
 
         <button
             class="btn"
+            onclick="mostrarConvocatoria()">
+
+            📋 Convocatória
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn"
+            onclick="mostrarAmarelos()">
+
+            🟨 Amarelos
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn"
             onclick="mostrarEstatisticas()">
 
-            📊 Estatística Geral V6.3
+            📊 Estatística Geral
 
         </button>
 
@@ -484,7 +375,9 @@ getDocs;
 
 </div>
 
-<!-- TREINOS -->
+<!-- ===================================== -->
+<!-- GESTÃO DE TREINO -->
+<!-- ===================================== -->
 
 <div id="areaTreinos"
      style="display:none">
@@ -533,8 +426,9 @@ getDocs;
 
         <div class="card kpi">
 
-            <div id="kpiPresentes"
-                 class="kpi-numero verde">
+            <div
+                id="kpiPresentes"
+                class="kpi-numero verde">
 
                 0
 
@@ -550,8 +444,9 @@ getDocs;
 
         <div class="card kpi">
 
-            <div id="kpiFaltas"
-                 class="kpi-numero vermelho">
+            <div
+                id="kpiFaltas"
+                class="kpi-numero vermelho">
 
                 0
 
@@ -567,8 +462,9 @@ getDocs;
 
         <div class="card kpi">
 
-            <div id="kpiLesionados"
-                 class="kpi-numero amarelo">
+            <div
+                id="kpiLesionados"
+                class="kpi-numero amarelo">
 
                 0
 
@@ -584,8 +480,9 @@ getDocs;
 
         <div class="card kpi">
 
-            <div id="kpiJustificadas"
-                 class="kpi-numero azul">
+            <div
+                id="kpiJustificadas"
+                class="kpi-numero azul">
 
                 0
 
@@ -613,7 +510,230 @@ getDocs;
 
 </div>
 
+<!-- ===================================== -->
+<!-- CONVOCATÓRIA -->
+<!-- ===================================== -->
+
+<div id="areaConvocatoria"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
+
+    </button>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            📋 Convocatória Oficial
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                ⚽ Adversário
+
+            </span>
+
+            <strong
+                id="convAdversario">
+
+            </strong>
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                📅 Data
+
+            </span>
+
+            <strong
+                id="convData">
+
+            </strong>
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                🕒 Hora
+
+            </span>
+
+            <strong
+                id="convHora">
+
+            </strong>
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                📍 Local
+
+            </span>
+
+            <strong
+                id="convLocal">
+
+            </strong>
+
+        </div>
+
+        <input
+            type="time"
+            id="convHoraConcentracao">
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            ✅ Convocados
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                Total Convocados
+
+            </span>
+
+            <strong
+                id="totalConvocados">
+
+                0
+
+            </strong>
+
+        </div>
+
+    </div>
+
+    <!-- GUARDA REDES -->
+
+    <div
+        id="convGR">
+
+    </div>
+
+    <!-- DEFESAS -->
+
+    <div
+        id="convDEF">
+
+    </div>
+
+    <!-- MÉDIOS -->
+
+    <div
+        id="convMED">
+
+    </div>
+
+    <!-- AVANÇADOS -->
+
+    <div
+        id="convAV">
+
+    </div>
+
+    <div class="card">
+
+        <button
+            class="btn"
+            onclick="guardarConvocatoria()">
+
+            💾 Guardar Convocatória
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn"
+            onclick="abrirHistoricoConvocatorias()">
+
+            📂 Histórico
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn"
+            onclick="enviarWhatsapp()">
+
+            📲 Enviar WhatsApp
+
+        </button>
+
+    </div>
+
+    <div
+        id="historicoConvocatorias">
+
+    </div>
+
+</div>
+
+<!-- ===================================== -->
+<!-- AMARELOS -->
+<!-- ===================================== -->
+
+<div id="areaAmarelos"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
+
+    </button>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            🟨 Controlo de Amarelos
+
+        </div>
+
+        <div
+            id="listaAmarelos">
+
+            <div class="loading">
+
+                A carregar...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================== -->
 <!-- ESTATÍSTICAS -->
+<!-- ===================================== -->
 
 <div id="areaEstatisticas"
      style="display:none">
@@ -625,8 +745,6 @@ getDocs;
         ← Voltar
 
     </button>
-
-    <!-- RESUMO -->
 
     <div class="card">
 
@@ -648,8 +766,6 @@ getDocs;
 
     </div>
 
-    <!-- ASSIDUIDADE -->
-
     <div class="card">
 
         <div class="titulo">
@@ -669,8 +785,6 @@ getDocs;
         </div>
 
     </div>
-
-    <!-- FALTAS -->
 
     <div class="card">
 
@@ -692,8 +806,6 @@ getDocs;
 
     </div>
 
-    <!-- LESÕES -->
-
     <div class="card">
 
         <div class="titulo">
@@ -713,8 +825,6 @@ getDocs;
         </div>
 
     </div>
-
-    <!-- JUSTIFICADAS -->
 
     <div class="card">
 
@@ -736,8 +846,6 @@ getDocs;
 
     </div>
 
-    <!-- SETORES -->
-
     <div class="card">
 
         <div class="titulo">
@@ -758,8 +866,6 @@ getDocs;
 
     </div>
 
-    <!-- FICHA -->
-
     <div class="card">
 
         <div class="titulo">
@@ -770,7 +876,7 @@ getDocs;
 
         <div id="fichaJogador">
 
-            Seleciona um jogador num ranking.
+            Seleciona um jogador.
 
         </div>
 
@@ -785,6 +891,8 @@ const PASSWORD =
 
 let treinoAtual = {};
 
+let convocados = [];
+
 let plantelFirestore = {
 
     guardaRedes:[],
@@ -798,19 +906,29 @@ document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        document
-        .getElementById(
-            "dataTreino"
-        )
-        .value =
-        new Date()
-        .toISOString()
-        .split("T")[0];
+        if(
+            document.getElementById(
+                "dataTreino"
+            )
+        ){
+
+            document
+            .getElementById(
+                "dataTreino"
+            )
+            .value =
+            new Date()
+            .toISOString()
+            .split("T")[0];
+
+        }
 
     }
 );
 
 function calcularIdade(data){
+
+    if(!data) return "-";
 
     const hoje =
     new Date();
@@ -882,6 +1000,16 @@ function voltarMenu(){
     "none";
 
     document.getElementById(
+        "areaConvocatoria"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaAmarelos"
+    ).style.display =
+    "none";
+
+    document.getElementById(
         "areaEstatisticas"
     ).style.display =
     "none";
@@ -894,6 +1022,8 @@ function voltarMenu(){
 }
 
 function mostrarTreinos(){
+
+    voltarMenu();
 
     document.getElementById(
         "menuMister"
@@ -909,7 +1039,45 @@ function mostrarTreinos(){
 
 }
 
+async function mostrarConvocatoria(){
+
+    voltarMenu();
+
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaConvocatoria"
+    ).style.display =
+    "block";
+
+    await carregarDadosJogo();
+
+    carregarConvocatoria();
+
+}
+
+function mostrarAmarelos(){
+
+    voltarMenu();
+
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaAmarelos"
+    ).style.display =
+    "block";
+
+}
+
 async function mostrarEstatisticas(){
+
+    voltarMenu();
 
     document.getElementById(
         "menuMister"
@@ -920,8 +1088,6 @@ async function mostrarEstatisticas(){
         "areaEstatisticas"
     ).style.display =
     "block";
-
-    await atualizarEstatisticas();
 
 }
 
@@ -994,360 +1160,279 @@ async function carregarPlantelFirestore(){
 
 }
 
-async function criarTreino(){
+async function carregarDadosJogo(){
 
-    const data =
+    try{
 
-    document.getElementById(
-        "dataTreino"
-    ).value;
-
-    await window.firebaseSetDoc(
-
-        window.firebaseDoc(
-            window.firebaseDB,
-            "treinos",
-            data
-        ),
-
-        {
-            ativo:true,
-            criadoEm:
-            Date.now()
-        },
-
-        {
-            merge:true
-        }
-
-    );
-
-    treinoAtual = {};
-
-    carregarPlantel();
-
-    atualizarResumo();
-
-    alert(
-        "Treino criado."
-    );
-
-}
-
-async function abrirTreino(){
-
-    const data =
-
-    document.getElementById(
-        "dataTreino"
-    ).value;
-
-    const snap =
-
-    await window.firebaseGetDoc(
-
-        window.firebaseDoc(
-            window.firebaseDB,
-            "treinos",
-            data
-        )
-
-    );
-
-    if(
-        !snap.exists()
-    ){
-
-        alert(
-            "Treino inexistente."
+        const response =
+        await fetch(
+            "dashboard_data.json"
         );
 
-        return;
+        const dashboard =
+        await response.json();
+
+        const jogo =
+        dashboard.seniores
+        .proximo_jogo;
+
+        let adversario = "";
+
+        if(
+            jogo.casa
+            .toUpperCase()
+            .includes(
+                "RIO MOURO"
+            )
+        ){
+
+            adversario =
+            jogo.fora;
+
+        }
+        else{
+
+            adversario =
+            jogo.casa;
+
+        }
+
+        document.getElementById(
+            "convAdversario"
+        ).innerText =
+        adversario;
+
+        document.getElementById(
+            "convData"
+        ).innerText =
+        jogo.data;
+
+        document.getElementById(
+            "convHora"
+        ).innerText =
+        jogo.hora;
+
+        document.getElementById(
+            "convLocal"
+        ).innerText =
+        jogo.estadio;
+
+    }
+    catch(err){
+
+        console.error(err);
 
     }
 
-    treinoAtual =
-    snap.data();
-
-    carregarPlantel();
-
-    atualizarResumo();
-
 }
 
-async function marcarPresenca(
-    jogador,
-    estado
-){
+function carregarConvocatoria(){
 
-    const data =
+    convocados = [];
 
-    document.getElementById(
-        "dataTreino"
-    ).value;
-
-    treinoAtual[
-        jogador
-    ] = estado;
-
-    await window.firebaseSetDoc(
-
-        window.firebaseDoc(
-            window.firebaseDB,
-            "treinos",
-            data
-        ),
-
-        {
-            [jogador]:
-            estado
-        },
-
-        {
-            merge:true
-        }
-
+    carregarSetorConvocatoria(
+        "convGR",
+        "🧤 Guarda‑Redes",
+        plantelFirestore.guardaRedes
     );
 
-    atualizarResumo();
+    carregarSetorConvocatoria(
+        "convDEF",
+        "🛡️ Defesas",
+        plantelFirestore.defesas
+    );
 
-    carregarPlantel();
+    carregarSetorConvocatoria(
+        "convMED",
+        "⚙️ Médios",
+        plantelFirestore.medios
+    );
+
+    carregarSetorConvocatoria(
+        "convAV",
+        "🎯 Avançados",
+        plantelFirestore.avancados
+    );
 
 }
 
-function carregarPlantel(){
+function carregarSetorConvocatoria(
+    div,
+    titulo,
+    lista
+){
 
-    let html = "";
+    let html = `
 
-    const grupos = [
+    <div class="card">
 
-        {
-            titulo:"🧤 Guarda‑Redes",
-            lista:plantelFirestore.guardaRedes
-        },
+        <div class="titulo">
 
-        {
-            titulo:"🛡️ Defesas",
-            lista:plantelFirestore.defesas
-        },
+            ${titulo}
 
-        {
-            titulo:"⚙️ Médios",
-            lista:plantelFirestore.medios
-        },
+        </div>
 
-        {
-            titulo:"🎯 Avançados",
-            lista:plantelFirestore.avancados
-        }
+    `;
 
-    ];
-
-    grupos.forEach(grupo => {
+    lista.forEach(j => {
 
         html += `
-        <div class="card">
 
-            <div class="titulo">
-                ${grupo.titulo}
-            </div>
-        `;
+        <div class="jogador">
 
-        grupo.lista.forEach(j => {
+            <div class="info-jogador">
 
-            const estado =
-            treinoAtual[j.nome] || "";
+                <strong>
 
-            html += `
+                    ${j.nome}
 
-            <div class="jogador">
+                </strong>
 
-                <div class="info-jogador">
-
-                    <strong>
-                        ${j.nome}
-                    </strong>
-
-                    <div class="idade">
-                        ${calcularIdade(
-                            j.nascimento
-                        )} anos
-                    </div>
+                <div class="idade">
 
                     ${
-                        estado
-                        ?
-                        `<div class="estado">
-                            ${estado}
-                        </div>`
-                        :
-                        ""
+                        j.nascimento
+                        ? calcularIdade(
+                            j.nascimento
+                        ) + " anos"
+                        : ""
                     }
 
                 </div>
 
-                <div class="botoes">
-
-                    <button onclick="marcarPresenca('${j.nome}','✅')">✅</button>
-
-                    <button onclick="marcarPresenca('${j.nome}','❌')">❌</button>
-
-                    <button onclick="marcarPresenca('${j.nome}','🩺')">🩺</button>
-
-                    <button onclick="marcarPresenca('${j.nome}','🟨')">🟨</button>
-
-                </div>
-
             </div>
 
-            `;
+            <input
+                type="checkbox"
+                class="conv-checkbox"
+                data-nome="${j.nome}"
+                onchange="
+                actualizarConvocado(
+                    '${j.nome}',
+                    this.checked
+                )
+                ">
 
-        });
-
-        html += `
         </div>
+
         `;
 
     });
 
+    html += "</div>";
+
     document.getElementById(
-        "plantel"
+        div
     ).innerHTML = html;
 
 }
 
-function atualizarResumo(){
-
-    let presentes=0;
-    let faltas=0;
-    let lesionados=0;
-    let justificadas=0;
-
-    Object.values(
-        treinoAtual
-    ).forEach(v => {
-
-        if(v==="✅") presentes++;
-        if(v==="❌") faltas++;
-        if(v==="🩺") lesionados++;
-        if(v==="🟨") justificadas++;
-
-    });
-
-    document.getElementById(
-        "kpiPresentes"
-    ).innerText = presentes;
-
-    document.getElementById(
-        "kpiFaltas"
-    ).innerText = faltas;
-
-    document.getElementById(
-        "kpiLesionados"
-    ).innerText = lesionados;
-
-    document.getElementById(
-        "kpiJustificadas"
-    ).innerText = justificadas;
-
-}
-
-function mostrarFicha(
-    nome,
-    dados,
-    totalTreinos
+function actualizarConvocado(
+    jogador,
+    marcado
 ){
 
-    const perc =
+    if(marcado){
 
-    totalTreinos > 0
+        if(
+            !convocados.includes(
+                jogador
+            )
+        ){
 
-    ? Math.round(
-        (
-            dados.presencas /
-            totalTreinos
-        ) * 100
-    )
+            convocados.push(
+                jogador
+            );
 
-    : 0;
+        }
+
+    }
+    else{
+
+        convocados =
+        convocados.filter(
+            x => x !== jogador
+        );
+
+    }
 
     document.getElementById(
-        "fichaJogador"
-    ).innerHTML =
-
-    `
-    <div class="estat-item">
-
-        <strong>
-            ${nome}
-        </strong>
-
-    </div>
-
-    <div class="estat-item">
-
-        <span>
-            ✅ Presenças
-        </span>
-
-        <strong>
-            ${dados.presencas}
-        </strong>
-
-    </div>
-
-    <div class="estat-item">
-
-        <span>
-            ❌ Faltas
-        </span>
-
-        <strong>
-            ${dados.faltas}
-        </strong>
-
-    </div>
-
-    <div class="estat-item">
-
-        <span>
-            🩺 Lesões
-        </span>
-
-        <strong>
-            ${dados.lesionados}
-        </strong>
-
-    </div>
-
-    <div class="estat-item">
-
-        <span>
-            🟨 Justificadas
-        </span>
-
-        <strong>
-            ${dados.justificadas}
-        </strong>
-
-    </div>
-
-    <div class="estat-item">
-
-        <span>
-            📈 Assiduidade
-        </span>
-
-        <strong>
-            ${perc}%
-        </strong>
-
-    </div>
-    `;
+        "totalConvocados"
+    ).innerText =
+    convocados.length;
 
 }
 
-async function atualizarEstatisticas(){
+async function guardarConvocatoria(){
+
+    try{
+
+        const data =
+
+        document.getElementById(
+            "convData"
+        ).innerText;
+
+        await window.firebaseSetDoc(
+
+            window.firebaseDoc(
+                window.firebaseDB,
+                "convocatorias",
+                data
+            ),
+
+            {
+
+                adversario:
+                document.getElementById(
+                    "convAdversario"
+                ).innerText,
+
+                data:data,
+
+                hora:
+                document.getElementById(
+                    "convHora"
+                ).innerText,
+
+                local:
+                document.getElementById(
+                    "convLocal"
+                ).innerText,
+
+                concentracao:
+                document.getElementById(
+                    "convHoraConcentracao"
+                ).value,
+
+                convocados:
+                convocados,
+
+                criadoEm:
+                Date.now()
+
+            }
+
+        );
+
+        alert(
+            "✅ Convocatória guardada"
+        );
+
+    }
+    catch(err){
+
+        console.error(err);
+
+        alert(
+            "Erro ao guardar."
+        );
+
+    }
+
+}
+
+async function abrirHistoricoConvocatorias(){
 
     const snap =
 
@@ -1355,327 +1440,108 @@ async function atualizarEstatisticas(){
 
         window.firebaseCollection(
             window.firebaseDB,
-            "treinos"
+            "convocatorias"
         )
 
     );
 
-    const jogadores = {};
+    let html = `
 
-    let totalTreinos = 0;
+    <div class="card">
+
+        <div class="titulo">
+
+            📂 Histórico
+
+        </div>
+
+    `;
 
     snap.forEach(doc => {
 
-        totalTreinos++;
-
-        const treino =
+        const c =
         doc.data();
 
-        Object.entries(
-            treino
-        ).forEach(([nome,estado]) => {
+        html += `
 
-            if(
-                nome === "ativo" ||
-                nome === "criadoEm"
-            ){
-                return;
-            }
-
-            if(
-                !jogadores[nome]
-            ){
-
-                jogadores[nome] = {
-
-                    presencas:0,
-                    faltas:0,
-                    lesionados:0,
-                    justificadas:0
-
-                };
-
-            }
-
-            if(estado==="✅")
-                jogadores[nome].presencas++;
-
-            if(estado==="❌")
-                jogadores[nome].faltas++;
-
-            if(estado==="🩺")
-                jogadores[nome].lesionados++;
-
-            if(estado==="🟨")
-                jogadores[nome].justificadas++;
-
-        });
-
-    });
-
-    let totalPresencas = 0;
-    let totalFaltas = 0;
-    let totalLesoes = 0;
-    let totalJustificadas = 0;
-
-    Object.values(
-        jogadores
-    ).forEach(j => {
-
-        totalPresencas += j.presencas;
-        totalFaltas += j.faltas;
-        totalLesoes += j.lesionados;
-        totalJustificadas += j.justificadas;
-
-    });
-
-    const totalPlantel =
-
-    plantelFirestore.guardaRedes.length +
-    plantelFirestore.defesas.length +
-    plantelFirestore.medios.length +
-    plantelFirestore.avancados.length;
-
-    const totalEstados =
-
-    totalPresencas +
-    totalFaltas +
-    totalLesoes +
-    totalJustificadas;
-
-    const taxa =
-
-    totalEstados > 0
-
-    ? Math.round(
-        (
-            totalPresencas /
-            totalEstados
-        ) * 100
-    )
-
-    : 0;
-
-    document.getElementById(
-        "estatisticasMister"
-    ).innerHTML =
-
-    `
-    <div class="estat-item">
-        <span>👥 Plantel</span>
-        <strong>${totalPlantel}</strong>
-    </div>
-
-    <div class="estat-item">
-        <span>📅 Treinos</span>
-        <strong>${totalTreinos}</strong>
-    </div>
-
-    <div class="estat-item">
-        <span>✅ Presenças</span>
-        <strong>${totalPresencas}</strong>
-    </div>
-
-    <div class="estat-item">
-        <span>❌ Faltas</span>
-        <strong>${totalFaltas}</strong>
-    </div>
-
-    <div class="estat-item">
-        <span>🩺 Lesões</span>
-        <strong>${totalLesoes}</strong>
-    </div>
-
-    <div class="estat-item">
-        <span>🟨 Justificadas</span>
-        <strong>${totalJustificadas}</strong>
-    </div>
-
-    <div class="estat-item">
-        <span>📈 Taxa Presença</span>
-        <strong>${taxa}%</strong>
-    </div>
-    `;
-
-    /* ASSIDUIDADE */
-
-    let htmlA = "";
-
-    Object.entries(jogadores)
-
-    .sort(
-        (a,b) =>
-        b[1].presencas -
-        a[1].presencas
-    )
-
-    .slice(0,10)
-
-    .forEach(j => {
-
-        const perc =
-
-        totalTreinos > 0
-
-        ? Math.round(
-            (
-                j[1].presencas /
-                totalTreinos
-            ) * 100
-        )
-
-        : 0;
-
-        htmlA += `
-        <div
-            class="estat-item"
-            onclick='mostrarFicha("${j[0]}",${JSON.stringify(j[1])},${totalTreinos})'>
-
-            <span>${j[0]}</span>
-
-            <strong>${perc}%</strong>
-
-        </div>
-        `;
-
-    });
-
-    document.getElementById(
-        "rankingAssiduidade"
-    ).innerHTML =
-    htmlA;
-
-    /* AUSÊNCIAS */
-
-    let htmlF = "";
-
-    Object.entries(jogadores)
-
-    .sort(
-        (a,b) =>
-        b[1].faltas -
-        a[1].faltas
-    )
-
-    .slice(0,10)
-
-    .forEach(j => {
-
-        htmlF += `
         <div class="estat-item">
 
-            <span>${j[0]}</span>
+            <span>
 
-            <strong>${j[1].faltas}</strong>
+                ${c.data}
+
+                <br>
+
+                ${c.adversario}
+
+            </span>
 
         </div>
+
         `;
 
     });
 
-    document.getElementById(
-        "rankingAusencias"
-    ).innerHTML =
-    htmlF;
-
-    /* LESÕES */
-
-    let htmlL = "";
-
-    Object.entries(jogadores)
-
-    .sort(
-        (a,b) =>
-        b[1].lesionados -
-        a[1].lesionados
-    )
-
-    .slice(0,10)
-
-    .forEach(j => {
-
-        htmlL += `
-        <div class="estat-item">
-
-            <span>${j[0]}</span>
-
-            <strong>${j[1].lesionados}</strong>
-
-        </div>
-        `;
-
-    });
+    html += "</div>";
 
     document.getElementById(
-        "rankingLesoes"
-    ).innerHTML =
-    htmlL;
+        "historicoConvocatorias"
+    ).innerHTML = html;
 
-    /* JUSTIFICADAS */
+}
 
-    let htmlJ = "";
+function enviarWhatsapp(){
 
-    Object.entries(jogadores)
+    let msg =
 
-    .sort(
-        (a,b) =>
-        b[1].justificadas -
-        a[1].justificadas
-    )
+`📋 CONVOCATÓRIA
 
-    .slice(0,10)
+⚽ ${document.getElementById("convAdversario").innerText}
 
-    .forEach(j => {
+📅 ${document.getElementById("convData").innerText}
 
-        htmlJ += `
-        <div class="estat-item">
+🕒 ${document.getElementById("convHora").innerText}
 
-            <span>${j[0]}</span>
+📍 ${document.getElementById("convLocal").innerText}
 
-            <strong>${j[1].justificadas}</strong>
+⏰ Concentração:
+${document.getElementById("convHoraConcentracao").value}
 
-        </div>
-        `;
+━━━━━━━━━━━━━━
 
-    });
+✅ CONVOCADOS
 
-    document.getElementById(
-        "rankingJustificadas"
-    ).innerHTML =
-    htmlJ;
+`;
 
-    /* SETORES */
+    convocados.forEach(
+        (j,index)=>{
 
-    document.getElementById(
-        "estatisticasSetor"
-    ).innerHTML =
+            msg +=
+            `${index+1}. ${j}\n`;
 
-    `
-    <div class="estat-item">
-        <span>🧤 Guarda‑Redes</span>
-        <strong>${plantelFirestore.guardaRedes.length}</strong>
-    </div>
+        }
+    );
 
-    <div class="estat-item">
-        <span>🛡️ Defesas</span>
-        <strong>${plantelFirestore.defesas.length}</strong>
-    </div>
+    msg +=
+`\nVAMOS COM TUDO!`;
 
-    <div class="estat-item">
-        <span>⚙️ Médios</span>
-        <strong>${plantelFirestore.medios.length}</strong>
-    </div>
+    const url =
 
-    <div class="estat-item">
-        <span>🎯 Avançados</span>
-        <strong>${plantelFirestore.avancados.length}</strong>
-    </div>
-    `;
+    "https://wa.me/?text=" +
+
+    encodeURIComponent(
+        msg
+    );
+
+    window.open(
+        url,
+        "_blank"
+    );
 
 }
 
 console.log(
-    "Área Técnica V6.3 carregada"
+    "Área Técnica V7 carregada"
 );
 
 </script>
