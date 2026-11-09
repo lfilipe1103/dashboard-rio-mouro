@@ -8,24 +8,16 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Estatísticas Época</title>
+<title>Estatísticas da Época</title>
 
 <style>
 
 :root{
 
-    --bg:#050505;
     --card:#13213a;
     --border:#2d4369;
-
     --gold:#ffd700;
 
-    --green:#2ecc71;
-    --yellow:#f1c40f;
-    --red:#e74c3c;
-    --blue:#4fc3f7;
-
-    --text:#ffffff;
 }
 
 *{
@@ -57,6 +49,7 @@ body{
 
     max-width:700px;
     margin:auto;
+
 }
 
 .card{
@@ -81,14 +74,14 @@ body{
 
     text-align:center;
 
-    font-size:26px;
+    font-size:24px;
 
     font-weight:800;
 
     margin-bottom:20px;
 }
 
-.grid{
+.resumo-grid{
 
     display:grid;
 
@@ -98,9 +91,9 @@ body{
     gap:12px;
 }
 
-.stat{
+.bloco{
 
-    background:#203250;
+    background:#223758;
 
     border-radius:16px;
 
@@ -111,38 +104,74 @@ body{
 
 .numero{
 
-    font-size:34px;
+    font-size:38px;
 
-    font-weight:800;
-
-    margin-bottom:6px;
+    font-weight:900;
 }
 
 .label{
 
-    color:#b7c4d7;
+    color:#b8c7da;
 
-    font-size:14px;
+    margin-top:6px;
 }
 
-.verde{
-    color:var(--green);
+.forma{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-top:20px;
 }
 
-.amarelo{
-    color:var(--yellow);
+.forma-item{
+
+    text-align:center;
 }
 
-.vermelho{
-    color:var(--red);
+.forma-bola{
+
+    font-size:32px;
 }
 
-.azul{
-    color:var(--blue);
+.indicadores{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:12px;
 }
 
-.dourado{
-    color:var(--gold);
+.linha{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    background:#223758;
+
+    margin-bottom:8px;
+}
+
+.rdm{
+
+    background:
+    linear-gradient(
+        135deg,
+        #8a5c00,
+        #d49a00
+    );
 }
 
 .botao{
@@ -166,7 +195,7 @@ body{
 
     font-size:18px;
 
-    font-weight:700;
+    font-weight:bold;
 
     cursor:pointer;
 }
@@ -196,8 +225,7 @@ body{
 
         </div>
 
-        <div
-            id="estatisticas">
+        <div id="conteudo">
 
             A carregar...
 
@@ -217,8 +245,9 @@ body{
 
     </div>
 
-    <div class="atualizacao"
-         id="atualizacao">
+    <div
+        id="atualizacao"
+        class="atualizacao">
 
     </div>
 
@@ -239,142 +268,252 @@ async function carregarDados(){
         const data =
         await resp.json();
 
+        const r =
+        data.resumo_epoca || {};
+
         const f =
         data.factos || {};
 
         const s =
         data.series || {};
 
+        const forma =
+        data.forma || [];
+
+        const simbolos = {
+
+            V:"🟢",
+            E:"🟡",
+            D:"🔴"
+
+        };
+
+        let formaHtml = "";
+
+        forma.forEach(x=>{
+
+            formaHtml += `
+
+            <div class="forma-item">
+
+                <div class="forma-bola">
+
+                    ${simbolos[x]}
+
+                </div>
+
+                <div>
+
+                    ${x}
+
+                </div>
+
+            </div>
+
+            `;
+        });
+
+        let classificacao = "";
+
+        (data.classificacao || [])
+        .forEach(eq=>{
+
+            classificacao += `
+
+            <div class="
+                linha
+                ${eq.rio_mouro ? 'rdm' : ''}
+            ">
+
+                <div>
+
+                    ${eq.pos}º
+                    -
+                    ${eq.equipa}
+
+                </div>
+
+                <div>
+
+                    ${eq.pts} pts
+
+                </div>
+
+            </div>
+
+            `;
+        });
+
         document
         .getElementById(
-            "estatisticas"
+            "conteudo"
         )
         .innerHTML = `
 
-        <div class="grid">
+        <h2 style="text-align:center;margin-bottom:15px">
 
-            <div class="stat">
-                <div class="numero dourado">
+            🏆 Resumo Geral
+
+        </h2>
+
+        <div class="resumo-grid">
+
+            <div class="bloco">
+
+                <div class="numero">
+
                     ${f.jogos || 0}
+
                 </div>
+
                 <div class="label">
+
                     Jogos
+
                 </div>
+
             </div>
 
-            <div class="stat">
-                <div class="numero verde">
+            <div class="bloco">
+
+                <div class="numero"
+                     style="color:#ffd700">
+
+                    ${r.pontos || 0}
+
+                </div>
+
+                <div class="label">
+
+                    Pontos
+
+                </div>
+
+            </div>
+
+            <div class="bloco">
+
+                <div class="numero"
+                     style="color:#2ecc71">
+
                     ${f.vitorias || 0}
+
                 </div>
+
                 <div class="label">
+
                     Vitórias
+
                 </div>
+
             </div>
 
-            <div class="stat">
-                <div class="numero amarelo">
-                    ${f.empates || 0}
-                </div>
-                <div class="label">
-                    Empates
-                </div>
-            </div>
+            <div class="bloco">
 
-            <div class="stat">
-                <div class="numero vermelho">
-                    ${f.derrotas || 0}
-                </div>
-                <div class="label">
-                    Derrotas
-                </div>
-            </div>
+                <div class="numero"
+                     style="color:#ffd700">
 
-            <div class="stat">
-                <div class="numero verde">
-                    ${f.golos_marcados || 0}
-                </div>
-                <div class="label">
-                    Golos Marcados
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="numero vermelho">
-                    ${f.golos_sofridos || 0}
-                </div>
-                <div class="label">
-                    Golos Sofridos
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="numero azul">
-                    ${f.media_golos_marcados || 0}
-                </div>
-                <div class="label">
-                    Média GM
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="numero azul">
-                    ${f.media_golos_sofridos || 0}
-                </div>
-                <div class="label">
-                    Média GS
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="numero verde">
-                    ${s.sem_perder || 0}
-                </div>
-                <div class="label">
-                    Sem Perder
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="numero dourado">
-                    ${s.a_vencer || 0}
-                </div>
-                <div class="label">
-                    A Vencer
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="numero azul">
-                    ${s.a_marcar || 0}
-                </div>
-                <div class="label">
-                    A Marcar
-                </div>
-            </div>
-
-            <div class="stat">
-                <div class="numero vermelho">
-                    ${s.a_sofrer || 0}
-                </div>
-                <div class="label">
-                    A Sofrer
-                </div>
-            </div>
-
-            <div class="stat"
-                 style="grid-column:1 / span 2">
-
-                <div class="numero dourado">
                     ${s.percentagem_vitorias || 0}%
+
                 </div>
 
                 <div class="label">
-                    Percentagem de Vitórias
+
+                    Aproveitamento
+
                 </div>
 
             </div>
 
         </div>
+
+        <br>
+
+        <h2 style="text-align:center;margin-bottom:15px">
+
+            🔥 Forma Atual
+
+        </h2>
+
+        <div class="forma">
+
+            ${formaHtml}
+
+        </div>
+
+        <br>
+
+        <h2 style="text-align:center;margin-bottom:15px">
+
+            📈 Indicadores
+
+        </h2>
+
+        <div class="indicadores">
+
+            <div class="bloco">
+                <div class="numero">${s.sem_perder || 0}</div>
+                <div class="label">Sem Perder</div>
+            </div>
+
+            <div class="bloco">
+                <div class="numero">${s.a_vencer || 0}</div>
+                <div class="label">A Vencer</div>
+            </div>
+
+            <div class="bloco">
+                <div class="numero">${s.a_marcar || 0}</div>
+                <div class="label">A Marcar</div>
+            </div>
+
+            <div class="bloco">
+                <div class="numero">${s.a_sofrer || 0}</div>
+                <div class="label">A Sofrer</div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <h2 style="text-align:center;margin-bottom:15px">
+
+            ⚽ Golos
+
+        </h2>
+
+        <div class="indicadores">
+
+            <div class="bloco">
+                <div class="numero">${f.golos_marcados || 0}</div>
+                <div class="label">Marcados</div>
+            </div>
+
+            <div class="bloco">
+                <div class="numero">${f.golos_sofridos || 0}</div>
+                <div class="label">Sofridos</div>
+            </div>
+
+            <div class="bloco">
+                <div class="numero">${f.media_golos_marcados || 0}</div>
+                <div class="label">Média GM</div>
+            </div>
+
+            <div class="bloco">
+                <div class="numero">${f.media_golos_sofridos || 0}</div>
+                <div class="label">Média GS</div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <h2 style="text-align:center;margin-bottom:15px">
+
+            🏆 Classificação
+
+        </h2>
+
+        ${classificacao}
 
         `;
 
@@ -401,4 +540,5 @@ carregarDados();
 </script>
 
 </body>
+
 </html>
