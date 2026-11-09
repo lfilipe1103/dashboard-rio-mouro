@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Estatísticas Época</title>
+
+<style>
+
+:root{
+
+    --bg:#050505;
+    --card:#13213a;
+    --border:#2d4369;
+
+    --gold:#ffd700;
+
+    --green:#2ecc71;
+    --yellow:#f1c40f;
+    --red:#e74c3c;
+    --blue:#4fc3f7;
+
+    --text:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:
+    radial-gradient(
+        circle at top,
+        #12203a,
+        #050505
+    );
+
+    color:white;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    padding:20px;
+}
+
+.container{
+
+    max-width:700px;
+    margin:auto;
+}
+
+.card{
+
+    background:
+    linear-gradient(
+        180deg,
+        #13213a,
+        #1c2d4a
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:20px;
+
+    margin-bottom:18px;
+}
+
+.titulo{
+
+    text-align:center;
+
+    font-size:26px;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:12px;
+}
+
+.stat{
+
+    background:#203250;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    text-align:center;
+}
+
+.numero{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+}
+
+.label{
+
+    color:#b7c4d7;
+
+    font-size:14px;
+}
+
+.verde{
+    color:var(--green);
+}
+
+.amarelo{
+    color:var(--yellow);
+}
+
+.vermelho{
+    color:var(--red);
+}
+
+.azul{
+    color:var(--blue);
+}
+
+.dourado{
+    color:var(--gold);
+}
+
+.botao{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #35589b,
+        #4a78d1
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+.atualizacao{
+
+    text-align:center;
+
+    color:#9fb0c9;
+
+    font-size:13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="titulo">
+
+            📈 Estatísticas da Época
+
+        </div>
+
+        <div
+            id="estatisticas">
+
+            A carregar...
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <button
+            class="botao"
+            onclick="location.href='index.html'">
+
+            ⬅️ Voltar
+
+        </button>
+
+    </div>
+
+    <div class="atualizacao"
+         id="atualizacao">
+
+    </div>
+
+</div>
+
+<script>
+
+async function carregarDados(){
+
+    try{
+
+        const resp =
+        await fetch(
+            "./dashboard_data.json?t="
+            + Date.now()
+        );
+
+        const data =
+        await resp.json();
+
+        const f =
+        data.factos || {};
+
+        const s =
+        data.series || {};
+
+        document
+        .getElementById(
+            "estatisticas"
+        )
+        .innerHTML = `
+
+        <div class="grid">
+
+            <div class="stat">
+                <div class="numero dourado">
+                    ${f.jogos || 0}
+                </div>
+                <div class="label">
+                    Jogos
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero verde">
+                    ${f.vitorias || 0}
+                </div>
+                <div class="label">
+                    Vitórias
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero amarelo">
+                    ${f.empates || 0}
+                </div>
+                <div class="label">
+                    Empates
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero vermelho">
+                    ${f.derrotas || 0}
+                </div>
+                <div class="label">
+                    Derrotas
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero verde">
+                    ${f.golos_marcados || 0}
+                </div>
+                <div class="label">
+                    Golos Marcados
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero vermelho">
+                    ${f.golos_sofridos || 0}
+                </div>
+                <div class="label">
+                    Golos Sofridos
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero azul">
+                    ${f.media_golos_marcados || 0}
+                </div>
+                <div class="label">
+                    Média GM
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero azul">
+                    ${f.media_golos_sofridos || 0}
+                </div>
+                <div class="label">
+                    Média GS
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero verde">
+                    ${s.sem_perder || 0}
+                </div>
+                <div class="label">
+                    Sem Perder
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero dourado">
+                    ${s.a_vencer || 0}
+                </div>
+                <div class="label">
+                    A Vencer
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero azul">
+                    ${s.a_marcar || 0}
+                </div>
+                <div class="label">
+                    A Marcar
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="numero vermelho">
+                    ${s.a_sofrer || 0}
+                </div>
+                <div class="label">
+                    A Sofrer
+                </div>
+            </div>
+
+            <div class="stat"
+                 style="grid-column:1 / span 2">
+
+                <div class="numero dourado">
+                    ${s.percentagem_vitorias || 0}%
+                </div>
+
+                <div class="label">
+                    Percentagem de Vitórias
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+        document
+        .getElementById(
+            "atualizacao"
+        )
+        .innerHTML =
+        "Atualizado: "
+        +
+        (data.ultima_atualizacao || "-");
+
+    }
+    catch(err){
+
+        console.error(err);
+
+    }
+
+}
+
+carregarDados();
+
+</script>
+
+</body>
+</html>
