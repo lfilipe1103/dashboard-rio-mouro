@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>GD Rio de Mouro Dashboard</title>
+<title>GD Rio de Mouro • Dashboard</title>
 
 <style>
 
@@ -16,143 +16,89 @@
 
     --bg:#050505;
     --card:#13213a;
-    --card2:#1c2d4a;
-    --border:#2d4369;
+    --card2:#223758;
+    --border:#32496f;
 
-    --yellow:#facc15;
+    --gold:#ffd700;
     --green:#22c55e;
+    --yellow:#facc15;
     --red:#ef4444;
-    --blue:#3b82f6;
-
-    --text:#ffffff;
-    --muted:#9fb0c9;
 
 }
 
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
 }
 
 body{
 
-    background:var(--bg);
-    color:var(--text);
+    background:
+    radial-gradient(
+        circle at top,
+        #12203a,
+        #050505
+    );
+
+    color:white;
 
     font-family:
     "Segoe UI",
     Arial,
     sans-serif;
 
-    padding:12px;
+    padding:15px;
 
 }
 
 .container{
 
-    max-width:1400px;
+    max-width:900px;
     margin:auto;
 
 }
 
 .card{
 
-    background:var(--card);
+    background:
+    linear-gradient(
+        180deg,
+        #13213a,
+        #1d2f4d
+    );
 
     border:1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:24px;
 
-    padding:18px;
+    padding:20px;
 
-    margin-bottom:12px;
+    margin-bottom:15px;
 
-    box-shadow:
-    0 4px 12px
-    rgba(0,0,0,.20);
+}
+
+.titulo{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    margin-bottom:18px;
 
 }
 
 .hero{
 
-    background:
-    linear-gradient(
-        135deg,
-        #13213a,
-        #1b3158
-    );
-
     text-align:center;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    min-height:260px;
 
 }
 
 .logo{
 
-    display:flex;
+    width:90px;
 
-    justify-content:center;
-
-    margin-bottom:10px;
-
-}
-
-.logo img{
-
-    width:70px;
-
-    height:70px;
-
-    object-fit:contain;
-
-}
-
-.grid-topo{
-
-    display:grid;
-
-    grid-template-columns:
-    2fr 1fr;
-
-    gap:12px;
-
-    margin-bottom:12px;
-
-}
-
-.grid-kpi{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:12px;
-
-    margin-bottom:12px;
-
-}
-
-.grid-duplo{
-
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr;
-
-    gap:12px;
-
-    margin-bottom:12px;
+    margin-bottom:15px;
 
 }
 
@@ -160,7 +106,7 @@ body{
 
     font-size:34px;
 
-    font-weight:700;
+    font-weight:900;
 
     line-height:1.3;
 
@@ -168,96 +114,32 @@ body{
 
 .data{
 
+    color:var(--gold);
+
     margin-top:15px;
-
-    color:var(--yellow);
-
-    font-size:19px;
-
-    font-weight:700;
-
-}
-
-.estadio{
-
-    margin-top:10px;
-
-    color:var(--muted);
-
-    font-size:14px;
-
-    line-height:1.4;
-
-}
-
-.titulo{
 
     font-size:18px;
 
-    font-weight:700;
-
-    margin-bottom:15px;
-
-    padding-bottom:10px;
-
-    border-bottom:
-    1px solid var(--border);
+    font-weight:bold;
 
 }
 
-.kpi{
+.local{
 
-    text-align:center;
+    margin-top:10px;
 
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    min-height:120px;
+    color:#c4d0e0;
 
 }
 
-.kpi-numero{
+.alertas{
 
-    font-size:42px;
+    display:grid;
 
-    font-weight:700;
+    grid-template-columns:
+    repeat(2,1fr);
 
-}
-
-.kpi-label{
-
-    margin-top:8px;
-
-    color:var(--muted);
-
-    font-size:14px;
-
-}
-
-.amarelo{
-
-    color:var(--yellow);
-
-}
-
-.vermelho{
-
-    color:var(--red);
-
-}
-
-.azul{
-
-    color:var(--blue);
-
-}
-
-.verde{
-
-    color:var(--green);
+    gap:12px;
 
 }
 
@@ -265,15 +147,100 @@ body{
 
     background:var(--card2);
 
-    border-radius:12px;
+    border-radius:16px;
 
-    padding:12px;
+    padding:18px;
 
-    margin-bottom:8px;
+    text-align:center;
 
 }
 
-.jogador{
+.alerta-num{
+
+    font-size:42px;
+
+    font-weight:900;
+
+}
+
+.alerta-label{
+
+    margin-top:10px;
+
+}
+
+.box{
+
+    background:var(--card2);
+
+    border-radius:12px;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+}
+
+.risco{
+
+    background:var(--card2);
+
+    border-radius:12px;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+.linha{
+
+    background:var(--card2);
+
+    border-radius:12px;
+
+    padding:14px;
+
+    margin-bottom:10px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+.adversario{
+
+    text-align:center;
+
+}
+
+.adversario-nome{
+
+    font-size:36px;
+
+    font-weight:900;
+
+    margin-bottom:10px;
+
+}
+
+.grid-ficha{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:10px;
+
+}
+
+.info{
 
     background:var(--card2);
 
@@ -281,72 +248,52 @@ body{
 
     padding:12px;
 
-    margin-bottom:8px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-}
-
-.nome{
-
-    font-weight:600;
-
-}
-
-.contador{
-
-    background:var(--yellow);
-
-    color:#000;
-
-    padding:6px 12px;
-
-    border-radius:999px;
-
-    font-weight:700;
-
-    min-width:45px;
-
     text-align:center;
 
 }
 
-table{
+.info-num{
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+.info-label{
+
+    margin-top:5px;
+
+    font-size:13px;
+
+    color:#d0d9e7;
+
+}
+
+.voltar{
 
     width:100%;
 
-    border-collapse:collapse;
+    border:none;
 
-}
+    border-radius:18px;
 
-tr{
+    padding:18px;
 
-    border-bottom:
-    1px solid var(--border);
+    background:
+    linear-gradient(
+        135deg,
+        #35589b,
+        #4a78d1
+    );
 
-}
+    color:white;
 
-tr:last-child{
-
-    border-bottom:none;
-
-}
-
-td{
-
-    padding:12px;
-
-}
-
-td:last-child{
-
-    text-align:right;
+    font-size:18px;
 
     font-weight:700;
+
+    cursor:pointer;
 
 }
 
@@ -354,101 +301,24 @@ td:last-child{
 
     text-align:center;
 
-    color:var(--muted);
-
-    font-size:12px;
+    color:#9fb0c9;
 
     margin-top:15px;
 
 }
 
-.loading{
+@media(max-width:700px){
 
-    text-align:center;
-
-    color:var(--muted);
-
-}
-
-/* TELEMÓVEL */
-
-@media(max-width:900px){
-
-    .grid-topo{
+    .grid-ficha{
 
         grid-template-columns:
-        1fr;
-
-    }
-
-    .grid-duplo{
-
-        grid-template-columns:
-        1fr;
-
-    }
-
-    .grid-kpi{
-
-        grid-template-columns:
-        repeat(2,1fr);
+        1fr 1fr;
 
     }
 
     .jogo{
 
-        font-size:26px;
-
-    }
-
-    .data{
-
-        font-size:16px;
-
-    }
-
-    .logo img{
-
-        width:60px;
-
-        height:60px;
-
-    }
-
-    .kpi-numero{
-
-        font-size:32px;
-
-    }
-
-}
-
-@media(max-width:500px){
-
-    .grid-kpi{
-
-        grid-template-columns:
-        1fr 1fr;
-
-        gap:8px;
-
-    }
-
-    .card{
-
-        padding:14px;
-
-    }
-
-    .titulo{
-
-        font-size:16px;
-
-    }
-
-    .hero{
-
-        min-height:220px;
+        font-size:28px;
 
     }
 
@@ -462,130 +332,84 @@ td:last-child{
 
 <div class="container">
 
-    <!-- TOPO -->
+    <!-- PRÓXIMO JOGO -->
 
-    <div class="grid-topo">
+    <div class="card hero">
 
-        <!-- JOGO -->
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Rio de Mouro">
 
-        <div class="card hero">
+        <div
+            id="jogo"
+            class="jogo">
 
-            <div class="logo">
-
-                <img src="logo.png"
-                     alt="GD Rio de Mouro">
-
-            </div>
-
-            <div id="jogo"
-                 class="jogo">
-
-                A carregar...
-
-            </div>
-
-            <div id="dataHora"
-                 class="data"></div>
-
-            <div id="estadio"
-                 class="estadio"></div>
+            A carregar...
 
         </div>
 
-        <!-- ARBITRAGEM -->
+        <div
+            id="datajogo"
+            class="data">
 
-        <div class="card">
+        </div>
 
-            <div class="titulo">
-
-                👨‍⚖️ Arbitragem
-
-            </div>
-
-            <div id="arbitro">
-
-                <div class="loading">
-
-                    A carregar...
-
-                </div>
-
-            </div>
-
-            <div id="assistentes"></div>
+        <div
+            id="localjogo"
+            class="local">
 
         </div>
 
     </div>
 
-    <!-- KPI -->
+    <!-- ALERTAS -->
 
-    <div class="grid-kpi">
+    <div class="card">
 
-        <div class="card kpi">
+        <div class="titulo">
 
-            <div id="kpiCartoes"
-                 class="kpi-numero amarelo">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                🟨 Cartões
-
-            </div>
+            🚨 Alertas da Semana
 
         </div>
 
-        <div class="card kpi">
+        <div class="alertas">
 
-            <div id="kpiCastigados"
-                 class="kpi-numero vermelho">
+            <div class="alerta">
 
-                0
+                <div
+                    id="numCastigados"
+                    class="alerta-num"
+                    style="color:#ef4444">
 
-            </div>
+                    0
 
-            <div class="kpi-label">
+                </div>
 
-                🚫 Castigados
+                <div
+                    class="alerta-label">
 
-            </div>
+                    Castigados
 
-        </div>
-
-        <div class="card kpi">
-
-            <div id="kpiRisco"
-                 class="kpi-numero azul">
-
-                0
+                </div>
 
             </div>
 
-            <div class="kpi-label">
+            <div class="alerta">
 
-                ⚠️ Em Risco
+                <div
+                    id="numRisco"
+                    class="alerta-num"
+                    style="color:#facc15">
 
-            </div>
+                    0
 
-        </div>
+                </div>
 
-        <div class="card">
+                <div
+                    class="alerta-label">
 
-            <div class="titulo">
-
-                ⚔️ Próxima Semana
-
-            </div>
-
-            <div id="adversario">
-
-                <div class="loading">
-
-                    A carregar...
+                    Em Risco
 
                 </div>
 
@@ -595,54 +419,103 @@ td:last-child{
 
     </div>
 
-    <!-- CASTIGADOS -->
+    <!-- ADVERSÁRIO -->
 
-    <div class="grid-duplo">
+    <div class="card">
 
-        <div class="card">
+        <div class="titulo">
 
-            <div class="titulo">
+            ⚔️ Ficha do Adversário
 
-                🚫 Castigados Rio Mouro
+        </div>
 
-            </div>
+        <div
+            class="adversario">
 
-            <div id="castigados">
+            <div
+                id="nomeAdversario"
+                class="adversario-nome">
 
-                <div class="loading">
-
-                    A carregar...
-
-                </div>
+                -
 
             </div>
 
         </div>
 
-        <div class="card">
+        <div class="grid-ficha">
 
-            <div id="tituloCastigadosAdversario"
-                 class="titulo">
-
-                🚫 Castigados Adversário
-
+            <div class="info">
+                <div id="posicaoAdv" class="info-num">-</div>
+                <div class="info-label">Posição</div>
             </div>
 
-            <div id="castigadosAdversario">
+            <div class="info">
+                <div id="pontosAdv" class="info-num">-</div>
+                <div class="info-label">Pontos</div>
+            </div>
 
-                <div class="loading">
+            <div class="info">
+                <div id="jogosAdv" class="info-num">-</div>
+                <div class="info-label">Jogos</div>
+            </div>
 
-                    A carregar...
+            <div class="info">
+                <div id="gmAdv" class="info-num">-</div>
+                <div class="info-label">GM</div>
+            </div>
 
-                </div>
+            <div class="info">
+                <div id="gsAdv" class="info-num">-</div>
+                <div class="info-label">GS</div>
+            </div>
 
+            <div class="info">
+                <div id="dgAdv" class="info-num">-</div>
+                <div class="info-label">DG</div>
             </div>
 
         </div>
 
     </div>
 
-    <!-- EM RISCO -->
+    <!-- RESULTADOS -->
+
+    <div class="card">
+
+        <div class="titulo">
+
+            📅 Últimos Resultados do Adversário
+
+        </div>
+
+        <div
+            id="ultimosResultados">
+
+            A carregar...
+
+        </div>
+
+    </div>
+
+    <!-- INDISPONIBILIDADE -->
+
+    <div class="card">
+
+        <div class="titulo">
+
+            🚫 Indisponibilidade
+
+        </div>
+
+        <div id="indisponibilidade">
+
+            A carregar...
+
+        </div>
+
+    </div>
+
+    <!-- RISCO -->
 
     <div class="card">
 
@@ -654,53 +527,52 @@ td:last-child{
 
         <div id="risco">
 
-            <div class="loading">
-
-                A carregar...
-
-            </div>
+            A carregar...
 
         </div>
 
     </div>
 
-    <!-- RANKING -->
+    <!-- ARBITRAGEM -->
 
     <div class="card">
 
         <div class="titulo">
 
-            🟨 Ranking Disciplinar
+            👨‍⚖️ Arbitragem
 
         </div>
 
-        <div id="listaCartoes">
+        <div id="arbitragem">
 
-            <div class="loading">
-
-                A carregar...
-
-            </div>
+            A carregar...
 
         </div>
 
     </div>
 
-    <!-- ESTATÍSTICAS -->
+    <!-- PROXIMO ADVERSÁRIO -->
 
     <div class="card">
 
         <div class="titulo">
 
-            📊 Estatísticas da Época
+            ⏭️ Próximo Adversário
 
         </div>
 
-        <div id="estatisticas">
+        <div
+            style="text-align:center">
 
-            <div class="loading">
+            <div
+                id="dataProxAdv"
+                class="data">
 
-                A carregar...
+            </div>
+
+            <div
+                id="nomeProxAdv"
+                class="adversario-nome">
 
             </div>
 
@@ -708,10 +580,21 @@ td:last-child{
 
     </div>
 
-    <div class="footer">
+    <!-- VOLTAR -->
 
-        Última atualização:
-        <span id="atualizacao">-</span>
+    <button
+        class="voltar"
+        onclick="
+        location.href='index.html'
+        ">
+
+        ⬅️ Voltar
+
+    </button>
+
+    <div
+        id="atualizacao"
+        class="footer">
 
     </div>
 
@@ -719,366 +602,247 @@ td:last-child{
 
 <script>
 
-async function carregarDashboard(){
+async function carregar(){
 
     try{
 
-        const resposta =
+        const r =
         await fetch(
-            "dashboard_data.json?t=" +
-            Date.now()
+            "dashboard_data.json?t="
+            + Date.now()
         );
 
-        const dados =
-        await resposta.json();
+        const d =
+        await r.json();
 
         const s =
-        dados.seniores;
+        d.seniores || {};
 
-        /* ADVERSÁRIO DO JOGO ATUAL */
+        const adv =
+        d.dashboard?.adversario || {};
 
-        const adversarioAtual =
-
-        s.proximo_jogo.casa
-        .toUpperCase() ===
-        "RIO MOURO"
-
-        ? s.proximo_jogo.fora
-
-        : s.proximo_jogo.casa;
-
-        /* JOGO */
+        // JOGO
 
         document.getElementById(
             "jogo"
         ).innerHTML =
-        `
-        ${s.proximo_jogo.casa}
-        <br>
-        VS
-        <br>
-        ${s.proximo_jogo.fora}
-        `;
+
+        `${s.proximo_jogo?.casa || "-"}
+        <br>VS<br>
+        ${s.proximo_jogo?.fora || "-"}`;
 
         document.getElementById(
-            "dataHora"
+            "datajogo"
         ).innerHTML =
-        `${s.proximo_jogo.data} • ${s.proximo_jogo.hora}`;
+
+        `📅 ${s.proximo_jogo?.data || "-"}
+         • ${s.proximo_jogo?.hora || "-"}`;
 
         document.getElementById(
-            "estadio"
+            "localjogo"
         ).innerHTML =
-        `📍 ${s.proximo_jogo.estadio}`;
 
-        /* KPI */
+        `🏟️ ${s.proximo_jogo?.estadio || "-"}`;
+
+        // ALERTAS
 
         document.getElementById(
-            "kpiCartoes"
+            "numCastigados"
         ).innerText =
-        s.cartoes.total || 0;
+
+        s.castigos?.ativos || 0;
 
         document.getElementById(
-            "kpiCastigados"
+            "numRisco"
         ).innerText =
-        s.castigos.ativos || 0;
+
+        (s.cartoes?.risco || []).length;
+
+        // ADVERSARIO
 
         document.getElementById(
-            "kpiRisco"
+            "nomeAdversario"
         ).innerText =
-        (
-            s.cartoes.risco || []
-        ).length;
-
-        /* PRÓXIMA SEMANA */
+        adv.nome || "-";
 
         document.getElementById(
-    "adversario"
-).innerHTML =
-`
-<div class="alerta">
-
-    <strong>
-        ${
-            s.adversario_risco?.adversario
-            || "-"
-        }
-    </strong>
-
-</div>
-`;
-
-        /* TÍTULO CASTIGADOS ADVERSÁRIO */
+            "posicaoAdv"
+        ).innerText =
+        adv.posicao || "-";
 
         document.getElementById(
-            "tituloCastigadosAdversario"
-        ).innerHTML =
-        `🚫 Castigados ${adversarioAtual}`;
-
-        /* ARBITRAGEM */
+            "pontosAdv"
+        ).innerText =
+        adv.pontos || "-";
 
         document.getElementById(
-            "arbitro"
-        ).innerHTML =
-        `
-        <div class="alerta">
+            "jogosAdv"
+        ).innerText =
+        adv.jogos || "-";
 
-            👨‍⚖️
-            <strong>
-                ${s.proximo_jogo.arbitro || "Por nomear"}
-            </strong>
+        document.getElementById(
+            "gmAdv"
+        ).innerText =
+        adv.gm || "-";
 
-        </div>
-        `;
+        document.getElementById(
+            "gsAdv"
+        ).innerText =
+        adv.gs || "-";
 
-        let assistentes = "";
+        document.getElementById(
+            "dgAdv"
+        ).innerText =
+        adv.dg || "-";
+
+        // RESULTADOS
+
+        let html = "";
 
         (
-            s.proximo_jogo.assistentes || []
-        ).forEach(a => {
-
-            assistentes +=
-            `
-            <div class="alerta">
-
-                🚩 ${a}
-
-            </div>
-            `;
-
-        });
-
-        if(
-            assistentes === ""
-        ){
-
-            assistentes =
-            `
-            <div class="alerta">
-
-                Assistentes por nomear
-
-            </div>
-            `;
-
-        }
-
-        document.getElementById(
-            "assistentes"
-        ).innerHTML =
-        assistentes;
-
-        /* CASTIGADOS ADVERSÁRIO */
-
-        let htmlCastigadosAdv =
-        `
-        <div class="alerta">
-
-            ✅ Sem castigados
-
-        </div>
-        `;
-
-        document.getElementById(
-            "castigadosAdversario"
-        ).innerHTML =
-        htmlCastigadosAdv;
-
-        /* CASTIGADOS RIO MOURO */
-
-        let htmlCastigados = "";
-
-        if(
-            !s.castigos.lista ||
-            s.castigos.lista.length === 0
-        ){
-
-            htmlCastigados =
-            `
-            <div class="alerta">
-
-                ✅ Sem castigados
-
-            </div>
-            `;
-
-        }else{
-
-            s.castigos.lista.forEach(c => {
-
-                htmlCastigados +=
-                `
-                <div class="alerta">
-
-                    🚫 ${c.nome}
-
-                    <br><br>
-
-                    ${c.jogos} jogo(s)
-
-                </div>
-                `;
-
-            });
-
-        }
-
-        document.getElementById(
-            "castigados"
-        ).innerHTML =
-        htmlCastigados;
-
-        /* JOGADORES EM RISCO */
-
-        let htmlRisco = "";
-
-        (
-            s.cartoes.risco || []
+            adv.ultimos_resultados || []
         ).forEach(j => {
 
-            htmlRisco +=
-            `
-            <div class="jogador">
+            let icon = "🟡";
 
-                <div>
+            if(j.estado === "V")
+                icon = "🟢";
 
-                    ${j.nome}
+            if(j.estado === "D")
+                icon = "🔴";
 
-                </div>
-
-                <div class="contador">
-
-                    ${j.cartoes}
-
-                </div>
-
+            html += `
+            <div class="box">
+                ${icon}
+                ${j.data}
+                •
+                ${j.texto}
             </div>
             `;
 
         });
 
-        if(
-            htmlRisco === ""
-        ){
+        document.getElementById(
+            "ultimosResultados"
+        ).innerHTML =
+        html || "Sem dados";
 
-            htmlRisco =
-            `
-            <div class="alerta">
+        // INDISPONIBILIDADE
 
-                ✅ Sem jogadores em risco
+        document.getElementById(
+            "indisponibilidade"
+        ).innerHTML =
 
+        (s.castigos?.lista || [])
+        .map(x => `
+            <div class="box">
+                🚫 ${x.nome}
             </div>
-            `;
+        `).join("")
 
-        }
+        ||
+
+        `<div class="box">
+            ✅ Sem indisponíveis
+        </div>`;
+
+        // RISCO
 
         document.getElementById(
             "risco"
         ).innerHTML =
-        htmlRisco;
 
-        /* RANKING */
+        (s.cartoes?.risco || [])
+        .map(x => `
+            <div class="risco">
+                <span>
+                    🟨 ${x.nome}
+                </span>
 
-        let htmlRanking =
-        `<table>`;
+                <strong>
+                    ${x.cartoes}
+                </strong>
+            </div>
+        `).join("")
+
+        ||
+
+        `<div class="box">
+            ✅ Sem jogadores em risco
+        </div>`;
+
+        // ARBITRAGEM
+
+        let arb = `
+        <div class="linha">
+            <span>Árbitro</span>
+            <strong>
+                ${s.proximo_jogo?.arbitro || "-"}
+            </strong>
+        </div>
+        `;
 
         (
-            s.cartoes.ranking || []
-        ).forEach(j => {
+            s.proximo_jogo?.assistentes
+            || []
+        ).forEach(a => {
 
-            htmlRanking +=
-            `
-            <tr>
-
-                <td>
-                    ${j.nome}
-                </td>
-
-                <td>
-                    ${j.cartoes}
-                </td>
-
-            </tr>
+            arb += `
+            <div class="linha">
+                <span>Assistente</span>
+                <strong>${a}</strong>
+            </div>
             `;
 
         });
 
-        htmlRanking +=
-        `</table>`;
+        document.getElementById(
+            "arbitragem"
+        ).innerHTML = arb;
+
+        // PRÓXIMO ADVERSÁRIO
 
         document.getElementById(
-            "listaCartoes"
-        ).innerHTML =
-        htmlRanking;
+            "dataProxAdv"
+        ).innerText =
 
-        /* ESTATÍSTICAS */
+        s.adversario_risco?.data || "";
 
         document.getElementById(
-            "estatisticas"
+            "nomeProxAdv"
         ).innerHTML =
-        `
-        <div class="alerta">
 
-            👥 Jogadores com cartões:
-            <strong>
-                ${s.cartoes.jogadores || 0}
-            </strong>
+        `⚔️ ${
+            s.adversario_risco?.adversario
+            || "-"
+        }`;
 
-        </div>
-
-        <div class="alerta">
-
-            🟨 Cartões acumulados:
-            <strong>
-                ${s.cartoes.total || 0}
-            </strong>
-
-        </div>
-
-        <div class="alerta">
-
-            🚫 Castigados:
-            <strong>
-                ${s.castigos.ativos || 0}
-            </strong>
-
-        </div>
-
-        <div class="alerta">
-
-            👨‍⚖️ Árbitros diferentes:
-            <strong>
-                ${s.arbitros?.diferentes || 0}
-            </strong>
-
-        </div>
-        `;
+        // RODAPÉ
 
         document.getElementById(
             "atualizacao"
-        ).innerText =
-        dados.ultima_atualizacao;
+        ).innerHTML =
+
+        "Atualizado: "
+        +
+        (
+            d.ultima_atualizacao
+            || "-"
+        );
 
     }
+
     catch(err){
 
-        console.error(
-            "ERRO DASHBOARD:",
-            err
-        );
+        console.log(err);
 
     }
 
 }
 
-carregarDashboard();
-
-setInterval(
-    carregarDashboard,
-    10000
-);
+carregar();
 
 </script>
 
 </body>
-
 </html>
