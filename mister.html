@@ -1458,32 +1458,88 @@ function enviarWhatsapp(){
 
     let msg =
 
-`CONVOCATÓRIA
+`CONVOCATÓRIA - ${document.getElementById("convAdversario").innerText}
+
+${document.getElementById("convData").innerText} - ${document.getElementById("convHora").innerText}
+
+Local:
+${document.getElementById("convLocal").innerText}
 
 Concentração: ${document.getElementById("convHoraConcentracao").value}
 
 ━━━━━━━━━━━━━━
 
+GUARDA-REDES
+
 `;
 
-    convocados.forEach(
+    plantelFirestore.guardaRedes.forEach(j=>{
 
-        (j,index)=>{
+        if(convocados.includes(j.nome)){
 
-            msg +=
-            `${index+1}. ${j}\n`;
+            msg += `• ${j.nome}\n`;
 
         }
 
-    );
+    });
+
+    msg += `
+
+DEFESAS
+
+`;
+
+    plantelFirestore.defesas.forEach(j=>{
+
+        if(convocados.includes(j.nome)){
+
+            msg += `• ${j.nome}\n`;
+
+        }
+
+    });
+
+    msg += `
+
+MÉDIOS
+
+`;
+
+    plantelFirestore.medios.forEach(j=>{
+
+        if(convocados.includes(j.nome)){
+
+            msg += `• ${j.nome}\n`;
+
+        }
+
+    });
+
+    msg += `
+
+AVANÇADOS
+
+`;
+
+    plantelFirestore.avancados.forEach(j=>{
+
+        if(convocados.includes(j.nome)){
+
+            msg += `• ${j.nome}\n`;
+
+        }
+
+    });
+
+    msg += `
+
+━━━━━━━━━━━━━━
+
+VAMOS COM TUDO💪`;
 
     const url =
-
-    "https://wa.me/?text=" +
-
-    encodeURIComponent(
-        msg
-    );
+        "https://wa.me/?text=" +
+        encodeURIComponent(msg);
 
     window.open(
         url,
