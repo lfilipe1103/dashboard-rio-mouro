@@ -1323,21 +1323,19 @@ function atualizarResumo(){
    CONVOCATÓRIA
 ========================= */
 
-function mostrarConvocatoria(){
+async function mostrarConvocatoria(){
 
-    document
-    .getElementById(
+    document.getElementById(
         "menuPrincipal"
-    )
-    .style.display =
+    ).style.display =
     "none";
 
-    document
-    .getElementById(
+    document.getElementById(
         "areaConvocatoria"
-    )
-    .style.display =
+    ).style.display =
     "block";
+
+    await carregarDadosJogo();
 
     carregarConvocatoria();
 
@@ -1518,6 +1516,41 @@ function mostrarAmarelos(){
 
 }
 
+async function carregarDadosJogo(){
+
+    const response =
+    await fetch(
+        "dashboard_data.json"
+    );
+
+    const data =
+    await response.json();
+
+    const jogo =
+    data.seniores.proximo_jogo;
+
+    document.getElementById(
+        "convAdversario"
+    ).innerText =
+    jogo.fora;
+
+    document.getElementById(
+        "convData"
+    ).innerText =
+    jogo.data;
+
+    document.getElementById(
+        "convHora"
+    ).innerText =
+    jogo.hora;
+
+    document.getElementById(
+        "convLocal"
+    ).innerText =
+    jogo.estadio;
+
+}
+    
 async function carregarAmarelos(){
 
     try{
@@ -1531,7 +1564,7 @@ async function carregarAmarelos(){
         await response.json();
 
         const lista =
-        data.amarelos || [];
+        data.seniores.cartoes.ranking;
 
         let html = "";
 
@@ -1549,7 +1582,7 @@ async function carregarAmarelos(){
 
                 <strong>
 
-                    ${j.amarelos}
+                    ${j.cartoes}
 
                 </strong>
 
@@ -1559,11 +1592,9 @@ async function carregarAmarelos(){
 
         });
 
-        document
-        .getElementById(
+        document.getElementById(
             "listaAmarelos"
-        )
-        .innerHTML =
+        ).innerHTML =
         html;
 
     }
