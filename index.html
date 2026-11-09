@@ -13,31 +13,17 @@
 <style>
 
 :root{
-
     --bg:#050505;
     --card:#13213a;
-    --card2:#1c2d4a;
-
     --border:#2d4369;
-
     --gold:#ffd700;
-    --goldDark:#b8860b;
-
-    --green:#2ecc71;
-    --yellow:#f1c40f;
-    --red:#e74c3c;
-
     --text:#ffffff;
-    --muted:#9fb0c9;
-
 }
 
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-
 }
 
 body{
@@ -49,17 +35,16 @@ body{
         #050505
     );
 
-    color:var(--text);
-
     font-family:
     "Segoe UI",
     Arial,
     sans-serif;
 
+    color:white;
+
     min-height:100vh;
 
     padding:20px;
-
 }
 
 .container{
@@ -67,7 +52,6 @@ body{
     width:100%;
     max-width:560px;
     margin:auto;
-
 }
 
 .card{
@@ -76,70 +60,49 @@ body{
     linear-gradient(
         180deg,
         #13213a,
-        #192b4b
+        #1b2d4b
     );
 
-    border:1px solid var(--border);
+    border:1px solid #29436c;
 
-    border-radius:24px;
+    border-radius:28px;
 
-    padding:22px;
+    padding:24px;
 
-    margin-bottom:16px;
+    margin-bottom:18px;
 
     box-shadow:
-        0 12px 30px
-        rgba(0,0,0,.35);
-
+    0 10px 30px rgba(0,0,0,.35);
 }
 
 .topo{
 
     text-align:center;
-
-}
-
-.logo{
-
-    display:flex;
-    justify-content:center;
-
 }
 
 .logo img{
 
-    width:120px;
-    height:120px;
-
+    width:130px;
+    height:130px;
     object-fit:contain;
-
-}
-
-.nome-clube{
-
-    font-size:30px;
-    font-weight:800;
-
-    margin-top:10px;
-
 }
 
 .subtitulo{
 
-    color:#bcc8d8;
+    font-size:18px;
 
-    margin-top:6px;
+    color:#dbe4f3;
 
+    margin-top:12px;
 }
 
-.atualizacao-topo{
+.atualizacao{
 
-    margin-top:10px;
+    margin-top:12px;
 
-    color:#91a5c3;
+    font-size:14px;
 
-    font-size:12px;
-
+    color:#9fb0c9;
 }
 
 .titulo{
@@ -147,133 +110,82 @@ body{
     text-align:center;
 
     font-size:20px;
+
     font-weight:700;
 
     margin-bottom:20px;
-
 }
 
 .posicao{
 
-    font-size:70px;
-    font-weight:800;
+    font-size:76px;
+
+    font-weight:900;
 
     color:var(--gold);
 
-    line-height:1;
+    text-align:center;
+}
 
+.lugar{
+
+    text-align:center;
+
+    color:#9fb0c9;
+
+    font-size:18px;
+
+    margin-top:10px;
 }
 
 .pontos{
 
+    text-align:center;
+
+    margin-top:15px;
+
     font-size:24px;
+
     font-weight:bold;
-
-    margin-top:10px;
-
 }
 
-.forma-row{
+.forma{
+
+    margin-top:25px;
 
     display:flex;
 
     justify-content:center;
 
-    gap:14px;
-
-    margin-top:20px;
-
+    gap:20px;
 }
 
 .forma-item{
 
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
+    text-align:center;
 }
 
-.forma-label{
+.forma-bola{
 
-    color:#c3d1e3;
+    font-size:34px;
+}
 
-    font-size:12px;
+.forma-letra{
+
+    margin-top:5px;
 
     font-weight:bold;
-
 }
 
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:10px;
+.legenda{
 
     margin-top:20px;
 
-}
-
-.stat-card{
-
-    background:#203250;
-
-    border-radius:14px;
-
-    padding:12px;
-
     text-align:center;
 
-}
+    color:#a7b8cf;
 
-.stat-num{
-
-    font-size:24px;
-    font-weight:bold;
-
-}
-
-.stat-label{
-
-    color:#9fb0c9;
-
-    font-size:12px;
-
-    margin-top:4px;
-
-}
-
-.linha{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    background:#203250;
-
-    padding:12px;
-
-    border-radius:14px;
-
-    margin-bottom:8px;
-
-}
-
-.rdm{
-
-    background:
-    linear-gradient(
-        135deg,
-        #8a5c00,
-        #d49a00
-    );
-
+    font-size:14px;
 }
 
 .botao-menu{
@@ -282,11 +194,11 @@ body{
 
     border:none;
 
-    border-radius:16px;
+    border-radius:18px;
 
-    padding:18px;
+    padding:20px;
 
-    margin-bottom:12px;
+    margin-bottom:14px;
 
     background:
     linear-gradient(
@@ -297,21 +209,19 @@ body{
 
     color:white;
 
-    font-size:18px;
+    font-size:20px;
 
     font-weight:700;
 
     cursor:pointer;
 
     transition:.2s;
-
 }
 
 .botao-menu:hover{
 
     transform:
     translateY(-2px);
-
 }
 
 .rodape{
@@ -320,8 +230,7 @@ body{
 
     font-size:12px;
 
-    color:#aab7c8;
-
+    color:#9fb0c9;
 }
 
 </style>
@@ -350,7 +259,7 @@ body{
 
         <div
             id="atualizacao_topo"
-            class="atualizacao-topo">
+            class="atualizacao">
 
             A carregar...
 
@@ -376,33 +285,9 @@ body{
 
     <div class="card">
 
-        <div class="titulo">
-
-            🏆 Classificação
-
-        </div>
-
-        <div id="classificacao">
-
-            A carregar...
-
-        </div>
-
-    </div>
-
-    <div class="card">
-
-        <div class="titulo">
-
-            🚀 Acesso Rápido
-
-        </div>
-
         <button
             class="botao-menu"
-            onclick="
-            location.href='dashboard.html'
-            ">
+            onclick="location.href='dashboard.html'">
 
             📊 Dashboard
 
@@ -410,11 +295,17 @@ body{
 
         <button
             class="botao-menu"
-            onclick="
-            location.href='mister.html'
-            ">
+            onclick="location.href='estatisticas.html'">
 
-            🧑‍🏫 Área Técnica
+            📈 Estatísticas Época
+
+        </button>
+
+        <button
+            class="botao-menu"
+            onclick="location.href='mister.html'">
+
+            🧑‍🏫 Mister
 
         </button>
 
@@ -426,7 +317,7 @@ body{
 
             <span id="atualizacao">
 
-                GDRRM V4
+                GDRRM
 
             </span>
 
@@ -438,23 +329,24 @@ body{
 
 <script>
 
-async function carregarDados() {
+async function carregarDados(){
 
-    try {
+    try{
 
-        const resp = await fetch(
-            "./dashboard_data.json?t=" +
-            Date.now()
+        const resp =
+        await fetch(
+            './dashboard_data.json?t='
+            + Date.now()
         );
 
         const data =
-            await resp.json();
+        await resp.json();
 
         const r =
-            data.resumo_epoca;
+        data.resumo_epoca;
 
         const forma =
-            data.forma || [];
+        data.forma || [];
 
         const simbolos = {
 
@@ -466,264 +358,90 @@ async function carregarDados() {
 
         let formaHtml = "";
 
-        forma.forEach(
-            resultado => {
+        forma.forEach(x=>{
 
-                formaHtml += `
+            formaHtml += `
 
-                    <div class="forma-item">
+            <div class="forma-item">
 
-                        <div style="
-                            font-size:24px;
-                        ">
-                            ${simbolos[resultado]}
-                        </div>
+                <div class="forma-bola">
 
-                        <div class="forma-label">
-                            ${resultado}
-                        </div>
-
-                    </div>
-
-                `;
-
-            }
-        );
-
-        document.getElementById(
-            "resumo"
-        ).innerHTML = `
-
-
-<div style="text-align:center">
-
-    <div class="posicao">
-        ${r.posicao}º
-    </div>
-
-    <div style="
-        color:#9fb0c9;
-        margin-top:4px;
-    ">
-        Lugar Atual
-    </div>
-
-    <div class="pontos">
-        🏆 ${r.pontos} pontos
-    </div>
-
-    <div class="forma-row">
-
-        ${formaHtml}
-
-    </div>
-
-    <div style="
-        font-size:12px;
-        color:#9fb0c9;
-        margin-top:10px;
-    ">
-        V = Vitória • E = Empate • D = Derrota
-    </div>
-
-    <div class="stats-grid">
-
-        <div class="stat-card">
-
-            <div
-                class="stat-num"
-                style="
-                color:#2ecc71;
-                ">
-
-                ${r.v}
-
-            </div>
-
-            <div class="stat-label">
-                Vitórias
-            </div>
-
-        </div>
-
-        <div class="stat-card">
-
-            <div
-                class="stat-num"
-                style="
-                color:#f1c40f;
-                ">
-
-                ${r.e}
-
-            </div>
-
-            <div class="stat-label">
-                Empates
-            </div>
-
-        </div>
-
-        <div class="stat-card">
-
-            <div
-                class="stat-num"
-                style="
-                color:#e74c3c;
-                ">
-
-                ${r.d}
-
-            </div>
-
-            <div class="stat-label">
-                Derrotas
-            </div>
-
-        </div>
-
-    </div>
-
-    <div style="
-        margin-top:18px;
-        background:#203250;
-        border-radius:14px;
-        padding:14px;
-        color:#d5ddeb;
-    ">
-
-        ⚽ ${r.gm} GM
-
-        &nbsp;&nbsp;•&nbsp;&nbsp;
-
-        🥅 ${r.gs} GS
-
-        &nbsp;&nbsp;•&nbsp;&nbsp;
-
-        📈 ${r.dg}
-
-    </div>
-
-</div>
-
-`;
-
-        // =====================
-        // CLASSIFICAÇÃO
-        // =====================
-
-        let html = "";
-
-        const top2 =
-            data.contexto_classificacao.top2 || [];
-
-        const acima =
-            data.contexto_classificacao.acima || [];
-
-        const rdm =
-            data.contexto_classificacao.rio_mouro;
-
-        const abaixo =
-            data.contexto_classificacao.abaixo || [];
-
-        const lista = [
-            ...top2,
-            ...acima,
-            ...[rdm],
-            ...abaixo
-        ];
-
-        let usados = [];
-
-        lista.forEach(eq => {
-
-            if(!eq) return;
-
-            if(
-                usados.includes(
-                    eq.pos
-                )
-            ) return;
-
-            usados.push(
-                eq.pos
-            );
-
-            html += `
-
-            <div
-                class="
-                linha
-                ${eq.rio_mouro ? 'rdm' : ''}
-                ">
-
-                <div>
-
-                    <span style="
-                        font-weight:bold;
-                        color:${
-                            eq.pos === 1
-                                ? '#2ecc71'
-                                : eq.pos === 2
-                                    ? '#8bc34a'
-                                    : '#ffffff'
-                        };
-                    ">
-
-                        ${eq.pos}º
-
-                    </span>
-
-                    &nbsp;
-
-                    ${eq.equipa}
+                    ${simbolos[x]}
 
                 </div>
 
-                <div style="
-                    font-weight:bold;
-                    color:#ffd700;
-                ">
+                <div class="forma-letra">
 
-                    ${eq.pts}
+                    ${x}
 
                 </div>
 
             </div>
 
             `;
-
         });
 
-        document.getElementById(
-            "classificacao"
-        ).innerHTML = html;
+        document
+        .getElementById("resumo")
+        .innerHTML = `
+
+        <div class="posicao">
+
+            ${r.posicao}º
+
+        </div>
+
+        <div class="lugar">
+
+            Lugar Atual
+
+        </div>
+
+        <div class="pontos">
+
+            🏆 ${r.pontos} pontos
+
+        </div>
+
+        <div class="forma">
+
+            ${formaHtml}
+
+        </div>
+
+        <div class="legenda">
+
+            V = Vitória • E = Empate • D = Derrota
+
+        </div>
+
+        `;
 
         if(
             data.ultima_atualizacao
         ){
 
-            document.getElementById(
+            document
+            .getElementById(
                 "atualizacao"
-            ).innerHTML =
-                "Atualizado: "
-                +
-                data.ultima_atualizacao;
+            )
+            .innerHTML =
+            "Atualizado: " +
+            data.ultima_atualizacao;
 
-            document.getElementById(
+            document
+            .getElementById(
                 "atualizacao_topo"
-            ).innerHTML =
-                "Atualizado: "
-                +
-                data.ultima_atualizacao;
-
+            )
+            .innerHTML =
+            "Atualizado: " +
+            data.ultima_atualizacao;
         }
 
     }
-
     catch(err){
 
-        console.error(err);
+        console.log(err);
 
     }
 
