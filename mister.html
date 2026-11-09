@@ -8,7 +8,7 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
 
-<title>Área Mister</title>
+<title>Área Técnica V6.3</title>
 
 <style>
 
@@ -16,65 +16,59 @@
 
     --bg:#050505;
     --card:#13213a;
-    --card2:#223758;
-    --border:#32496f;
+    --card2:#1c2d4a;
+    --border:#2d4369;
 
-    --green:#22c55e;
+    --text:#ffffff;
+    --muted:#9fb0c9;
+
     --yellow:#facc15;
+    --green:#22c55e;
     --red:#ef4444;
     --blue:#3b82f6;
 
 }
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
+
 }
 
 body{
 
-    background:
-    radial-gradient(
-        circle at top,
-        #12203a,
-        #050505
-    );
-
-    color:white;
+    background:var(--bg);
+    color:var(--text);
 
     font-family:
     "Segoe UI",
     Arial,
     sans-serif;
 
-    padding:15px;
+    padding:12px;
 
 }
 
 .container{
 
-    max-width:900px;
+    max-width:1300px;
     margin:auto;
 
 }
 
 .card{
 
-    background:
-    linear-gradient(
-        180deg,
-        #13213a,
-        #1d2f4d
-    );
+    background:var(--card);
 
-    border:1px solid #32496f;
+    border:1px solid var(--border);
 
-    border-radius:24px;
+    border-radius:20px;
 
-    padding:20px;
+    padding:18px;
 
-    margin-bottom:15px;
+    margin-bottom:12px;
 
 }
 
@@ -82,80 +76,55 @@ body{
 
     text-align:center;
 
+    background:
+    linear-gradient(
+        135deg,
+        #13213a,
+        #1c2d4a
+    );
+
 }
 
 .logo{
 
-    width:90px;
+    display:flex;
+    justify-content:center;
 
     margin-bottom:15px;
 
 }
 
-.titulo{
+.logo img{
 
-    font-size:28px;
+    width:80px;
+    height:80px;
 
-    font-weight:800;
-
-    margin-bottom:10px;
+    object-fit:contain;
 
 }
 
 .subtitulo{
 
-    color:#b8c7d8;
+    margin-top:8px;
+
+    color:var(--muted);
 
     font-size:14px;
 
 }
 
-.botao{
-
-    width:100%;
-
-    border:none;
-
-    border-radius:18px;
-
-    padding:20px;
-
-    margin-bottom:12px;
-
-    background:
-    linear-gradient(
-        135deg,
-        #35589b,
-        #4a78d1
-    );
-
-    color:white;
-
-    font-size:20px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-}
-
-.btn-voltar{
-
-    width:100%;
-
-    border:none;
-
-    border-radius:18px;
-
-    padding:18px;
-
-    background:#243754;
-
-    color:white;
+.titulo{
 
     font-size:18px;
 
-    cursor:pointer;
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    padding-bottom:10px;
+
+    border-bottom:
+    1px solid var(--border);
 
 }
 
@@ -163,33 +132,178 @@ input{
 
     width:100%;
 
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    margin-bottom:10px;
+
+}
+
+.btn{
+
+    width:100%;
+
     padding:14px;
 
     border:none;
 
     border-radius:12px;
 
-    margin-bottom:12px;
+    cursor:pointer;
+
+    background:#314b77;
+
+    color:white;
 
     font-size:16px;
 
-}
-
-.modulo{
-
-    display:none;
+    font-weight:600;
 
 }
 
-.item{
+.btn-voltar{
 
-    background:#223758;
+    background:#1c2d4a;
+
+}
+
+.grid-kpi{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:12px;
+
+    margin-bottom:12px;
+
+}
+
+.kpi{
+
+    text-align:center;
+
+}
+
+.kpi-numero{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.kpi-label{
+
+    margin-top:6px;
+
+    color:var(--muted);
+
+}
+
+.verde{
+    color:var(--green);
+}
+
+.vermelho{
+    color:var(--red);
+}
+
+.amarelo{
+    color:var(--yellow);
+}
+
+.azul{
+    color:var(--blue);
+}
+
+.jogador{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
 
     border-radius:12px;
 
-    padding:14px;
+    padding:12px;
 
-    margin-bottom:10px;
+    margin-bottom:8px;
+
+    cursor:pointer;
+
+}
+
+.info-jogador{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.idade{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+.estado{
+
+    color:var(--yellow);
+
+    font-size:12px;
+
+}
+
+.botoes{
+
+    display:flex;
+    gap:5px;
+
+}
+
+.botoes button{
+
+    width:42px;
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.estat-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
+
+    border-radius:12px;
+
+    padding:12px;
+
+    margin-bottom:8px;
 
 }
 
@@ -197,91 +311,16 @@ input{
 
     text-align:center;
 
-    color:#b8c7d8;
+    color:var(--muted);
 
 }
 
-.card-kpi{
+@media(max-width:900px){
 
-    display:grid;
+    .grid-kpi{
 
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:12px;
-
-    margin-bottom:20px;
-
-}
-
-.kpi{
-
-    border-radius:20px;
-
-    padding:20px;
-
-    text-align:center;
-
-    color:white;
-
-}
-
-.kpi-verde{
-
-    background:
-    linear-gradient(
-        135deg,
-        #15803d,
-        #22c55e
-    );
-
-}
-
-.kpi-vermelho{
-
-    background:
-    linear-gradient(
-        135deg,
-        #b91c1c,
-        #ef4444
-    );
-
-}
-
-.kpi-amarelo{
-
-    background:
-    linear-gradient(
-        135deg,
-        #ca8a04,
-        #facc15
-    );
-
-    color:black;
-
-}
-
-.kpi-num{
-
-    font-size:48px;
-
-    font-weight:900;
-
-}
-
-.kpi-label{
-
-    margin-top:10px;
-
-    font-weight:700;
-
-}
-
-@media(max-width:700px){
-
-    .card-kpi{
-
-        grid-template-columns:1fr;
+        grid-template-columns:
+        repeat(2,1fr);
 
     }
 
@@ -355,134 +394,114 @@ getDocs;
 
 <div class="container">
 
-    <div id="login">
+<!-- LOGIN -->
 
-        <div class="card topo">
+<div id="login">
+
+    <div class="card topo">
+
+        <div class="logo">
 
             <img
                 src="logo.png"
-                class="logo">
-
-            <div class="titulo">
-
-                🧑‍🏫 Área Mister
-
-            </div>
-
-            <div class="subtitulo">
-
-                Acesso Restrito
-
-            </div>
+                alt="GD Rio de Mouro">
 
         </div>
 
-        <div class="card">
+        <h1>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Password">
+            ÁREA TÉCNICA
 
-            <button
-                class="botao"
-                onclick="entrar()">
+        </h1>
 
-                Entrar
+        <div class="subtitulo">
 
-            </button>
+            Gestão de Treinos e Estatística Geral
 
         </div>
 
     </div>
 
-    <div
-        id="menuPrincipal"
-        style="display:none">
+    <div class="card">
 
-        <div class="card topo">
-
-            <img
-                src="logo.png"
-                class="logo">
-
-            <div class="titulo">
-
-                🧑‍🏫 Área Mister
-
-            </div>
-
-            <div class="subtitulo">
-
-                Gestão Semanal da Equipa
-
-            </div>
-
-        </div>
+        <input
+            type="password"
+            id="password"
+            placeholder="Password Mister">
 
         <button
-            class="botao"
-            onclick="abrirModulo('treino')">
+            class="btn"
+            onclick="entrar()">
 
-            🏃 Gestão de Treino
-
-        </button>
-
-        <button
-            class="botao"
-            onclick="abrirModulo('convocatoria')">
-
-            📋 Convocatória
-
-        </button>
-
-        <button
-            class="botao"
-            onclick="abrirModulo('disciplinar')">
-
-            🟨 Gestão Disciplinar
-
-        </button>
-
-        <button
-            class="botao"
-            onclick="abrirModulo('estatisticas')">
-
-            📊 Estatística Geral
-
-        </button>
-
-        <button
-            class="btn-voltar"
-            onclick="location.href='index.html'">
-
-            ⬅️ Voltar
+            Entrar
 
         </button>
 
     </div>
 
-<!-- =====================================
-     GESTÃO DE TREINO
-===================================== -->
+</div>
 
-<div id="treino" class="modulo">
+<!-- MENU -->
+
+<div id="menuMister"
+     style="display:none">
 
     <button
-        class="btn-voltar"
-        onclick="voltarMenu()">
+        class="btn btn-voltar"
+        onclick="location.href='index.html'">
 
-        ⬅️ Voltar
+        ← Menu Principal
 
     </button>
-
-    <br><br>
 
     <div class="card">
 
         <div class="titulo">
 
-            🏃 Gestão de Treino
+            ⚽ Área Técnica
+
+        </div>
+
+        <button
+            class="btn"
+            onclick="mostrarTreinos()">
+
+            📅 Gestão de Treino
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn"
+            onclick="mostrarEstatisticas()">
+
+            📊 Estatística Geral V6.3
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- TREINOS -->
+
+<div id="areaTreinos"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
+
+    </button>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            📅 Gestão de Treino
 
         </div>
 
@@ -491,84 +510,90 @@ getDocs;
             id="dataTreino">
 
         <button
-            class="botao"
+            class="btn"
             onclick="criarTreino()">
 
-            ➕ Criar Treino
+            Criar Treino
 
         </button>
+
+        <br><br>
 
         <button
-            class="botao"
+            class="btn"
             onclick="abrirTreino()">
 
-            📂 Abrir Treino
+            Abrir Treino
 
         </button>
 
     </div>
 
-    <div class="card">
+    <div class="grid-kpi">
 
-        <div class="titulo">
+        <div class="card kpi">
 
-            ✅ Último Treino
+            <div id="kpiPresentes"
+                 class="kpi-numero verde">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                ✅ Presentes
+
+            </div>
 
         </div>
 
-        <div class="card-kpi">
+        <div class="card kpi">
 
-            <div class="kpi kpi-verde">
+            <div id="kpiFaltas"
+                 class="kpi-numero vermelho">
 
-                <div
-                    id="kpiPresentes"
-                    class="kpi-num">
-
-                    0
-
-                </div>
-
-                <div class="kpi-label">
-
-                    Presentes
-
-                </div>
+                0
 
             </div>
 
-            <div class="kpi kpi-vermelho">
+            <div class="kpi-label">
 
-                <div
-                    id="kpiFaltas"
-                    class="kpi-num">
-
-                    0
-
-                </div>
-
-                <div class="kpi-label">
-
-                    Faltas
-
-                </div>
+                ❌ Faltas
 
             </div>
 
-            <div class="kpi kpi-amarelo">
+        </div>
 
-                <div
-                    id="kpiLesionados"
-                    class="kpi-num">
+        <div class="card kpi">
 
-                    0
+            <div id="kpiLesionados"
+                 class="kpi-numero amarelo">
 
-                </div>
+                0
 
-                <div class="kpi-label">
+            </div>
 
-                    Lesionados
+            <div class="kpi-label">
 
-                </div>
+                🩺 Lesionados
+
+            </div>
+
+        </div>
+
+        <div class="card kpi">
+
+            <div id="kpiJustificadas"
+                 class="kpi-numero azul">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                🟨 Justificadas
 
             </div>
 
@@ -576,21 +601,11 @@ getDocs;
 
     </div>
 
-    <div class="card">
+    <div id="plantel">
 
-        <div class="titulo">
+        <div class="loading">
 
-            👥 Presenças do Treino
-
-        </div>
-
-        <div id="plantelTreino">
-
-            <div class="loading">
-
-                A carregar plantel...
-
-            </div>
+            A carregar plantel...
 
         </div>
 
@@ -598,93 +613,34 @@ getDocs;
 
 </div>
 
-<!-- =====================================
-     CONVOCATÓRIA
-===================================== -->
+<!-- ESTATÍSTICAS -->
 
-<div id="convocatoria" class="modulo">
+<div id="areaEstatisticas"
+     style="display:none">
 
     <button
-        class="btn-voltar"
+        class="btn btn-voltar"
         onclick="voltarMenu()">
 
-        ⬅️ Voltar
+        ← Voltar
 
     </button>
 
-    <br><br>
+    <!-- RESUMO -->
 
     <div class="card">
 
         <div class="titulo">
 
-            📋 Convocatória
+            📊 Resumo Geral
 
         </div>
 
-        <div class="card-kpi">
-
-            <div class="kpi kpi-verde">
-
-                <div
-                    id="totalConvocados"
-                    class="kpi-num">
-
-                    0
-
-                </div>
-
-                <div class="kpi-label">
-
-                    ✅ Convocados
-
-                </div>
-
-            </div>
-
-            <div class="kpi kpi-vermelho">
-
-                <div
-                    id="totalFora"
-                    class="kpi-num">
-
-                    0
-
-                </div>
-
-                <div class="kpi-label">
-
-                    ❌ Fora
-
-                </div>
-
-            </div>
-
-            <div class="kpi kpi-amarelo">
-
-                <div
-                    id="totalLesionados"
-                    class="kpi-num">
-
-                    0
-
-                </div>
-
-                <div class="kpi-label">
-
-                    🩺 Lesionados
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div id="listaConvocatoria">
+        <div id="estatisticasMister">
 
             <div class="loading">
 
-                A carregar plantel...
+                A calcular...
 
             </div>
 
@@ -692,37 +648,21 @@ getDocs;
 
     </div>
 
-</div>
-
-<!-- =====================================
-     GESTÃO DISCIPLINAR
-===================================== -->
-
-<div id="disciplinar" class="modulo">
-
-    <button
-        class="btn-voltar"
-        onclick="voltarMenu()">
-
-        ⬅️ Voltar
-
-    </button>
-
-    <br><br>
+    <!-- ASSIDUIDADE -->
 
     <div class="card">
 
         <div class="titulo">
 
-            🟨 Gestão Disciplinar
+            🏆 Ranking Assiduidade
 
         </div>
 
-        <div id="gestaoDisciplinar">
+        <div id="rankingAssiduidade">
 
             <div class="loading">
 
-                A carregar...
+                A calcular...
 
             </div>
 
@@ -730,85 +670,187 @@ getDocs;
 
     </div>
 
-</div>
-
-<!-- =====================================
-     ESTATÍSTICA GERAL
-===================================== -->
-
-<div id="estatisticas" class="modulo">
-
-    <button
-        class="btn-voltar"
-        onclick="voltarMenu()">
-
-        ⬅️ Voltar
-
-    </button>
-
-    <br><br>
+    <!-- FALTAS -->
 
     <div class="card">
 
         <div class="titulo">
 
-            📊 Estatística Geral
+            🚨 Ranking Ausências
 
         </div>
 
-        <div id="estatisticasContainer">
+        <div id="rankingAusencias">
 
-            <div class="item">
-                🏆 Assiduidade
-            </div>
+            <div class="loading">
 
-            <div class="item">
-                🚨 Ausências
-            </div>
+                A calcular...
 
-            <div class="item">
-                🩺 Lesões
-            </div>
-
-            <div class="item">
-                ⚙️ Estatística por Setor
             </div>
 
         </div>
 
     </div>
 
-</div>
+    <!-- LESÕES -->
+
+    <div class="card">
+
+        <div class="titulo">
+
+            🩺 Ranking Lesões
+
+        </div>
+
+        <div id="rankingLesoes">
+
+            <div class="loading">
+
+                A calcular...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JUSTIFICADAS -->
+
+    <div class="card">
+
+        <div class="titulo">
+
+            🟨 Ranking Justificadas
+
+        </div>
+
+        <div id="rankingJustificadas">
+
+            <div class="loading">
+
+                A calcular...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SETORES -->
+
+    <div class="card">
+
+        <div class="titulo">
+
+            ⚙️ Estatística por Setor
+
+        </div>
+
+        <div id="estatisticasSetor">
+
+            <div class="loading">
+
+                A calcular...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FICHA -->
+
+    <div class="card">
+
+        <div class="titulo">
+
+            👤 Ficha Individual
+
+        </div>
+
+        <div id="fichaJogador">
+
+            Seleciona um jogador num ranking.
+
+        </div>
+
+    </div>
 
 </div>
 
 <script>
 
-const PASSWORD = "MISTER2026";
+const PASSWORD =
+"MISTER2026";
 
-let plantel = [];
 let treinoAtual = {};
 
-function mostrarSistema(){
+let plantelFirestore = {
 
-    document.getElementById(
-        "login"
-    ).style.display = "none";
+    guardaRedes:[],
+    defesas:[],
+    medios:[],
+    avancados:[]
 
-    document.getElementById(
-        "menuPrincipal"
-    ).style.display = "block";
+};
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        document
+        .getElementById(
+            "dataTreino"
+        )
+        .value =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+    }
+);
+
+function calcularIdade(data){
+
+    const hoje =
+    new Date();
+
+    const nasc =
+    new Date(data);
+
+    let idade =
+    hoje.getFullYear() -
+    nasc.getFullYear();
+
+    const m =
+    hoje.getMonth() -
+    nasc.getMonth();
+
+    if(
+        m < 0 ||
+        (
+            m === 0 &&
+            hoje.getDate() <
+            nasc.getDate()
+        )
+    ){
+        idade--;
+    }
+
+    return idade;
 
 }
 
-function entrar(){
+async function entrar(){
 
     const pass =
     document.getElementById(
         "password"
     ).value;
 
-    if(pass !== PASSWORD){
+    if(
+        pass !== PASSWORD
+    ){
 
         alert(
             "Password incorreta"
@@ -818,56 +860,84 @@ function entrar(){
 
     }
 
-    sessionStorage.setItem(
-        "mister",
-        "ativo"
-    );
-
-    mostrarSistema();
-
-}
-
-function abrirModulo(id){
+    await carregarPlantelFirestore();
 
     document.getElementById(
-        "menuPrincipal"
-    ).style.display = "none";
-
-    document.querySelectorAll(
-        ".modulo"
-    ).forEach(x => {
-
-        x.style.display = "none";
-
-    });
+        "login"
+    ).style.display =
+    "none";
 
     document.getElementById(
-        id
-    ).style.display = "block";
+        "menuMister"
+    ).style.display =
+    "block";
 
 }
 
 function voltarMenu(){
 
-    document.querySelectorAll(
-        ".modulo"
-    ).forEach(x => {
-
-        x.style.display = "none";
-
-    });
+    document.getElementById(
+        "areaTreinos"
+    ).style.display =
+    "none";
 
     document.getElementById(
-        "menuPrincipal"
-    ).style.display = "block";
+        "areaEstatisticas"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "block";
 
 }
 
-async function carregarPlantel(){
+function mostrarTreinos(){
 
-    plantel = [];
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaTreinos"
+    ).style.display =
+    "block";
+
+    carregarPlantel();
+
+}
+
+async function mostrarEstatisticas(){
+
+    document.getElementById(
+        "menuMister"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaEstatisticas"
+    ).style.display =
+    "block";
+
+    await atualizarEstatisticas();
+
+}
+
+async function carregarPlantelFirestore(){
+
+    plantelFirestore = {
+
+        guardaRedes:[],
+        defesas:[],
+        medios:[],
+        avancados:[]
+
+    };
 
     const snap =
+
     await window.firebaseGetDocs(
 
         window.firebaseCollection(
@@ -879,34 +949,733 @@ async function carregarPlantel(){
 
     snap.forEach(doc => {
 
-        const j = doc.data();
+        const jogador =
+        doc.data();
 
-        plantel.push({
-            nome: j.nome || doc.id,
-            posicao: j.posicao || ""
-        });
+        switch(
+            jogador.posicao
+        ){
+
+            case "GR":
+
+                plantelFirestore
+                .guardaRedes
+                .push(jogador);
+
+                break;
+
+            case "DEF":
+
+                plantelFirestore
+                .defesas
+                .push(jogador);
+
+                break;
+
+            case "MED":
+
+                plantelFirestore
+                .medios
+                .push(jogador);
+
+                break;
+
+            case "AV":
+
+                plantelFirestore
+                .avancados
+                .push(jogador);
+
+                break;
+
+        }
 
     });
 
 }
 
-document.addEventListener(
-    "DOMContentLoaded",
-    async () => {
+async function criarTreino(){
 
-        if(
-            sessionStorage.getItem(
-                "mister"
-            ) === "ativo"
-        ){
+    const data =
 
-            mostrarSistema();
+    document.getElementById(
+        "dataTreino"
+    ).value;
 
+    await window.firebaseSetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        ),
+
+        {
+            ativo:true,
+            criadoEm:
+            Date.now()
+        },
+
+        {
+            merge:true
         }
 
-        await carregarPlantel();
+    );
+
+    treinoAtual = {};
+
+    carregarPlantel();
+
+    atualizarResumo();
+
+    alert(
+        "Treino criado."
+    );
+
+}
+
+async function abrirTreino(){
+
+    const data =
+
+    document.getElementById(
+        "dataTreino"
+    ).value;
+
+    const snap =
+
+    await window.firebaseGetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        )
+
+    );
+
+    if(
+        !snap.exists()
+    ){
+
+        alert(
+            "Treino inexistente."
+        );
+
+        return;
 
     }
+
+    treinoAtual =
+    snap.data();
+
+    carregarPlantel();
+
+    atualizarResumo();
+
+}
+
+async function marcarPresenca(
+    jogador,
+    estado
+){
+
+    const data =
+
+    document.getElementById(
+        "dataTreino"
+    ).value;
+
+    treinoAtual[
+        jogador
+    ] = estado;
+
+    await window.firebaseSetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        ),
+
+        {
+            [jogador]:
+            estado
+        },
+
+        {
+            merge:true
+        }
+
+    );
+
+    atualizarResumo();
+
+    carregarPlantel();
+
+}
+
+function carregarPlantel(){
+
+    let html = "";
+
+    const grupos = [
+
+        {
+            titulo:"🧤 Guarda‑Redes",
+            lista:plantelFirestore.guardaRedes
+        },
+
+        {
+            titulo:"🛡️ Defesas",
+            lista:plantelFirestore.defesas
+        },
+
+        {
+            titulo:"⚙️ Médios",
+            lista:plantelFirestore.medios
+        },
+
+        {
+            titulo:"🎯 Avançados",
+            lista:plantelFirestore.avancados
+        }
+
+    ];
+
+    grupos.forEach(grupo => {
+
+        html += `
+        <div class="card">
+
+            <div class="titulo">
+                ${grupo.titulo}
+            </div>
+        `;
+
+        grupo.lista.forEach(j => {
+
+            const estado =
+            treinoAtual[j.nome] || "";
+
+            html += `
+
+            <div class="jogador">
+
+                <div class="info-jogador">
+
+                    <strong>
+                        ${j.nome}
+                    </strong>
+
+                    <div class="idade">
+                        ${calcularIdade(
+                            j.nascimento
+                        )} anos
+                    </div>
+
+                    ${
+                        estado
+                        ?
+                        `<div class="estado">
+                            ${estado}
+                        </div>`
+                        :
+                        ""
+                    }
+
+                </div>
+
+                <div class="botoes">
+
+                    <button onclick="marcarPresenca('${j.nome}','✅')">✅</button>
+
+                    <button onclick="marcarPresenca('${j.nome}','❌')">❌</button>
+
+                    <button onclick="marcarPresenca('${j.nome}','🩺')">🩺</button>
+
+                    <button onclick="marcarPresenca('${j.nome}','🟨')">🟨</button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+        html += `
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "plantel"
+    ).innerHTML = html;
+
+}
+
+function atualizarResumo(){
+
+    let presentes=0;
+    let faltas=0;
+    let lesionados=0;
+    let justificadas=0;
+
+    Object.values(
+        treinoAtual
+    ).forEach(v => {
+
+        if(v==="✅") presentes++;
+        if(v==="❌") faltas++;
+        if(v==="🩺") lesionados++;
+        if(v==="🟨") justificadas++;
+
+    });
+
+    document.getElementById(
+        "kpiPresentes"
+    ).innerText = presentes;
+
+    document.getElementById(
+        "kpiFaltas"
+    ).innerText = faltas;
+
+    document.getElementById(
+        "kpiLesionados"
+    ).innerText = lesionados;
+
+    document.getElementById(
+        "kpiJustificadas"
+    ).innerText = justificadas;
+
+}
+
+function mostrarFicha(
+    nome,
+    dados,
+    totalTreinos
+){
+
+    const perc =
+
+    totalTreinos > 0
+
+    ? Math.round(
+        (
+            dados.presencas /
+            totalTreinos
+        ) * 100
+    )
+
+    : 0;
+
+    document.getElementById(
+        "fichaJogador"
+    ).innerHTML =
+
+    `
+    <div class="estat-item">
+
+        <strong>
+            ${nome}
+        </strong>
+
+    </div>
+
+    <div class="estat-item">
+
+        <span>
+            ✅ Presenças
+        </span>
+
+        <strong>
+            ${dados.presencas}
+        </strong>
+
+    </div>
+
+    <div class="estat-item">
+
+        <span>
+            ❌ Faltas
+        </span>
+
+        <strong>
+            ${dados.faltas}
+        </strong>
+
+    </div>
+
+    <div class="estat-item">
+
+        <span>
+            🩺 Lesões
+        </span>
+
+        <strong>
+            ${dados.lesionados}
+        </strong>
+
+    </div>
+
+    <div class="estat-item">
+
+        <span>
+            🟨 Justificadas
+        </span>
+
+        <strong>
+            ${dados.justificadas}
+        </strong>
+
+    </div>
+
+    <div class="estat-item">
+
+        <span>
+            📈 Assiduidade
+        </span>
+
+        <strong>
+            ${perc}%
+        </strong>
+
+    </div>
+    `;
+
+}
+
+async function atualizarEstatisticas(){
+
+    const snap =
+
+    await window.firebaseGetDocs(
+
+        window.firebaseCollection(
+            window.firebaseDB,
+            "treinos"
+        )
+
+    );
+
+    const jogadores = {};
+
+    let totalTreinos = 0;
+
+    snap.forEach(doc => {
+
+        totalTreinos++;
+
+        const treino =
+        doc.data();
+
+        Object.entries(
+            treino
+        ).forEach(([nome,estado]) => {
+
+            if(
+                nome === "ativo" ||
+                nome === "criadoEm"
+            ){
+                return;
+            }
+
+            if(
+                !jogadores[nome]
+            ){
+
+                jogadores[nome] = {
+
+                    presencas:0,
+                    faltas:0,
+                    lesionados:0,
+                    justificadas:0
+
+                };
+
+            }
+
+            if(estado==="✅")
+                jogadores[nome].presencas++;
+
+            if(estado==="❌")
+                jogadores[nome].faltas++;
+
+            if(estado==="🩺")
+                jogadores[nome].lesionados++;
+
+            if(estado==="🟨")
+                jogadores[nome].justificadas++;
+
+        });
+
+    });
+
+    let totalPresencas = 0;
+    let totalFaltas = 0;
+    let totalLesoes = 0;
+    let totalJustificadas = 0;
+
+    Object.values(
+        jogadores
+    ).forEach(j => {
+
+        totalPresencas += j.presencas;
+        totalFaltas += j.faltas;
+        totalLesoes += j.lesionados;
+        totalJustificadas += j.justificadas;
+
+    });
+
+    const totalPlantel =
+
+    plantelFirestore.guardaRedes.length +
+    plantelFirestore.defesas.length +
+    plantelFirestore.medios.length +
+    plantelFirestore.avancados.length;
+
+    const totalEstados =
+
+    totalPresencas +
+    totalFaltas +
+    totalLesoes +
+    totalJustificadas;
+
+    const taxa =
+
+    totalEstados > 0
+
+    ? Math.round(
+        (
+            totalPresencas /
+            totalEstados
+        ) * 100
+    )
+
+    : 0;
+
+    document.getElementById(
+        "estatisticasMister"
+    ).innerHTML =
+
+    `
+    <div class="estat-item">
+        <span>👥 Plantel</span>
+        <strong>${totalPlantel}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>📅 Treinos</span>
+        <strong>${totalTreinos}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>✅ Presenças</span>
+        <strong>${totalPresencas}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>❌ Faltas</span>
+        <strong>${totalFaltas}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>🩺 Lesões</span>
+        <strong>${totalLesoes}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>🟨 Justificadas</span>
+        <strong>${totalJustificadas}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>📈 Taxa Presença</span>
+        <strong>${taxa}%</strong>
+    </div>
+    `;
+
+    /* ASSIDUIDADE */
+
+    let htmlA = "";
+
+    Object.entries(jogadores)
+
+    .sort(
+        (a,b) =>
+        b[1].presencas -
+        a[1].presencas
+    )
+
+    .slice(0,10)
+
+    .forEach(j => {
+
+        const perc =
+
+        totalTreinos > 0
+
+        ? Math.round(
+            (
+                j[1].presencas /
+                totalTreinos
+            ) * 100
+        )
+
+        : 0;
+
+        htmlA += `
+        <div
+            class="estat-item"
+            onclick='mostrarFicha("${j[0]}",${JSON.stringify(j[1])},${totalTreinos})'>
+
+            <span>${j[0]}</span>
+
+            <strong>${perc}%</strong>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "rankingAssiduidade"
+    ).innerHTML =
+    htmlA;
+
+    /* AUSÊNCIAS */
+
+    let htmlF = "";
+
+    Object.entries(jogadores)
+
+    .sort(
+        (a,b) =>
+        b[1].faltas -
+        a[1].faltas
+    )
+
+    .slice(0,10)
+
+    .forEach(j => {
+
+        htmlF += `
+        <div class="estat-item">
+
+            <span>${j[0]}</span>
+
+            <strong>${j[1].faltas}</strong>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "rankingAusencias"
+    ).innerHTML =
+    htmlF;
+
+    /* LESÕES */
+
+    let htmlL = "";
+
+    Object.entries(jogadores)
+
+    .sort(
+        (a,b) =>
+        b[1].lesionados -
+        a[1].lesionados
+    )
+
+    .slice(0,10)
+
+    .forEach(j => {
+
+        htmlL += `
+        <div class="estat-item">
+
+            <span>${j[0]}</span>
+
+            <strong>${j[1].lesionados}</strong>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "rankingLesoes"
+    ).innerHTML =
+    htmlL;
+
+    /* JUSTIFICADAS */
+
+    let htmlJ = "";
+
+    Object.entries(jogadores)
+
+    .sort(
+        (a,b) =>
+        b[1].justificadas -
+        a[1].justificadas
+    )
+
+    .slice(0,10)
+
+    .forEach(j => {
+
+        htmlJ += `
+        <div class="estat-item">
+
+            <span>${j[0]}</span>
+
+            <strong>${j[1].justificadas}</strong>
+
+        </div>
+        `;
+
+    });
+
+    document.getElementById(
+        "rankingJustificadas"
+    ).innerHTML =
+    htmlJ;
+
+    /* SETORES */
+
+    document.getElementById(
+        "estatisticasSetor"
+    ).innerHTML =
+
+    `
+    <div class="estat-item">
+        <span>🧤 Guarda‑Redes</span>
+        <strong>${plantelFirestore.guardaRedes.length}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>🛡️ Defesas</span>
+        <strong>${plantelFirestore.defesas.length}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>⚙️ Médios</span>
+        <strong>${plantelFirestore.medios.length}</strong>
+    </div>
+
+    <div class="estat-item">
+        <span>🎯 Avançados</span>
+        <strong>${plantelFirestore.avancados.length}</strong>
+    </div>
+    `;
+
+}
+
+console.log(
+    "Área Técnica V6.3 carregada"
 );
 
 </script>
