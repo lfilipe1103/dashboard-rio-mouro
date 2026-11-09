@@ -1,149 +1,15 @@
 {
-  "ultima_atualizacao": "09/11/2026 11:09",
-  "seniores": {
-    "proximo_jogo": {
-      "casa": "RIO MOURO",
-      "fora": "ARSENAL 72, SAD",
-      "data": "08-11-2026",
-      "hora": "15:00",
-      "arbitro": "AFONSO LOPES",
-      "assistentes": [
-        "FRANCISCO PINTO",
-        "DIOGO CARVALHO"
-      ],
-      "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO)"
-    },
-    "proximo_adversario": {
-      "nome": "RD ALGUEIRÃO",
-      "castigados": 0
-    },
-    "cartoes": {
-      "total": 32,
-      "jogadores": 15,
-      "ranking": [
-        {
-          "nome": "JOSE FURTADO",
-          "cartoes": 4
-        },
-        {
-          "nome": "NUNO GOMES",
-          "cartoes": 4
-        },
-        {
-          "nome": "MIGUEL FONSECA",
-          "cartoes": 3
-        },
-        {
-          "nome": "PEDRO PAULINO",
-          "cartoes": 3
-        },
-        {
-          "nome": "RENAN LIMA",
-          "cartoes": 3
-        },
-        {
-          "nome": "BRUNO MOTA",
-          "cartoes": 2
-        },
-        {
-          "nome": "DANIEL CALDAS",
-          "cartoes": 2
-        },
-        {
-          "nome": "GONCALO SILVA",
-          "cartoes": 2
-        },
-        {
-          "nome": "HENRIQUE MARTINS",
-          "cartoes": 2
-        },
-        {
-          "nome": "RODRIGO DELGADO",
-          "cartoes": 2
-        },
-        {
-          "nome": "ANDRE PECURTO",
-          "cartoes": 2
-        },
-        {
-          "nome": "JOAO RASCAO",
-          "cartoes": 2
-        },
-        {
-          "nome": "JOAO RODRIGUES",
-          "cartoes": 2
-        },
-        {
-          "nome": "ROBERT ANDRADE",
-          "cartoes": 2
-        },
-        {
-          "nome": "SANA SAMBU",
-          "cartoes": 2
-        }
-      ],
-      "risco": [
-        {
-          "nome": "JOSE FURTADO",
-          "cartoes": 4
-        },
-        {
-          "nome": "NUNO GOMES",
-          "cartoes": 4
-        }
-      ]
-    },
-    "castigos": {
-      "ativos": 0,
-      "lista": []
-    },
-    "multas": {
-      "total": 0.0,
-      "lista": []
-    },
-    "arbitros": {
-      "diferentes": 8,
-      "historico": [
-        {
-          "nome": "AFONSO LOPES",
-          "jogos": 2
-        },
-        {
-          "nome": "RICARDO SANTOS",
-          "jogos": 1
-        },
-        {
-          "nome": "MIGUEL BORGES",
-          "jogos": 1
-        },
-        {
-          "nome": "HUGO FONSECA",
-          "jogos": 1
-        },
-        {
-          "nome": "EDGAR MOTA E SOUSA",
-          "jogos": 1
-        },
-        {
-          "nome": "ANDRE MOREIRA",
-          "jogos": 1
-        },
-        {
-          "nome": "NICOLAU PRIOR",
-          "jogos": 1
-        },
-        {
-          "nome": "WILSON MARQUES",
-          "jogos": 1
-        }
-      ]
-    },
-    "adversario_risco": {
-      "data": "15/11/2026",
-      "hora": "15:00",
-      "local": "(F)",
-      "adversario": "RD Algueirão"
-    }
+  "ultima_atualizacao": "09/11/2026 11:50:28",
+  "resumo_epoca": {
+    "posicao": 3,
+    "pontos": 16,
+    "j": 8,
+    "v": 5,
+    "e": 1,
+    "d": 2,
+    "gm": 19,
+    "gs": 14,
+    "dg": "+5"
   },
   "classificacao": [
     {
@@ -316,17 +182,6 @@
       "rio_mouro": false
     }
   ],
-  "resumo_epoca": {
-    "posicao": 3,
-    "pontos": 16,
-    "j": 8,
-    "v": 5,
-    "e": 1,
-    "d": 2,
-    "gm": 19,
-    "gs": 14,
-    "dg": "+5"
-  },
   "contexto_classificacao": {
     "top2": [
       {
@@ -428,9 +283,26 @@
   },
   "forma": [
     "V",
-    "V",
-    "V",
     "E",
-    "D"
-  ]
+    "V",
+    "V",
+    "V"
+  ],
+  "factos": {
+    "jogos": 8,
+    "vitorias": 5,
+    "empates": 1,
+    "derrotas": 2,
+    "golos_marcados": 19,
+    "golos_sofridos": 14,
+    "media_golos_marcados": 2.38,
+    "media_golos_sofridos": 1.75
+  },
+  "series": {
+    "a_vencer": 3,
+    "sem_perder": 6,
+    "a_marcar": 9,
+    "a_sofrer": 4,
+    "percentagem_vitorias": 67
+  }
 }
