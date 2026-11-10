@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "10/11/2026 13:47:39",
+  "ultima_atualizacao": "10/11/2026 14:21:17",
   "seniores": {
     "proximo_jogo": {},
     "proximo_adversario": {
@@ -435,64 +435,54 @@
   },
   "dashboard": {
     "adversario": {
-      "nome": "SRD Negrais",
-      "posicao": 1,
-      "pontos": 19,
-      "jogos": 8,
-      "vitorias": 6,
-      "empates": 1,
-      "derrotas": 1,
-      "gm": 16,
-      "gs": 8,
-      "dg": "+8",
-      "slug": "rio-de-mouro",
-      "id": "11191",
-      "url": "https://www.zerozero.pt/equipa/rio-de-mouro/11191/jogos",
+      "slug": "rd-algueirao",
+      "id": "12674",
+      "url": "https://www.zerozero.pt/equipa/rd-algueirao/12674/jogos",
       "ultimos_resultados": [
         {
-          "estado": "V",
+          "estado": "D",
           "data": "2026-11-08",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "Arsenal 72",
-          "resultado": "3-2",
-          "texto": "Arsenal 72 3-2 Arsenal 72"
-        },
-        {
-          "estado": "V",
-          "data": "2026-11-01",
-          "hora": "15:00",
-          "local": "(F)",
-          "adversario": "FC Despertar",
-          "resultado": "1-3",
-          "texto": "FC Despertar 1-3 Arsenal 72"
-        },
-        {
-          "estado": "V",
-          "data": "2026-10-25",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "Mem Martins SC",
-          "resultado": "4-3",
-          "texto": "Arsenal 72 4-3 Mem Martins SC"
-        },
-        {
-          "estado": "V",
-          "data": "2026-10-11",
           "hora": "15:00",
           "local": "(F)",
           "adversario": "Agualva",
-          "resultado": "0-1",
-          "texto": "Agualva 0-1 Arsenal 72"
+          "resultado": "2-1",
+          "texto": "Agualva 2-1"
         },
         {
           "estado": "D",
-          "data": "2026-09-27",
+          "data": "2026-10-25",
           "hora": "15:00",
           "local": "(F)",
           "adversario": "SRD Negrais",
-          "resultado": "3-2",
-          "texto": "SRD Negrais 3-2 Arsenal 72"
+          "resultado": "2-1",
+          "texto": "SRD Negrais 2-1"
+        },
+        {
+          "estado": "V",
+          "data": "2026-10-04",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "Vila Verde",
+          "resultado": "4-3",
+          "texto": "Vila Verde 4-3"
+        },
+        {
+          "estado": "V",
+          "data": "2026-09-27",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "CD Belas",
+          "resultado": "3-0",
+          "texto": "CD Belas 3-0"
+        },
+        {
+          "estado": "D",
+          "data": "2026-09-20",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "União dos Santos",
+          "resultado": "1-2",
+          "texto": "União dos Santos 1-2"
         }
       ],
       "indisponiveis": []
