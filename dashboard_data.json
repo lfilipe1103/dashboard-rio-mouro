@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "09/11/2026 20:24:10",
+  "ultima_atualizacao": "10/11/2026 13:14:59",
   "seniores": {
     "proximo_jogo": {
       "casa": "RIO MOURO",
@@ -443,5 +443,70 @@
     "a_marcar": 9,
     "a_sofrer": 4,
     "percentagem_vitorias": 67
+  },
+  "dashboard": {
+    "adversario": {
+      "nome": "Arsenal 72",
+      "posicao": 10,
+      "pontos": 5,
+      "jogos": 7,
+      "vitorias": 1,
+      "empates": 2,
+      "derrotas": 4,
+      "gm": 12,
+      "gs": 20,
+      "dg": "-8",
+      "slug": "arsenal-72",
+      "id": "15002",
+      "url": "https://www.zerozero.pt/equipa/arsenal-72/15002/jogos",
+      "ultimos_resultados": [
+        {
+          "estado": "D",
+          "data": "2026-11-08",
+          "hora": "15:00",
+          "local": "(F)",
+          "adversario": "Rio de Mouro",
+          "resultado": "3-2",
+          "texto": "Rio de Mouro 3-2 Arsenal 72"
+        },
+        {
+          "estado": "V",
+          "data": "2026-11-01",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "Agualva",
+          "resultado": "1-0",
+          "texto": "Arsenal 72 1-0 Agualva"
+        },
+        {
+          "estado": "D",
+          "data": "2026-10-18",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "SRD Negrais",
+          "resultado": "2-4",
+          "texto": "Arsenal 72 2-4 SRD Negrais"
+        },
+        {
+          "estado": "E",
+          "data": "2026-09-27",
+          "hora": "15:00",
+          "local": "(F)",
+          "adversario": "Vila Verde",
+          "resultado": "2-2",
+          "texto": "Vila Verde 2-2 Arsenal 72"
+        },
+        {
+          "estado": "E",
+          "data": "2026-09-20",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "CD Belas",
+          "resultado": "3-3",
+          "texto": "Arsenal 72 3-3 CD Belas"
+        }
+      ],
+      "indisponiveis": []
+    }
   }
 }
