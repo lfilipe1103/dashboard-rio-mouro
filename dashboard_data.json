@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "10-11-2026 16:03:19",
+  "ultima_atualizacao": "10-11-2026 16:26:54",
   "seniores": {
     "proximo_jogo": {
       "casa": "RD Algueirão",
@@ -441,6 +441,15 @@
           "texto": "Agualva 2-1 RD Algueirão"
         },
         {
+          "estado": "V",
+          "data": "2026-11-01",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "1º Dezembro C",
+          "resultado": "6-1",
+          "texto": "RD Algueirão 6-1 1º Dezembro C"
+        },
+        {
           "estado": "D",
           "data": "2026-10-25",
           "hora": "15:00",
@@ -450,6 +459,15 @@
           "texto": "SRD Negrais 2-1 RD Algueirão"
         },
         {
+          "estado": "D",
+          "data": "2026-10-18",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "Real SC B",
+          "resultado": "1-7",
+          "texto": "RD Algueirão 1-7 Real SC B"
+        },
+        {
           "estado": "V",
           "data": "2026-10-04",
           "hora": "15:00",
@@ -457,24 +475,6 @@
           "adversario": "Vila Verde",
           "resultado": "4-3",
           "texto": "RD Algueirão 4-3 Vila Verde"
-        },
-        {
-          "estado": "V",
-          "data": "2026-09-27",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "CD Belas",
-          "resultado": "3-0",
-          "texto": "RD Algueirão 3-0 CD Belas"
-        },
-        {
-          "estado": "D",
-          "data": "2026-09-20",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "União dos Santos",
-          "resultado": "1-2",
-          "texto": "RD Algueirão 1-2 União dos Santos"
         }
       ],
       "indisponiveis": []
