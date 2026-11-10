@@ -1,4 +1,840 @@
-<div id="convGR"></div>
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Área Técnica</title>
+
+<style>
+
+:root{
+
+    --bg:#06111f;
+    --card:#13213a;
+    --card2:#1c2d4a;
+    --border:#2d4369;
+
+    --text:#ffffff;
+    --muted:#9fb0c9;
+
+    --green:#22c55e;
+    --yellow:#facc15;
+    --red:#ef4444;
+    --blue:#3b82f6;
+
+}
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+body{
+
+    background:var(--bg);
+    color:var(--text);
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+    padding:15px;
+
+}
+
+.container{
+
+    max-width:1200px;
+    margin:auto;
+
+}
+
+.card{
+
+    background:#10203d;
+
+    border:1px solid #2e4c78;
+
+    border-radius:20px;
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.35);
+
+}
+
+.logo{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+
+}
+
+.logo img{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:contain;
+
+    filter:
+    drop-shadow(
+        0 0 12px
+        rgba(255,255,255,.15)
+    );
+
+}
+
+.topo{
+
+    text-align:center;
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a
+    );
+
+    border-radius:20px;
+
+}
+
+.subtitulo{
+
+    color:var(--muted);
+
+    margin-top:10px;
+
+}
+
+.titulo{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    padding-bottom:10px;
+
+    border-bottom:
+    1px solid var(--border);
+
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #314b77;
+
+    border-radius:12px;
+
+    margin-bottom:10px;
+
+    background:#0b172c;
+
+    color:white;
+
+}
+
+.btn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:white;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+.btn:hover{
+
+    filter:brightness(1.1);
+
+}
+
+.btn-voltar{
+
+    background:#1c2d4a;
+
+}
+
+.grid-menu{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+.menu-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.menu-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#3b82f6;
+
+    box-shadow:
+    0 10px 25px rgba(
+        59,
+        130,
+        246,
+        .25
+    );
+
+}
+
+.menu-icon{
+
+    font-size:50px;
+
+    margin-bottom:10px;
+
+}
+
+.btn-whatsapp{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    background:linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+    );
+
+    color:white;
+
+    font-weight:800;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:
+        0 6px 20px rgba(34,197,94,.35);
+
+}
+
+.btn-whatsapp:hover{
+
+    background:#16a34a;
+
+}
+
+.grid-kpi{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:15px;
+
+}
+
+.kpi{
+
+    text-align:center;
+
+    padding:10px;
+
+}
+
+.kpi-numero{
+
+    font-size:56px;
+
+    font-weight:900;
+
+}
+
+.verde{
+    color:var(--green);
+}
+
+.vermelho{
+    color:var(--red);
+}
+
+.amarelo{
+    color:var(--yellow);
+}
+
+.kpi-label{
+
+    color:var(--muted);
+
+}
+
+.jogador{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
+
+    border-radius:14px;
+
+    padding:14px;
+
+    margin-bottom:8px;
+
+    min-height:60px;
+
+    transition:.2s;
+
+}
+
+.info-jogador{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.jogador:hover{
+
+    background:#243754;
+
+}
+
+.idade{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+.estado{
+
+    color:var(--yellow);
+
+    font-size:12px;
+
+}
+
+.botoes{
+
+    display:flex;
+
+    gap:5px;
+
+}
+
+.botoes button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.estat-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
+
+    border-radius:12px;
+
+    padding:12px;
+
+    margin-bottom:8px;
+
+}
+
+.loading{
+
+    text-align:center;
+
+    color:var(--muted);
+
+}
+
+@media(max-width:900px){
+
+    .grid-menu{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .grid-kpi{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+</style>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    getDocs,
+    collection
+}
+from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+    apiKey:"AIzaSyBCJOZqbFQRByk6hYyeCrqntyPBHW8pZbA",
+
+    authDomain:
+    "rdm-v2-98d5b.firebaseapp.com",
+
+    projectId:
+    "rdm-v2-98d5b",
+
+    storageBucket:
+    "rdm-v2-98d5b.firebasestorage.app",
+
+    messagingSenderId:
+    "847254286305",
+
+    appId:
+    "1:847254286305:web:eb5d179fb7ed6e5054eca0"
+
+};
+
+const app =
+initializeApp(firebaseConfig);
+
+window.firebaseDB =
+getFirestore(app);
+
+window.firebaseDoc =
+doc;
+
+window.firebaseGetDoc =
+getDoc;
+
+window.firebaseSetDoc =
+setDoc;
+
+window.firebaseCollection =
+collection;
+
+window.firebaseGetDocs =
+getDocs;
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="login">
+
+    <div class="card topo">
+
+        <div class="logo">
+
+            <img
+                src="logo.png">
+
+        </div>
+
+        <h1>
+
+            ÁREA TÉCNICA
+
+        </h1>
+
+        <div class="subtitulo">
+
+            2026
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password">
+
+        <button
+            class="btn"
+            onclick="entrar()">
+
+            Entrar
+
+        </button>
+
+    </div>
+
+</div>
+
+<div id="menuPrincipal"
+     style="display:none">
+
+    <div class="grid-menu">
+
+        <div
+            class="menu-card"
+            onclick="mostrarTreinos()">
+
+            <div class="menu-icon">
+
+                📅
+
+            </div>
+
+            TREINOS
+
+        </div>
+
+        <div
+            class="menu-card"
+            onclick="mostrarConvocatoria()">
+
+            <div class="menu-icon">
+
+                📋
+
+            </div>
+
+            CONVOCATÓRIA
+
+        </div>
+
+        <div
+            class="menu-card"
+            onclick="mostrarAmarelos()">
+
+            <div class="menu-icon">
+
+                🟨
+
+            </div>
+
+            AMARELOS
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================== -->
+<!-- TREINOS -->
+<!-- ===================================== -->
+
+<div id="areaTreinos"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
+
+    </button>
+
+    <br><br>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            Treinos
+
+        </div>
+
+        <input
+            type="date"
+            id="dataTreino">
+
+        <button
+            class="btn"
+            onclick="criarTreino()">
+
+            Criar Treino
+
+        </button>
+
+        <br><br>
+
+        <button
+            class="btn"
+            onclick="abrirTreino()">
+
+            Abrir Treino
+
+        </button>
+
+    </div>
+
+    <div class="grid-kpi">
+
+        <div class="card kpi">
+
+            <div
+                id="kpiPresentes"
+                class="kpi-numero verde">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                Presentes
+
+            </div>
+
+        </div>
+
+        <div class="card kpi">
+
+            <div
+                id="kpiFaltas"
+                class="kpi-numero vermelho">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                Faltas
+
+            </div>
+
+        </div>
+
+        <div class="card kpi">
+
+            <div
+                id="kpiLesionados"
+                class="kpi-numero amarelo">
+
+                0
+
+            </div>
+
+            <div class="kpi-label">
+
+                Lesionados
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="plantel">
+
+        <div class="loading">
+
+            A carregar plantel...
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ===================================== -->
+<!-- CONVOCATÓRIA -->
+<!-- ===================================== -->
+
+<div id="areaConvocatoria"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
+
+    </button>
+
+    <br><br>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            Convocatória
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                Adversário
+
+            </span>
+
+            <strong
+                id="convAdversario">
+
+                --
+
+            </strong>
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                Data
+
+            </span>
+
+            <strong
+                id="convData">
+
+                --
+
+            </strong>
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                Hora
+
+            </span>
+
+            <strong
+                id="convHora">
+
+                --
+
+            </strong>
+
+        </div>
+
+        <div class="estat-item">
+
+            <span>
+
+                Local
+
+            </span>
+
+            <strong
+                id="convLocal">
+
+                --
+
+            </strong>
+
+        </div>
+
+        <input
+            type="time"
+            id="convHoraConcentracao"
+            placeholder="Hora Concentração">
+
+    </div>
+
+    <div id="convGR"></div>
 
 <div id="convDEF"></div>
 
@@ -38,3 +874,942 @@
     </button>
 
 </div>
+
+    </div>
+
+</div>
+
+<style>
+
+.conv-jogador{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
+
+    border-radius:14px;
+
+    padding:14px;
+
+    margin-bottom:8px;
+
+    min-height:60px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.conv-jogador:hover{
+
+    background:#26406a;
+
+}
+
+.conv-checkbox{
+
+    width:28px;
+
+    height:28px;
+
+}
+
+.conv-jogador:has(input:checked){
+
+    border:2px solid #22c55e;
+
+    background:#173224;
+
+}
+
+#totalConvocados{
+
+    font-size:54px;
+
+    font-weight:900;
+
+    color:#22c55e;
+
+}
+
+</style>
+
+<!-- ===================================== -->
+<!-- AMARELOS -->
+<!-- ===================================== -->
+
+<div id="areaAmarelos"
+     style="display:none">
+
+    <button
+        class="btn btn-voltar"
+        onclick="voltarMenu()">
+
+        ← Voltar
+
+    </button>
+
+    <br><br>
+
+    <div class="card">
+
+        <div class="titulo">
+
+            Jogadores com Amarelos
+
+        </div>
+
+        <div id="listaAmarelos">
+
+            <div class="loading">
+
+                A carregar...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const PASSWORD =
+"MISTER2026";
+
+let treinoAtual = {};
+
+let convocados = [];
+
+let plantelFirestore = {
+
+    guardaRedes:[],
+    defesas:[],
+    medios:[],
+    avancados:[]
+
+};
+
+/* =========================
+   LOGIN
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        document
+        .getElementById(
+            "dataTreino"
+        )
+        .value =
+
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+    }
+);
+
+async function entrar(){
+
+    const pass =
+
+    document
+    .getElementById(
+        "password"
+    )
+    .value;
+
+    if(
+        pass !== PASSWORD
+    ){
+
+        alert(
+            "Password incorreta"
+        );
+
+        return;
+
+    }
+
+    await carregarPlantelFirestore();
+
+    document
+    .getElementById(
+        "login"
+    )
+    .style.display =
+    "none";
+
+    document
+    .getElementById(
+        "menuPrincipal"
+    )
+    .style.display =
+    "block";
+
+}
+
+/* =========================
+   MENU
+========================= */
+
+function voltarMenu(){
+
+    document.getElementById(
+        "areaTreinos"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaConvocatoria"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "areaAmarelos"
+    ).style.display =
+    "none";
+
+    document.getElementById(
+        "menuPrincipal"
+    ).style.display =
+    "block";
+
+}
+
+/* =========================
+   FIREBASE
+========================= */
+
+async function carregarPlantelFirestore(){
+
+    plantelFirestore = {
+
+        guardaRedes:[],
+        defesas:[],
+        medios:[],
+        avancados:[]
+
+    };
+
+    const snap =
+
+    await window.firebaseGetDocs(
+
+        window.firebaseCollection(
+            window.firebaseDB,
+            "plantel"
+        )
+
+    );
+
+    snap.forEach(doc=>{
+
+        const jogador =
+        doc.data();
+
+        switch(
+            jogador.posicao
+        ){
+
+            case "GR":
+
+                plantelFirestore
+                .guardaRedes
+                .push(jogador);
+
+                break;
+
+            case "DEF":
+
+                plantelFirestore
+                .defesas
+                .push(jogador);
+
+                break;
+
+            case "MED":
+
+                plantelFirestore
+                .medios
+                .push(jogador);
+
+                break;
+
+            case "AV":
+
+                plantelFirestore
+                .avancados
+                .push(jogador);
+
+                break;
+
+        }
+
+    });
+
+}
+
+/* =========================
+   TREINOS
+========================= */
+
+function mostrarTreinos(){
+
+    document
+    .getElementById(
+        "menuPrincipal"
+    )
+    .style.display =
+    "none";
+
+    document
+    .getElementById(
+        "areaTreinos"
+    )
+    .style.display =
+    "block";
+
+    carregarPlantel();
+
+}
+
+async function criarTreino(){
+
+    const data =
+
+    document
+    .getElementById(
+        "dataTreino"
+    )
+    .value;
+
+    await window.firebaseSetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        ),
+
+        {
+            criadoEm:
+            Date.now()
+        },
+
+        {
+            merge:true
+        }
+
+    );
+
+    treinoAtual = {};
+
+    carregarPlantel();
+
+}
+
+async function abrirTreino(){
+
+    const data =
+
+    document
+    .getElementById(
+        "dataTreino"
+    )
+    .value;
+
+    const snap =
+
+    await window.firebaseGetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        )
+
+    );
+
+    if(
+        !snap.exists()
+    ){
+
+        alert(
+            "Treino inexistente"
+        );
+
+        return;
+
+    }
+
+    treinoAtual =
+    snap.data();
+
+    carregarPlantel();
+
+    atualizarResumo();
+
+}
+
+async function marcarPresenca(
+    jogador,
+    estado
+){
+
+    const data =
+
+    document
+    .getElementById(
+        "dataTreino"
+    )
+    .value;
+
+    treinoAtual[
+        jogador
+    ] = estado;
+
+    await window.firebaseSetDoc(
+
+        window.firebaseDoc(
+            window.firebaseDB,
+            "treinos",
+            data
+        ),
+
+        {
+            [jogador]:
+            estado
+        },
+
+        {
+            merge:true
+        }
+
+    );
+
+    atualizarResumo();
+
+    carregarPlantel();
+
+}
+
+function carregarPlantel(){
+
+    let html = "";
+
+    const grupos = [
+
+        {
+            titulo:"GUARDA-REDES",
+            lista:plantelFirestore.guardaRedes
+        },
+
+        {
+            titulo:"DEFESAS",
+            lista:plantelFirestore.defesas
+        },
+
+        {
+            titulo:"MÉDIOS",
+            lista:plantelFirestore.medios
+        },
+
+        {
+            titulo:"AVANÇADOS",
+            lista:plantelFirestore.avancados
+        }
+
+    ];
+
+    grupos.forEach(grupo=>{
+
+        html += `
+        <div class="card">
+
+        <div class="titulo">
+
+            ${grupo.titulo}
+
+        </div>
+        `;
+
+        grupo.lista.forEach(j=>{
+
+            const estado =
+
+            treinoAtual[j.nome]
+            || "";
+
+            html += `
+
+            <div class="jogador">
+
+                <div class="info-jogador">
+
+                    <strong>
+
+                        ${j.nome}
+
+                    </strong>
+
+                    <div class="estado">
+
+                        ${estado}
+
+                    </div>
+
+                </div>
+
+                <div class="botoes">
+
+                    <button onclick="marcarPresenca('${j.nome}','✅')">
+
+                        ✅
+
+                    </button>
+
+                    <button onclick="marcarPresenca('${j.nome}','❌')">
+
+                        ❌
+
+                    </button>
+
+                    <button onclick="marcarPresenca('${j.nome}','🩺')">
+
+                        🩺
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+        html += `</div>`;
+
+    });
+
+    document
+    .getElementById(
+        "plantel"
+    )
+    .innerHTML = html;
+
+}
+
+function atualizarResumo(){
+
+    let presentes = 0;
+    let faltas = 0;
+    let lesionados = 0;
+
+    Object.values(
+        treinoAtual
+    ).forEach(v=>{
+
+        if(v==="✅")
+            presentes++;
+
+        if(v==="❌")
+            faltas++;
+
+        if(v==="🩺")
+            lesionados++;
+
+    });
+
+    document
+    .getElementById(
+        "kpiPresentes"
+    )
+    .innerText =
+    presentes;
+
+    document
+    .getElementById(
+        "kpiFaltas"
+    )
+    .innerText =
+    faltas;
+
+    document
+    .getElementById(
+        "kpiLesionados"
+    )
+    .innerText =
+    lesionados;
+
+}
+
+/* =========================
+   CONVOCATÓRIA
+========================= */
+
+async function mostrarConvocatoria(){
+
+    document.getElementById(
+        "menuPrincipal"
+    ).style.display = "none";
+
+    document.getElementById(
+        "areaConvocatoria"
+    ).style.display = "block";
+
+    carregarConvocatoria();
+
+    try{
+
+        await carregarDadosJogo();
+
+    }
+    catch(err){
+
+        console.error(
+            "Erro ao carregar dados do jogo:",
+            err
+        );
+
+    }
+
+}
+
+function carregarConvocatoria(){
+
+    convocados = [];
+
+    criarGrupoConvocatoria(
+        "convGR",
+        "GUARDA-REDES",
+        plantelFirestore.guardaRedes
+    );
+
+    criarGrupoConvocatoria(
+        "convDEF",
+        "DEFESAS",
+        plantelFirestore.defesas
+    );
+
+    criarGrupoConvocatoria(
+        "convMED",
+        "MÉDIOS",
+        plantelFirestore.medios
+    );
+
+    criarGrupoConvocatoria(
+        "convAV",
+        "AVANÇADOS",
+        plantelFirestore.avancados
+    );
+
+}
+
+function criarGrupoConvocatoria(
+    area,
+    titulo,
+    lista
+){
+
+    let html =
+
+    `<div class="card">
+
+        <div class="titulo">
+
+            ${titulo}
+
+        </div>`;
+
+    lista.forEach(j=>{
+
+        html += `
+
+        <div class="conv-jogador">
+
+            <span>
+
+                ${j.nome}
+
+            </span>
+
+            <input
+                type="checkbox"
+                class="conv-checkbox"
+
+                onchange="
+                    atualizarConvocado(
+                        '${j.nome}',
+                        this.checked
+                    )
+                ">
+
+        </div>
+
+        `;
+
+    });
+
+    html += `</div>`;
+
+    document
+    .getElementById(
+        area
+    )
+    .innerHTML = html;
+
+}
+
+function atualizarConvocado(
+    nome,
+    marcado
+){
+
+    if(marcado){
+
+        convocados.push(nome);
+
+    }
+    else{
+
+        convocados =
+        convocados.filter(
+            x => x !== nome
+        );
+
+    }
+
+    document
+    .getElementById(
+        "totalConvocados"
+    )
+    .innerText =
+    convocados.length;
+
+}
+
+function enviarWhatsapp(){
+
+    let msg =
+
+`*CONVOCATÓRIA -* ${document.getElementById("convAdversario").innerText}
+
+${document.getElementById("convData").innerText} - ${document.getElementById("convHora").innerText}
+
+*Local:*
+${document.getElementById("convLocal").innerText}
+
+*Concentração:* ${document.getElementById("convHoraConcentracao").value}
+
+━━━━━━━━━━━━━━
+
+*GUARDA-REDES*
+
+`;
+
+    plantelFirestore.guardaRedes.forEach(j=>{
+
+        if(convocados.includes(j.nome)){
+
+            msg += `• ${j.nome}\n`;
+
+        }
+
+    });
+
+    msg += `
+
+*DEFESAS*
+
+`;
+
+    plantelFirestore.defesas.forEach(j=>{
+
+        if(convocados.includes(j.nome)){
+
+            msg += `• ${j.nome}\n`;
+
+        }
+
+    });
+
+    msg += `
+
+*MÉDIOS*
+
+`;
+
+    plantelFirestore.medios.forEach(j=>{
+
+        if(convocados.includes(j.nome)){
+
+            msg += `• ${j.nome}\n`;
+
+        }
+
+    });
+
+    msg += `
+
+*AVANÇADOS*
+
+`;
+
+    plantelFirestore.avancados.forEach(j=>{
+
+        if(convocados.includes(j.nome)){
+
+            msg += `• ${j.nome}\n`;
+
+        }
+
+    });
+
+    msg += `
+
+━━━━━━━━━━━━━━
+
+*VAMOS COM TUDO*`;
+
+    const url =
+        "https://wa.me/?text=" +
+        encodeURIComponent(msg);
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+/* =========================
+   AMARELOS
+========================= */
+
+function mostrarAmarelos(){
+
+    document
+    .getElementById(
+        "menuPrincipal"
+    )
+    .style.display =
+    "none";
+
+    document
+    .getElementById(
+        "areaAmarelos"
+    )
+    .style.display =
+    "block";
+
+    carregarAmarelos();
+
+}
+
+async function carregarDadosJogo(){
+
+    const response =
+    await fetch(
+        "dashboard_data.json"
+    );
+
+    const data =
+    await response.json();
+
+    const jogo =
+    data.seniores.proximo_jogo;
+
+    document.getElementById(
+        "convAdversario"
+    ).innerText =
+    data.dashboard.adversario.nome;
+
+    document.getElementById(
+        "convData"
+    ).innerText =
+    jogo.data;
+
+    document.getElementById(
+        "convHora"
+    ).innerText =
+    jogo.hora;
+
+    document.getElementById(
+        "convLocal"
+    ).innerText =
+    jogo.estadio;
+
+}
+    
+async function carregarAmarelos(){
+
+    try{
+
+        const response =
+        await fetch(
+            "dashboard_data.json"
+        );
+
+        const data =
+        await response.json();
+
+        const lista =
+        data.seniores.cartoes.ranking;
+
+        let html = "";
+
+        lista.forEach(j=>{
+
+            html += `
+
+            <div class="estat-item">
+
+                <span>
+
+                    ${j.nome}
+
+                </span>
+
+                <strong>
+
+                    ${j.cartoes}
+
+                </strong>
+
+            </div>
+
+            `;
+
+        });
+
+        document.getElementById(
+            "listaAmarelos"
+        ).innerHTML =
+        html;
+
+    }
+    catch(err){
+
+        console.error(err);
+
+    }
+
+}
+
+</script>
+
+</div>
+
+</body>
+
+</html>
