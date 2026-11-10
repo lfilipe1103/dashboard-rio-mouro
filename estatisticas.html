@@ -10,7 +10,9 @@
     content="width=device-width, initial-scale=1.0">
 
 <title>
+
     Estatísticas Rio de Mouro
+
 </title>
 
 <style>
@@ -18,19 +20,13 @@
 :root{
 
     --bg:#050505;
-
     --card:#13213a;
-
     --card2:#223758;
-
     --border:#32496f;
 
     --gold:#ffd700;
-
     --green:#22c55e;
-
     --yellow:#facc15;
-
     --red:#ef4444;
 
 }
@@ -67,7 +63,6 @@ body{
 .container{
 
     max-width:900px;
-
     margin:auto;
 
 }
@@ -108,33 +103,35 @@ body{
 
 .hero-posicao{
 
-    font-size:60px;
+    font-size:70px;
 
     font-weight:900;
 
     color:var(--gold);
 
+    line-height:1;
+
 }
 
 .hero-pontos{
+
+    margin-top:10px;
 
     font-size:24px;
 
     font-weight:700;
 
-    margin-top:10px;
-
 }
 
 .titulo{
+
+    text-align:center;
 
     font-size:24px;
 
     font-weight:900;
 
-    margin-bottom:18px;
-
-    text-align:center;
+    margin-bottom:20px;
 
 }
 
@@ -195,6 +192,96 @@ body{
 
 }
 
+.forma{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.forma-item{
+
+    text-align:center;
+
+}
+
+.forma-bola{
+
+    font-size:34px;
+
+}
+
+.linha{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
+
+    border-radius:12px;
+
+    padding:12px;
+
+    margin-bottom:10px;
+
+}
+
+.rdm{
+
+    background:
+    linear-gradient(
+        135deg,
+        #8a5c00,
+        #d49a00
+    ) !important;
+
+}
+
+.botao{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #35589b,
+        #4a78d1
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.atualizacao{
+
+    text-align:center;
+
+    color:#9fb0c9;
+
+    font-size:13px;
+
+}
+
 @media(max-width:800px){
 
     .grid{
@@ -213,9 +300,7 @@ body{
 
 <div class="container">
 
-<!-- ===================================== -->
 <!-- HERO -->
-<!-- ===================================== -->
 
 <div class="card hero">
 
@@ -241,9 +326,7 @@ body{
 
 </div>
 
-<!-- ===================================== -->
-<!-- RESUMO -->
-<!-- ===================================== -->
+<!-- RESUMO DA ÉPOCA -->
 
 <div class="card">
 
@@ -357,7 +440,7 @@ body{
 
             <div class="kpi-label">
 
-                DG
+                Diferença Golos
 
             </div>
 
@@ -366,7 +449,8 @@ body{
     </div>
 
 </div>
-<!-- ===================================== -->
+
+    <!-- ===================================== -->
 <!-- FORMA -->
 <!-- ===================================== -->
 
@@ -381,96 +465,6 @@ body{
     <div
         id="forma"
         class="forma">
-
-    </div>
-
-</div>
-
-<!-- ===================================== -->
-<!-- INDICADORES -->
-<!-- ===================================== -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        📈 Indicadores
-
-    </div>
-
-    <div class="grid">
-
-        <div class="kpi">
-
-            <div
-                id="semPerder"
-                class="kpi-num">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                Sem Perder
-
-            </div>
-
-        </div>
-
-        <div class="kpi">
-
-            <div
-                id="aVencer"
-                class="kpi-num">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                A Vencer
-
-            </div>
-
-        </div>
-
-        <div class="kpi">
-
-            <div
-                id="aMarcar"
-                class="kpi-num">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                A Marcar
-
-            </div>
-
-        </div>
-
-        <div class="kpi">
-
-            <div
-                id="aSofrer"
-                class="kpi-num">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                A Sofrer
-
-            </div>
-
-        </div>
 
     </div>
 
@@ -567,6 +561,25 @@ body{
 </div>
 
 <!-- ===================================== -->
+<!-- LUTA PELA SUBIDA -->
+<!-- ===================================== -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        📈 Luta pela Subida
+
+    </div>
+
+    <div
+        id="subida">
+
+    </div>
+
+</div>
+
+<!-- ===================================== -->
 <!-- CLASSIFICAÇÃO -->
 <!-- ===================================== -->
 
@@ -593,7 +606,7 @@ body{
 
     justify-content:center;
 
-    gap:15px;
+    gap:18px;
 
     flex-wrap:wrap;
 
@@ -607,7 +620,25 @@ body{
 
 .forma-bola{
 
-    font-size:34px;
+    font-size:38px;
+
+}
+
+.linha{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:var(--card2);
+
+    border-radius:12px;
+
+    padding:14px;
+
+    margin-bottom:10px;
 
 }
 
@@ -620,11 +651,15 @@ body{
         #d49a00
     ) !important;
 
+    color:white;
+
+    font-weight:700;
+
 }
 
 </style>
 
-      <!-- ===================================== -->
+    <!-- ===================================== -->
 <!-- PRÓXIMA JORNADA -->
 <!-- ===================================== -->
 
@@ -638,7 +673,7 @@ body{
 
     <div
         id="proximaJornada"
-        class="nome-adv">
+        class="hero">
 
     </div>
 
@@ -648,19 +683,23 @@ body{
 <!-- VOLTAR -->
 <!-- ===================================== -->
 
-<button
-    class="voltar"
-    onclick="
-        location.href='index.html'
-    ">
+<div class="card">
 
-    ⬅️ Voltar
+    <button
+        class="botao"
+        onclick="
+            location.href='index.html'
+        ">
 
-</button>
+        ⬅️ Voltar
+
+    </button>
+
+</div>
 
 <div
     id="atualizacao"
-    class="footer">
+    class="atualizacao">
 
 </div>
 
@@ -670,599 +709,348 @@ body{
 
 async function carregarDados(){
 
-    const resp =
-    await fetch(
-        "./dashboard_data.json?t="
-        + Date.now()
-    );
+    try{
 
-    const data =
-    await resp.json();
+        const resp =
+        await fetch(
+            "./dashboard_data.json?t="
+            + Date.now()
+        );
 
-    const s =
-    data.seniores || {};
+        const data =
+        await resp.json();
 
-    const adv =
-    data.dashboard?.adversario || {};
+        const r =
+        data.resumo_epoca || {};
 
-    const r =
-    data.resumo_epoca || {};
+        const forma =
+        data.forma || [];
 
-    const forma =
-    data.forma || [];
+        const classificacao =
+        data.classificacao || [];
 
-    /* =====================
-       CABEÇALHO
-    ===================== */
+        const contexto =
+        data.contexto_classificacao || {};
 
-    const adversario =
+        const s =
+        data.seniores || {};
 
-        s.proximo_adversario?.nome
-        || "-";
+        /* =====================
+           HERO
+        ===================== */
 
-    const local =
+        document.getElementById(
+            "heroPosicao"
+        ).innerText =
 
-        s.proximo_jogo?.casa
-        ?.toUpperCase()
-        .includes("RIO DE MOURO")
+        r.posicao
+        ? `${r.posicao}º`
+        : "-";
 
-        ? "CASA"
+        document.getElementById(
+            "heroPontos"
+        ).innerText =
 
-        : "FORA";
+        `${r.pontos || 0} Pontos`;
 
-    document.getElementById(
-        "jogo"
-    ).innerHTML =
-    adversario;
+        /* =====================
+           RESUMO
+        ===================== */
 
-    document.getElementById(
-        "tipoJogo"
-    ).innerHTML =
-    local;
+        document.getElementById(
+            "jogos"
+        ).innerText =
+        r.j || 0;
 
-    document.getElementById(
-        "dataJogo"
-    ).innerHTML =
-    `
-    ${s.proximo_jogo?.data || "-"}
-    •
-    ${s.proximo_jogo?.hora || "-"}
-    `;
+        document.getElementById(
+            "pontos"
+        ).innerText =
+        r.pontos || 0;
 
-    /* =====================
-       HERO
-    ===================== */
+        document.getElementById(
+            "vitorias"
+        ).innerText =
+        r.v || 0;
 
-    document.getElementById(
-        "heroPosicao"
-    ).innerText =
-    r.posicao
-    ? `${r.posicao}º`
-    : "-";
+        document.getElementById(
+            "empates"
+        ).innerText =
+        r.e || 0;
 
-    document.getElementById(
-        "heroPontos"
-    ).innerText =
-    `${r.pontos || 0} Pontos`;
+        document.getElementById(
+            "derrotas"
+        ).innerText =
+        r.d || 0;
 
-    /* =====================
-       RESUMO
-    ===================== */
+        document.getElementById(
+            "dg"
+        ).innerText =
+        r.dg || "-";
 
-    document.getElementById(
-        "jogos"
-    ).innerText =
-    r.j || 0;
+        /* =====================
+           FORMA
+        ===================== */
 
-    document.getElementById(
-        "pontos"
-    ).innerText =
-    r.pontos || 0;
+        const simbolos = {
 
-    document.getElementById(
-        "vitorias"
-    ).innerText =
-    r.v || 0;
+            V:"🟢",
 
-    document.getElementById(
-        "empates"
-    ).innerText =
-    r.e || 0;
+            E:"🟡",
 
-    document.getElementById(
-        "derrotas"
-    ).innerText =
-    r.d || 0;
+            D:"🔴"
 
-    document.getElementById(
-        "dg"
-    ).innerText =
-    r.dg || "-";
+        };
 
-    /* =====================
-       FORMA
-    ===================== */
+        let formaHtml = "";
 
-    const simbolos = {
+        forma.forEach(x=>{
 
-        V:"🟢",
-        E:"🟡",
-        D:"🔴"
+            formaHtml += `
 
-    };
+            <div class="forma-item">
 
-    let formaHtml = "";
+                <div class="forma-bola">
 
-    forma.forEach(x=>{
+                    ${simbolos[x] || "⚪"}
 
-        formaHtml += `
+                </div>
 
-        <div class="forma-item">
+                <div>
 
-            <div class="forma-bola">
+                    ${x}
 
-                ${simbolos[x] || "⚪"}
+                </div>
 
             </div>
 
-            <div>
-
-                ${x}
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "forma"
-    ).innerHTML =
-    formaHtml;
-
-    /* =====================
-       INDICADORES
-    ===================== */
-
-    document.getElementById(
-        "semPerder"
-    ).innerText =
-    data.series?.sem_perder || 0;
-
-    document.getElementById(
-        "aVencer"
-    ).innerText =
-    data.series?.a_vencer || 0;
-
-    document.getElementById(
-        "aMarcar"
-    ).innerText =
-    data.series?.a_marcar || 0;
-
-    document.getElementById(
-        "aSofrer"
-    ).innerText =
-    data.series?.a_sofrer || 0;
-
-    /* =====================
-       GOLOS
-    ===================== */
-
-    document.getElementById(
-        "gm"
-    ).innerText =
-    r.gm || 0;
-
-    document.getElementById(
-        "gs"
-    ).innerText =
-    r.gs || 0;
-
-    document.getElementById(
-        "mediaGM"
-    ).innerText =
-
-    r.j
-    ? (r.gm / r.j).toFixed(2)
-    : "0";
-
-    document.getElementById(
-        "mediaGS"
-    ).innerText =
-
-    r.j
-    ? (r.gs / r.j).toFixed(2)
-    : "0";
-
-    /* =====================
-       CLASSIFICAÇÃO
-    ===================== */
-
-    let classificacao = "";
-
-    (data.classificacao || [])
-    .forEach(eq=>{
-
-        classificacao += `
-
-        <div class="
-            linha
-            ${eq.rio_mouro ? 'rdm' : ''}
-        ">
-
-            <div>
-
-                ${eq.pos}º
-                -
-                ${eq.equipa}
-
-            </div>
-
-            <div>
-
-                ${eq.pts} pts
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "classificacao"
-    ).innerHTML =
-    classificacao;
-
-    /* =====================
-       ARBITRAGEM
-    ===================== */
-
-    let arb = `
-
-    <div class="linha">
-
-        <span>
-
-            Árbitro
-
-        </span>
-
-        <strong>
-
-            ${
-                s.proximo_jogo?.arbitro
-                || "-"
-            }
-
-        </strong>
-
-    </div>
-
-    `;
-
-    (
-        s.proximo_jogo?.assistentes
-        || []
-    ).forEach(a=>{
-
-        arb += `
-
-        <div class="linha">
-
-            <span>
-
-                Assistente
-
-            </span>
-
-            <strong>
-
-                ${a}
-
-            </strong>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "arbitragem"
-    ).innerHTML =
-    arb;
-
-    /* =====================
-       ADVERSÁRIO
-    ===================== */
-
-    document.getElementById(
-        "nomeAdversario"
-    ).innerText =
-    adv.nome || "-";
-
-    document.getElementById(
-        "resumoAdversario"
-    ).innerHTML =
-
-    `
-    <div class="kpi-grid">
-
-        <div class="kpi-box">
-
-            <div class="kpi-num">
-                ${adv.posicao || "-"}
-            </div>
-
-            <div>Posição</div>
-
-        </div>
-
-        <div class="kpi-box">
-
-            <div class="kpi-num">
-                ${adv.pontos || "-"}
-            </div>
-
-            <div>Pontos</div>
-
-        </div>
-
-        <div class="kpi-box">
-
-            <div class="kpi-num">
-                ${adv.vitorias || 0}
-            </div>
-
-            <div>Vitórias</div>
-
-        </div>
-
-        <div class="kpi-box">
-
-            <div class="kpi-num">
-                ${adv.empates || 0}
-            </div>
-
-            <div>Empates</div>
-
-        </div>
-
-        <div class="kpi-box">
-
-            <div class="kpi-num">
-                ${adv.derrotas || 0}
-            </div>
-
-            <div>Derrotas</div>
-
-        </div>
-
-        <div class="kpi-box">
-
-            <div class="kpi-num">
-                ${adv.dg || "-"}
-            </div>
-
-            <div>DG</div>
-
-        </div>
-
-    </div>
-    `;
-
-    /* =====================
-       ÚLTIMOS RESULTADOS
-    ===================== */
-
-    let resultados = "";
-
-    (
-        adv.ultimos_resultados || []
-    ).forEach(j=>{
-
-        let classe =
-        "resultado-e";
-
-        if(j.estado==="V")
-            classe =
-            "resultado-v";
-
-        if(j.estado==="D")
-            classe =
-            "resultado-d";
-
-        resultados += `
-
-        <div
-            class="box ${classe}">
-
-            ${j.texto}
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "ultimosResultados"
-    ).innerHTML =
-    resultados;
-
-    /* =====================
-       CASTIGADOS
-    ===================== */
-
-    let cast = `
-
-    <div class="box">
-
-        <strong>
-
-            Rio de Mouro
-
-        </strong>
-
-        <br><br>
-
-    `;
-
-    if(
-        (s.castigos?.lista || [])
-        .length === 0
-    ){
-
-        cast +=
-        "✅ Sem castigados";
-
-    }
-    else{
-
-        s.castigos.lista.forEach(x=>{
-
-            cast += `
-            🚫 ${x.nome}<br>
             `;
 
         });
 
-    }
+        document.getElementById(
+            "forma"
+        ).innerHTML =
+        formaHtml;
 
-    cast += `
+        /* =====================
+           GOLOS
+        ===================== */
 
-    </div>
+        document.getElementById(
+            "gm"
+        ).innerText =
+        r.gm || 0;
 
-    <div class="box">
+        document.getElementById(
+            "gs"
+        ).innerText =
+        r.gs || 0;
 
-        <strong>
+        document.getElementById(
+            "mediaGM"
+        ).innerText =
 
-            ${adv.nome || "Adversário"}
+        r.j
+        ? (r.gm / r.j)
+            .toFixed(2)
+        : "0";
 
-        </strong>
+        document.getElementById(
+            "mediaGS"
+        ).innerText =
 
-        <br><br>
+        r.j
+        ? (r.gs / r.j)
+            .toFixed(2)
+        : "0";
 
-        🚫 ${
-            s.proximo_adversario?.castigados
-            || 0
-        } castigados
+        /* =====================
+           LUTA PELA SUBIDA
+        ===================== */
 
-    </div>
+        let subida = "";
 
-    `;
+        (contexto.top2 || [])
+        .forEach(eq=>{
 
-    document.getElementById(
-        "castigados"
-    ).innerHTML =
-    cast;
+            subida += `
 
-    /* =====================
-       RISCO
-    ===================== */
+            <div class="linha">
 
-    let risco = "";
+                <div>
 
-    (
-        s.cartoes?.risco || []
-    ).forEach(x=>{
+                    ${eq.pos}º
+                    -
+                    ${eq.equipa}
 
-        risco += `
+                </div>
 
-        <div class="risco">
+                <div>
 
-            <span>
+                    ${eq.pts} pts
 
-                ${x.nome}
+                </div>
 
-            </span>
+            </div>
 
-            <strong>
+            `;
 
-                ${x.cartoes}
+        });
 
-            </strong>
+        if(contexto.rio_mouro){
+
+            subida += `
+
+            <div class="linha rdm">
+
+                <div>
+
+                    ${contexto.rio_mouro.pos}º
+                    -
+                    ${contexto.rio_mouro.equipa}
+
+                </div>
+
+                <div>
+
+                    ${contexto.rio_mouro.pts} pts
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
+
+        document.getElementById(
+            "subida"
+        ).innerHTML =
+        subida;
+
+        /* =====================
+           CLASSIFICAÇÃO
+        ===================== */
+
+        let htmlClass = "";
+
+        classificacao.forEach(eq=>{
+
+            htmlClass += `
+
+            <div class="
+                linha
+                ${eq.rio_mouro ? 'rdm' : ''}
+            ">
+
+                <div>
+
+                    ${eq.pos}º
+                    -
+                    ${eq.equipa}
+
+                </div>
+
+                <div>
+
+                    ${eq.pts} pts
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+        document.getElementById(
+            "classificacao"
+        ).innerHTML =
+        htmlClass;
+
+        /* =====================
+           PRÓXIMA JORNADA
+        ===================== */
+
+        const prox =
+        s.proxima_jornada || {};
+
+        const adversario =
+
+            prox.casa
+            ?.toUpperCase()
+            .includes(
+                "RIO DE MOURO"
+            )
+
+            ? prox.fora
+
+            : prox.casa;
+
+        const local =
+
+            prox.casa
+            ?.toUpperCase()
+            .includes(
+                "RIO DE MOURO"
+            )
+
+            ? "CASA"
+
+            : "FORA";
+
+        document.getElementById(
+            "proximaJornada"
+        ).innerHTML =
+
+        `
+        <div
+            class="hero-posicao"
+            style="
+            font-size:28px">
+
+            ${adversario || "-"}
 
         </div>
 
+        <div
+            class="hero-pontos">
+
+            ${local}
+
+        </div>
+
+        <div
+            class="data">
+
+            ${prox.data || "-"}
+            •
+            ${prox.hora || "-"}
+
+        </div>
         `;
 
-    });
+        /* =====================
+           RODAPÉ
+        ===================== */
 
-    document.getElementById(
-        "risco"
-    ).innerHTML =
-    risco;
+        document.getElementById(
+            "atualizacao"
+        ).innerHTML =
 
-    /* =====================
-       PRÓXIMA JORNADA
-    ===================== */
+        "Atualizado: "
+        +
+        (
+            data.ultima_atualizacao
+            || "-"
+        );
 
-    const prox =
-    s.proxima_jornada || {};
+    }
+    catch(err){
 
-    const proxAdv =
+        console.error(err);
 
-        prox.casa
-        ?.toUpperCase()
-        .includes(
-            "RIO DE MOURO"
-        )
-
-        ? prox.fora
-
-        : prox.casa;
-
-    const proxLocal =
-
-        prox.casa
-        ?.toUpperCase()
-        .includes(
-            "RIO DE MOURO"
-        )
-
-        ? "CASA"
-
-        : "FORA";
-
-    document.getElementById(
-        "proximaJornada"
-    ).innerHTML =
-
-    `
-    ${proxAdv || "-"}
-
-    <br><br>
-
-    <span style="
-    color:#ffd700">
-
-        ${proxLocal}
-
-    </span>
-
-    <br><br>
-
-    ${prox.data || "-"}
-    •
-    ${prox.hora || "-"}
-
-    `;
-
-    document.getElementById(
-        "atualizacao"
-    ).innerHTML =
-
-    "Atualizado: "
-    +
-    (
-        data.ultima_atualizacao
-        || "-"
-    );
+    }
 
 }
 
