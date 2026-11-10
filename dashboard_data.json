@@ -1,11 +1,17 @@
 {
-  "ultima_atualizacao": "10-11-2026 15:31:38",
+  "ultima_atualizacao": "10-11-2026 16:01:18",
   "seniores": {
     "proximo_jogo": {
       "casa": "RD Algueirão",
       "fora": "Rio de Mouro",
       "data": "15/11/2026",
-      "hora": "15:00"
+      "hora": "15:00",
+      "arbitro": "AFONSO LOPES",
+      "assistentes": [
+        "FRANCISCO PINTO",
+        "DIOGO CARVALHO"
+      ],
+      "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO) -"
     },
     "proxima_jornada": {
       "casa": "Rio de Mouro",
@@ -82,7 +88,16 @@
           "cartoes": 2
         }
       ],
-      "risco": []
+      "risco": [
+        {
+          "nome": "JOSE FURTADO",
+          "cartoes": 4
+        },
+        {
+          "nome": "NUNO GOMES",
+          "cartoes": 4
+        }
+      ]
     },
     "castigos": {
       "ativos": 0,
@@ -412,56 +427,10 @@
       "gm": 17,
       "gs": 17,
       "dg": "0",
-      "slug": "rd-algueirao",
-      "id": "12674",
-      "url": "https://www.zerozero.pt/equipa/rd-algueirao/12674/jogos",
-      "ultimos_resultados": [
-        {
-          "estado": "D",
-          "data": "2026-11-08",
-          "hora": "15:00",
-          "local": "(F)",
-          "adversario": "Agualva",
-          "resultado": "2-1",
-          "texto": "Agualva 2-1 RD Algueirão"
-        },
-        {
-          "estado": "D",
-          "data": "2026-10-25",
-          "hora": "15:00",
-          "local": "(F)",
-          "adversario": "SRD Negrais",
-          "resultado": "2-1",
-          "texto": "SRD Negrais 2-1 RD Algueirão"
-        },
-        {
-          "estado": "V",
-          "data": "2026-10-04",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "Vila Verde",
-          "resultado": "4-3",
-          "texto": "RD Algueirão 4-3 Vila Verde"
-        },
-        {
-          "estado": "V",
-          "data": "2026-09-27",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "CD Belas",
-          "resultado": "3-0",
-          "texto": "RD Algueirão 3-0 CD Belas"
-        },
-        {
-          "estado": "D",
-          "data": "2026-09-20",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "União dos Santos",
-          "resultado": "1-2",
-          "texto": "RD Algueirão 1-2 União dos Santos"
-        }
-      ],
+      "ultimos_resultados": [],
+      "slug": "",
+      "id": "",
+      "url": "",
       "indisponiveis": []
     }
   },
@@ -475,5 +444,12 @@
     "gm": 19,
     "gs": 14,
     "dg": "+5"
-  }
+  },
+  "forma": [
+    "V",
+    "E",
+    "V",
+    "V",
+    "V"
+  ]
 }
