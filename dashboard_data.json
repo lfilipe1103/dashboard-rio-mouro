@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "11-11-2026 13:23:07",
+  "ultima_atualizacao": "11-11-2026 13:23:50",
   "seniores": {
     "proximo_jogo": {
       "casa": "RD Algueirão",
@@ -427,10 +427,10 @@
       "gm": 17,
       "gs": 17,
       "dg": "0",
-      "slug": "rd-algueirao",
-      "id": "12674",
-      "url": "https://www.zerozero.pt/equipa/rd-algueirao/12674/jogos",
       "ultimos_resultados": [],
+      "slug": "",
+      "id": "",
+      "url": "",
       "indisponiveis": []
     }
   },
