@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Estatísticas Individuais</title>
+
+<style>
+
+:root{
+    --bg:#06111f;
+    --card:#13213a;
+    --card2:#1c2d4a;
+    --border:#2d4369;
+    --text:#ffffff;
+    --muted:#9fb0c9;
+    --green:#22c55e;
+    --yellow:#facc15;
+    --red:#ef4444;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Segoe UI",Arial,sans-serif;
+    padding:15px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.card{
+    background:#10203d;
+    border:1px solid #2e4c78;
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 8px 30px rgba(0,0,0,.35);
+}
+
+.topo{
+    text-align:center;
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a
+    );
+}
+
+.logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:15px;
+}
+
+.logo img{
+    width:110px;
+    height:110px;
+    object-fit:contain;
+}
+
+.titulo{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.subtitulo{
+    color:var(--muted);
+}
+
+.grid-kpis{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.estat-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--card2);
+    border-radius:12px;
+    padding:12px;
+    margin-bottom:8px;
+}
+
+.rank{
+    color:var(--yellow);
+    font-weight:800;
+}
+
+.valor{
+    color:var(--green);
+    font-weight:800;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #314b77;
+    border-radius:12px;
+    background:#0b172c;
+    color:white;
+}
+
+.jogador{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:var(--card2);
+
+    border-radius:14px;
+
+    padding:14px;
+
+    margin-bottom:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.jogador:hover{
+    background:#27416a;
+}
+
+.info-jogador{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.posicao{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.resumo{
+    color:#facc15;
+    font-size:13px;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.modal-card{
+    width:100%;
+    max-width:800px;
+}
+
+.grid-detalhe{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.kpi{
+    background:var(--card2);
+    border-radius:14px;
+    padding:15px;
+    text-align:center;
+}
+
+.kpi-num{
+    font-size:30px;
+    font-weight:800;
+    color:var(--green);
+}
+
+.kpi-label{
+    color:var(--muted);
+    margin-top:5px;
+}
+
+.btn{
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    font-weight:700;
+    cursor:pointer;
+    color:white;
+}
+
+.btn-voltar{
+    background:#1c2d4a;
+}
+
+@media(max-width:900px){
+
+    .grid-kpis{
+        grid-template-columns:1fr;
+    }
+
+    .grid-detalhe{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card topo">
+
+    <div class="logo">
+        <img src="logo.png">
+    </div>
+
+    <h1>
+        ESTATÍSTICAS INDIVIDUAIS
+    </h1>
+
+    <br>
+
+    <div class="subtitulo">
+        Rio de Mouro 2026
+    </div>
+
+</div>
+
+<div class="grid-kpis">
+
+    <div class="card">
+
+        <div class="titulo">
+            ⚽ Top 5 Marcadores
+        </div>
+
+        <div id="topMarcadores"></div>
+
+    </div>
+
+    <div class="card">
+
+        <div class="titulo">
+            ⏱️ Top 5 Minutos
+        </div>
+
+        <div id="topMinutos"></div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <input
+        type="text"
+        id="pesquisa"
+        placeholder="Pesquisar jogador...">
+
+</div>
+
+<div class="card">
+
+    <div class="titulo">
+        Plantel
+    </div>
+
+    <div id="listaJogadores">
+
+        A carregar...
+
+    </div>
+
+</div>
+
+<div
+    class="modal"
+    id="modal">
+
+    <div class="card modal-card">
+
+        <div
+            id="nomeJogador"
+            class="titulo">
+        </div>
+
+        <div
+            id="posicaoJogador"
+            class="subtitulo">
+        </div>
+
+        <br>
+
+        <div
+            id="estatisticasDetalhe"
+            class="grid-detalhe">
+        </div>
+
+        <br>
+
+        <button
+            class="btn btn-voltar"
+            onclick="fecharModal()">
+
+            Fechar
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <button
+        class="btn btn-voltar"
+        onclick="history.back()">
+
+        ← Voltar
+
+    </button>
+
+</div>
+
+</div>
+
+<script>
+
+let jogadores = [];
+
+async function carregarDados(){
+
+    try{
+
+        const response =
+            await fetch(
+                "jogadores.json"
+            );
+
+        jogadores =
+            await response.json();
+
+        jogadores.forEach(j=>{
+
+            if(j.golos === "-")
+                j.golos = 0;
+
+            if(j.minutos === "-")
+                j.minutos = 0;
+
+            if(j.assistencias === "-")
+                j.assistencias = 0;
+
+            if(j.amarelos === "-")
+                j.amarelos = 0;
+
+            if(j.vermelhos === "-")
+                j.vermelhos = 0;
+
+            if(j.suplente === "-")
+                j.suplente = 0;
+
+        });
+
+        criarKPIs();
+
+        renderJogadores(
+            jogadores
+        );
+
+    }
+    catch(err){
+
+        console.error(err);
+
+        document
+        .getElementById(
+            "listaJogadores"
+        )
+        .innerHTML =
+
+        `<div class="estat-item">
+            Erro ao carregar jogadores.json
+        </div>`;
+
+    }
+
+}
+
+function criarKPIs(){
+
+    const topMarcadores =
+        [...jogadores]
+
+        .sort(
+            (a,b)=>
+            Number(b.golos)
+            -
+            Number(a.golos)
+        )
+
+        .slice(0,5);
+
+    document
+    .getElementById(
+        "topMarcadores"
+    )
+    .innerHTML =
+
+    topMarcadores.map((j,i)=>`
+
+        <div class="estat-item">
+
+            <span>
+
+                <span class="rank">
+                    ${i+1}.
+                </span>
+
+                ${j.nome}
+
+            </span>
+
+            <span class="valor">
+
+                ${j.golos}
+
+            </span>
+
+        </div>
+
+    `).join("");
+
+    const topMinutos =
+        [...jogadores]
+
+        .sort(
+            (a,b)=>
+            Number(b.minutos)
+            -
+            Number(a.minutos)
+        )
+
+        .slice(0,5);
+
+    document
+    .getElementById(
+        "topMinutos"
+    )
+    .innerHTML =
+
+    topMinutos.map((j,i)=>`
+
+        <div class="estat-item">
+
+            <span>
+
+                <span class="rank">
+                    ${i+1}.
+                </span>
+
+                ${j.nome}
+
+            </span>
+
+            <span class="valor">
+
+                ${j.minutos}
+
+                min
+
+            </span>
+
+        </div>
+
+    `).join("");
+
+}
+
+function renderJogadores(lista){
+
+    document
+    .getElementById(
+        "listaJogadores"
+    )
+    .innerHTML =
+
+    lista.map(j=>`
+
+        <div
+            class="jogador"
+            onclick="abrirJogador('${j.nome}')">
+
+            <div class="info-jogador">
+
+                <strong>
+
+                    ${j.nome}
+
+                </strong>
+
+                <span class="posicao">
+
+                    ${j.posicao}
+
+                </span>
+
+                <span class="resumo">
+
+                    ⚽ ${j.golos}
+                    •
+                    ⏱️ ${j.minutos}
+                    •
+                    🅰️ ${j.assistencias}
+
+                </span>
+
+            </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+function abrirJogador(nome){
+
+    const j =
+        jogadores.find(
+            x => x.nome === nome
+        );
+
+    if(!j) return;
+
+    document
+    .getElementById(
+        "nomeJogador"
+    )
+    .innerText =
+    j.nome;
+
+    document
+    .getElementById(
+        "posicaoJogador"
+    )
+    .innerText =
+    j.posicao;
+
+    document
+    .getElementById(
+        "estatisticasDetalhe"
+    )
+    .innerHTML = `
+
+        <div class="kpi">
+            <div class="kpi-num">${j.jogos}</div>
+            <div class="kpi-label">Jogos</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.golos}</div>
+            <div class="kpi-label">Golos</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.media_golos}</div>
+            <div class="kpi-label">Média</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.titular}</div>
+            <div class="kpi-label">Titular</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.suplente}</div>
+            <div class="kpi-label">Suplente</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.minutos}</div>
+            <div class="kpi-label">Minutos</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.assistencias}</div>
+            <div class="kpi-label">Assistências</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.amarelos}</div>
+            <div class="kpi-label">Amarelos</div>
+        </div>
+
+        <div class="kpi">
+            <div class="kpi-num">${j.vermelhos}</div>
+            <div class="kpi-label">Vermelhos</div>
+        </div>
+
+    `;
+
+    document
+    .getElementById(
+        "modal"
+    )
+    .style.display =
+    "flex";
+
+}
+
+function fecharModal(){
+
+    document
+    .getElementById(
+        "modal"
+    )
+    .style.display =
+    "none";
+
+}
+
+document
+.getElementById(
+    "pesquisa"
+)
+.addEventListener(
+    "input",
+    function(){
+
+        const texto =
+            this.value
+            .toLowerCase();
+
+        const filtrados =
+            jogadores.filter(
+                j =>
+
+                j.nome
+                 .toLowerCase()
+                 .includes(texto)
+            );
+
+        renderJogadores(
+            filtrados
+        );
+
+    }
+);
+
+carregarDados();
+
+</script>
+
+</body>
+</html>
