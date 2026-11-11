@@ -5,19 +5,29 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
 <title>GD Rio de Mouro</title>
 
 <style>
 
 :root{
-    --bg:#050505;
+
+    --bg:#06111f;
     --card:#13213a;
+    --card2:#1c2d4a;
     --border:#2d4369;
-    --gold:#ffd700;
+
     --text:#ffffff;
+    --muted:#9fb0c9;
+
+    --green:#22c55e;
+    --yellow:#facc15;
+    --red:#ef4444;
+    --blue:#3b82f6;
+
 }
 
 *{
@@ -31,161 +41,198 @@ body{
     background:
     radial-gradient(
         circle at top,
-        #12203a,
-        #050505
+        #10203d,
+        #06111f
     );
+
+    color:var(--text);
 
     font-family:
     "Segoe UI",
     Arial,
     sans-serif;
 
-    color:white;
+    padding:15px;
 
     min-height:100vh;
 
-    padding:20px;
 }
 
 .container{
 
-    width:100%;
-    max-width:560px;
+    max-width:700px;
     margin:auto;
+
 }
 
 .card{
 
-    background:
-    linear-gradient(
-        180deg,
-        #13213a,
-        #1b2d4b
-    );
+    background:#10203d;
 
-    border:1px solid #29436c;
+    border:1px solid #2e4c78;
 
-    border-radius:28px;
+    border-radius:20px;
 
-    padding:24px;
+    padding:18px;
 
-    margin-bottom:18px;
+    margin-bottom:15px;
 
     box-shadow:
-    0 10px 30px rgba(0,0,0,.35);
+    0 8px 30px rgba(
+        0,
+        0,
+        0,
+        .35
+    );
+
 }
 
-.topo{
+.logo{
 
-    text-align:center;
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+
 }
 
 .logo img{
 
     width:130px;
     height:130px;
+
     object-fit:contain;
+
+    filter:
+    drop-shadow(
+        0 0 15px
+        rgba(255,255,255,.15)
+    );
+
+}
+
+.topo{
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e3a8a
+    );
+
 }
 
 .subtitulo{
 
-    font-size:18px;
+    color:var(--muted);
 
-    color:#dbe4f3;
+    margin-top:10px;
 
-    margin-top:12px;
+    font-size:17px;
+
 }
 
 .atualizacao{
 
     margin-top:12px;
 
-    font-size:14px;
+    color:var(--muted);
 
-    color:#9fb0c9;
+    font-size:13px;
+
 }
 
 .titulo{
-
-    text-align:center;
 
     font-size:20px;
 
     font-weight:700;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
+
+    text-align:center;
+
 }
 
 .posicao{
 
-    font-size:76px;
+    font-size:72px;
 
     font-weight:900;
 
-    color:var(--gold);
+    color:var(--yellow);
 
     text-align:center;
+
 }
 
 .lugar{
 
     text-align:center;
 
-    color:#9fb0c9;
+    color:var(--muted);
 
-    font-size:18px;
+    font-size:16px;
 
-    margin-top:10px;
 }
 
 .pontos{
 
     text-align:center;
 
-    margin-top:15px;
+    margin-top:12px;
 
     font-size:24px;
 
-    font-weight:bold;
+    font-weight:800;
+
 }
 
 .forma{
 
-    margin-top:25px;
+    margin-top:20px;
 
     display:flex;
 
     justify-content:center;
 
-    gap:20px;
+    gap:18px;
+
 }
 
 .forma-item{
 
     text-align:center;
+
 }
 
 .forma-bola{
 
     font-size:34px;
+
 }
 
 .forma-letra{
 
-    margin-top:5px;
-
     font-weight:bold;
+
+    margin-top:4px;
+
 }
 
 .legenda{
 
-    margin-top:20px;
-
     text-align:center;
 
-    color:#a7b8cf;
+    margin-top:20px;
 
-    font-size:14px;
+    font-size:13px;
+
+    color:var(--muted);
+
 }
 
 .botao-menu{
@@ -203,8 +250,8 @@ body{
     background:
     linear-gradient(
         135deg,
-        #35589b,
-        #4a78d1
+        #2563eb,
+        #1d4ed8
     );
 
     color:white;
@@ -215,22 +262,98 @@ body{
 
     cursor:pointer;
 
-    transition:.2s;
+    transition:.25s;
+
+    box-shadow:
+    0 8px 20px rgba(
+        37,
+        99,
+        235,
+        .25
+    );
+
 }
 
 .botao-menu:hover{
 
     transform:
-    translateY(-2px);
+    translateY(-4px);
+
+    box-shadow:
+    0 12px 28px rgba(
+        37,
+        99,
+        235,
+        .35
+    );
+
+}
+
+.botao-menu.verde{
+
+    background:
+    linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+    );
+
+    box-shadow:
+    0 8px 20px rgba(
+        34,
+        197,
+        94,
+        .25
+    );
+
+}
+
+.botao-menu.amarelo{
+
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #d97706
+    );
+
+    box-shadow:
+    0 8px 20px rgba(
+        245,
+        158,
+        11,
+        .25
+    );
+
+}
+
+.botao-menu.vermelho{
+
+    background:
+    linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+
+    box-shadow:
+    0 8px 20px rgba(
+        239,
+        68,
+        68,
+        .25
+    );
+
 }
 
 .rodape{
 
     text-align:center;
 
+    color:var(--muted);
+
     font-size:12px;
 
-    color:#9fb0c9;
 }
 
 </style>
@@ -241,89 +364,103 @@ body{
 
 <div class="container">
 
-    <div class="card topo">
+<div class="card topo">
 
-        <div class="logo">
+    <div class="logo">
 
-            <img
-                src="logo.png"
-                alt="GD Rio de Mouro">
-
-        </div>
-
-        <div class="subtitulo">
-
-            Plataforma de Gestão Desportiva
-
-        </div>
-
-        <div
-            id="atualizacao_topo"
-            class="atualizacao">
-
-            A carregar...
-
-        </div>
+        <img
+            src="logo.png"
+            alt="GD Rio de Mouro">
 
     </div>
 
-    <div class="card">
+    <h1>
 
-        <div class="titulo">
+        GD RIO DE MOURO
 
-            📊 Resumo da Época
+    </h1>
 
-        </div>
+    <div class="subtitulo">
 
-        <div id="resumo">
-
-            A carregar...
-
-        </div>
+        Plataforma de Gestão Desportiva
 
     </div>
 
-    <div class="card">
+    <div
+        id="atualizacao_topo"
+        class="atualizacao">
 
-        <button
-            class="botao-menu"
-            onclick="location.href='dashboard.html'">
-
-            📊 Próximo Jogo
-
-        </button>
-
-        <button
-            class="botao-menu"
-            onclick="location.href='estatisticas.html'">
-
-            📈 Estatísticas Época
-
-        </button>
-
-        <button
-            class="botao-menu"
-            onclick="location.href='mister.html'">
-
-            🧑‍🏫 Gestão da Equipa
-
-        </button>
+        A carregar...
 
     </div>
 
-    <div class="card">
+</div>
 
-        <div class="rodape">
+<div class="card">
 
-            <span id="atualizacao">
+    <div class="titulo">
 
-                GDRRM
-
-            </span>
-
-        </div>
+        📊 Resumo da Época
 
     </div>
+
+    <div id="resumo">
+
+        A carregar...
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <button
+        class="botao-menu"
+        onclick="location.href='dashboard.html'">
+
+        ⚽ Próximo Jogo
+
+    </button>
+
+    <button
+        class="botao-menu verde"
+        onclick="location.href='estatisticas.html'">
+
+        📊 Estatísticas Individuais
+
+    </button>
+
+    <button
+        class="botao-menu amarelo"
+        onclick="location.href='estatisticas-equipa.html'">
+
+        📈 Estatísticas da Época
+
+    </button>
+
+    <button
+        class="botao-menu vermelho"
+        onclick="location.href='mister.html'">
+
+        🧑‍🏫 Área Técnica
+
+    </button>
+
+</div>
+
+<div class="card">
+
+    <div class="rodape">
+
+        <span id="atualizacao">
+
+            GD Rio de Mouro
+
+        </span>
+
+    </div>
+
+</div>
 
 </div>
 
@@ -334,19 +471,19 @@ async function carregarDados(){
     try{
 
         const resp =
-        await fetch(
-            './dashboard_data.json?t='
-            + Date.now()
-        );
+            await fetch(
+                './dashboard_data.json?t='
+                + Date.now()
+            );
 
         const data =
-        await resp.json();
+            await resp.json();
 
         const r =
-        data.resumo_epoca;
+            data.resumo_epoca;
 
         const forma =
-        data.forma || [];
+            data.forma || [];
 
         const simbolos = {
 
@@ -366,7 +503,7 @@ async function carregarDados(){
 
                 <div class="forma-bola">
 
-                    ${simbolos[x]}
+                    ${simbolos[x] || "⚪"}
 
                 </div>
 
@@ -379,10 +516,13 @@ async function carregarDados(){
             </div>
 
             `;
+
         });
 
         document
-        .getElementById("resumo")
+        .getElementById(
+            "resumo"
+        )
         .innerHTML = `
 
         <div class="posicao">
@@ -426,7 +566,9 @@ async function carregarDados(){
                 "atualizacao"
             )
             .innerHTML =
-            "Atualizado: " +
+
+            "Atualizado: "
+            +
             data.ultima_atualizacao;
 
             document
@@ -434,14 +576,36 @@ async function carregarDados(){
                 "atualizacao_topo"
             )
             .innerHTML =
-            "Atualizado: " +
+
+            "Atualizado: "
+            +
             data.ultima_atualizacao;
+
         }
 
     }
     catch(err){
 
         console.log(err);
+
+        document
+        .getElementById(
+            "resumo"
+        )
+        .innerHTML =
+
+        `
+        <div
+            style="
+            text-align:center;
+            color:#ef4444;
+            ">
+
+            Erro ao carregar
+            dados da época.
+
+        </div>
+        `;
 
     }
 
