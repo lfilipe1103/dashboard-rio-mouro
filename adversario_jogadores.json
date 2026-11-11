@@ -1,0 +1,949 @@
+{
+    "adversario": "RD Algueirão",
+    "id": "12674",
+    "slug": "rd-algueirao",
+    "total_jogadores": 31,
+    "perfil_equipa": "Equipa Equilibrada",
+    "setor_forte": "Defesa",
+    "setor_fraco": "Guarda Redes",
+    "indice_perigo": {
+        "ataque": 10,
+        "disciplina": 10,
+        "dependencia": 2,
+        "geral": 6
+    },
+    "melhor_marcador": {
+        "nome": "Jonas",
+        "posicao": "Avançado",
+        "jogos": "7",
+        "golos": "3",
+        "media_golos": "0.43",
+        "titular": "6",
+        "suplente": "1",
+        "minutos": "532",
+        "amarelos": "2",
+        "assistencias": "-",
+        "vermelhos": "-"
+    },
+    "mais_utilizado": {
+        "nome": "Salgadinho",
+        "posicao": "Guarda Redes",
+        "jogos": "8",
+        "golos": "0",
+        "media_golos": "0.00",
+        "titular": "8",
+        "suplente": "-",
+        "minutos": "710",
+        "amarelos": "-",
+        "assistencias": "-",
+        "vermelhos": "-"
+    },
+    "mais_amarelos": {
+        "nome": "Taborda",
+        "posicao": "Defesa",
+        "jogos": "8",
+        "golos": "0",
+        "media_golos": "0.00",
+        "titular": "7",
+        "suplente": "1",
+        "minutos": "590",
+        "amarelos": "2",
+        "assistencias": "-",
+        "vermelhos": "-"
+    },
+    "top_golos": [
+        {
+            "nome": "Jonas",
+            "posicao": "Avançado",
+            "jogos": "7",
+            "golos": "3",
+            "media_golos": "0.43",
+            "titular": "6",
+            "suplente": "1",
+            "minutos": "532",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Correia",
+            "posicao": "Médio",
+            "jogos": "8",
+            "golos": "2",
+            "media_golos": "0.25",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "623",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Amine",
+            "posicao": "Defesa",
+            "jogos": "4",
+            "golos": "2",
+            "media_golos": "0.50",
+            "titular": "4",
+            "suplente": "-",
+            "minutos": "360",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Lukako",
+            "posicao": "Avançado",
+            "jogos": "3",
+            "golos": "2",
+            "media_golos": "0.67",
+            "titular": "3",
+            "suplente": "-",
+            "minutos": "202",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Rúben Sabino",
+            "posicao": "Avançado",
+            "jogos": "3",
+            "golos": "2",
+            "media_golos": "0.67",
+            "titular": "3",
+            "suplente": "-",
+            "minutos": "194",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        }
+    ],
+    "top_minutos": [
+        {
+            "nome": "Salgadinho",
+            "posicao": "Guarda Redes",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "8",
+            "suplente": "-",
+            "minutos": "710",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Rúben Silva",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "8",
+            "suplente": "-",
+            "minutos": "652",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Correia",
+            "posicao": "Médio",
+            "jogos": "8",
+            "golos": "2",
+            "media_golos": "0.25",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "623",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Taborda",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "590",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Romeu Cadjona",
+            "posicao": "Médio",
+            "jogos": "7",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "7",
+            "suplente": "-",
+            "minutos": "580",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        }
+    ],
+    "top_amarelos": [
+        {
+            "nome": "Taborda",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "590",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Jonas",
+            "posicao": "Avançado",
+            "jogos": "7",
+            "golos": "3",
+            "media_golos": "0.43",
+            "titular": "6",
+            "suplente": "1",
+            "minutos": "532",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Shayn Tomo",
+            "posicao": "Médio",
+            "jogos": "7",
+            "golos": "1",
+            "media_golos": "0.14",
+            "titular": "1",
+            "suplente": "6",
+            "minutos": "231",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Rúben Silva",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "8",
+            "suplente": "-",
+            "minutos": "652",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Correia",
+            "posicao": "Médio",
+            "jogos": "8",
+            "golos": "2",
+            "media_golos": "0.25",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "623",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        }
+    ],
+    "onze_provavel": [
+        {
+            "nome": "Salgadinho",
+            "posicao": "Guarda Redes",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "8",
+            "suplente": "-",
+            "minutos": "710",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Rúben Silva",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "8",
+            "suplente": "-",
+            "minutos": "652",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Correia",
+            "posicao": "Médio",
+            "jogos": "8",
+            "golos": "2",
+            "media_golos": "0.25",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "623",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Taborda",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "590",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Romeu Cadjona",
+            "posicao": "Médio",
+            "jogos": "7",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "7",
+            "suplente": "-",
+            "minutos": "580",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Jonas",
+            "posicao": "Avançado",
+            "jogos": "7",
+            "golos": "3",
+            "media_golos": "0.43",
+            "titular": "6",
+            "suplente": "1",
+            "minutos": "532",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Matos",
+            "posicao": "Avançado",
+            "jogos": "7",
+            "golos": "1",
+            "media_golos": "0.14",
+            "titular": "6",
+            "suplente": "1",
+            "minutos": "519",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Fábio Seixas",
+            "posicao": "Defesa",
+            "jogos": "5",
+            "golos": "1",
+            "media_golos": "0.20",
+            "titular": "5",
+            "suplente": "-",
+            "minutos": "438",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Saliu Gomes",
+            "posicao": "Defesa",
+            "jogos": "6",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "4",
+            "suplente": "2",
+            "minutos": "431",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Amine",
+            "posicao": "Defesa",
+            "jogos": "4",
+            "golos": "2",
+            "media_golos": "0.50",
+            "titular": "4",
+            "suplente": "-",
+            "minutos": "360",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Cláudio Cunha",
+            "posicao": "Defesa",
+            "jogos": "4",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "4",
+            "suplente": "-",
+            "minutos": "335",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        }
+    ],
+    "jogadores_chave": [
+        {
+            "tipo": "Melhor Marcador",
+            "nome": "Jonas",
+            "valor": "3"
+        },
+        {
+            "tipo": "Mais Utilizado",
+            "nome": "Salgadinho",
+            "valor": "710"
+        },
+        {
+            "tipo": "Mais Amarelos",
+            "nome": "Taborda",
+            "valor": "2"
+        }
+    ],
+    "jogadores_a_condicionar": [
+        {
+            "nome": "Salgadinho",
+            "posicao": "Guarda Redes"
+        },
+        {
+            "nome": "Rúben Silva",
+            "posicao": "Defesa"
+        },
+        {
+            "nome": "Miguel Correia",
+            "posicao": "Médio"
+        },
+        {
+            "nome": "Taborda",
+            "posicao": "Defesa"
+        },
+        {
+            "nome": "Romeu Cadjona",
+            "posicao": "Médio"
+        },
+        {
+            "nome": "Jonas",
+            "posicao": "Avançado"
+        },
+        {
+            "nome": "Miguel Matos",
+            "posicao": "Avançado"
+        },
+        {
+            "nome": "Amine",
+            "posicao": "Defesa"
+        },
+        {
+            "nome": "Lukako",
+            "posicao": "Avançado"
+        },
+        {
+            "nome": "Rúben Sabino",
+            "posicao": "Avançado"
+        }
+    ],
+    "armas_ofensivas": [
+        {
+            "nome": "Jonas",
+            "golos": "3",
+            "motivo": "Produção ofensiva relevante"
+        },
+        {
+            "nome": "Miguel Correia",
+            "golos": "2",
+            "motivo": "Produção ofensiva relevante"
+        },
+        {
+            "nome": "Amine",
+            "golos": "2",
+            "motivo": "Produção ofensiva relevante"
+        },
+        {
+            "nome": "Lukako",
+            "golos": "2",
+            "motivo": "Produção ofensiva relevante"
+        },
+        {
+            "nome": "Rúben Sabino",
+            "golos": "2",
+            "motivo": "Produção ofensiva relevante"
+        }
+    ],
+    "impacto_banco": [
+        {
+            "nome": "Rúben Sabino",
+            "golos": 2,
+            "minutos": 194,
+            "eficacia": 0.93
+        },
+        {
+            "nome": "Lukako",
+            "golos": 2,
+            "minutos": 202,
+            "eficacia": 0.89
+        },
+        {
+            "nome": "Shayn Tomo",
+            "golos": 1,
+            "minutos": 231,
+            "eficacia": 0.39
+        },
+        {
+            "nome": "Katumbela",
+            "golos": 1,
+            "minutos": 275,
+            "eficacia": 0.33
+        }
+    ],
+    "pontos_fortes": [
+        "Distribuição ofensiva por vários jogadores.",
+        "Núcleo titular muito estável.",
+        "Possui uma referência ofensiva clara.",
+        "Onze provável bem definido."
+    ],
+    "pontos_fracos": [],
+    "alertas": [
+        "Jonas soma 3 golos.",
+        "Miguel Correia soma 2 golos.",
+        "Amine soma 2 golos.",
+        "Lukako soma 2 golos.",
+        "Rúben Sabino soma 2 golos.",
+        "Taborda acumula 2 amarelos.",
+        "Jonas acumula 2 amarelos.",
+        "Shayn Tomo acumula 2 amarelos.",
+        "Rúben Sabino apresenta elevada eficácia por minuto jogado."
+    ],
+    "recomendacoes": [
+        "Condicionar Jonas na zona de finalização.",
+        "Monitorizar Salgadinho porque é peça central da equipa.",
+        "Atenção ao impacto das substituições ofensivas.",
+        "Evitar foco excessivo num único jogador adversário."
+    ],
+    "resumo_tecnico": [
+        "Distribuição ofensiva por vários jogadores.",
+        "Núcleo titular muito estável.",
+        "Possui uma referência ofensiva clara.",
+        "Onze provável bem definido.",
+        "Jonas é a principal referência ofensiva.",
+        "Rúben Sabino destaca-se pela eficácia quando entra."
+    ],
+    "jogadores": [
+        {
+            "nome": "Salgadinho",
+            "posicao": "Guarda Redes",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "8",
+            "suplente": "-",
+            "minutos": "710",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Rúben Silva",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "8",
+            "suplente": "-",
+            "minutos": "652",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Correia",
+            "posicao": "Médio",
+            "jogos": "8",
+            "golos": "2",
+            "media_golos": "0.25",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "623",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Taborda",
+            "posicao": "Defesa",
+            "jogos": "8",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "7",
+            "suplente": "1",
+            "minutos": "590",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Romeu Cadjona",
+            "posicao": "Médio",
+            "jogos": "7",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "7",
+            "suplente": "-",
+            "minutos": "580",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Jonas",
+            "posicao": "Avançado",
+            "jogos": "7",
+            "golos": "3",
+            "media_golos": "0.43",
+            "titular": "6",
+            "suplente": "1",
+            "minutos": "532",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Matos",
+            "posicao": "Avançado",
+            "jogos": "7",
+            "golos": "1",
+            "media_golos": "0.14",
+            "titular": "6",
+            "suplente": "1",
+            "minutos": "519",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Fábio Seixas",
+            "posicao": "Defesa",
+            "jogos": "5",
+            "golos": "1",
+            "media_golos": "0.20",
+            "titular": "5",
+            "suplente": "-",
+            "minutos": "438",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Saliu Gomes",
+            "posicao": "Defesa",
+            "jogos": "6",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "4",
+            "suplente": "2",
+            "minutos": "431",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Amine",
+            "posicao": "Defesa",
+            "jogos": "4",
+            "golos": "2",
+            "media_golos": "0.50",
+            "titular": "4",
+            "suplente": "-",
+            "minutos": "360",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Cláudio Cunha",
+            "posicao": "Defesa",
+            "jogos": "4",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "4",
+            "suplente": "-",
+            "minutos": "335",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Cláudio Salgado",
+            "posicao": "Avançado",
+            "jogos": "6",
+            "golos": "1",
+            "media_golos": "0.17",
+            "titular": "4",
+            "suplente": "2",
+            "minutos": "314",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Katumbela",
+            "posicao": "Defesa",
+            "jogos": "4",
+            "golos": "1",
+            "media_golos": "0.25",
+            "titular": "3",
+            "suplente": "1",
+            "minutos": "275",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Caramo Faty",
+            "posicao": "Médio",
+            "jogos": "5",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "3",
+            "suplente": "2",
+            "minutos": "273",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Bubacar Embaló",
+            "posicao": "Avançado",
+            "jogos": "5",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "2",
+            "suplente": "3",
+            "minutos": "231",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Shayn Tomo",
+            "posicao": "Médio",
+            "jogos": "7",
+            "golos": "1",
+            "media_golos": "0.14",
+            "titular": "1",
+            "suplente": "6",
+            "minutos": "231",
+            "amarelos": "2",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Lukako",
+            "posicao": "Avançado",
+            "jogos": "3",
+            "golos": "2",
+            "media_golos": "0.67",
+            "titular": "3",
+            "suplente": "-",
+            "minutos": "202",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Rúben Sabino",
+            "posicao": "Avançado",
+            "jogos": "3",
+            "golos": "2",
+            "media_golos": "0.67",
+            "titular": "3",
+            "suplente": "-",
+            "minutos": "194",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Afonso Marques",
+            "posicao": "Avançado",
+            "jogos": "4",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "1",
+            "suplente": "3",
+            "minutos": "156",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Fábio Teixeira",
+            "posicao": "Médio",
+            "jogos": "4",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "2",
+            "suplente": "2",
+            "minutos": "153",
+            "amarelos": "1",
+            "assistencias": "-",
+            "vermelhos": "1"
+        },
+        {
+            "nome": "Rafael Domingos",
+            "posicao": "Avançado",
+            "jogos": "3",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "3",
+            "minutos": "65",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "LuÍs Meireles",
+            "posicao": "Avançado",
+            "jogos": "2",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "2",
+            "minutos": "26",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Simão Costa",
+            "posicao": "Defesa",
+            "jogos": "2",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "2",
+            "minutos": "13",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Edson Rocha",
+            "posicao": "Guarda Redes",
+            "jogos": "1",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "1",
+            "minutos": "10",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Ivo Teixeira",
+            "posicao": "Médio",
+            "jogos": "1",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "1",
+            "minutos": "1",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Frederico Pereira",
+            "posicao": "Médio",
+            "jogos": "1",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "1",
+            "minutos": "1",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "André Santos",
+            "posicao": "Guarda Redes",
+            "jogos": "0",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "-",
+            "minutos": "-",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Dinis Martins",
+            "posicao": "Defesa",
+            "jogos": "0",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "-",
+            "minutos": "-",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Rúben Abreu",
+            "posicao": "Defesa",
+            "jogos": "0",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "-",
+            "minutos": "-",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Andre Batista",
+            "posicao": "Médio",
+            "jogos": "0",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "-",
+            "minutos": "-",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        },
+        {
+            "nome": "Miguel Junqueiro",
+            "posicao": "Defesa",
+            "jogos": "0",
+            "golos": "0",
+            "media_golos": "0.00",
+            "titular": "-",
+            "suplente": "-",
+            "minutos": "-",
+            "amarelos": "-",
+            "assistencias": "-",
+            "vermelhos": "-"
+        }
+    ]
+}
