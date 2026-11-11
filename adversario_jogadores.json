@@ -252,8 +252,9 @@
             "vermelhos": "-"
         }
     ],
-    "onze_provavel": [
-        {
+    "onze_provavel": {
+        "esquema": "6-2-2",
+        "gr": {
             "nome": "Salgadinho",
             "posicao": "Guarda Redes",
             "jogos": "8",
@@ -266,137 +267,143 @@
             "assistencias": "-",
             "vermelhos": "-"
         },
-        {
-            "nome": "Rúben Silva",
-            "posicao": "Defesa",
-            "jogos": "8",
-            "golos": "0",
-            "media_golos": "0.00",
-            "titular": "8",
-            "suplente": "-",
-            "minutos": "652",
-            "amarelos": "1",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Miguel Correia",
-            "posicao": "Médio",
-            "jogos": "8",
-            "golos": "2",
-            "media_golos": "0.25",
-            "titular": "7",
-            "suplente": "1",
-            "minutos": "623",
-            "amarelos": "1",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Taborda",
-            "posicao": "Defesa",
-            "jogos": "8",
-            "golos": "0",
-            "media_golos": "0.00",
-            "titular": "7",
-            "suplente": "1",
-            "minutos": "590",
-            "amarelos": "2",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Romeu Cadjona",
-            "posicao": "Médio",
-            "jogos": "7",
-            "golos": "0",
-            "media_golos": "0.00",
-            "titular": "7",
-            "suplente": "-",
-            "minutos": "580",
-            "amarelos": "1",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Jonas",
-            "posicao": "Avançado",
-            "jogos": "7",
-            "golos": "3",
-            "media_golos": "0.43",
-            "titular": "6",
-            "suplente": "1",
-            "minutos": "532",
-            "amarelos": "2",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Miguel Matos",
-            "posicao": "Avançado",
-            "jogos": "7",
-            "golos": "1",
-            "media_golos": "0.14",
-            "titular": "6",
-            "suplente": "1",
-            "minutos": "519",
-            "amarelos": "1",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Fábio Seixas",
-            "posicao": "Defesa",
-            "jogos": "5",
-            "golos": "1",
-            "media_golos": "0.20",
-            "titular": "5",
-            "suplente": "-",
-            "minutos": "438",
-            "amarelos": "1",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Saliu Gomes",
-            "posicao": "Defesa",
-            "jogos": "6",
-            "golos": "0",
-            "media_golos": "0.00",
-            "titular": "4",
-            "suplente": "2",
-            "minutos": "431",
-            "amarelos": "-",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Amine",
-            "posicao": "Defesa",
-            "jogos": "4",
-            "golos": "2",
-            "media_golos": "0.50",
-            "titular": "4",
-            "suplente": "-",
-            "minutos": "360",
-            "amarelos": "-",
-            "assistencias": "-",
-            "vermelhos": "-"
-        },
-        {
-            "nome": "Cláudio Cunha",
-            "posicao": "Defesa",
-            "jogos": "4",
-            "golos": "0",
-            "media_golos": "0.00",
-            "titular": "4",
-            "suplente": "-",
-            "minutos": "335",
-            "amarelos": "1",
-            "assistencias": "-",
-            "vermelhos": "-"
-        }
-    ],
+        "defesas": [
+            {
+                "nome": "Rúben Silva",
+                "posicao": "Defesa",
+                "jogos": "8",
+                "golos": "0",
+                "media_golos": "0.00",
+                "titular": "8",
+                "suplente": "-",
+                "minutos": "652",
+                "amarelos": "1",
+                "assistencias": "-",
+                "vermelhos": "-"
+            },
+            {
+                "nome": "Taborda",
+                "posicao": "Defesa",
+                "jogos": "8",
+                "golos": "0",
+                "media_golos": "0.00",
+                "titular": "7",
+                "suplente": "1",
+                "minutos": "590",
+                "amarelos": "2",
+                "assistencias": "-",
+                "vermelhos": "-"
+            },
+            {
+                "nome": "Fábio Seixas",
+                "posicao": "Defesa",
+                "jogos": "5",
+                "golos": "1",
+                "media_golos": "0.20",
+                "titular": "5",
+                "suplente": "-",
+                "minutos": "438",
+                "amarelos": "1",
+                "assistencias": "-",
+                "vermelhos": "-"
+            },
+            {
+                "nome": "Saliu Gomes",
+                "posicao": "Defesa",
+                "jogos": "6",
+                "golos": "0",
+                "media_golos": "0.00",
+                "titular": "4",
+                "suplente": "2",
+                "minutos": "431",
+                "amarelos": "-",
+                "assistencias": "-",
+                "vermelhos": "-"
+            },
+            {
+                "nome": "Amine",
+                "posicao": "Defesa",
+                "jogos": "4",
+                "golos": "2",
+                "media_golos": "0.50",
+                "titular": "4",
+                "suplente": "-",
+                "minutos": "360",
+                "amarelos": "-",
+                "assistencias": "-",
+                "vermelhos": "-"
+            },
+            {
+                "nome": "Cláudio Cunha",
+                "posicao": "Defesa",
+                "jogos": "4",
+                "golos": "0",
+                "media_golos": "0.00",
+                "titular": "4",
+                "suplente": "-",
+                "minutos": "335",
+                "amarelos": "1",
+                "assistencias": "-",
+                "vermelhos": "-"
+            }
+        ],
+        "medios": [
+            {
+                "nome": "Miguel Correia",
+                "posicao": "Médio",
+                "jogos": "8",
+                "golos": "2",
+                "media_golos": "0.25",
+                "titular": "7",
+                "suplente": "1",
+                "minutos": "623",
+                "amarelos": "1",
+                "assistencias": "-",
+                "vermelhos": "-"
+            },
+            {
+                "nome": "Romeu Cadjona",
+                "posicao": "Médio",
+                "jogos": "7",
+                "golos": "0",
+                "media_golos": "0.00",
+                "titular": "7",
+                "suplente": "-",
+                "minutos": "580",
+                "amarelos": "1",
+                "assistencias": "-",
+                "vermelhos": "-"
+            }
+        ],
+        "avancados": [
+            {
+                "nome": "Jonas",
+                "posicao": "Avançado",
+                "jogos": "7",
+                "golos": "3",
+                "media_golos": "0.43",
+                "titular": "6",
+                "suplente": "1",
+                "minutos": "532",
+                "amarelos": "2",
+                "assistencias": "-",
+                "vermelhos": "-"
+            },
+            {
+                "nome": "Miguel Matos",
+                "posicao": "Avançado",
+                "jogos": "7",
+                "golos": "1",
+                "media_golos": "0.14",
+                "titular": "6",
+                "suplente": "1",
+                "minutos": "519",
+                "amarelos": "1",
+                "assistencias": "-",
+                "vermelhos": "-"
+            }
+        ]
+    },
     "jogadores_chave": [
         {
             "tipo": "Melhor Marcador",
@@ -512,8 +519,7 @@
     "pontos_fortes": [
         "Distribuição ofensiva por vários jogadores.",
         "Núcleo titular muito estável.",
-        "Possui uma referência ofensiva clara.",
-        "Onze provável bem definido."
+        "Possui uma referência ofensiva clara."
     ],
     "pontos_fracos": [],
     "alertas": [
@@ -537,7 +543,6 @@
         "Distribuição ofensiva por vários jogadores.",
         "Núcleo titular muito estável.",
         "Possui uma referência ofensiva clara.",
-        "Onze provável bem definido.",
         "Jonas é a principal referência ofensiva.",
         "Rúben Sabino destaca-se pela eficácia quando entra."
     ],
