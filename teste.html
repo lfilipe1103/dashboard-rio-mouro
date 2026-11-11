@@ -50,9 +50,9 @@ body{
     color:white;
 
     font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
     padding:15px;
 
@@ -69,20 +69,19 @@ body{
 .card{
 
     background:
-        linear-gradient(
-            180deg,
-            #13213a,
-            #1c2d4a
-        );
+    linear-gradient(
+        180deg,
+        #13213a,
+        #1c2d4a
+    );
 
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .08
-        );
+    border:1px solid
+    rgba(
+        255,
+        255,
+        255,
+        .08
+    );
 
     border-radius:24px;
 
@@ -91,13 +90,13 @@ body{
     margin-bottom:15px;
 
     box-shadow:
-        0 10px 35px
-        rgba(
-            0,
-            0,
-            0,
-            .35
-        );
+    0 10px 35px
+    rgba(
+        0,
+        0,
+        0,
+        .35
+    );
 
 }
 
@@ -115,78 +114,50 @@ body{
 
 }
 
-.jornada{
+.hero-titulo{
 
-    color:#9fb0c9;
-
-    font-size:15px;
+    font-size:16px;
 
     letter-spacing:2px;
 
-    margin-bottom:10px;
+    color:#9fb0c9;
+
+    margin-bottom:15px;
 
 }
 
-.equipa{
+.hero-posicao{
 
-    font-size:40px;
-
-    font-weight:900;
-
-}
-
-.vs{
-
-    font-size:26px;
-
-    color:var(--yellow);
-
-    margin:15px 0;
-
-}
-
-.adversario{
-
-    font-size:48px;
+    font-size:90px;
 
     font-weight:900;
 
     color:var(--yellow);
 
     text-shadow:
-        0 0 25px
-        rgba(
-            250,
-            204,
-            21,
-            .35
-        );
+    0 0 25px
+    rgba(
+        250,
+        204,
+        21,
+        .35
+    );
 
 }
 
-.info-jogo{
+.hero-pontos{
 
-    margin-top:20px;
+    font-size:34px;
 
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    flex-wrap:wrap;
+    font-weight:800;
 
 }
 
-.badge{
+.hero-sub{
 
-    background:#223758;
+    margin-top:10px;
 
-    border-radius:999px;
-
-    padding:10px 16px;
-
-    font-weight:700;
+    color:#c8d3e4;
 
 }
 
@@ -207,7 +178,7 @@ body{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+    repeat(4,1fr);
 
     gap:12px;
 
@@ -218,7 +189,7 @@ body{
     display:grid;
 
     grid-template-columns:
-        repeat(3,1fr);
+    repeat(3,1fr);
 
     gap:12px;
 
@@ -230,7 +201,7 @@ body{
 
     border-radius:18px;
 
-    padding:20px;
+    padding:18px;
 
     text-align:center;
 
@@ -238,7 +209,7 @@ body{
 
 .kpi-num{
 
-    font-size:46px;
+    font-size:40px;
 
     font-weight:900;
 
@@ -248,7 +219,7 @@ body{
 
     margin-top:8px;
 
-    color:#c8d3e4;
+    color:#c4d0e0;
 
 }
 
@@ -264,73 +235,19 @@ body{
     color:var(--red);
 }
 
-.destaque{
-
-    background:var(--card2);
-
-    border-radius:18px;
-
-    padding:18px;
-
-    text-align:center;
-
-}
-
-.nome{
-
-    font-size:24px;
-
-    font-weight:800;
-
-}
-
-.valor{
-
-    font-size:42px;
-
-    font-weight:900;
-
-    color:var(--yellow);
-
-    margin-top:10px;
-
-}
-
-.texto-sec{
-
-    color:#b8c7de;
-
-    margin-top:10px;
-
-}
-
-.forma{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:18px;
-
-    flex-wrap:wrap;
-
-}
-
-.forma span{
-
-    font-size:42px;
-
+.azul{
+    color:var(--blue);
 }
 
 .linha{
 
     background:var(--card2);
 
-    padding:14px;
+    border-radius:16px;
 
-    border-radius:14px;
+    padding:16px;
 
-    margin-bottom:10px;
+    margin-bottom:12px;
 
     display:flex;
 
@@ -338,56 +255,23 @@ body{
 
     align-items:center;
 
-    transition:.25s;
-
-}
-
-.linha:hover{
-
-    transform:
-        translateX(4px);
-
-}
-
-.resultado-v{
-
-    border-left:
-        6px solid
-        var(--green);
-
-}
-
-.resultado-e{
-
-    border-left:
-        6px solid
-        var(--yellow);
-
-}
-
-.resultado-d{
-
-    border-left:
-        6px solid
-        var(--red);
-
 }
 
 .impacto{
 
     display:flex;
 
-    gap:15px;
-
     align-items:flex-start;
 
-    background:var(--card2);
-
-    border-radius:18px;
+    gap:14px;
 
     padding:18px;
 
+    border-radius:18px;
+
     margin-bottom:12px;
+
+    background:var(--card2);
 
 }
 
@@ -395,15 +279,15 @@ body{
 
     font-size:34px;
 
-    min-width:50px;
+    min-width:40px;
 
 }
 
 .impacto-titulo{
 
-    font-weight:900;
-
     font-size:18px;
+
+    font-weight:900;
 
     margin-bottom:6px;
 
@@ -411,44 +295,93 @@ body{
 
 .impacto-texto{
 
-    color:#d5dfef;
+    color:#d7e2f3;
 
     line-height:1.6;
-
-}
-
-.impacto-alerta{
-
-    border-left:
-        6px solid
-        var(--yellow);
 
 }
 
 .impacto-ok{
 
     border-left:
-        6px solid
-        var(--green);
+    6px solid
+    var(--green);
+
+}
+
+.impacto-alerta{
+
+    border-left:
+    6px solid
+    var(--yellow);
 
 }
 
 .impacto-risco{
 
     border-left:
-        6px solid
-        var(--red);
+    6px solid
+    var(--red);
+
+}
+
+.impacto-info{
+
+    border-left:
+    6px solid
+    var(--blue);
+
+}
+
+.botao{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #35589b,
+        #4a78d1
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+}
+
+.atualizacao{
+
+    text-align:center;
+
+    color:#9fb0c9;
+
+    font-size:13px;
 
 }
 
 @media(max-width:900px){
 
     .grid4{
+
         grid-template-columns:1fr;
+
     }
 
     .grid3{
+
         grid-template-columns:1fr;
+
     }
 
 }
@@ -470,48 +403,45 @@ body{
         class="logo">
 
     <div
-        id="jornada"
-        class="jornada">
+        id="heroTitulo"
+        class="hero-titulo">
 
-        JORNADA
-
-    </div>
-
-    <div class="equipa">
-
-        RIO DE MOURO
-
-    </div>
-
-    <div class="vs">
-
-        VS
+        SALA DE ANÁLISE
 
     </div>
 
     <div
-        id="adversario"
-        class="adversario">
+        id="heroPosicao"
+        class="hero-posicao">
 
-        ...
+        -
 
     </div>
 
     <div
-        id="infoJogo"
-        class="info-jogo">
+        id="heroPontos"
+        class="hero-pontos">
+
+        -
+
+    </div>
+
+    <div
+        class="hero-sub">
+
+        Situação Atual da Equipa
 
     </div>
 
 </div>
 
-<!-- ALERTAS -->
+<!-- RESUMO EXECUTIVO -->
 
 <div class="card">
 
     <div class="titulo">
 
-        🚨 Alertas Críticos
+        🎯 Resumo Executivo
 
     </div>
 
@@ -520,34 +450,16 @@ body{
         <div class="kpi">
 
             <div
-                id="castigados"
-                class="kpi-num vermelho">
-
-                0
-
-            </div>
-
-            <div class="kpi-label">
-
-                Castigados
-
-            </div>
-
-        </div>
-
-        <div class="kpi">
-
-            <div
-                id="risco"
+                id="posicaoAtual"
                 class="kpi-num amarelo">
 
-                0
+                -
 
             </div>
 
             <div class="kpi-label">
 
-                Em Risco
+                Posição
 
             </div>
 
@@ -556,16 +468,16 @@ body{
         <div class="kpi">
 
             <div
-                id="arbitroNome"
-                class="kpi-num">
+                id="pontosAtuais"
+                class="kpi-num verde">
 
-                👨‍⚖️
+                -
 
             </div>
 
             <div class="kpi-label">
 
-                Árbitro
+                Pontos
 
             </div>
 
@@ -574,8 +486,8 @@ body{
         <div class="kpi">
 
             <div
-                id="posicaoAdv"
-                class="kpi-num">
+                id="dif2"
+                class="kpi-num azul">
 
                 -
 
@@ -583,101 +495,25 @@ body{
 
             <div class="kpi-label">
 
-                Adversário
+                Dif. 2º
 
             </div>
 
         </div>
 
-    </div>
-
-</div>
-
-<!-- DESTAQUES -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        🏅 Destaques da Equipa
-
-    </div>
-
-    <div class="grid3">
-
-        <div class="destaque">
+        <div class="kpi">
 
             <div
-                id="nomeGoleador"
-                class="nome">
+                id="dif1"
+                class="kpi-num vermelho">
 
                 -
 
             </div>
 
-            <div
-                id="golosGoleador"
-                class="valor">
+            <div class="kpi-label">
 
-                -
-
-            </div>
-
-            <div class="texto-sec">
-
-                Melhor Marcador
-
-            </div>
-
-        </div>
-
-        <div class="destaque">
-
-            <div
-                id="nomeMinutos"
-                class="nome">
-
-                -
-
-            </div>
-
-            <div
-                id="totalMinutos"
-                class="valor">
-
-                -
-
-            </div>
-
-            <div class="texto-sec">
-
-                Mais Utilizado
-
-            </div>
-
-        </div>
-
-        <div class="destaque">
-
-            <div
-                id="nomeAmarelos"
-                class="nome">
-
-                -
-
-            </div>
-
-            <div
-                id="totalAmarelos"
-                class="valor">
-
-                -
-
-            </div>
-
-            <div class="texto-sec">
-
-                Mais Amarelos
+                Dif. Líder
 
             </div>
 
@@ -693,57 +529,229 @@ body{
 
     <div class="titulo">
 
-        🧠 Leitura da Jornada
+        🧠 O Que Esta Jornada Pode Mudar
 
     </div>
 
-    <div id="impactoJornada">
+    <div
+        id="analiseJornada">
 
     </div>
 
 </div>
 
-<!-- SITUAÇÃO COMPETITIVA -->
+<!-- GESTÃO DE CARTÕES -->
 
 <div class="card">
 
     <div class="titulo">
 
-        🏆 Situação Competitiva
+        🟨 Gestão de Cartões
+
+    </div>
+
+    <div
+        id="gestaoCartoes">
+
+    </div>
+
+</div>
+
+<!-- DESTAQUES -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🏅 Destaques do Plantel
 
     </div>
 
     <div class="grid3">
 
-        <div class="destaque">
+        <div class="kpi">
 
             <div
-                id="posicaoAtual"
-                class="valor">
+                id="goleadorNome">
 
                 -
 
             </div>
 
-            <div class="texto-sec">
+            <div
+                id="goleadorValor"
+                class="kpi-num verde">
 
-                Classificação
+                -
+
+            </div>
+
+            <div class="kpi-label">
+
+                Melhor Marcador
 
             </div>
 
         </div>
 
-        <div class="destaque">
+        <div class="kpi">
 
             <div
-                id="pontosAtuais"
-                class="valor">
+                id="minutosNome">
 
                 -
 
             </div>
 
-            <div class="texto-sec">
+            <div
+                id="minutosValor"
+                class="kpi-num amarelo">
+
+                -
+
+            </div>
+
+            <div class="kpi-label">
+
+                Mais Utilizado
+
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div
+                id="amarelosNome">
+
+                -
+
+            </div>
+
+            <div
+                id="amarelosValor"
+                class="kpi-num vermelho">
+
+                -
+
+            </div>
+
+            <div class="kpi-label">
+
+                Mais Amarelos
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FORMA DA EQUIPA -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🔥 Momento Atual
+
+    </div>
+
+    <div
+        id="formaAtual"
+        class="forma">
+
+    </div>
+
+    <br>
+
+    <div
+        id="formaResumo"
+        style="
+        text-align:center;
+        color:#c8d3e4;
+        ">
+
+    </div>
+
+</div>
+
+<!-- TODOS OS JOGOS DA JORNADA -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        📅 Jogos da Jornada
+
+    </div>
+
+    <div
+        id="jogosJornada">
+
+    </div>
+
+</div>
+
+<!-- IMPACTO CLASSIFICATIVO -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🏆 Impacto Classificativo
+
+    </div>
+
+    <div
+        id="impactoClassificacao">
+
+    </div>
+
+</div>
+
+<!-- ADVERSÁRIO -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        ⚔️ Raio-X do Adversário
+
+    </div>
+
+    <div class="grid3">
+
+        <div class="kpi">
+
+            <div
+                id="advPosicao"
+                class="kpi-num amarelo">
+
+                -
+
+            </div>
+
+            <div class="kpi-label">
+
+                Posição
+
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div
+                id="advPontos"
+                class="kpi-num verde">
+
+                -
+
+            </div>
+
+            <div class="kpi-label">
 
                 Pontos
 
@@ -751,57 +759,23 @@ body{
 
         </div>
 
-        <div class="destaque">
+        <div class="kpi">
 
             <div
-                id="diferencaLider"
-                class="valor">
+                id="advDG"
+                class="kpi-num">
 
                 -
 
             </div>
 
-            <div class="texto-sec">
+            <div class="kpi-label">
 
-                Diferença Líder
+                DG
 
             </div>
 
         </div>
-
-    </div>
-
-</div>
-
-<!-- TODOS OS JOGOS -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        📅 Próxima Jornada
-
-    </div>
-
-    <div id="listaJogosJornada">
-
-    </div>
-
-</div>
-
-<!-- RESULTADOS RECENTES -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        🔥 Forma Recente
-
-    </div>
-
-    <div
-        id="formaAtual"
-        class="forma">
 
     </div>
 
@@ -817,7 +791,8 @@ body{
 
     </div>
 
-    <div id="prioridades">
+    <div
+        id="prioridades">
 
     </div>
 
@@ -829,9 +804,7 @@ body{
 
     <button
         class="botao"
-        onclick="
-            location.href='index.html'
-        ">
+        onclick="location.href='index.html'">
 
         ⬅️ Voltar ao Menu
 
@@ -851,52 +824,52 @@ body{
 
 async function carregar(){
 
-    const dashboardResp =
+    const rDashboard =
         await fetch(
             "dashboard_data.json?t="
             + Date.now()
         );
 
-    const jogadoresResp =
+    const rJogadores =
         await fetch(
             "jogadores.json?t="
             + Date.now()
         );
 
-    const jornadaResp =
+    const rJornada =
         await fetch(
             "jornada.json?t="
             + Date.now()
         );
 
     const dashboard =
-        await dashboardResp.json();
+        await rDashboard.json();
 
     const jogadores =
-        await jogadoresResp.json();
+        await rJogadores.json();
 
     const jornada =
-        await jornadaResp.json();
+        await rJornada.json();
 
     const resumo =
         dashboard.resumo_epoca || {};
 
-    const seniores =
-        dashboard.seniores || {};
-
-    const adversario =
-        dashboard.dashboard?.adversario || {};
+    const forma =
+        dashboard.forma || [];
 
     const classificacao =
         dashboard.classificacao || [];
 
+    const adversario =
+        dashboard.dashboard?.adversario || {};
+
+    const seniores =
+        dashboard.seniores || {};
+
     const risco =
         seniores.cartoes?.risco || [];
 
-    const forma =
-        dashboard.forma || [];
-
-    const topGolos =
+    const goleador =
         [...jogadores]
 
         .sort(
@@ -906,7 +879,7 @@ async function carregar(){
             Number(a.golos)
         )[0];
 
-    const topMinutos =
+    const minutos =
         [...jogadores]
 
         .sort(
@@ -916,7 +889,7 @@ async function carregar(){
             Number(a.minutos || 0)
         )[0];
 
-    const topAmarelos =
+    const amarelos =
         [...jogadores]
 
         .sort(
@@ -928,361 +901,124 @@ async function carregar(){
 
     document
         .getElementById(
-            "jornada"
+            "heroPosicao"
         )
         .innerText =
-
-        "JORNADA "
-        + jornada.jornada;
+        `${resumo.posicao}º`;
 
     document
         .getElementById(
-            "adversario"
+            "heroPontos"
         )
         .innerText =
-
-        seniores.proximo_adversario?.nome
-        || "Adversário";
+        `${resumo.pontos} Pontos`;
 
     document
         .getElementById(
-            "infoJogo"
+            "posicaoAtual"
         )
-        .innerHTML =
-
-        `
-        <div class="badge">
-            📅 ${seniores.proximo_jogo?.data || "-"}
-        </div>
-
-        <div class="badge">
-            🕒 ${seniores.proximo_jogo?.hora || "-"}
-        </div>
-
-        <div class="badge">
-            🏟️ ${seniores.proximo_jogo?.estadio || "-"}
-        </div>
-        `;
+        .innerText =
+        `${resumo.posicao}º`;
 
     document
         .getElementById(
-            "castigados"
+            "pontosAtuais"
         )
         .innerText =
+        resumo.pontos;
 
-        seniores.castigos?.ativos || 0;
+    const lider =
+        classificacao[0];
 
     document
         .getElementById(
-            "risco"
+            "dif1"
         )
         .innerText =
 
-        risco.length;
+        lider
+        ? lider.pts -
+          resumo.pontos
+        : "-";
 
     document
         .getElementById(
-            "arbitroNome"
+            "dif2"
         )
         .innerText =
 
-        seniores.proximo_jogo?.arbitro
-        || "-";
+        17 -
+        resumo.pontos;
 
     document
         .getElementById(
-            "posicaoAdv"
+            "goleadorNome"
         )
         .innerText =
-
-        `${adversario.posicao || "-" }º`;
-
-    document
-        .getElementById(
-            "nomeGoleador"
-        )
-        .innerText =
-        topGolos.nome;
+        goleador.nome;
 
     document
         .getElementById(
-            "golosGoleador"
+            "goleadorValor"
         )
         .innerText =
-        `⚽ ${topGolos.golos}`;
+        `⚽ ${goleador.golos}`;
 
     document
         .getElementById(
-            "nomeMinutos"
+            "minutosNome"
         )
         .innerText =
-        topMinutos.nome;
+        minutos.nome;
 
     document
         .getElementById(
-            "totalMinutos"
+            "minutosValor"
         )
         .innerText =
-        `⏱️ ${topMinutos.minutos}`;
+        `⏱️ ${minutos.minutos}`;
 
     document
         .getElementById(
-            "nomeAmarelos"
+            "amarelosNome"
         )
         .innerText =
-        topAmarelos.nome;
+        amarelos.nome;
 
     document
         .getElementById(
-            "totalAmarelos"
+            "amarelosValor"
         )
         .innerText =
-        `🟨 ${topAmarelos.amarelos}`;
+        `🟨 ${amarelos.amarelos}`;
 
     /* ==========================
-       SITUAÇÃO COMPETITIVA
+       ADVERSÁRIO
     ========================== */
 
-    const rio =
-        classificacao.find(
-            e => e.rio_mouro
-        );
-
-    if(rio){
-
-        document
-            .getElementById(
-                "posicaoAtual"
-            )
-            .innerText =
-            `${rio.pos}º`;
-
-        document
-            .getElementById(
-                "pontosAtuais"
-            )
-            .innerText =
-            rio.pts;
-
-        const lider =
-            classificacao[0];
-
-        document
-            .getElementById(
-                "diferencaLider"
-            )
-            .innerText =
-
-            lider
-            ? lider.pts - rio.pts
-            : "-";
-
-    }
-
-    /* ==========================
-       IMPACTO DA JORNADA
-    ========================== */
-
-    let impacto = "";
-
-    const rivalDireto =
-        jornada.jogos.find(j =>
-
-            (
-                j.casa.includes(
-                    "Arsenal"
-                )
-
-                &&
-
-                j.fora.includes(
-                    "Mem Martins"
-                )
-
-            )
-
-            ||
-
-            (
-
-                j.casa.includes(
-                    "Mem Martins"
-                )
-
-                &&
-
-                j.fora.includes(
-                    "Arsenal"
-                )
-
-            )
-
-        );
-
-    if(rivalDireto){
-
-        impacto += `
-
-        <div
-            class="
-                impacto
-                impacto-alerta
-            ">
-
-            <div
-                class="impacto-icon">
-
-                ⚠️
-
-            </div>
-
-            <div>
-
-                <div
-                    class="
-                    impacto-titulo
-                    ">
-
-                    Confronto Direto
-
-                </div>
-
-                <div
-                    class="
-                    impacto-texto
-                    ">
-
-                    Arsenal 72
-                    enfrenta
-                    Mem Martins SC.
-
-                    <br><br>
-
-                    Um candidato
-                    aos lugares
-                    cimeiros
-                    vai perder
-                    pontos.
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-    }
-
-    impacto += `
-
-    <div
-        class="
-            impacto
-            impacto-ok
-        ">
-
-        <div
-            class="impacto-icon">
-
-            🎯
-
-        </div>
-
-        <div>
-
-            <div
-                class="
-                impacto-titulo
-                ">
-
-                Oportunidade
-
-            </div>
-
-            <div
-                class="
-                impacto-texto
-                ">
-
-                Rio de Mouro
-                visita o
-                RD Algueirão.
-
-                <br><br>
-
-                Vitória mantém
-                pressão sobre
-                os lugares
-                de promoção.
-
-            </div>
-
-        </div>
-
-    </div>
-
-    `;
-
-    if(
-        risco.length > 0
-    ){
-
-        impacto += `
-
-        <div
-            class="
-                impacto
-                impacto-risco
-            ">
-
-            <div
-                class="impacto-icon">
-
-                🟨
-
-            </div>
-
-            <div>
-
-                <div
-                    class="
-                    impacto-titulo
-                    ">
-
-                    Gestão de Cartões
-
-                </div>
-
-                <div
-                    class="
-                    impacto-texto
-                    ">
-
-                    ${risco.length}
-                    jogadores
-                    estão em risco
-                    de suspensão.
-
-                </div>
-
-            </div>
-
-        </div>
-
-        `;
-
-    }
+    document
+        .getElementById(
+            "advPosicao"
+        )
+        .innerText =
+        `${adversario.posicao || "-"}º`;
 
     document
         .getElementById(
-            "impactoJornada"
+            "advPontos"
         )
-        .innerHTML =
-        impacto;
+        .innerText =
+        adversario.pontos || "-";
+
+    document
+        .getElementById(
+            "advDG"
+        )
+        .innerText =
+        adversario.dg || "-";
 
     /* ==========================
-       FORMA EQUIPA
+       FORMA
     ========================== */
 
     const simbolos = {
@@ -1301,11 +1037,211 @@ async function carregar(){
 
         forma.map(x =>
 
-            `<span>
-                ${simbolos[x]}
-            </span>`
+            `<span>${simbolos[x] || "⚪"}</span>`
 
         ).join("");
+
+    let pontosForma = 0;
+
+    forma.forEach(x=>{
+
+        if(x === "V")
+            pontosForma += 3;
+
+        if(x === "E")
+            pontosForma += 1;
+
+    });
+
+    document
+        .getElementById(
+            "formaResumo"
+        )
+        .innerHTML =
+
+        `${pontosForma} pontos nos últimos ${(forma.length * 3)} possíveis`;
+
+    /* ==========================
+       ANÁLISE JORNADA
+    ========================== */
+
+    let analiseHTML = "";
+
+    analiseHTML += `
+
+    <div class="impacto impacto-ok">
+
+        <div class="impacto-icon">
+
+            🎯
+
+        </div>
+
+        <div>
+
+            <div class="impacto-titulo">
+
+                Oportunidade
+
+            </div>
+
+            <div class="impacto-texto">
+
+                Rio de Mouro ocupa o
+                3º lugar com
+                ${resumo.pontos} pontos.
+
+                <br><br>
+
+                Entra nesta jornada
+                a apenas 1 ponto
+                do 2º classificado.
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+    analiseHTML += `
+
+    <div class="impacto impacto-alerta">
+
+        <div class="impacto-icon">
+
+            ⚠️
+
+        </div>
+
+        <div>
+
+            <div class="impacto-titulo">
+
+                Jogo-Chave da Jornada
+
+            </div>
+
+            <div class="impacto-texto">
+
+                Arsenal 72
+                🆚
+                Mem Martins SC
+
+                <br><br>
+
+                Jogo que pode alterar
+                os lugares de topo
+                da classificação.
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+
+    if(risco.length > 0){
+
+        analiseHTML += `
+
+        <div class="impacto impacto-risco">
+
+            <div class="impacto-icon">
+
+                🟨
+
+            </div>
+
+            <div>
+
+                <div class="impacto-titulo">
+
+                    Gestão Disciplinar
+
+                </div>
+
+                <div class="impacto-texto">
+
+                    Existem
+
+                    ${risco.length}
+
+                    jogadores em risco
+                    de suspensão.
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+    document
+        .getElementById(
+            "analiseJornada"
+        )
+        .innerHTML =
+        analiseHTML;
+
+    /* ==========================
+       CARTÕES
+    ========================== */
+
+    let cartoesHTML = "";
+
+    if(risco.length === 0){
+
+        cartoesHTML = `
+
+        <div class="linha">
+
+            ✅ Sem jogadores em risco.
+
+        </div>
+
+        `;
+
+    }
+    else{
+
+        risco.forEach(j => {
+
+            cartoesHTML += `
+
+            <div class="linha">
+
+                <span>
+
+                    ${j.nome}
+
+                </span>
+
+                <strong>
+
+                    ${j.cartoes}
+
+                </strong>
+
+            </div>
+
+            `;
+
+        });
+
+    }
+
+    document
+        .getElementById(
+            "gestaoCartoes"
+        )
+        .innerHTML =
+        cartoesHTML;
 
     /* ==========================
        JOGOS DA JORNADA
@@ -1315,50 +1251,34 @@ async function carregar(){
 
     jornada.jogos.forEach(j => {
 
-        const destaque =
+        let destaque = false;
 
-            (
-                j.casa.includes(
-                    "Rio de Mouro"
-                )
-
-                ||
-
-                j.fora.includes(
-                    "Rio de Mouro"
-                )
-
+        if(
+            j.casa.includes(
+                "Rio de Mouro"
             )
-
             ||
+            j.fora.includes(
+                "Rio de Mouro"
+            )
+        ){
 
-            (
+            destaque = true;
 
-                j.casa.includes(
-                    "Arsenal"
-                )
-
-                &&
-
-                j.fora.includes(
-                    "Mem Martins"
-                )
-
-            );
+        }
 
         jogosHTML += `
 
         <div
             class="linha"
-
             style="
-            ${
-                destaque
-                ?
-                'border-left:6px solid #facc15;'
-                :
-                ''
-            }
+                ${
+                    destaque
+                    ?
+                    'border-left:6px solid #facc15;'
+                    :
+                    ''
+                }
             ">
 
             <span>
@@ -1385,10 +1305,50 @@ async function carregar(){
 
     document
         .getElementById(
-            "listaJogosJornada"
+            "jogosJornada"
         )
         .innerHTML =
         jogosHTML;
+
+    /* ==========================
+       IMPACTO CLASSIFICAÇÃO
+    ========================== */
+
+    document
+        .getElementById(
+            "impactoClassificacao"
+        )
+        .innerHTML =
+
+        `
+
+        <div class="linha">
+
+            🏆 Líder:
+            ${
+                classificacao[0]?.equipa
+                || "-"
+            }
+
+        </div>
+
+        <div class="linha">
+
+            📈 Apenas
+            ${17 - resumo.pontos}
+            ponto(s) do 2º lugar
+
+        </div>
+
+        <div class="linha">
+
+            🎯 Vitória mantém
+            pressão sobre
+            os lugares de promoção
+
+        </div>
+
+        `;
 
     /* ==========================
        PRIORIDADES
@@ -1404,36 +1364,30 @@ async function carregar(){
 
         <div class="linha">
 
-            ⚠️ Arsenal 72
-            e Mem Martins SC
-            enfrentam-se.
+            ⚠️ Avaliar jogadores
+            em risco disciplinar
 
         </div>
 
         <div class="linha">
 
-            🎯 Vitória pode
-            aproximar o
-            Rio de Mouro
-            dos lugares
-            cimeiros.
+            🎯 Aproveitar possível
+            deslize de adversários
 
         </div>
 
         <div class="linha">
 
-            🟨 Rever jogadores
-            em risco antes
-            da convocatória.
+            🧠 Preparar jogo
+            frente ao RD Algueirão
 
         </div>
 
         <div class="linha">
 
-            ✅ Analisar o
-            comportamento do
-            RD Algueirão
-            em casa.
+            ✅ Objetivo:
+            manter pressão
+            no Top 2
 
         </div>
 
@@ -1451,10 +1405,8 @@ async function carregar(){
 
         (
             dashboard
-                .ultima_atualizacao
-
+            .ultima_atualizacao
             ||
-
             "-"
         );
 
