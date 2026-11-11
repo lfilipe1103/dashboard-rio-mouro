@@ -1,0 +1,36 @@
+{
+    "jornada": 9,
+    "total_jogos": 6,
+    "jogos": [
+        {
+            "casa": "Vila Verde",
+            "fora": "SRD Negrais",
+            "hora": "15:00"
+        },
+        {
+            "casa": "CD Belas",
+            "fora": "1º Dezembro C",
+            "hora": "15:00"
+        },
+        {
+            "casa": "União dos Santos",
+            "fora": "Agualva",
+            "hora": "15:00"
+        },
+        {
+            "casa": "RD Algueirão",
+            "fora": "Rio de Mouro",
+            "hora": "15:00"
+        },
+        {
+            "casa": "Arsenal 72",
+            "fora": "Mem Martins SC",
+            "hora": "15:00"
+        },
+        {
+            "casa": "Sintrense B",
+            "fora": "FC Despertar",
+            "hora": "15:00"
+        }
+    ]
+}
