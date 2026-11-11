@@ -81,9 +81,14 @@ body{
 }
 
 .grid-kpis{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:15px;
+
 }
 
 .estat-item{
@@ -267,6 +272,16 @@ input{
 
     </div>
 
+    <div class="card">
+
+        <div class="titulo">
+            🟨 Top 5 Amarelos
+        </div>
+
+        <div id="topAmarelos"></div>
+
+    </div>
+
 </div>
 
 <div class="card">
@@ -383,9 +398,11 @@ async function carregarDados(){
 
         criarKPIs();
 
-        renderJogadores(
-            jogadores
-        );
+criarTopAmarelos();
+
+renderJogadores(
+    jogadores
+);
 
     }
     catch(err){
@@ -535,6 +552,59 @@ function renderJogadores(lista){
                 </span>
 
             </div>
+
+        </div>
+
+    `).join("");
+
+}
+
+function criarTopAmarelos(){
+
+    const topAmarelos =
+
+        [...jogadores]
+
+        .sort(
+            (a,b)=>
+            Number(b.amarelos)
+            -
+            Number(a.amarelos)
+        )
+
+        .slice(0,5);
+
+    document
+    .getElementById(
+        "topAmarelos"
+    )
+    .innerHTML =
+
+    topAmarelos.map((j,i)=>`
+
+        <div class="estat-item">
+
+            <span>
+
+                <span class="rank">
+
+                    ${i+1}.
+
+                </span>
+
+                ${j.nome}
+
+            </span>
+
+            <span
+                style="
+                    color:#facc15;
+                    font-weight:800;
+                ">
+
+                ${j.amarelos}
+
+            </span>
 
         </div>
 
