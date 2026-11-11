@@ -689,41 +689,172 @@ async function carregar(){
        ONZE PROVÁVEL
     ========================== */
 
-    let onzeHTML = "";
+    const onze =
+    data.onze_provavel;
 
-    data.onze_provavel.forEach(j=>{
+let onzeHTML = `
 
-        onzeHTML += `
+<div class="box">
 
-        <div class="jogador">
+    📋 Sistema Provável
 
-            <div class="nome">
+    <br><br>
 
-                ${j.nome}
+    <strong>
 
-            </div>
+        ${onze.esquema}
 
-            <div class="info">
+    </strong>
 
-                ${j.posicao}
+</div>
 
-                •
+`;
 
-                ${j.minutos} min
+if(onze.gr){
 
-            </div>
+    onzeHTML += `
+
+    <div class="box">
+
+        <strong>
+            🥅 GUARDA-REDES
+        </strong>
+
+    </div>
+
+    <div class="jogador">
+
+        <div class="nome">
+
+            ${onze.gr.nome}
 
         </div>
 
-        `;
+        <div class="info">
 
-    });
+            ${onze.gr.minutos} min
 
-    document.getElementById(
-        "onzeProvavel"
-    ).innerHTML =
-    onzeHTML;
+        </div>
 
+    </div>
+
+    `;
+
+}
+
+onzeHTML += `
+
+<div class="box">
+
+    <strong>
+        🛡️ DEFESAS
+    </strong>
+
+</div>
+
+`;
+
+onze.defesas.forEach(j=>{
+
+    onzeHTML += `
+
+    <div class="jogador">
+
+        <div class="nome">
+
+            ${j.nome}
+
+        </div>
+
+        <div class="info">
+
+            ${j.minutos} min
+
+        </div>
+
+    </div>
+
+    `;
+
+});
+
+onzeHTML += `
+
+<div class="box">
+
+    <strong>
+        🎯 MÉDIOS
+    </strong>
+
+</div>
+
+`;
+
+onze.medios.forEach(j=>{
+
+    onzeHTML += `
+
+    <div class="jogador">
+
+        <div class="nome">
+
+            ${j.nome}
+
+        </div>
+
+        <div class="info">
+
+            ${j.minutos} min
+
+        </div>
+
+    </div>
+
+    `;
+
+});
+
+onzeHTML += `
+
+<div class="box">
+
+    <strong>
+        ⚽ AVANÇADOS
+    </strong>
+
+</div>
+
+`;
+
+onze.avancados.forEach(j=>{
+
+    onzeHTML += `
+
+    <div class="jogador">
+
+        <div class="nome">
+
+            ${j.nome}
+
+        </div>
+
+        <div class="info">
+
+            ${j.minutos} min
+
+        </div>
+
+    </div>
+
+    `;
+
+});
+
+document.getElementById(
+    "onzeProvavel"
+).innerHTML =
+onzeHTML;
+    
     /* ==========================
        JOGADORES A CONDICIONAR
     ========================== */
