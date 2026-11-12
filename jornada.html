@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rio de Mouro | Próxima Jornada</title>
+
+<style>
+
+:root{
+    --bg:#0f172a;
+    --card:#1e293b;
+    --card-hover:#334155;
+    --green:#22c55e;
+    --green-dark:#14532d;
+    --blue:#3b82f6;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --border:rgba(255,255,255,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Segoe UI',sans-serif;
+    min-height:100vh;
+}
+
+.container{
+    max-width:1600px;
+    margin:auto;
+    padding:20px;
+}
+
+.header{
+
+    background:
+    linear-gradient(
+        135deg,
+        #14532d,
+        #166534,
+        #22c55e
+    );
+
+    border-radius:20px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.header h1{
+    font-size:2.2rem;
+}
+
+.header p{
+    margin-top:8px;
+    color:#d1fae5;
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+.stat{
+
+    background:rgba(255,255,255,.1);
+
+    border-radius:15px;
+
+    padding:15px;
+
+}
+
+.stat-value{
+    font-size:28px;
+    font-weight:700;
+}
+
+.stat-label{
+    color:#e2e8f0;
+    margin-top:5px;
+}
+
+.layout{
+
+    display:grid;
+
+    grid-template-columns:
+    350px 1fr;
+
+    gap:20px;
+
+}
+
+.card{
+
+    background:var(--card);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+}
+
+.card-title{
+
+    color:var(--green);
+
+    font-size:1.2rem;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+/* CLASSIFICAÇÃO */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+th{
+
+    text-align:left;
+
+    padding:12px;
+
+    color:#cbd5e1;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+td{
+
+    padding:12px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+tr:hover{
+
+    background:rgba(255,255,255,.03);
+
+}
+
+.rdm-row{
+
+    background:var(--green-dark);
+
+    font-weight:700;
+
+}
+
+/* PRÓXIMO JOGO */
+
+.proximo-jogo{
+
+    background:
+    linear-gradient(
+    135deg,
+    #14532d,
+    #166534
+    );
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+}
+
+.proximo-label{
+
+    font-size:13px;
+
+    color:#d1fae5;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+}
+
+.proximo-equipas{
+
+    text-align:center;
+
+    margin-top:20px;
+
+}
+
+.proximo-equipa{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+}
+
+.proximo-vs{
+
+    font-size:1.6rem;
+
+    color:#bbf7d0;
+
+    margin:15px 0;
+
+}
+
+/* JOGOS */
+
+.jogos-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(300px,1fr));
+
+    gap:15px;
+
+}
+
+.jogo{
+
+    background:#162335;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    border:1px solid var(--border);
+
+    transition:.2s;
+
+}
+
+.jogo:hover{
+
+    transform:translateY(-3px);
+
+    background:var(--card-hover);
+
+}
+
+.jogo-rdm{
+
+    border-left:5px solid var(--green);
+
+    background:#183923;
+
+}
+
+.badge-rdm{
+
+    display:inline-block;
+
+    background:var(--green);
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    margin-bottom:10px;
+
+}
+
+.equipa{
+
+    font-weight:700;
+
+    font-size:1rem;
+
+}
+
+.vs{
+
+    text-align:center;
+
+    margin:10px 0;
+
+    color:var(--muted);
+
+    font-weight:bold;
+
+}
+
+.hora{
+
+    text-align:right;
+
+    margin-top:10px;
+
+    color:#60a5fa;
+
+    font-weight:bold;
+
+}
+
+@media(max-width:1200px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>⚽ RIO DE MOURO SCOUTING</h1>
+
+        <p>Próxima Jornada e Classificação</p>
+
+        <div class="stats">
+
+            <div class="stat">
+                <div id="jornadaNumero" class="stat-value">-</div>
+                <div class="stat-label">Jornada</div>
+            </div>
+
+            <div class="stat">
+                <div id="jogosTotal" class="stat-value">-</div>
+                <div class="stat-label">Jogos</div>
+            </div>
+
+            <div class="stat">
+                <div id="proximoHora" class="stat-value">-</div>
+                <div class="stat-label">Hora RDM</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="layout">
+
+        <div class="card">
+
+            <div class="card-title">
+                🏆 Classificação
+            </div>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Equipa</th>
+                        <th>Pts</th>
+                    </tr>
+                </thead>
+
+                <tbody id="classificacao">
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div>
+
+            <div id="proximoJogo"></div>
+
+            <div class="card">
+
+                <div class="card-title">
+                    📅 Próxima Jornada
+                </div>
+
+                <div
+                    id="listaJogos"
+                    class="jogos-grid">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+async function carregarJornada(){
+
+    const response =
+    await fetch('jornada.json');
+
+    const data =
+    await response.json();
+
+    document.getElementById('jornadaNumero')
+    .textContent = data.jornada;
+
+    document.getElementById('jogosTotal')
+    .textContent = data.total_jogos;
+
+    const jogoRDM =
+    data.jogos.find(j=>
+
+        j.casa === "Rio de Mouro" ||
+        j.fora === "Rio de Mouro"
+
+    );
+
+    if(jogoRDM){
+
+        document.getElementById('proximoHora')
+        .textContent = jogoRDM.hora;
+
+        document.getElementById(
+        'proximoJogo').innerHTML =
+
+        `
+        <div class="proximo-jogo">
+
+            <div class="proximo-label">
+                Próximo Jogo
+            </div>
+
+            <div class="proximo-equipas">
+
+                <div class="proximo-equipa">
+                    ${jogoRDM.casa}
+                </div>
+
+                <div class="proximo-vs">
+                    VS
+                </div>
+
+                <div class="proximo-equipa">
+                    ${jogoRDM.fora}
+                </div>
+
+                <div style="margin-top:15px">
+                    🕒 ${jogoRDM.hora}
+                </div>
+
+            </div>
+
+        </div>
+        `;
+    }
+
+    document.getElementById(
+    'listaJogos').innerHTML =
+
+    data.jogos.map(jogo=>{
+
+        const destaque =
+
+            jogo.casa==="Rio de Mouro" ||
+            jogo.fora==="Rio de Mouro";
+
+        return `
+
+        <div class="jogo ${destaque ? 'jogo-rdm':''}">
+
+            ${destaque ?
+            '<div class="badge-rdm">RIO DE MOURO</div>'
+            : ''}
+
+            <div class="equipa">
+                ${jogo.casa}
+            </div>
+
+            <div class="vs">
+                VS
+            </div>
+
+            <div class="equipa">
+                ${jogo.fora}
+            </div>
+
+            <div class="hora">
+                🕒 ${jogo.hora}
+            </div>
+
+        </div>
+
+        `;
+
+    }).join('');
+
+}
+
+async function carregarClassificacao(){
+
+    try{
+
+        const response =
+        await fetch(
+        'classificacao.json'
+        );
+
+        const data =
+        await response.json();
+
+        document.getElementById(
+        'classificacao').innerHTML =
+
+        data.map(e=>`
+
+        <tr class="${
+            e.equipa === 'Rio de Mouro'
+            ? 'rdm-row'
+            : ''
+        }">
+
+            <td>${e.pos}</td>
+
+            <td>${e.equipa}</td>
+
+            <td>${e.pts}</td>
+
+        </tr>
+
+        `).join('');
+
+    }
+    catch(e){
+
+        console.log(
+        'classificacao.json não encontrado'
+        );
+
+    }
+
+}
+
+carregarJornada();
+carregarClassificacao();
+
+</script>
+
+</body>
+</html>
