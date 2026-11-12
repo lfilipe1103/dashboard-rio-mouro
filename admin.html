@@ -541,40 +541,45 @@ async function carregar(){
     ).innerHTML =
     `⚠️ PERIGO ${data.indice_perigo.geral}/10`;
 
-    /* ==========================
-       JOGADORES CHAVE
-    ========================== */
+ /* ==========================
+   JOGADORES CHAVE
+========================== */
 
-    document.getElementById(
-        "melhorMarcadorNome"
-    ).innerText =
-    data.melhor_marcador.nome;
+document.getElementById(
+    "melhorMarcadorNome"
+).innerText =
+data.melhor_marcador?.nome || "-";
 
-    document.getElementById(
-        "melhorMarcadorValor"
-    ).innerText =
-    `⚽ ${data.melhor_marcador.golos}`;
+document.getElementById(
+    "melhorMarcadorValor"
+).innerText =
+`⚽ ${data.melhor_marcador?.golos || 0}`;
 
-    document.getElementById(
-        "maisUtilizadoNome"
-    ).innerText =
-    data.mais_utilizado.nome;
+document.getElementById(
+    "maisUtilizadoNome"
+).innerText =
+data.mais_utilizado?.nome || "-";
 
-    document.getElementById(
-        "maisUtilizadoValor"
-    ).innerText =
-    `⏱️ ${data.mais_utilizado.minutos}`;
+document.getElementById(
+    "maisUtilizadoValor"
+).innerText =
+`⏱️ ${data.mais_utilizado?.minutos || 0}`;
 
-    document.getElementById(
-        "influenteNome"
-    ).innerText =
-    data.jogador_mais_influente.nome;
+const influente =
+    data.top_golos?.[1] ||
+    data.top_golos?.[0] ||
+    data.mais_utilizado;
 
-    document.getElementById(
-        "influenteValor"
-    ).innerText =
-    "⭐";
+document.getElementById(
+    "influenteNome"
+).innerText =
+influente?.nome || "-";
 
+document.getElementById(
+    "influenteValor"
+).innerText =
+`⚽ ${influente?.golos || 0}`;
+    
     /* ==========================
        CAMPO VISUAL
     ========================== */
