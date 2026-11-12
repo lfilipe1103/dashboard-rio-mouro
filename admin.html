@@ -1,145 +1,918 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin - Gerador de Análise</title>
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>
+    Scouting Adversário
+</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f6f9;
+
+:root{
+    --bg:#06111f;
+    --card:#13213a;
+    --card2:#1c2d4a;
+
+    --green:#22c55e;
+    --yellow:#facc15;
+    --red:#ef4444;
+    --blue:#3b82f6;
+}
+
+*{
     margin:0;
-    padding:30px;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:
+    radial-gradient(
+        circle at top,
+        #10203d,
+        #06111f
+    );
+
+    color:white;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    padding:15px;
 }
 
 .container{
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
 }
 
 .card{
-    background:white;
-    border-radius:12px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #13213a,
+        #1c2d4a
+    );
+
+    border-radius:24px;
+
     padding:20px;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
+
+    margin-bottom:15px;
+
+    box-shadow:
+    0 10px 35px
+    rgba(
+        0,
+        0,
+        0,
+        .35
+    );
+
 }
 
-h1{
-    margin-top:0;
-    color:#222;
+.titulo{
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:900;
+
+    margin-bottom:20px;
 }
 
-textarea{
-    width:100%;
-    min-height:300px;
-    padding:15px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    resize:vertical;
-    font-size:14px;
-    box-sizing:border-box;
+.hero{
+    text-align:center;
 }
 
-button{
+.logo{
+
+    width:120px;
+
+    margin-bottom:15px;
+}
+
+.hero-adversario{
+
+    font-size:60px;
+
+    font-weight:900;
+
+    color:var(--yellow);
+
+    margin-bottom:10px;
+}
+
+.hero-risco{
+
+    font-size:38px;
+
+    font-weight:900;
+
+    color:#ff6b6b;
+}
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.kpi{
+
+    background:var(--card2);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+}
+
+.kpi-nome{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+}
+
+.kpi-num{
+
+    font-size:48px;
+
+    font-weight:900;
+}
+
+.kpi-label{
+
     margin-top:15px;
-    padding:12px 25px;
-    border:none;
-    border-radius:8px;
-    background:#0078d4;
-    color:white;
+
+    color:#d3dced;
+
     font-size:15px;
+}
+
+.verde{
+    color:var(--green);
+}
+
+.amarelo{
+    color:var(--yellow);
+}
+
+.azul{
+    color:var(--blue);
+}
+
+.box{
+
+    background:var(--card2);
+
+    border-radius:16px;
+
+    padding:18px;
+}
+
+.player{
+
+    background:
+        rgba(0,0,0,.25);
+
+    border-radius:12px;
+
+    padding:10px;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    text-align:center;
+
+    min-width:120px;
+}
+
+.player-chave{
+
+    background:#facc15;
+
+    color:black;
+}
+
+.campo{
+
+    background:
+    linear-gradient(
+        180deg,
+        #0e6a20,
+        #0b4f18
+    );
+
+    border:3px solid white;
+
+    border-radius:24px;
+
+    padding:25px;
+}
+
+.linha{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin:25px 0;
+
+    flex-wrap:wrap;
+}
+
+.condicionar-grid,
+.banco-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.condicionar-card{
+
+    background:var(--card2);
+
+    border-radius:18px;
+
+    border-left:
+        6px solid
+        var(--red);
+
+    padding:18px;
+}
+
+.condicionar-nome{
+
+    font-size:26px;
+
+    font-weight:900;
+
+    margin-bottom:10px;
+}
+
+.raiox-item{
+
+    padding:16px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    background:var(--card2);
+
+    font-weight:700;
+}
+
+.raiox-forte{
+    border-left:6px solid #22c55e;
+}
+
+.raiox-fraco{
+    border-left:6px solid #ef4444;
+}
+
+.raiox-alerta{
+    border-left:6px solid #facc15;
+}
+
+.btn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #35589b,
+        #4a78d1
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:900;
+
     cursor:pointer;
 }
 
-button:hover{
-    background:#005fa3;
+@media(max-width:900px){
+
+    .grid,
+    .condicionar-grid,
+    .banco-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .hero-adversario{
+        font-size:42px;
+    }
+
 }
 
-.output{
-    margin-top:20px;
-    background:#fafafa;
-    border:1px solid #ddd;
-    border-radius:8px;
-    padding:15px;
-    min-height:150px;
-    white-space:pre-wrap;
-}
-
-label{
-    font-weight:bold;
-    display:block;
-    margin-bottom:10px;
-}
 </style>
+
 </head>
+
 <body>
 
 <div class="container">
 
-    <div class="card">
+<!-- HERO -->
 
-        <h1>⚙️ Admin - Insights Livres</h1>
+<div class="card hero">
 
-        <label>Escreve ou cola os insights:</label>
+    <img
+        src="logo.png"
+        class="logo">
 
-        <textarea
-            id="insights"
-            placeholder="Exemplo:
+    <div
+        id="adversario"
+        class="hero-adversario">
+        ...
+    </div>
 
-Jonas soma 3 golos.
-Miguel Correia soma 2 golos.
-Setor defensivo é o mais forte.
-Guarda-redes é o setor mais fraco.
-Rúben Sabino apresenta elevada eficácia por minuto jogado.
-"></textarea>
+    <div
+        id="perigo"
+        class="hero-risco">
+        ...
+    </div>
 
-        <button onclick="gerarAnalise()">
-            Gerar Análise
-        </button>
+</div>
 
-        <div id="resultado" class="output">
-A análise aparecerá aqui...
+<!-- JOGADORES CHAVE -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🎯 Jogadores-Chave
+
+    </div>
+
+    <div class="grid">
+
+        <div class="kpi">
+
+            <div
+                id="melhorMarcadorNome"
+                class="kpi-nome">
+            </div>
+
+            <div
+                id="melhorMarcadorValor"
+                class="kpi-num verde">
+            </div>
+
+            <div class="kpi-label">
+
+                Melhor Marcador
+
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div
+                id="maisUtilizadoNome"
+                class="kpi-nome">
+            </div>
+
+            <div
+                id="maisUtilizadoValor"
+                class="kpi-num amarelo">
+            </div>
+
+            <div class="kpi-label">
+
+                Mais Utilizado
+
+            </div>
+
+        </div>
+
+        <div class="kpi">
+
+            <div
+                id="influenteNome"
+                class="kpi-nome">
+            </div>
+
+            <div
+                id="influenteValor"
+                class="kpi-num azul">
+            </div>
+
+            <div class="kpi-label">
+
+                Jogador Mais Influente
+
+            </div>
+
         </div>
 
     </div>
 
 </div>
 
+<!-- ONZE PROVÁVEL -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        📋 Onze Provável
+
+    </div>
+
+    <div
+        id="esquemaTitulo"
+        style="
+            text-align:center;
+            font-size:30px;
+            font-weight:900;
+            color:#facc15;
+            margin-bottom:20px;
+        ">
+    </div>
+
+    <div
+        id="campoFutebol"
+        class="campo">
+    </div>
+
+</div>
+
+<!-- JOGADORES A CONDICIONAR -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🚫 Jogadores a Condicionar
+
+    </div>
+
+    <div
+        id="jogadoresCondicionar"
+        class="condicionar-grid">
+    </div>
+
+</div>
+
+<!-- IMPACTO DO BANCO -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🔥 Impacto do Banco
+
+    </div>
+
+    <div
+        id="impactoBanco"
+        class="banco-grid">
+    </div>
+
+</div>
+
 <script>
 
-function gerarAnalise(){
+async function carregar(){
 
-    const texto = document.getElementById("insights").value.trim();
+    const response =
+        await fetch(
+            "adversario_jogadores.json?t="
+            + Date.now()
+        );
 
-    if(!texto){
-        alert("Introduz alguns insights.");
-        return;
+    const data =
+        await response.json();
+
+    /* ==========================
+       HERO
+    ========================== */
+
+    document.getElementById(
+        "adversario"
+    ).innerText =
+    data.adversario;
+
+    document.getElementById(
+        "perigo"
+    ).innerHTML =
+    `⚠️ PERIGO ${data.indice_perigo.geral}/10`;
+
+    /* ==========================
+       JOGADORES CHAVE
+    ========================== */
+
+    document.getElementById(
+        "melhorMarcadorNome"
+    ).innerText =
+    data.melhor_marcador.nome;
+
+    document.getElementById(
+        "melhorMarcadorValor"
+    ).innerText =
+    `⚽ ${data.melhor_marcador.golos}`;
+
+    document.getElementById(
+        "maisUtilizadoNome"
+    ).innerText =
+    data.mais_utilizado.nome;
+
+    document.getElementById(
+        "maisUtilizadoValor"
+    ).innerText =
+    `⏱️ ${data.mais_utilizado.minutos}`;
+
+    document.getElementById(
+        "influenteNome"
+    ).innerText =
+    data.jogador_mais_influente.nome;
+
+    document.getElementById(
+        "influenteValor"
+    ).innerText =
+    "⭐";
+
+    /* ==========================
+       CAMPO VISUAL
+    ========================== */
+
+    const onze =
+    data.onze_provavel;
+
+    document.getElementById(
+        "esquemaTitulo"
+    ).innerText =
+    onze.esquema;
+
+    let campoHTML = "";
+
+    campoHTML += `
+    <div class="linha">
+    `;
+
+    onze.avancados.forEach(
+        j => {
+
+        campoHTML += `
+        <div class="player player-chave">
+            ${j.nome}
+        </div>
+        `;
+
+    });
+
+    campoHTML += `
+    </div>
+    `;
+
+    campoHTML += `
+    <div class="linha">
+    `;
+
+    onze.medios.forEach(
+        j => {
+
+        campoHTML += `
+        <div class="player">
+            ${j.nome}
+        </div>
+        `;
+
+    });
+
+    campoHTML += `
+    </div>
+    `;
+
+    campoHTML += `
+    <div class="linha">
+    `;
+
+    onze.defesas.forEach(
+        j => {
+
+        campoHTML += `
+        <div class="player">
+            ${j.nome}
+        </div>
+        `;
+
+    });
+
+    campoHTML += `
+    </div>
+    `;
+
+    if(onze.gr){
+
+        campoHTML += `
+        <div class="linha">
+            <div
+                class="
+                player
+                player-chave
+                ">
+                🥅 ${onze.gr.nome}
+            </div>
+        </div>
+        `;
     }
 
-    document.getElementById("resultado").innerText =
-`PROMPT GERADO:
+    document.getElementById(
+        "campoFutebol"
+    ).innerHTML =
+    campoHTML;
 
-És observador técnico de futebol.
+    /* ==========================
+       JOGADORES A CONDICIONAR
+    ========================== */
 
-Recebes uma lista de insights.
+    let condicionarHTML = "";
 
-Escreve:
-- Resumo Geral
-- Pontos Fortes
-- Pontos Fracos
-- Jogadores-Chave
+    data.jogadores_a_condicionar
+    .slice(0,3)
+    .forEach(j => {
 
-Usa apenas a informação fornecida.
-Não inventes estatísticas.
-Não uses frases genéricas.
-Máximo 150 palavras.
+        condicionarHTML += `
 
-INSIGHTS:
-${texto}`;
+        <div
+            class="
+            condicionar-card
+            ">
+
+            <div
+                class="
+                condicionar-nome
+                ">
+
+                ⭐ ${j.nome}
+
+            </div>
+
+            <div>
+
+                ${j.posicao}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById(
+        "jogadoresCondicionar"
+    ).innerHTML =
+    condicionarHTML;
+
+    /* ==========================
+       IMPACTO BANCO
+    ========================== */
+
+    let bancoHTML = "";
+
+    data.impacto_banco
+    .forEach(j => {
+
+        bancoHTML += `
+
+        <div
+            class="
+            condicionar-card
+            ">
+
+            <div
+                class="
+                condicionar-nome
+                ">
+
+                ${j.nome}
+
+            </div>
+
+            <div>
+
+                ⚽ ${j.golos} golos
+
+                <br><br>
+
+                📈 ${j.eficacia}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById(
+        "impactoBanco"
+    ).innerHTML =
+    bancoHTML;
+
+    /* ==========================
+       RAIO-X DA EQUIPA
+    ========================== */
+
+    let raioXHTML = "";
+
+    data.pontos_fortes.forEach(x => {
+
+        raioXHTML += `
+        <div
+            class="
+            raiox-item
+            raiox-forte
+            ">
+            ✅ ${x}
+        </div>
+        `;
+
+    });
+
+    data.pontos_fracos.forEach(x => {
+
+        raioXHTML += `
+        <div
+            class="
+            raiox-item
+            raiox-fraco
+            ">
+            ⚠️ ${x}
+        </div>
+        `;
+
+    });
+
+    if(data.alertas){
+
+        data.alertas.forEach(x => {
+
+            raioXHTML += `
+            <div
+                class="
+                raiox-item
+                raiox-alerta
+                ">
+                🚨 ${x}
+            </div>
+            `;
+
+        });
+
+    }
+
+    document.getElementById(
+        "raioXEquipa"
+    ).innerHTML =
+    raioXHTML;
+
+    /* ==========================
+       RESUMO IA
+    ========================== */
+
+    try{
+
+        const resumoResponse =
+            await fetch(
+                "texto.json?t=" +
+                Date.now()
+            );
+
+        const resumoData =
+            await resumoResponse.json();
+
+        document.getElementById(
+            "resumoIA"
+        ).innerHTML =
+        (
+            resumoData.texto || ""
+        ).replace(
+            /\n/g,
+            "<br>"
+        );
+
+    }
+
+    catch{
+
+        document.getElementById(
+            "resumoIA"
+        ).innerHTML =
+        "Resumo não disponível.";
+
+    }
+
 }
+
+carregar();
 
 </script>
 
+<!-- RAIO-X DA EQUIPA -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🔬 Raio-X da Equipa
+
+    </div>
+
+    <div
+        id="raioXEquipa">
+    </div>
+
+</div>
+
+<!-- RESUMO IA -->
+
+<div class="card">
+
+    <div class="titulo">
+
+        🧠 Resumo IA
+
+    </div>
+
+    <div
+        id="resumoIA"
+        class="box"
+        style="
+            font-size:18px;
+            line-height:1.8;
+            white-space:pre-wrap;
+        ">
+
+        A carregar...
+
+    </div>
+
+</div>
+
+<!-- VOLTAR -->
+
+<div class="card">
+
+    <button
+        class="btn"
+        onclick="
+            location.href='index.html'
+        ">
+
+        ⬅️ Voltar ao Menu
+
+    </button>
+
+</div>
+
+</div>
+
 </body>
+
 </html>
