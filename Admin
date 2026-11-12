@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Gerador de Análise</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:30px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+h1{
+    margin-top:0;
+    color:#222;
+}
+
+textarea{
+    width:100%;
+    min-height:300px;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    resize:vertical;
+    font-size:14px;
+    box-sizing:border-box;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    background:#0078d4;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#005fa3;
+}
+
+.output{
+    margin-top:20px;
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:15px;
+    min-height:150px;
+    white-space:pre-wrap;
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>⚙️ Admin - Insights Livres</h1>
+
+        <label>Escreve ou cola os insights:</label>
+
+        <textarea
+            id="insights"
+            placeholder="Exemplo:
+
+Jonas soma 3 golos.
+Miguel Correia soma 2 golos.
+Setor defensivo é o mais forte.
+Guarda-redes é o setor mais fraco.
+Rúben Sabino apresenta elevada eficácia por minuto jogado.
+"></textarea>
+
+        <button onclick="gerarAnalise()">
+            Gerar Análise
+        </button>
+
+        <div id="resultado" class="output">
+A análise aparecerá aqui...
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function gerarAnalise(){
+
+    const texto = document.getElementById("insights").value.trim();
+
+    if(!texto){
+        alert("Introduz alguns insights.");
+        return;
+    }
+
+    document.getElementById("resultado").innerText =
+`PROMPT GERADO:
+
+És observador técnico de futebol.
+
+Recebes uma lista de insights.
+
+Escreve:
+- Resumo Geral
+- Pontos Fortes
+- Pontos Fracos
+- Jogadores-Chave
+
+Usa apenas a informação fornecida.
+Não inventes estatísticas.
+Não uses frases genéricas.
+Máximo 150 palavras.
+
+INSIGHTS:
+${texto}`;
+}
+
+</script>
+
+</body>
+</html>
