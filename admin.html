@@ -761,63 +761,6 @@ document.getElementById(
     bancoHTML;
 
     /* ==========================
-       RAIO-X DA EQUIPA
-    ========================== */
-
-    let raioXHTML = "";
-
-    data.pontos_fortes.forEach(x => {
-
-        raioXHTML += `
-        <div
-            class="
-            raiox-item
-            raiox-forte
-            ">
-            ✅ ${x}
-        </div>
-        `;
-
-    });
-
-    data.pontos_fracos.forEach(x => {
-
-        raioXHTML += `
-        <div
-            class="
-            raiox-item
-            raiox-fraco
-            ">
-            ⚠️ ${x}
-        </div>
-        `;
-
-    });
-
-    if(data.alertas){
-
-        data.alertas.forEach(x => {
-
-            raioXHTML += `
-            <div
-                class="
-                raiox-item
-                raiox-alerta
-                ">
-                🚨 ${x}
-            </div>
-            `;
-
-        });
-
-    }
-
-    document.getElementById(
-        "raioXEquipa"
-    ).innerHTML =
-    raioXHTML;
-
-    /* ==========================
        RESUMO IA
     ========================== */
 
@@ -858,22 +801,6 @@ document.getElementById(
 carregar();
 
 </script>
-
-<!-- RAIO-X DA EQUIPA -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        🔬 Raio-X da Equipa
-
-    </div>
-
-    <div
-        id="raioXEquipa">
-    </div>
-
-</div>
 
 <!-- RESUMO IA -->
 
