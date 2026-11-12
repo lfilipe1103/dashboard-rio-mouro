@@ -4,17 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rio de Mouro | Próxima Jornada</title>
+<title>Rio de Mouro | Competição</title>
 
 <style>
 
 :root{
     --bg:#0f172a;
     --card:#1e293b;
-    --card-hover:#334155;
+    --card2:#334155;
+    --blue:#2563eb;
+    --blue2:#1d4ed8;
     --green:#22c55e;
-    --green-dark:#14532d;
-    --blue:#3b82f6;
+    --yellow:#f59e0b;
+    --red:#ef4444;
     --text:#f8fafc;
     --muted:#94a3b8;
     --border:rgba(255,255,255,.08);
@@ -30,33 +32,24 @@ body{
     background:var(--bg);
     color:var(--text);
     font-family:'Segoe UI',sans-serif;
-    min-height:100vh;
 }
 
 .container{
-    max-width:1600px;
+    max-width:1700px;
     margin:auto;
     padding:20px;
 }
 
 .header{
-
-    background:
-    linear-gradient(
+    background:linear-gradient(
         135deg,
-        #14532d,
-        #166534,
-        #22c55e
+        #1d4ed8,
+        #2563eb
     );
 
     border-radius:20px;
-
     padding:30px;
-
-    margin-bottom:25px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
-
+    margin-bottom:20px;
 }
 
 .header h1{
@@ -65,279 +58,125 @@ body{
 
 .header p{
     margin-top:8px;
-    color:#d1fae5;
+    color:#dbeafe;
 }
 
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
-    gap:15px;
-
+.stats-grid{
     margin-top:20px;
 
-}
-
-.stat{
-
-    background:rgba(255,255,255,.1);
-
-    border-radius:15px;
-
-    padding:15px;
-
-}
-
-.stat-value{
-    font-size:28px;
-    font-weight:700;
-}
-
-.stat-label{
-    color:#e2e8f0;
-    margin-top:5px;
-}
-
-.layout{
-
     display:grid;
 
     grid-template-columns:
-    350px 1fr;
+    repeat(auto-fit,minmax(180px,1fr));
 
+    gap:15px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,.1);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:15px;
+}
+
+.stat-card span{
+    color:#dbeafe;
+    display:block;
+}
+
+.stat-card h2{
+    margin-top:8px;
+    font-size:2rem;
+}
+
+.main-grid{
+    display:grid;
+    grid-template-columns:380px 1fr;
     gap:20px;
-
 }
 
 .card{
-
     background:var(--card);
 
     border-radius:20px;
 
     padding:20px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    margin-bottom:20px;
 
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
 .card-title{
-
-    color:var(--green);
-
+    color:#60a5fa;
     font-size:1.2rem;
-
-    font-weight:700;
-
     margin-bottom:15px;
-
+    font-weight:700;
 }
 
 /* CLASSIFICAÇÃO */
 
 table{
-
     width:100%;
-
     border-collapse:collapse;
-
 }
 
 th{
-
-    text-align:left;
-
     padding:12px;
-
-    color:#cbd5e1;
-
+    text-align:left;
     border-bottom:1px solid var(--border);
-
 }
 
 td{
-
     padding:12px;
-
     border-bottom:1px solid var(--border);
-
-}
-
-tr:hover{
-
-    background:rgba(255,255,255,.03);
-
 }
 
 .rdm-row{
-
-    background:var(--green-dark);
-
+    background:#1d4ed8;
     font-weight:700;
-
 }
 
-/* PRÓXIMO JOGO */
+/* PROXIMO JOGO */
 
 .proximo-jogo{
 
     background:
     linear-gradient(
     135deg,
-    #14532d,
-    #166534
+    #1e3a8a,
+    #2563eb
     );
 
     border-radius:20px;
 
-    padding:25px;
+    padding:35px;
 
-    margin-bottom:20px;
+    text-align:center;
 
 }
 
 .proximo-label{
-
-    font-size:13px;
-
-    color:#d1fae5;
-
+    color:#bfdbfe;
     text-transform:uppercase;
-
     letter-spacing:2px;
-
 }
 
-.proximo-equipas{
-
-    text-align:center;
-
-    margin-top:20px;
-
-}
-
-.proximo-equipa{
-
+.equipa-home,
+.equipa-away{
     font-size:2rem;
-
     font-weight:700;
-
-}
-
-.proximo-vs{
-
-    font-size:1.6rem;
-
-    color:#bbf7d0;
-
-    margin:15px 0;
-
-}
-
-/* JOGOS */
-
-.jogos-grid{
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fill,minmax(300px,1fr));
-
-    gap:15px;
-
-}
-
-.jogo{
-
-    background:#162335;
-
-    border-radius:15px;
-
-    padding:18px;
-
-    border:1px solid var(--border);
-
-    transition:.2s;
-
-}
-
-.jogo:hover{
-
-    transform:translateY(-3px);
-
-    background:var(--card-hover);
-
-}
-
-.jogo-rdm{
-
-    border-left:5px solid var(--green);
-
-    background:#183923;
-
-}
-
-.badge-rdm{
-
-    display:inline-block;
-
-    background:var(--green);
-
-    color:white;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    margin-bottom:10px;
-
-}
-
-.equipa{
-
-    font-weight:700;
-
-    font-size:1rem;
-
 }
 
 .vs{
-
-    text-align:center;
-
-    margin:10px 0;
-
-    color:var(--muted);
-
-    font-weight:bold;
-
+    font-size:1.5rem;
+    margin:20px 0;
+    color:#bfdbfe;
 }
 
-.hora{
-
-    text-align:right;
-
-    margin-top:10px;
-
-    color:#60a5fa;
-
-    font-weight:bold;
-
-}
-
-@media(max-width:1200px){
-
-    .layout{
-        grid-template-columns:1fr;
-    }
-
+.info-jogo{
+    margin-top:20px;
+    color:#dbeafe;
 }
 
 </style>
@@ -349,59 +188,79 @@ tr:hover{
 
     <div class="header">
 
-        <h1>⚽ RIO DE MOURO SCOUTING</h1>
+        <h1>⚽ Rio de Mouro Competition Hub</h1>
 
-        <p>Próxima Jornada e Classificação</p>
+        <p>
+            Classificação • Próxima Jornada • Análise do Adversário
+        </p>
 
-        <div class="stats">
+        <div class="stats-grid">
 
-            <div class="stat">
-                <div id="jornadaNumero" class="stat-value">-</div>
-                <div class="stat-label">Jornada</div>
+            <div class="stat-card">
+                <span>Posição</span>
+                <h2 id="posicaoLiga">-</h2>
             </div>
 
-            <div class="stat">
-                <div id="jogosTotal" class="stat-value">-</div>
-                <div class="stat-label">Jogos</div>
+            <div class="stat-card">
+                <span>Pontos</span>
+                <h2 id="pontosLiga">-</h2>
             </div>
 
-            <div class="stat">
-                <div id="proximoHora" class="stat-value">-</div>
-                <div class="stat-label">Hora RDM</div>
+            <div class="stat-card">
+                <span>Dif. Golos</span>
+                <h2 id="difGolos">-</h2>
+            </div>
+
+            <div class="stat-card">
+                <span>Próximo Adversário</span>
+                <h2 id="adversarioLiga">-</h2>
             </div>
 
         </div>
 
     </div>
 
-    <div class="layout">
+    <div class="main-grid">
 
-        <div class="card">
+        <div>
 
-            <div class="card-title">
-                🏆 Classificação
+            <div class="card">
+
+                <div class="card-title">
+                    🏆 Classificação
+                </div>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Equipa</th>
+                            <th>Pts</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="classificacao"></tbody>
+
+                </table>
+
             </div>
 
-            <table>
+            <div class="card">
 
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Equipa</th>
-                        <th>Pts</th>
-                    </tr>
-                </thead>
+                <div class="card-title">
+                    🎯 Jogadores a Vigiar
+                </div>
 
-                <tbody id="classificacao">
-                </tbody>
+                <div id="jogadores-chave"></div>
 
-            </table>
+            </div>
 
         </div>
 
         <div>
 
-            <div id="proximoJogo"></div>
+            <div id="proximo-jogo"></div>
 
             <div class="card">
 
@@ -410,9 +269,34 @@ tr:hover{
                 </div>
 
                 <div
-                    id="listaJogos"
-                    class="jogos-grid">
+                    id="jornada-grid"
+                    style="
+                    display:grid;
+                    grid-template-columns:
+                    repeat(auto-fill,minmax(280px,1fr));
+                    gap:15px;
+                    ">
                 </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-title">
+                    ⚔️ Comparação
+                </div>
+
+                <div id="comparacao"></div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="card-title">
+                    🟨 Alerta Disciplinar
+                </div>
+
+                <div id="disciplinar"></div>
 
             </div>
 
@@ -422,101 +306,148 @@ tr:hover{
 
 </div>
 
-<script>
+    <script>
 
-async function carregarJornada(){
+async function iniciar(){
 
-    const response =
-    await fetch('jornada.json');
+    const jornada =
+        await fetch("jornada.json")
+        .then(r=>r.json());
 
-    const data =
-    await response.json();
+    const dashboard =
+        await fetch("dashboard_data.json")
+        .then(r=>r.json());
 
-    document.getElementById('jornadaNumero')
-    .textContent = data.jornada;
+    const jogadores =
+        await fetch("jogadores.json")
+        .then(r=>r.json());
 
-    document.getElementById('jogosTotal')
-    .textContent = data.total_jogos;
+    const adversario =
+        await fetch("adversario_jogadores.json")
+        .then(r=>r.json());
 
-    const jogoRDM =
-    data.jogos.find(j=>
+    const classificacao =
+        dashboard.classificacao;
 
-        j.casa === "Rio de Mouro" ||
-        j.fora === "Rio de Mouro"
-
-    );
-
-    if(jogoRDM){
-
-        document.getElementById('proximoHora')
-        .textContent = jogoRDM.hora;
-
-        document.getElementById(
-        'proximoJogo').innerHTML =
-
-        `
-        <div class="proximo-jogo">
-
-            <div class="proximo-label">
-                Próximo Jogo
-            </div>
-
-            <div class="proximo-equipas">
-
-                <div class="proximo-equipa">
-                    ${jogoRDM.casa}
-                </div>
-
-                <div class="proximo-vs">
-                    VS
-                </div>
-
-                <div class="proximo-equipa">
-                    ${jogoRDM.fora}
-                </div>
-
-                <div style="margin-top:15px">
-                    🕒 ${jogoRDM.hora}
-                </div>
-
-            </div>
-
-        </div>
-        `;
-    }
+    const rdm =
+        classificacao.find(
+        x=>x.rio_mouro
+        );
 
     document.getElementById(
-    'listaJogos').innerHTML =
+    "posicaoLiga").textContent =
+    rdm.pos+"º";
 
-    data.jogos.map(jogo=>{
+    document.getElementById(
+    "pontosLiga").textContent =
+    rdm.pts;
 
-        const destaque =
+    document.getElementById(
+    "difGolos").textContent =
+    rdm.dg > 0
+    ? "+"+rdm.dg
+    : rdm.dg;
+
+    document.getElementById(
+    "adversarioLiga").textContent =
+    "RD Algueirão";
+
+    document.getElementById(
+    "classificacao").innerHTML =
+
+    classificacao.map(t=>`
+
+        <tr class="
+        ${t.rio_mouro ?
+        'rdm-row' : ''}
+        ">
+
+            <td>${t.pos}</td>
+            <td>${t.equipa}</td>
+            <td>${t.pts}</td>
+
+        </tr>
+
+    `).join('');
+
+    const jogoRDM =
+        jornada.jogos.find(j=>
+
+        j.casa==="Rio de Mouro" ||
+        j.fora==="Rio de Mouro"
+
+        );
+
+    document.getElementById(
+    "proximo-jogo").innerHTML =
+
+    `
+    <div class="proximo-jogo">
+
+        <div class="proximo-label">
+            Próximo Jogo
+        </div>
+
+        <div
+        class="equipa-home"
+        style="margin-top:20px">
+
+        ${jogoRDM.casa}
+
+        </div>
+
+        <div class="vs">VS</div>
+
+        <div class="equipa-away">
+
+        ${jogoRDM.fora}
+
+        </div>
+
+        <div class="info-jogo">
+
+        🕒 ${jogoRDM.hora}
+
+        </div>
+
+    </div>
+    `;
+
+    document.getElementById(
+    "jornada-grid").innerHTML =
+
+    jornada.jogos.map(jogo=>{
+
+        const rdm =
 
             jogo.casa==="Rio de Mouro" ||
             jogo.fora==="Rio de Mouro";
 
         return `
 
-        <div class="jogo ${destaque ? 'jogo-rdm':''}">
+        <div style="
+            background:
+            ${rdm ? '#1d4ed8' : '#162235'};
+            border-radius:15px;
+            padding:15px;
+        ">
 
-            ${destaque ?
-            '<div class="badge-rdm">RIO DE MOURO</div>'
-            : ''}
+            <div>${jogo.casa}</div>
 
-            <div class="equipa">
-                ${jogo.casa}
+            <div style="
+            margin:10px 0;
+            color:#94a3b8;
+            ">
+            VS
             </div>
 
-            <div class="vs">
-                VS
-            </div>
+            <div>${jogo.fora}</div>
 
-            <div class="equipa">
-                ${jogo.fora}
-            </div>
-
-            <div class="hora">
-                🕒 ${jogo.hora}
+            <div style="
+            margin-top:10px;
+            color:#60a5fa;
+            ">
+            ${jogo.hora}
             </div>
 
         </div>
@@ -525,54 +456,36 @@ async function carregarJornada(){
 
     }).join('');
 
-}
+    document.getElementById(
+    "comparacao").innerHTML =
 
-async function carregarClassificacao(){
+    `
+    <table>
 
-    try{
+    <tr>
+        <th>Métrica</th>
+        <th>RDM</th>
+        <th>RDA</th>
+    </tr>
 
-        const response =
-        await fetch(
-        'classificacao.json'
-        );
+    <tr>
+        <td>Posição</td>
+        <td>3</td>
+        <td>8</td>
+    </tr>
 
-        const data =
-        await response.json();
+    <tr>
+        <td>Pontos</td>
+        <td>16</td>
+        <td>9</td>
+    </tr>
 
-        document.getElementById(
-        'classificacao').innerHTML =
-
-        data.map(e=>`
-
-        <tr class="${
-            e.equipa === 'Rio de Mouro'
-            ? 'rdm-row'
-            : ''
-        }">
-
-            <td>${e.pos}</td>
-
-            <td>${e.equipa}</td>
-
-            <td>${e.pts}</td>
-
-        </tr>
-
-        `).join('');
-
-    }
-    catch(e){
-
-        console.log(
-        'classificacao.json não encontrado'
-        );
-
-    }
+    </table>
+    `;
 
 }
 
-carregarJornada();
-carregarClassificacao();
+iniciar();
 
 </script>
 
