@@ -16,7 +16,6 @@
 <style>
 
 :root{
-
     --bg:#06111f;
     --card:#13213a;
     --card2:#1c2d4a;
@@ -25,7 +24,6 @@
     --yellow:#facc15;
     --red:#ef4444;
     --blue:#3b82f6;
-
 }
 
 *{
@@ -51,24 +49,21 @@ body{
         sans-serif;
 
     padding:15px;
-
 }
 
 .container{
-
-    max-width:1000px;
+    max-width:1100px;
     margin:auto;
-
 }
 
 .card{
 
     background:
-        linear-gradient(
-            180deg,
-            #13213a,
-            #1c2d4a
-        );
+    linear-gradient(
+        180deg,
+        #13213a,
+        #1c2d4a
+    );
 
     border-radius:24px;
 
@@ -77,80 +72,56 @@ body{
     margin-bottom:15px;
 
     box-shadow:
-        0 10px 35px
-        rgba(
-            0,
-            0,
-            0,
-            .35
-        );
-
-}
-
-.hero{
-
-    text-align:center;
-
-}
-
-.logo{
-
-    width:110px;
-
-    margin-bottom:15px;
-
-}
-
-.hero-title{
-
-    color:#9fb0c9;
-
-    letter-spacing:2px;
-
-    margin-bottom:10px;
-
-}
-
-.hero-adversario{
-
-    font-size:52px;
-
-    font-weight:900;
-
-    color:var(--yellow);
-
-}
-
-.hero-perfil{
-
-    margin-top:15px;
-
-    font-size:22px;
-
-    font-weight:700;
-
-}
-
-.hero-risco{
-
-    margin-top:10px;
-
-    font-size:30px;
-
-    font-weight:900;
+    0 10px 35px
+    rgba(
+        0,
+        0,
+        0,
+        .35
+    );
 
 }
 
 .titulo{
 
-    font-size:24px;
+    text-align:center;
+
+    font-size:28px;
 
     font-weight:900;
 
-    text-align:center;
-
     margin-bottom:20px;
+}
 
+.hero{
+    text-align:center;
+}
+
+.logo{
+
+    width:120px;
+
+    margin-bottom:15px;
+}
+
+.hero-adversario{
+
+    font-size:60px;
+
+    font-weight:900;
+
+    color:var(--yellow);
+
+    margin-bottom:10px;
+}
+
+.hero-risco{
+
+    font-size:38px;
+
+    font-weight:900;
+
+    color:#ff6b6b;
 }
 
 .grid{
@@ -160,8 +131,7 @@ body{
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:12px;
-
+    gap:15px;
 }
 
 .kpi{
@@ -170,26 +140,36 @@ body{
 
     border-radius:18px;
 
-    padding:18px;
+    padding:20px;
 
     text-align:center;
+}
 
+.kpi-nome{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
 }
 
 .kpi-num{
 
-    font-size:42px;
+    font-size:48px;
 
     font-weight:900;
-
 }
 
 .kpi-label{
 
-    color:#c5d1e3;
+    margin-top:15px;
 
-    margin-top:8px;
+    color:#d3dced;
 
+    font-size:15px;
 }
 
 .verde{
@@ -200,10 +180,6 @@ body{
     color:var(--yellow);
 }
 
-.vermelho{
-    color:var(--red);
-}
-
 .azul{
     color:var(--blue);
 }
@@ -212,64 +188,121 @@ body{
 
     background:var(--card2);
 
-    border-radius:18px;
-
-    padding:18px;
-
-    margin-bottom:12px;
-
-}
-
-.jogador{
-
-    background:var(--card2);
-
     border-radius:16px;
 
-    padding:15px;
-
-    margin-bottom:10px;
-
+    padding:18px;
 }
 
-.nome{
+.player{
 
-    font-size:22px;
+    background:
+        rgba(0,0,0,.25);
+
+    border-radius:12px;
+
+    padding:10px;
+
+    font-size:15px;
 
     font-weight:800;
 
+    text-align:center;
+
+    min-width:120px;
 }
 
-.info{
+.player-chave{
 
-    color:#c7d4e5;
+    background:#facc15;
 
-    margin-top:8px;
-
+    color:black;
 }
 
-.alerta{
+.campo{
 
-    border-left:
-        6px solid
-        var(--yellow);
+    background:
+    linear-gradient(
+        180deg,
+        #0e6a20,
+        #0b4f18
+    );
 
+    border:3px solid white;
+
+    border-radius:24px;
+
+    padding:25px;
 }
 
-.forte{
+.linha{
 
-    border-left:
-        6px solid
-        var(--green);
+    display:flex;
 
+    justify-content:center;
+
+    gap:15px;
+
+    margin:25px 0;
+
+    flex-wrap:wrap;
 }
 
-.fraco{
+.condicionar-grid,
+.banco-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.condicionar-card{
+
+    background:var(--card2);
+
+    border-radius:18px;
 
     border-left:
         6px solid
         var(--red);
 
+    padding:18px;
+}
+
+.condicionar-nome{
+
+    font-size:26px;
+
+    font-weight:900;
+
+    margin-bottom:10px;
+}
+
+.raiox-item{
+
+    padding:16px;
+
+    margin-bottom:10px;
+
+    border-radius:12px;
+
+    background:var(--card2);
+
+    font-weight:700;
+}
+
+.raiox-forte{
+    border-left:6px solid #22c55e;
+}
+
+.raiox-fraco{
+    border-left:6px solid #ef4444;
+}
+
+.raiox-alerta{
+    border-left:6px solid #facc15;
 }
 
 .btn{
@@ -283,28 +316,32 @@ body{
     padding:18px;
 
     background:
-        linear-gradient(
-            135deg,
-            #35589b,
-            #4a78d1
-        );
+    linear-gradient(
+        135deg,
+        #35589b,
+        #4a78d1
+    );
 
     color:white;
 
     font-size:18px;
 
-    font-weight:800;
+    font-weight:900;
 
     cursor:pointer;
-
 }
 
 @media(max-width:900px){
 
-    .grid{
+    .grid,
+    .condicionar-grid,
+    .banco-grid{
 
         grid-template-columns:1fr;
+    }
 
+    .hero-adversario{
+        font-size:42px;
     }
 
 }
@@ -317,40 +354,24 @@ body{
 
 <div class="container">
 
+<!-- HERO -->
+
 <div class="card hero">
 
     <img
         src="logo.png"
         class="logo">
 
-    <div class="hero-title">
-
-        🔎 SCOUTING ADVERSÁRIO
-
-    </div>
-
     <div
         id="adversario"
         class="hero-adversario">
-
         ...
-
-    </div>
-
-    <div
-        id="perfil"
-        class="hero-perfil">
-
-        ...
-
     </div>
 
     <div
         id="perigo"
         class="hero-risco">
-
         ...
-
     </div>
 
 </div>
@@ -370,18 +391,13 @@ body{
         <div class="kpi">
 
             <div
-                id="melhorMarcadorNome">
-
-                -
-
+                id="melhorMarcadorNome"
+                class="kpi-nome">
             </div>
 
             <div
                 id="melhorMarcadorValor"
                 class="kpi-num verde">
-
-                -
-
             </div>
 
             <div class="kpi-label">
@@ -395,18 +411,13 @@ body{
         <div class="kpi">
 
             <div
-                id="maisUtilizadoNome">
-
-                -
-
+                id="maisUtilizadoNome"
+                class="kpi-nome">
             </div>
 
             <div
                 id="maisUtilizadoValor"
                 class="kpi-num amarelo">
-
-                -
-
             </div>
 
             <div class="kpi-label">
@@ -420,23 +431,18 @@ body{
         <div class="kpi">
 
             <div
-                id="maisAmarelosNome">
-
-                -
-
+                id="influenteNome"
+                class="kpi-nome">
             </div>
 
             <div
-                id="maisAmarelosValor"
-                class="kpi-num vermelho">
-
-                -
-
+                id="influenteValor"
+                class="kpi-num azul">
             </div>
 
             <div class="kpi-label">
 
-                Mais Amarelos
+                Jogador Mais Influente
 
             </div>
 
@@ -457,8 +463,19 @@ body{
     </div>
 
     <div
-        id="onzeProvavel">
+        id="esquemaTitulo"
+        style="
+            text-align:center;
+            font-size:30px;
+            font-weight:900;
+            color:#facc15;
+            margin-bottom:20px;
+        ">
+    </div>
 
+    <div
+        id="campoFutebol"
+        class="campo">
     </div>
 
 </div>
@@ -474,25 +491,8 @@ body{
     </div>
 
     <div
-        id="jogadoresCondicionar">
-
-    </div>
-
-</div>
-
-<!-- ARMAS OFENSIVAS -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        ⚽ Armas Ofensivas
-
-    </div>
-
-    <div
-        id="armasOfensivas">
-
+        id="jogadoresCondicionar"
+        class="condicionar-grid">
     </div>
 
 </div>
@@ -503,97 +503,325 @@ body{
 
     <div class="titulo">
 
-        🔥 Impacto Banco
+        🔥 Impacto do Banco
 
     </div>
 
     <div
-        id="impactoBanco">
-
+        id="impactoBanco"
+        class="banco-grid">
     </div>
 
 </div>
 
-<!-- PONTOS FORTES -->
+<script>
+
+async function carregar(){
+
+    const response =
+        await fetch(
+            "adversario_jogadores.json?t="
+            + Date.now()
+        );
+
+    const data =
+        await response.json();
+
+    /* ==========================
+       HERO
+    ========================== */
+
+    document.getElementById(
+        "adversario"
+    ).innerText =
+    data.adversario;
+
+    document.getElementById(
+        "perigo"
+    ).innerHTML =
+    `⚠️ PERIGO ${data.indice_perigo.geral}/10`;
+
+ /* ==========================
+   JOGADORES CHAVE
+========================== */
+
+document.getElementById(
+    "melhorMarcadorNome"
+).innerText =
+data.melhor_marcador?.nome || "-";
+
+document.getElementById(
+    "melhorMarcadorValor"
+).innerText =
+`⚽ ${data.melhor_marcador?.golos || 0}`;
+
+document.getElementById(
+    "maisUtilizadoNome"
+).innerText =
+data.mais_utilizado?.nome || "-";
+
+document.getElementById(
+    "maisUtilizadoValor"
+).innerText =
+`⏱️ ${data.mais_utilizado?.minutos || 0}`;
+
+const influente =
+    data.top_golos?.[1] ||
+    data.top_golos?.[0] ||
+    data.mais_utilizado;
+
+document.getElementById(
+    "influenteNome"
+).innerText =
+influente?.nome || "-";
+
+document.getElementById(
+    "influenteValor"
+).innerText =
+`⚽ ${influente?.golos || 0}`;
+    
+    /* ==========================
+       CAMPO VISUAL
+    ========================== */
+
+    const onze =
+    data.onze_provavel;
+
+    document.getElementById(
+        "esquemaTitulo"
+    ).innerText =
+    onze.esquema;
+
+    let campoHTML = "";
+
+    campoHTML += `
+    <div class="linha">
+    `;
+
+    onze.avancados.forEach(
+        j => {
+
+        campoHTML += `
+        <div class="player player-chave">
+            ${j.nome}
+        </div>
+        `;
+
+    });
+
+    campoHTML += `
+    </div>
+    `;
+
+    campoHTML += `
+    <div class="linha">
+    `;
+
+    onze.medios.forEach(
+        j => {
+
+        campoHTML += `
+        <div class="player">
+            ${j.nome}
+        </div>
+        `;
+
+    });
+
+    campoHTML += `
+    </div>
+    `;
+
+    campoHTML += `
+    <div class="linha">
+    `;
+
+    onze.defesas.forEach(
+        j => {
+
+        campoHTML += `
+        <div class="player">
+            ${j.nome}
+        </div>
+        `;
+
+    });
+
+    campoHTML += `
+    </div>
+    `;
+
+    if(onze.gr){
+
+        campoHTML += `
+        <div class="linha">
+            <div
+                class="
+                player
+                player-chave
+                ">
+                🥅 ${onze.gr.nome}
+            </div>
+        </div>
+        `;
+    }
+
+    document.getElementById(
+        "campoFutebol"
+    ).innerHTML =
+    campoHTML;
+
+    /* ==========================
+       JOGADORES A CONDICIONAR
+    ========================== */
+
+    let condicionarHTML = "";
+
+    data.jogadores_a_condicionar
+    .slice(0,3)
+    .forEach(j => {
+
+        condicionarHTML += `
+
+        <div
+            class="
+            condicionar-card
+            ">
+
+            <div
+                class="
+                condicionar-nome
+                ">
+
+                ⭐ ${j.nome}
+
+            </div>
+
+            <div>
+
+                ${j.posicao}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById(
+        "jogadoresCondicionar"
+    ).innerHTML =
+    condicionarHTML;
+
+    /* ==========================
+       IMPACTO BANCO
+    ========================== */
+
+    let bancoHTML = "";
+
+    data.impacto_banco
+    .forEach(j => {
+
+        bancoHTML += `
+
+        <div
+            class="
+            condicionar-card
+            ">
+
+            <div
+                class="
+                condicionar-nome
+                ">
+
+                ${j.nome}
+
+            </div>
+
+            <div>
+
+                ⚽ ${j.golos} golos
+
+                <br><br>
+
+                📈 ${j.eficacia}
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+    document.getElementById(
+        "impactoBanco"
+    ).innerHTML =
+    bancoHTML;
+
+    /* ==========================
+       RESUMO IA
+    ========================== */
+
+    try{
+
+        const resumoResponse =
+            await fetch(
+                "texto.json?t=" +
+                Date.now()
+            );
+
+        const resumoData =
+            await resumoResponse.json();
+
+        document.getElementById(
+            "resumoIA"
+        ).innerHTML =
+        (
+            resumoData.texto || ""
+        ).replace(
+            /\n/g,
+            "<br>"
+        );
+
+    }
+
+    catch{
+
+        document.getElementById(
+            "resumoIA"
+        ).innerHTML =
+        "Resumo não disponível.";
+
+    }
+
+}
+
+carregar();
+
+</script>
+
+<!-- RESUMO IA -->
 
 <div class="card">
 
     <div class="titulo">
 
-        ✅ Pontos Fortes
+        🧠 Resumo IA
 
     </div>
 
     <div
-        id="pontosFortes">
+        id="resumoIA"
+        class="box"
+        style="
+            font-size:18px;
+            line-height:1.8;
+            white-space:pre-wrap;
+        ">
 
-    </div>
-
-</div>
-
-<!-- PONTOS FRACOS -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        ⚠️ Pontos Fracos
-
-    </div>
-
-    <div
-        id="pontosFracos">
-
-    </div>
-
-</div>
-
-<!-- ALERTAS -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        🚨 Alertas
-
-    </div>
-
-    <div
-        id="alertas">
-
-    </div>
-
-</div>
-
-<!-- RECOMENDAÇÕES -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        🎯 Recomendações
-
-    </div>
-
-    <div
-        id="recomendacoes">
-
-    </div>
-
-</div>
-
-<!-- RESUMO TÉCNICO -->
-
-<div class="card">
-
-    <div class="titulo">
-
-        🧠 Resumo Técnico
-
-    </div>
-
-    <div
-        id="resumoTecnico">
+        A carregar...
 
     </div>
 
@@ -615,512 +843,7 @@ body{
 
 </div>
 
-<script>
-
-async function carregar(){
-
-    const response =
-        await fetch(
-            "adversario_jogadores.json?t="
-            + Date.now()
-        );
-
-    const data =
-        await response.json();
-
-    document.getElementById(
-        "adversario"
-    ).innerText =
-    data.adversario;
-
-    document.getElementById(
-        "perfil"
-    ).innerText =
-    data.perfil_equipa;
-
-    document.getElementById(
-        "perigo"
-    ).innerText =
-
-    "PERIGO "
-
-    +
-
-    data.indice_perigo.geral
-
-    +
-
-    "/10";
-
-    document.getElementById(
-        "melhorMarcadorNome"
-    ).innerText =
-    data.melhor_marcador.nome;
-
-    document.getElementById(
-        "melhorMarcadorValor"
-    ).innerText =
-
-    `⚽ ${data.melhor_marcador.golos}`;
-
-    document.getElementById(
-        "maisUtilizadoNome"
-    ).innerText =
-    data.mais_utilizado.nome;
-
-    document.getElementById(
-        "maisUtilizadoValor"
-    ).innerText =
-
-    `⏱️ ${data.mais_utilizado.minutos}`;
-
-    document.getElementById(
-        "maisAmarelosNome"
-    ).innerText =
-    data.mais_amarelos.nome;
-
-    document.getElementById(
-        "maisAmarelosValor"
-    ).innerText =
-
-    `🟨 ${data.mais_amarelos.amarelos}`;
-
-    /* ==========================
-       ONZE PROVÁVEL
-    ========================== */
-
-    const onze =
-    data.onze_provavel;
-
-let onzeHTML = `
-
-<div class="box">
-
-    📋 Sistema Provável
-
-    <br><br>
-
-    <strong>
-
-        ${onze.esquema}
-
-    </strong>
-
 </div>
-
-`;
-
-if(onze.gr){
-
-    onzeHTML += `
-
-    <div class="box">
-
-        <strong>
-            🥅 GUARDA-REDES
-        </strong>
-
-    </div>
-
-    <div class="jogador">
-
-        <div class="nome">
-
-            ${onze.gr.nome}
-
-        </div>
-
-        <div class="info">
-
-            ${onze.gr.minutos} min
-
-        </div>
-
-    </div>
-
-    `;
-
-}
-
-onzeHTML += `
-
-<div class="box">
-
-    <strong>
-        🛡️ DEFESAS
-    </strong>
-
-</div>
-
-`;
-
-onze.defesas.forEach(j=>{
-
-    onzeHTML += `
-
-    <div class="jogador">
-
-        <div class="nome">
-
-            ${j.nome}
-
-        </div>
-
-        <div class="info">
-
-            ${j.minutos} min
-
-        </div>
-
-    </div>
-
-    `;
-
-});
-
-onzeHTML += `
-
-<div class="box">
-
-    <strong>
-        🎯 MÉDIOS
-    </strong>
-
-</div>
-
-`;
-
-onze.medios.forEach(j=>{
-
-    onzeHTML += `
-
-    <div class="jogador">
-
-        <div class="nome">
-
-            ${j.nome}
-
-        </div>
-
-        <div class="info">
-
-            ${j.minutos} min
-
-        </div>
-
-    </div>
-
-    `;
-
-});
-
-onzeHTML += `
-
-<div class="box">
-
-    <strong>
-        ⚽ AVANÇADOS
-    </strong>
-
-</div>
-
-`;
-
-onze.avancados.forEach(j=>{
-
-    onzeHTML += `
-
-    <div class="jogador">
-
-        <div class="nome">
-
-            ${j.nome}
-
-        </div>
-
-        <div class="info">
-
-            ${j.minutos} min
-
-        </div>
-
-    </div>
-
-    `;
-
-});
-
-document.getElementById(
-    "onzeProvavel"
-).innerHTML =
-onzeHTML;
-    
-    /* ==========================
-       JOGADORES A CONDICIONAR
-    ========================== */
-
-    let condicionarHTML = "";
-
-    data.jogadores_a_condicionar
-    .forEach(j => {
-
-        condicionarHTML += `
-
-        <div class="jogador">
-
-            <div class="nome">
-
-                ${j.nome}
-
-            </div>
-
-            <div class="info">
-
-                ${j.posicao}
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "jogadoresCondicionar"
-    ).innerHTML =
-    condicionarHTML;
-
-    /* ==========================
-       ARMAS OFENSIVAS
-    ========================== */
-
-    let armasHTML = "";
-
-    data.armas_ofensivas
-    .forEach(j => {
-
-        armasHTML += `
-
-        <div class="jogador">
-
-            <div class="nome">
-
-                ${j.nome}
-
-            </div>
-
-            <div class="info">
-
-                ⚽ ${j.golos} golos
-
-                <br>
-
-                ${j.motivo}
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "armasOfensivas"
-    ).innerHTML =
-    armasHTML;
-
-    /* ==========================
-       IMPACTO BANCO
-    ========================== */
-
-    let bancoHTML = "";
-
-    data.impacto_banco
-    .forEach(j => {
-
-        bancoHTML += `
-
-        <div class="jogador">
-
-            <div class="nome">
-
-                ${j.nome}
-
-            </div>
-
-            <div class="info">
-
-                ⚽ ${j.golos} golos
-
-                <br>
-
-                ⏱️ ${j.minutos} min
-
-                <br>
-
-                📈 Eficiência:
-
-                ${j.eficacia}
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "impactoBanco"
-    ).innerHTML =
-    bancoHTML;
-
-    /* ==========================
-       PONTOS FORTES
-    ========================== */
-
-    let fortesHTML = "";
-
-    data.pontos_fortes
-    .forEach(x => {
-
-        fortesHTML += `
-
-        <div class="
-            box
-            forte
-        ">
-
-            ✅ ${x}
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "pontosFortes"
-    ).innerHTML =
-    fortesHTML;
-
-    /* ==========================
-       PONTOS FRACOS
-    ========================== */
-
-    let fracosHTML = "";
-
-    data.pontos_fracos
-    .forEach(x => {
-
-        fracosHTML += `
-
-        <div class="
-            box
-            fraco
-        ">
-
-            ⚠️ ${x}
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "pontosFracos"
-    ).innerHTML =
-    fracosHTML;
-
-    /* ==========================
-       ALERTAS
-    ========================== */
-
-    let alertasHTML = "";
-
-    data.alertas
-    .forEach(x => {
-
-        alertasHTML += `
-
-        <div class="
-            box
-            alerta
-        ">
-
-            🚨 ${x}
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "alertas"
-    ).innerHTML =
-    alertasHTML;
-
-    /* ==========================
-       RECOMENDAÇÕES
-    ========================== */
-
-    let recomendacoesHTML = "";
-
-    data.recomendacoes
-    .forEach(x => {
-
-        recomendacoesHTML += `
-
-        <div class="box">
-
-            🎯 ${x}
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "recomendacoes"
-    ).innerHTML =
-    recomendacoesHTML;
-
-    /* ==========================
-       RESUMO TÉCNICO
-    ========================== */
-
-    let resumoHTML = "";
-
-    data.resumo_tecnico
-    .forEach(x => {
-
-        resumoHTML += `
-
-        <div class="box">
-
-            🧠 ${x}
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById(
-        "resumoTecnico"
-    ).innerHTML =
-    resumoHTML;
-
-}
-
-carregar();
-
-</script>
 
 </body>
 
