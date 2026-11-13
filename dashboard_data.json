@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "12-11-2026 15:18:37",
+  "ultima_atualizacao": "13-11-2026 16:58:38",
   "seniores": {
     "proximo_jogo": {
       "casa": "RD Algueirão",
@@ -24,8 +24,8 @@
       "castigados": 0
     },
     "cartoes": {
-      "total": 32,
-      "jogadores": 15,
+      "total": 36,
+      "jogadores": 16,
       "ranking": [
         {
           "nome": "JOSE FURTADO",
@@ -36,11 +36,19 @@
           "cartoes": 4
         },
         {
-          "nome": "MIGUEL FONSECA",
+          "nome": "PEDRO PAULINO",
+          "cartoes": 4
+        },
+        {
+          "nome": "DANIEL CALDAS",
           "cartoes": 3
         },
         {
-          "nome": "PEDRO PAULINO",
+          "nome": "GONCALO SILVA",
+          "cartoes": 3
+        },
+        {
+          "nome": "MIGUEL FONSECA",
           "cartoes": 3
         },
         {
@@ -49,14 +57,6 @@
         },
         {
           "nome": "BRUNO MOTA",
-          "cartoes": 2
-        },
-        {
-          "nome": "DANIEL CALDAS",
-          "cartoes": 2
-        },
-        {
-          "nome": "GONCALO SILVA",
           "cartoes": 2
         },
         {
@@ -69,6 +69,10 @@
         },
         {
           "nome": "ANDRE PECURTO",
+          "cartoes": 2
+        },
+        {
+          "nome": "GUILHERME MONTEIRO",
           "cartoes": 2
         },
         {
@@ -95,6 +99,10 @@
         },
         {
           "nome": "NUNO GOMES",
+          "cartoes": 4
+        },
+        {
+          "nome": "PEDRO PAULINO",
           "cartoes": 4
         }
       ]
@@ -427,56 +435,10 @@
       "gm": 17,
       "gs": 17,
       "dg": "0",
-      "slug": "rd-algueirao",
-      "id": "12674",
-      "url": "https://www.zerozero.pt/equipa/rd-algueirao/12674/jogos",
-      "ultimos_resultados": [
-        {
-          "estado": "D",
-          "data": "2026-11-08",
-          "hora": "15:00",
-          "local": "(F)",
-          "adversario": "Agualva",
-          "resultado": "2-1",
-          "texto": "Agualva 2-1 RD Algueirão"
-        },
-        {
-          "estado": "V",
-          "data": "2026-11-01",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "1º Dezembro C",
-          "resultado": "6-1",
-          "texto": "RD Algueirão 6-1 1º Dezembro C"
-        },
-        {
-          "estado": "D",
-          "data": "2026-10-25",
-          "hora": "15:00",
-          "local": "(F)",
-          "adversario": "SRD Negrais",
-          "resultado": "2-1",
-          "texto": "SRD Negrais 2-1 RD Algueirão"
-        },
-        {
-          "estado": "D",
-          "data": "2026-10-18",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "Real SC B",
-          "resultado": "1-7",
-          "texto": "RD Algueirão 1-7 Real SC B"
-        },
-        {
-          "estado": "V",
-          "data": "2026-10-04",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "Vila Verde",
-          "resultado": "4-3",
-          "texto": "RD Algueirão 4-3 Vila Verde"
-        }
-      ],
+      "ultimos_resultados": [],
+      "slug": "",
+      "id": "",
+      "url": "",
       "indisponiveis": []
     }
   },
