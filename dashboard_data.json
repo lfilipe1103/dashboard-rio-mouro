@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "13-11-2026 17:13:09",
+  "ultima_atualizacao": "13-11-2026 17:23:35",
   "seniores": {
     "proximo_jogo": {
       "casa": "RD Algueirão",
@@ -438,7 +438,53 @@
       "slug": "rd-algueirao",
       "id": "12674",
       "url": "https://www.zerozero.pt/equipa/rd-algueirao/12674/jogos",
-      "ultimos_resultados": [],
+      "ultimos_resultados": [
+        {
+          "estado": "D",
+          "data": "2026-11-08",
+          "hora": "15:00",
+          "local": "(F)",
+          "adversario": "Agualva",
+          "resultado": "2-1",
+          "texto": "Agualva 2-1 RD Algueirão"
+        },
+        {
+          "estado": "V",
+          "data": "2026-11-01",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "1º Dezembro C",
+          "resultado": "6-1",
+          "texto": "RD Algueirão 6-1 1º Dezembro C"
+        },
+        {
+          "estado": "D",
+          "data": "2026-10-25",
+          "hora": "15:00",
+          "local": "(F)",
+          "adversario": "SRD Negrais",
+          "resultado": "2-1",
+          "texto": "SRD Negrais 2-1 RD Algueirão"
+        },
+        {
+          "estado": "D",
+          "data": "2026-10-18",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "Real SC B",
+          "resultado": "1-7",
+          "texto": "RD Algueirão 1-7 Real SC B"
+        },
+        {
+          "estado": "V",
+          "data": "2026-10-04",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "Vila Verde",
+          "resultado": "4-3",
+          "texto": "RD Algueirão 4-3 Vila Verde"
+        }
+      ],
       "indisponiveis": []
     }
   },
