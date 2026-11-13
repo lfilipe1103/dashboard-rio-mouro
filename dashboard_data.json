@@ -1,17 +1,17 @@
 {
-  "ultima_atualizacao": "13-11-2026 17:50:12",
+  "ultima_atualizacao": "13-11-2026 17:54:18",
   "seniores": {
     "proximo_jogo": {
       "casa": "RD Algueirão",
       "fora": "Rio de Mouro",
       "data": "15/11/2026",
       "hora": "15:00",
-      "arbitro": "AFONSO LOPES",
+      "arbitro": "GONCALO BRAS",
       "assistentes": [
-        "FRANCISCO PINTO",
-        "DIOGO CARVALHO"
+        "DUARTE MIRANDA",
+        "JEFFERSON ARAUJO"
       ],
-      "estadio": "COMPLEXO DESPORTIVO DE RIO DE MOURO (RELVADO SINTÉTICO) -"
+      "estadio": "CAMPO DR. RAUL NEVES (RELVADO SINTÉTICO) - ALGUEIRAO"
     },
     "proxima_jornada": {
       "casa": "Rio de Mouro",
@@ -116,7 +116,7 @@
       "lista": []
     },
     "arbitros": {
-      "diferentes": 8,
+      "diferentes": 9,
       "historico": [
         {
           "nome": "AFONSO LOPES",
@@ -148,6 +148,10 @@
         },
         {
           "nome": "WILSON MARQUES",
+          "jogos": 1
+        },
+        {
+          "nome": "GONCALO BRAS",
           "jogos": 1
         }
       ]
