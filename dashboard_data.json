@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "18-11-2026 14:22:42",
+  "ultima_atualizacao": "18-11-2026 14:33:51",
   "seniores": {
     "proximo_jogo": {
       "casa": "Rio de Mouro",
@@ -327,19 +327,6 @@
       "dg": "-11",
       "rio_mouro": false
     }
-{
-      "pos": 15,
-      "equipa": "Os Bucelenses,
-      "pts": 6,
-      "j": 10,
-      "v": 2,
-      "e": 0,
-      "d": 8,
-      "gm": 9,
-      "gs": 27,
-      "dg": "-18",
-      "rio_mouro": false
-    }
   ],
   "contexto_classificacao": {
     "top2": [
@@ -369,19 +356,6 @@
         "dg": "+6",
         "rio_mouro": true
       }
-{
-        "pos": 3,
-        "equipa": "Real SC B",
-        "pts": 17,
-        "j": 7,
-        "v": 5,
-        "e": 2,
-        "d": 0,
-        "gm": 24,
-        "gs": 4,
-        "dg": "+20",
-        "rio_mouro": false
-      },
     ],
     "acima": [
       {
@@ -445,53 +419,7 @@
       "slug": "os-bucelenses",
       "id": "3965",
       "url": "https://www.zerozero.pt/equipa/os-bucelenses/3965/jogos",
-      "ultimos_resultados": [
-        {
-          "estado": "V",
-          "data": "2026-11-15",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "Santa Iria",
-          "resultado": "3-2",
-          "texto": "Os Bucelenses 3-2 Santa Iria"
-        },
-        {
-          "estado": "D",
-          "data": "2026-11-08",
-          "hora": "15:00",
-          "local": "(F)",
-          "adversario": "Coutada",
-          "resultado": "2-1",
-          "texto": "Coutada  2-1 Os Bucelenses"
-        },
-        {
-          "estado": "V",
-          "data": "2026-11-01",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "Jerumelo",
-          "resultado": "1-0",
-          "texto": "Os Bucelenses 1-0 Jerumelo"
-        },
-        {
-          "estado": "D",
-          "data": "2026-10-25",
-          "hora": "15:00",
-          "local": "(F)",
-          "adversario": "Ponte Frielas",
-          "resultado": "2-1",
-          "texto": "Ponte Frielas 2-1 Os Bucelenses"
-        },
-        {
-          "estado": "D",
-          "data": "2026-10-18",
-          "hora": "15:00",
-          "local": "(C)",
-          "adversario": "MTBA",
-          "resultado": "2-4",
-          "texto": "Os Bucelenses 2-4 MTBA"
-        }
-      ],
+      "ultimos_resultados": [],
       "indisponiveis": []
     }
   },
