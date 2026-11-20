@@ -1,5 +1,5 @@
 {
-  "ultima_atualizacao": "20-11-2026 20:03:06",
+  "ultima_atualizacao": "20-11-2026 20:05:32",
   "seniores": {
     "proximo_jogo": {
       "casa": "Rio de Mouro",
@@ -441,7 +441,53 @@
       "slug": "os-bucelenses",
       "id": "3965",
       "url": "https://www.zerozero.pt/equipa/os-bucelenses/3965/jogos",
-      "ultimos_resultados": [],
+      "ultimos_resultados": [
+        {
+          "estado": "V",
+          "data": "2026-11-15",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "Santa Iria",
+          "resultado": "3-2",
+          "texto": "OS Bucelenses 3-2 Santa Iria"
+        },
+        {
+          "estado": "D",
+          "data": "2026-11-08",
+          "hora": "15:00",
+          "local": "(F)",
+          "adversario": "Coutada",
+          "resultado": "2-1",
+          "texto": "Coutada 2-1 OS Bucelenses"
+        },
+        {
+          "estado": "V",
+          "data": "2026-11-01",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "Jerumelo",
+          "resultado": "1-0",
+          "texto": "OS Bucelenses 1-0 Jerumelo"
+        },
+        {
+          "estado": "D",
+          "data": "2026-10-25",
+          "hora": "15:00",
+          "local": "(F)",
+          "adversario": "Ponte Frielas",
+          "resultado": "2-1",
+          "texto": "Ponte Frielas 2-1 OS Bucelenses"
+        },
+        {
+          "estado": "D",
+          "data": "2026-10-18",
+          "hora": "15:00",
+          "local": "(C)",
+          "adversario": "MTBA",
+          "resultado": "2-4",
+          "texto": "OS Bucelenses 2-4 MTBA"
+        }
+      ],
       "indisponiveis": []
     }
   },
